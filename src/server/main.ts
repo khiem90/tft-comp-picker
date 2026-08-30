@@ -2,10 +2,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer as createViteServer } from "vite";
 import { createApp } from "./app";
+import { createLiveFetcher } from "./sources";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
-const app = createApp({ dataDir: path.join(rootDir, "data") });
+const app = createApp({
+  dataDir: path.join(rootDir, "data"),
+  fetcher: createLiveFetcher(),
+});
 
 const vite = await createViteServer({
   root: rootDir,

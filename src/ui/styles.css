@@ -40,9 +40,25 @@ h1 {
   background: #2e3a56;
 }
 
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.new-game:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 .meta {
   color: #8b93a7;
   margin-top: 0;
+}
+
+.refresh-error {
+  margin: 0.25rem 0 0;
+  color: #e0a084;
+  font-size: 0.9rem;
 }
 
 .status {

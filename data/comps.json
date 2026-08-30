@@ -1,60 +1,3691 @@
 {
-  "patch": "16.1",
-  "refreshedAt": "2026-08-29T12:00:00Z",
-  "source": "hand-curated",
+  "patch": "18.1",
+  "refreshedAt": "2026-08-29T12:00:00.000Z",
+  "source": "metatft",
   "comps": [
     {
-      "id": "faerie-spellweavers",
-      "name": "Faerie Spellweavers",
+      "id": "422021",
+      "name": "Invoker Ahri",
       "tier": "S",
       "board": [
-        { "unit": "Lilna", "cost": 2, "items": [] },
-        { "unit": "Bramblet", "cost": 2, "items": [] },
-        { "unit": "Elowen", "cost": 3, "items": ["Sunfire Cape"] },
-        { "unit": "Fenwick", "cost": 3, "items": [] },
-        { "unit": "Morrel", "cost": 4, "items": ["Gargoyle Stoneplate"] },
-        { "unit": "Sylvara", "cost": 5, "items": ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap"] }
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Invoker Emblem",
+            "Jeweled Gauntlet",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Morellonomicon",
+            "Rabadon's Deathcap",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Karma",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
       ],
-      "itemPriorities": ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap", "Sunfire Cape"]
+      "itemPriorities": [
+        "Jeweled Gauntlet",
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Void Staff",
+        "Morellonomicon",
+        "Warmogs Armor"
+      ]
     },
     {
-      "id": "wildwood-snipers",
-      "name": "Wildwood Snipers",
+      "id": "422003",
+      "name": "Defender Cassiopeia",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Cassiopeia",
+          "cost": 3,
+          "items": [
+            "Archangel's Staff",
+            "Archangel's Staff",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Leona",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": [
+            "Ionic Spark",
+            "Sunfire Cape",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Ionic Spark",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Archangel's Staff",
+        "Hextech Gunblade",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor",
+        "Sunfire Cape",
+        "Thief's Gloves",
+        "Ionic Spark"
+      ]
+    },
+    {
+      "id": "422024",
+      "name": "Riftbeast Sentinel",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Elder Dragon",
+          "cost": 5,
+          "items": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": [
+            "Blue Buff",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Quicksilver",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Murkwolf",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Infinity Edge",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422015",
+      "name": "Sprykin Veigar",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Kobuko",
+          "cost": 1,
+          "items": [
+            "Ionic Spark",
+            "Protector's Vow",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Rek'Sai",
+          "cost": 1,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Teemo",
+          "cost": 2,
+          "items": [
+            "Morellonomicon",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Veigar",
+          "cost": 1,
+          "items": [
+            "Flora Fatalis Emblem",
+            "Blue Buff",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Blue Buff",
+        "Warmogs Armor",
+        "Void Staff"
+      ]
+    },
+    {
+      "id": "422009",
+      "name": "Adaptor Master Yi",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Master Yi",
+          "cost": 3,
+          "items": [
+            "Brawler Emblem",
+            "Edge of Night",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": [
+            "Giant Slayer",
+            "Red Buff",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Nidalee",
+          "cost": 4,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Edge of Night",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422033",
+      "name": "Riftbeast Krug",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": [
+            "Blue Buff",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Cinderling",
+          "cost": 1,
+          "items": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Murkwolf",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Scuttlecrab",
+          "cost": 2,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Infinity Edge",
+        "Warmogs Armor",
+        "Blue Buff",
+        "Jeweled Gauntlet"
+      ]
+    },
+    {
+      "id": "422000",
+      "name": "Fae Rengar",
+      "tier": "S",
+      "board": [
+        {
+          "unit": "Kobuko",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "cost": 3,
+          "items": [
+            "Fae Emblem",
+            "Sprykin Emblem",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": [
+            "Evenshroud",
+            "Sunfire Cape",
+            "Warmogs Armor"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Fae Emblem",
+        "Spirit Visage",
+        "Edge of Night"
+      ]
+    },
+    {
+      "id": "422005",
+      "name": "Hunter Caitlyn",
       "tier": "A",
       "board": [
-        { "unit": "Grib", "cost": 1, "items": [] },
-        { "unit": "Thistle", "cost": 1, "items": [] },
-        { "unit": "Fenwick", "cost": 3, "items": ["Guinsoo's Rageblade"] },
-        { "unit": "Elowen", "cost": 3, "items": [] },
-        { "unit": "Kaelen", "cost": 4, "items": ["Infinity Edge", "Last Whisper", "Giant Slayer"] },
-        { "unit": "Thornmaw", "cost": 4, "items": ["Warmog's Armor"] }
+        {
+          "unit": "Ashe",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Caitlyn",
+          "cost": 2,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sejuani",
+          "cost": 2,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Scuttlecrab",
+          "cost": 2,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
       ],
-      "itemPriorities": ["Infinity Edge", "Last Whisper", "Guinsoo's Rageblade", "Giant Slayer"]
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Kraken's Fury",
+        "Gargoyle Stoneplate",
+        "Spirit Visage",
+        "Infinity Edge",
+        "Warmogs Armor",
+        "Last Whisper"
+      ]
     },
     {
-      "id": "grove-wardens",
-      "name": "Grove Wardens",
+      "id": "422010",
+      "name": "Hunter Sivir",
       "tier": "A",
       "board": [
-        { "unit": "Thistle", "cost": 1, "items": [] },
-        { "unit": "Bramblet", "cost": 2, "items": [] },
-        { "unit": "Oakhide", "cost": 3, "items": ["Warmog's Armor", "Sunfire Cape"] },
-        { "unit": "Morrel", "cost": 4, "items": ["Gargoyle Stoneplate"] },
-        { "unit": "Sylvara", "cost": 5, "items": ["Rabadon's Deathcap"] }
+        {
+          "unit": "Ashe",
+          "cost": 5,
+          "items": [
+            "Last Whisper",
+            "Red Buff",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Infinity Edge",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": [
+            "Dragon's Claw",
+            "Evenshroud",
+            "Gargoyle Stoneplate"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
       ],
-      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate"]
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Infinity Edge",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Last Whisper",
+        "Guinsoo's Rageblade",
+        "Deathblade"
+      ]
     },
     {
-      "id": "bruiser-brawlers",
-      "name": "Bruiser Brawlers",
+      "id": "422002",
+      "name": "Executioner Draven",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Giant Slayer",
+            "Last Whisper",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": [
+            "Edge of Night",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Draven",
+          "cost": 5,
+          "items": [
+            "Executioner Emblem",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Deathblade"
+      ]
+    },
+    {
+      "id": "422001",
+      "name": "Executioner Sett",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Red Buff",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Infinity Edge",
+            "Last Whisper"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Blue Buff",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Yunara",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Jeweled Gauntlet"
+      ]
+    },
+    {
+      "id": "422008",
+      "name": "Rival Kha'Zix",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": [
+            "Hand Of Justice",
+            "Ionic Spark",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Kha'Zix",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Hand Of Justice",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Rengar",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Edge of Night",
+        "Hand Of Justice",
+        "Guinsoo's Rageblade",
+        "Titan's Resolve",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422007",
+      "name": "Blossom Sett",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Jeweled Gauntlet",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Ashe",
+          "cost": 5,
+          "items": [
+            "Last Whisper",
+            "Red Buff",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Blue Buff",
+            "Deathblade",
+            "Infinity Edge"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Karma",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Spear of Shojin",
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422012",
+      "name": "Invoker Morgana",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Spellweaver Emblem",
+            "Morellonomicon",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": [
+            "Edge of Night",
+            "Quicksilver",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Steadfast Heart",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Morellonomicon",
+        "Gargoyle Stoneplate",
+        "Void Staff",
+        "Protector's Vow",
+        "Warmogs Armor",
+        "Jeweled Gauntlet",
+        "Adaptive Helm"
+      ]
+    },
+    {
+      "id": "422006",
+      "name": "Elderwood Aphelios",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": [
+            "Morellonomicon",
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Elderwood Emblem",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": [
+            "Elderwood Emblem",
+            "Evenshroud",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Kraken's Fury"
+      ]
+    },
+    {
+      "id": "422013",
+      "name": "Vanguard Aphelios",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": [
+            "Edge of Night",
+            "Quicksilver",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Mama Beak",
+          "cost": 3,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Kraken's Fury",
+            "Last Whisper"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Protector's Vow",
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Deathblade",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422011",
+      "name": "Invoker Pebbles",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Jeweled Gauntlet",
+            "Morellonomicon",
+            "Nashor's Tooth"
+          ]
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": [
+            "Blue Buff",
+            "Rabadon's Deathcap",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Teemo",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Scuttlecrab",
+          "cost": 2,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Warmogs Armor",
+        "Archangel's Staff",
+        "Blue Buff"
+      ]
+    },
+    {
+      "id": "422014",
+      "name": "Vanguard Rengar",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": [
+            "Hand Of Justice",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": [
+            "Evenshroud",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Mama Beak",
+          "cost": 3,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Kraken's Fury",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Edge of Night",
+        "Titan's Resolve"
+      ]
+    },
+    {
+      "id": "422020",
+      "name": "Fae Tristana",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Kobuko",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Fae Emblem",
+            "Last Whisper",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": [
+            "Giant Slayer",
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Spirit Visage",
+        "Last Whisper",
+        "Infinity Edge",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422022",
+      "name": "Executioner Malphite",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": [
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Rabadon's Deathcap",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": [
+            "Executioner Emblem",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Jeweled Gauntlet",
+        "Void Staff",
+        "Warmogs Armor",
+        "Rabadon's Deathcap"
+      ]
+    },
+    {
+      "id": "422029",
+      "name": "Rapidfire Kayle",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kayle",
+          "cost": 2,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Rabadon's Deathcap",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Leona",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sejuani",
+          "cost": 2,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": [
+            "Giant Slayer",
+            "Kraken's Fury",
+            "Red Buff"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Spirit Visage",
+        "Warmogs Armor",
+        "Jeweled Gauntlet"
+      ]
+    },
+    {
+      "id": "422026",
+      "name": "Hunter Sivir Nidalee",
+      "tier": "A",
+      "board": [
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Rek'Sai",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Blue Buff",
+            "Deathblade",
+            "Infinity Edge"
+          ]
+        },
+        {
+          "unit": "Cinderling",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Nidalee",
+          "cost": 4,
+          "items": [
+            "Hunter Emblem",
+            "Bloodthirster",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Protector's Vow"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Infinity Edge",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Guinsoo's Rageblade"
+      ]
+    },
+    {
+      "id": "422004",
+      "name": "Spellweaver Cassiopeia",
       "tier": "B",
       "board": [
-        { "unit": "Grib", "cost": 1, "items": [] },
-        { "unit": "Rukk", "cost": 2, "items": [] },
-        { "unit": "Oakhide", "cost": 3, "items": ["Sunfire Cape"] },
-        { "unit": "Thornmaw", "cost": 4, "items": ["Warmog's Armor", "Gargoyle Stoneplate", "Sterak's Gage"] }
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Jeweled Gauntlet",
+            "Nashor's Tooth",
+            "Nashor's Tooth"
+          ]
+        },
+        {
+          "unit": "Cassiopeia",
+          "cost": 3,
+          "items": [
+            "Flora Fatalis Emblem",
+            "Archangel's Staff",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Veigar",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Ionic Spark",
+            "Steadfast Heart",
+            "Sunfire Cape"
+          ]
+        }
       ],
-      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate", "Sterak's Gage"]
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Hextech Gunblade",
+        "Archangel's Staff"
+      ]
+    },
+    {
+      "id": "422017",
+      "name": "Invoker Nidalee",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Morellonomicon",
+            "Rabadon's Deathcap",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Pebbles",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": [
+            "Tacticians Crown"
+          ]
+        },
+        {
+          "unit": "Nidalee",
+          "cost": 4,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Jeweled Gauntlet",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Scuttlecrab",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Jeweled Gauntlet",
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Protector's Vow",
+        "Warmogs Armor",
+        "Adaptive Helm",
+        "Morellonomicon"
+      ]
+    },
+    {
+      "id": "422023",
+      "name": "Executioner Yunara",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Steadfast Heart"
+          ]
+        },
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Last Whisper",
+            "Red Buff",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Yunara",
+          "cost": 2,
+          "items": [
+            "Deathblade",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Spear of Shojin",
+        "Gargoyle Stoneplate",
+        "Deathblade",
+        "Striker's Flail",
+        "Last Whisper",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422028",
+      "name": "Sprykin Teemo",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Kobuko",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Sprykin Emblem",
+            "Morellonomicon",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate"
+          ]
+        },
+        {
+          "unit": "Teemo",
+          "cost": 2,
+          "items": [
+            "Blue Buff",
+            "Giant Slayer",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": [
+            "Giant Slayer",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Veigar",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422031",
+      "name": "Spellweaver Ahri",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Giant Slayer",
+            "Jeweled Gauntlet",
+            "Nashor's Tooth"
+          ]
+        },
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": [
+            "Adaptive Helm",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Ashe",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": [
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Vanguard Emblem",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Jeweled Gauntlet",
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422019",
+      "name": "Executioner Ezreal",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Hand Of Justice",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Rabadon's Deathcap",
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": [
+            "Executioner Emblem",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422038",
+      "name": "Lunar Kayle",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Kraken's Fury",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kayle",
+          "cost": 2,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Leona",
+          "cost": 1,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Sejuani",
+          "cost": 2,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Spirit Visage",
+        "Warmogs Armor",
+        "Jeweled Gauntlet"
+      ]
+    },
+    {
+      "id": "422037",
+      "name": "Elderwood Ezreal",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Giant Slayer",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": [
+            "Bloodthirster",
+            "Edge of Night",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": [
+            "Spirit Visage",
+            "Sunfire Cape",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Elderwood Emblem",
+            "Nashor's Tooth",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Spear of Shojin",
+        "Gargoyle Stoneplate",
+        "Elderwood Emblem"
+      ]
+    },
+    {
+      "id": "422018",
+      "name": "Adaptor Nidalee",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Akali",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Warmogs Armor",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": [
+            "Edge of Night",
+            "Quicksilver",
+            "Sterak's Gage"
+          ]
+        },
+        {
+          "unit": "Gromp",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Nidalee",
+          "cost": 4,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Rabadon's Deathcap",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422046",
+      "name": "Juggernaut Elder Dragon",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Elder Dragon",
+          "cost": 5,
+          "items": [
+            "Infinity Edge",
+            "Sterak's Gage",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": [
+            "Edge of Night",
+            "Hand Of Justice",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Draven",
+          "cost": 5,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Infinity Edge"
+      ]
+    },
+    {
+      "id": "422030",
+      "name": "Inferno Kayle",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Akali",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Kayle",
+          "cost": 2,
+          "items": [
+            "Inferno Emblem",
+            "Guinsoo's Rageblade",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Leona",
+          "cost": 1,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sejuani",
+          "cost": 2,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Varus",
+          "cost": 1,
+          "items": [
+            "Infinity Edge",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Jeweled Gauntlet"
+      ]
+    },
+    {
+      "id": "422016",
+      "name": "Vanguard Caitlyn",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Caitlyn",
+          "cost": 2,
+          "items": [
+            "Deathblade",
+            "Giant Slayer",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Elise",
+          "cost": 2,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Giant Slayer",
+            "Last Whisper",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Kraken's Fury",
+        "Infinity Edge",
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Deathblade"
+      ]
+    },
+    {
+      "id": "422036",
+      "name": "Blossom Ahri",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Executioner Emblem",
+            "Nashor's Tooth",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Ashe",
+          "cost": 5,
+          "items": [
+            "Last Whisper",
+            "Red Buff",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Master Yi",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Juggernaut Emblem",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Yunara",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Karma",
+          "cost": 1,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Spear of Shojin",
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Blossom Emblem",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422027",
+      "name": "Spellweaver Ahri Lillia",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Jeweled Gauntlet",
+            "Nashor's Tooth",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": [
+            "Red Buff",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": [
+            "Protector's Vow",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": [
+            "Morellonomicon",
+            "Spear of Shojin",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Karma",
+          "cost": 1,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Jeweled Gauntlet",
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Void Staff"
+      ]
+    },
+    {
+      "id": "422025",
+      "name": "Flora Fatalis Ahri",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": [
+            "Flora Fatalis Emblem",
+            "Adaptive Helm",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Brawler Emblem",
+            "Crownguard",
+            "Gargoyle Stoneplate"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": [
+            "Blue Buff",
+            "Morellonomicon",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Jeweled Gauntlet",
+        "Void Staff",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422032",
+      "name": "Blackthorn Warwick",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Evenshroud",
+            "Gargoyle Stoneplate",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Rek'Sai",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Warwick",
+          "cost": 2,
+          "items": [
+            "Spear of Shojin",
+            "Sterak's Gage",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Brambleback",
+          "cost": 4,
+          "items": [
+            "Edge of Night",
+            "Hand Of Justice",
+            "Infinity Edge"
+          ]
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Murkwolf",
+          "cost": 2,
+          "items": [
+            "Deathblade",
+            "Edge of Night",
+            "Hand Of Justice"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Titan's Resolve",
+        "Spear of Shojin",
+        "Sterak's Gage",
+        "Gargoyle Stoneplate",
+        "Hand Of Justice",
+        "Edge of Night"
+      ]
+    },
+    {
+      "id": "422044",
+      "name": "Lunar Aphelios",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": [
+            "Archangel's Staff",
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Deathblade",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": [
+            "Tacticians Shield"
+          ]
+        },
+        {
+          "unit": "Kayle",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Leona",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Sejuani",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor",
+        "Infinity Edge"
+      ]
+    },
+    {
+      "id": "422041",
+      "name": "Flora Fatalis Soraka",
+      "tier": "B",
+      "board": [
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": [
+            "Blue Buff",
+            "Jeweled Gauntlet",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Ivern",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": [
+            "Edge of Night",
+            "Hand Of Justice",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": [
+            "Blue Buff",
+            "Rabadon's Deathcap",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Jeweled Gauntlet",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422035",
+      "name": "Rival Rengar",
+      "tier": "C",
+      "board": [
+        {
+          "unit": "Kha'Zix",
+          "cost": 3,
+          "items": [
+            "Hand Of Justice",
+            "Rabadon's Deathcap",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "cost": 3,
+          "items": [
+            "Bloodthirster",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Steadfast Heart",
+            "Warmogs Armor"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Edge of Night",
+        "Hand Of Justice",
+        "Titan's Resolve"
+      ]
+    },
+    {
+      "id": "422040",
+      "name": "Juggernaut Nidalee",
+      "tier": "C",
+      "board": [
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Infinity Edge"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": [
+            "Evenshroud",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Kog'Maw",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Nidalee",
+          "cost": 4,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Rabadon's Deathcap",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422042",
+      "name": "Inferno Amumu",
+      "tier": "C",
+      "board": [
+        {
+          "unit": "Akali",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Inferno Emblem",
+            "Giant Slayer",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": [
+            "Bloodthirster",
+            "Edge of Night",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Maokai",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Shen",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Varus",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Taric",
+          "cost": 5,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Guinsoo's Rageblade",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422048",
+      "name": "Blackthorn Malphite",
+      "tier": "C",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Red Buff",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Kobuko",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Ionic Spark"
+          ]
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Rek'Sai",
+          "cost": 1,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Veigar",
+          "cost": 1,
+          "items": [
+            "Flora Fatalis Emblem",
+            "Blue Buff",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Warmogs Armor",
+        "Spear of Shojin",
+        "Guinsoo's Rageblade"
+      ]
+    },
+    {
+      "id": "422034",
+      "name": "Brawler Sett",
+      "tier": "C",
+      "board": [
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Deathblade",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": [
+            "Bloodthirster",
+            "Edge of Night",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kennen",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Soraka",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422043",
+      "name": "Blackthorn Kha'Zix",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": [
+            "Archangel's Staff",
+            "Guinsoo's Rageblade",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Malphite",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Rek'Sai",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Warwick",
+          "cost": 2,
+          "items": [
+            "Spear of Shojin",
+            "Sterak's Gage",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Yunara",
+          "cost": 2,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Hand Of Justice",
+        "Guinsoo's Rageblade",
+        "Blackthorn Emblem",
+        "Edge of Night"
+      ]
+    },
+    {
+      "id": "422045",
+      "name": "Flora Fatalis Kha'Zix",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Infinity Edge",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": [
+            "Tactician's Cape"
+          ]
+        },
+        {
+          "unit": "Kha'Zix",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Dragon's Claw",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Warmogs Armor",
+        "Hand Of Justice",
+        "Edge of Night"
+      ]
+    },
+    {
+      "id": "422039",
+      "name": "Fae Xayah",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Varus",
+          "cost": 1,
+          "items": [
+            "Deathblade",
+            "Infinity Edge",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Infinity Edge",
+        "Spirit Visage",
+        "Kraken's Fury",
+        "Warmogs Armor"
+      ]
+    },
+    {
+      "id": "422051",
+      "name": "Elderwood LeBlanc",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Alistar",
+          "cost": 2,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Ezreal",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Gnar",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "LeBlanc",
+          "cost": 2,
+          "items": [
+            "Blue Buff",
+            "Jeweled Gauntlet",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Sunfire Cape"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin"
+      ]
+    },
+    {
+      "id": "422047",
+      "name": "Fae Tristana Lillia",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Hecarim",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Lillia",
+          "cost": 4,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ]
+        },
+        {
+          "unit": "Ornn",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Xayah",
+          "cost": 1,
+          "items": [
+            "Hunter Emblem",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ]
+        },
+        {
+          "unit": "Vi",
+          "cost": 3,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Infinity Edge"
+      ]
+    },
+    {
+      "id": "422050",
+      "name": "Coven Morgana",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Ahri",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Alune",
+          "cost": 5,
+          "items": []
+        },
+        {
+          "unit": "Cassiopeia",
+          "cost": 3,
+          "items": [
+            "Hextech Gunblade",
+            "Jeweled Gauntlet",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Elise",
+          "cost": 2,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ]
+        },
+        {
+          "unit": "Morgana",
+          "cost": 4,
+          "items": [
+            "Spellweaver Emblem",
+            "Morellonomicon",
+            "Void Staff"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": [
+            "Bramble Vest",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Void Staff",
+        "Warmogs Armor",
+        "Morellonomicon"
+      ]
+    },
+    {
+      "id": "422052",
+      "name": "Summoner Mama Beak",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Aphelios",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Sett",
+          "cost": 4,
+          "items": []
+        },
+        {
+          "unit": "Yorick",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Zyra",
+          "cost": 4,
+          "items": [
+            "Jeweled Gauntlet",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Mama Beak",
+          "cost": 3,
+          "items": [
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Krug",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "cost": 4,
+          "items": []
+        }
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate"
+      ]
+    },
+    {
+      "id": "422049",
+      "name": "Defender Rammus",
+      "tier": "D",
+      "board": [
+        {
+          "unit": "Azir",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Diana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Kha'Zix",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Hand Of Justice",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Rakan",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "cost": 3,
+          "items": []
+        },
+        {
+          "unit": "Veigar",
+          "cost": 1,
+          "items": []
+        },
+        {
+          "unit": "Fiddlesticks",
+          "cost": 3,
+          "items": [
+            "Protector's Vow"
+          ]
+        }
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Guinsoo's Rageblade",
+        "Warmogs Armor"
+      ]
     }
   ]
 }

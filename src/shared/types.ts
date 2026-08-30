@@ -61,5 +61,9 @@ export interface SetDataResponse {
 export interface CompsResponse {
   patch: string;
   refreshedAt: string;
+  // Message of the most recent failed Refresh; null when the data on disk is
+  // the last thing a Refresh produced. Non-null means rankings run on last
+  // good data.
+  refreshError: string | null;
   comps: RankedComp[];
 }

@@ -2,13 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import express from "express";
 import type { Comp, CompFit, RankedComp, SetItem, Tier } from "../shared/types";
+import { transformSources, type SourceFetcher } from "./sources";
 
-export interface CompsFile {
-  patch: string;
-  refreshedAt: string;
-  source: string;
-  comps: Comp[];
-}
+export type { CompsFile } from "./sources";
+import type { CompsFile } from "./sources";
 
 interface Holdings {
   units: string[];
@@ -187,17 +184,92 @@ function readJson<T>(dataDir: string, fileName: string): T {
   return JSON.parse(fs.readFileSync(path.join(dataDir, fileName), "utf8")) as T;
 }
 
-export function createApp({ dataDir }: { dataDir: string }) {
+// Write-then-rename so a crash mid-Refresh can never leave a half-written
+// data file behind; the last good file survives untouched.
+function writeJson(dataDir: string, fileName: string, value: unknown): void {
+  const target = path.join(dataDir, fileName);
+  const temp = `${target}.tmp`;
+  fs.writeFileSync(temp, `${JSON.stringify(value, null, 2)}\n`);
+  fs.renameSync(temp, target);
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export interface CreateAppOptions {
+  dataDir: string;
+  // Absent in tests that only exercise ranking; then the app serves whatever
+  // is on disk and never Refreshes.
+  fetcher?: SourceFetcher;
+  now?: () => number;
+}
+
+export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions) {
   const app = express();
 
-  app.get("/api/comps", (req, res) => {
+  // The message of the most recent failed Refresh, cleared by a success.
+  // Served alongside Comps so the UI can say the rankings are running on last
+  // good data.
+  let refreshError: string | null = null;
+  let inFlight: Promise<void> | null = null;
+
+  const refresh = (): Promise<void> => {
+    inFlight ??= (async () => {
+      try {
+        const payloads = await fetcher!.fetchSources();
+        const refreshedAt = new Date(now()).toISOString();
+        const { compsFile, setData } = transformSources(payloads, refreshedAt);
+        writeJson(dataDir, "comps.json", compsFile);
+        writeJson(dataDir, "set-data.json", setData);
+        refreshError = null;
+      } catch (cause) {
+        refreshError = cause instanceof Error ? cause.message : String(cause);
+      } finally {
+        inFlight = null;
+      }
+    })();
+    return inFlight;
+  };
+
+  const dataAgeMs = (): number | null => {
+    try {
+      const { refreshedAt } = readJson<CompsFile>(dataDir, "comps.json");
+      const timestamp = Date.parse(refreshedAt);
+      return Number.isNaN(timestamp) ? null : now() - timestamp;
+    } catch {
+      return null;
+    }
+  };
+
+  // The launch trigger, applied lazily: the first request older-than-24h data
+  // (or no data at all) Refreshes before recommendations are served.
+  const ensureFresh = async (): Promise<void> => {
+    if (!fetcher) return;
+    const age = dataAgeMs();
+    if (age === null || age > DAY_MS) await refresh();
+  };
+
+  const serveMissingData = (res: express.Response): void => {
+    res.status(503).json({
+      error: refreshError ?? "No data files and no Refresh has succeeded yet",
+    });
+  };
+
+  app.get("/api/comps", async (req, res) => {
+    await ensureFresh();
     const holdings: Holdings = {
       units: parseNames(req.query.units),
       items: parseNames(req.query.items),
       augments: parseNames(req.query.augments),
     };
-    const compsFile = readJson<CompsFile>(dataDir, "comps.json");
-    const setItems = readJson<{ items?: SetItem[] }>(dataDir, "set-data.json").items ?? [];
+    let compsFile: CompsFile;
+    let setItems: SetItem[];
+    try {
+      compsFile = readJson<CompsFile>(dataDir, "comps.json");
+      setItems = readJson<{ items?: SetItem[] }>(dataDir, "set-data.json").items ?? [];
+    } catch {
+      serveMissingData(res);
+      return;
+    }
     const ranked: RankedComp[] = compsFile.comps
       .map((comp) => ({ comp, scored: scoreComp(comp, holdings, setItems) }))
       .sort((a, b) => b.scored.ranking - a.scored.ranking)
@@ -205,12 +277,32 @@ export function createApp({ dataDir }: { dataDir: string }) {
     res.json({
       patch: compsFile.patch,
       refreshedAt: compsFile.refreshedAt,
+      refreshError,
       comps: ranked,
     });
   });
 
-  app.get("/api/set-data", (_req, res) => {
-    res.json(readJson(dataDir, "set-data.json"));
+  app.get("/api/set-data", async (_req, res) => {
+    await ensureFresh();
+    try {
+      res.json(readJson(dataDir, "set-data.json"));
+    } catch {
+      serveMissingData(res);
+    }
+  });
+
+  app.post("/api/refresh", async (_req, res) => {
+    if (!fetcher) {
+      res.status(503).json({ error: "No source fetcher configured" });
+      return;
+    }
+    await refresh();
+    if (refreshError !== null) {
+      res.status(502).json({ error: refreshError });
+      return;
+    }
+    const { patch, refreshedAt } = readJson<CompsFile>(dataDir, "comps.json");
+    res.json({ patch, refreshedAt });
   });
 
   return app;

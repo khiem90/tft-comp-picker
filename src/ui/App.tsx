@@ -61,12 +61,15 @@ export function App() {
   const [itemSearch, setItemSearch] = useState("");
   const [augmentSearch, setAugmentSearch] = useState("");
   const [error, setError] = useState<string | null>(null);
+  // Bumped after a manual Refresh so both server reads run again.
+  const [dataVersion, setDataVersion] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     fetchJson<SetDataResponse>("/api/set-data")
       .then(setSetData)
       .catch((cause: Error) => setError(cause.message));
-  }, []);
+  }, [dataVersion]);
 
   useEffect(() => {
     let superseded = false;
@@ -80,7 +83,19 @@ export function App() {
     return () => {
       superseded = true;
     };
-  }, [heldUnits, heldItems, heldAugments]);
+  }, [heldUnits, heldItems, heldAugments, dataVersion]);
+
+  // Whether the Refresh succeeded or not, re-read from the server: on failure
+  // the response carries refreshError, which is how the failure is shown.
+  const refreshNow = () => {
+    setRefreshing(true);
+    fetch("/api/refresh", { method: "POST" })
+      .catch(() => undefined)
+      .then(() => {
+        setRefreshing(false);
+        setDataVersion((version) => version + 1);
+      });
+  };
 
   // The Active game survives reloads: every Holdings change lands in browser
   // storage immediately, so there is no moment where a crash loses entries.
@@ -169,13 +184,28 @@ export function App() {
       <header>
         <div className="header-row">
           <h1>TFT Comp Picker</h1>
-          <button type="button" className="new-game" onClick={startNewGame}>
-            New game
-          </button>
+          <div className="header-actions">
+            <button
+              type="button"
+              className="new-game"
+              onClick={refreshNow}
+              disabled={refreshing}
+            >
+              {refreshing ? "Refreshing…" : "Refresh"}
+            </button>
+            <button type="button" className="new-game" onClick={startNewGame}>
+              New game
+            </button>
+          </div>
         </div>
         <p className="meta">
           Patch {comps.patch} · refreshed {new Date(comps.refreshedAt).toLocaleString()}
         </p>
+        {comps.refreshError && (
+          <p className="refresh-error">
+            Refresh failed ({comps.refreshError}), showing last good data.
+          </p>
+        )}
       </header>
 
       <section className="holdings">
