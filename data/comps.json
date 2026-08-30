@@ -76,7 +76,13 @@
         "Spear of Shojin",
         "Void Staff",
         "Morellonomicon",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Invoker Emblem",
+        "Striker's Flail",
+        "Rabadon's Deathcap",
+        "Adaptive Helm",
+        "Protector's Vow",
+        "Spirit Visage"
       ]
     },
     {
@@ -148,7 +154,8 @@
         "Warmogs Armor",
         "Sunfire Cape",
         "Thief's Gloves",
-        "Ionic Spark"
+        "Ionic Spark",
+        "Spirit Visage"
       ]
     },
     {
@@ -216,7 +223,16 @@
       "itemPriorities": [
         "Infinity Edge",
         "Gargoyle Stoneplate",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Crownguard",
+        "Last Whisper",
+        "Striker's Flail",
+        "Deathblade",
+        "Quicksilver",
+        "Sterak's Gage",
+        "Blue Buff",
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap"
       ]
     },
     {
@@ -286,7 +302,13 @@
         "Jeweled Gauntlet",
         "Blue Buff",
         "Warmogs Armor",
-        "Void Staff"
+        "Void Staff",
+        "Flora Fatalis Emblem",
+        "Morellonomicon",
+        "Spear of Shojin",
+        "Ionic Spark",
+        "Protector's Vow",
+        "Sunfire Cape"
       ]
     },
     {
@@ -351,7 +373,12 @@
         "Gargoyle Stoneplate",
         "Edge of Night",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Brawler Emblem",
+        "Giant Slayer",
+        "Red Buff",
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap"
       ]
     },
     {
@@ -421,7 +448,11 @@
         "Infinity Edge",
         "Warmogs Armor",
         "Blue Buff",
-        "Jeweled Gauntlet"
+        "Jeweled Gauntlet",
+        "Spirit Visage",
+        "Rabadon's Deathcap",
+        "Last Whisper",
+        "Spear of Shojin"
       ]
     },
     {
@@ -486,7 +517,14 @@
         "Gargoyle Stoneplate",
         "Fae Emblem",
         "Spirit Visage",
-        "Edge of Night"
+        "Edge of Night",
+        "Sprykin Emblem",
+        "Titan's Resolve",
+        "Deathblade",
+        "Hextech Gunblade",
+        "Warmogs Armor",
+        "Evenshroud",
+        "Sunfire Cape"
       ]
     },
     {
@@ -558,7 +596,10 @@
         "Spirit Visage",
         "Infinity Edge",
         "Warmogs Armor",
-        "Last Whisper"
+        "Last Whisper",
+        "Hextech Gunblade",
+        "Red Buff",
+        "Dragon's Claw"
       ]
     },
     {
@@ -635,7 +676,12 @@
         "Warmogs Armor",
         "Last Whisper",
         "Guinsoo's Rageblade",
-        "Deathblade"
+        "Deathblade",
+        "Striker's Flail",
+        "Dragon's Claw",
+        "Evenshroud",
+        "Red Buff",
+        "Bramble Vest"
       ]
     },
     {
@@ -710,7 +756,15 @@
         "Gargoyle Stoneplate",
         "Spear of Shojin",
         "Warmogs Armor",
-        "Deathblade"
+        "Deathblade",
+        "Executioner Emblem",
+        "Kraken's Fury",
+        "Spirit Visage",
+        "Giant Slayer",
+        "Last Whisper",
+        "Edge of Night",
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap"
       ]
     },
     {
@@ -779,7 +833,16 @@
         "Gargoyle Stoneplate",
         "Spear of Shojin",
         "Warmogs Armor",
-        "Jeweled Gauntlet"
+        "Jeweled Gauntlet",
+        "Bramble Vest",
+        "Red Buff",
+        "Void Staff",
+        "Adaptive Helm",
+        "Blue Buff",
+        "Rabadon's Deathcap",
+        "Deathblade",
+        "Infinity Edge",
+        "Last Whisper"
       ]
     },
     {
@@ -845,7 +908,11 @@
         "Guinsoo's Rageblade",
         "Titan's Resolve",
         "Gargoyle Stoneplate",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Rabadon's Deathcap",
+        "Spirit Visage",
+        "Ionic Spark",
+        "Jeweled Gauntlet"
       ]
     },
     {
@@ -919,7 +986,14 @@
         "Spear of Shojin",
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Striker's Flail",
+        "Last Whisper",
+        "Red Buff",
+        "Blue Buff",
+        "Deathblade",
+        "Infinity Edge"
       ]
     },
     {
@@ -987,7 +1061,14 @@
         "Protector's Vow",
         "Warmogs Armor",
         "Jeweled Gauntlet",
-        "Adaptive Helm"
+        "Adaptive Helm",
+        "Spellweaver Emblem",
+        "Steadfast Heart",
+        "Edge of Night",
+        "Quicksilver",
+        "Sterak's Gage",
+        "Invoker Emblem",
+        "Archangel's Staff"
       ]
     },
     {
@@ -1056,7 +1137,15 @@
       "itemPriorities": [
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
-        "Kraken's Fury"
+        "Kraken's Fury",
+        "Elderwood Emblem",
+        "Evenshroud",
+        "Sunfire Cape",
+        "Morellonomicon",
+        "Rabadon's Deathcap",
+        "Spear of Shojin",
+        "Spirit Visage",
+        "Warmogs Armor"
       ]
     },
     {
@@ -1126,7 +1215,12 @@
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
         "Deathblade",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Kraken's Fury",
+        "Edge of Night",
+        "Quicksilver",
+        "Sterak's Gage",
+        "Last Whisper"
       ]
     },
     {
@@ -1196,7 +1290,13 @@
         "Jeweled Gauntlet",
         "Warmogs Armor",
         "Archangel's Staff",
-        "Blue Buff"
+        "Blue Buff",
+        "Rabadon's Deathcap",
+        "Crownguard",
+        "Protector's Vow",
+        "Morellonomicon",
+        "Nashor's Tooth",
+        "Bramble Vest"
       ]
     },
     {
@@ -1264,7 +1364,14 @@
       "itemPriorities": [
         "Guinsoo's Rageblade",
         "Edge of Night",
-        "Titan's Resolve"
+        "Titan's Resolve",
+        "Evenshroud",
+        "Protector's Vow",
+        "Warmogs Armor",
+        "Kraken's Fury",
+        "Hand Of Justice",
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap"
       ]
     },
     {
@@ -1335,7 +1442,11 @@
         "Spirit Visage",
         "Last Whisper",
         "Infinity Edge",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Giant Slayer",
+        "Hextech Gunblade",
+        "Fae Emblem",
+        "Red Buff"
       ]
     },
     {
@@ -1404,7 +1515,10 @@
         "Jeweled Gauntlet",
         "Void Staff",
         "Warmogs Armor",
-        "Rabadon's Deathcap"
+        "Rabadon's Deathcap",
+        "Crownguard",
+        "Striker's Flail",
+        "Executioner Emblem"
       ]
     },
     {
@@ -1469,7 +1583,11 @@
         "Gargoyle Stoneplate",
         "Spirit Visage",
         "Warmogs Armor",
-        "Jeweled Gauntlet"
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap",
+        "Giant Slayer",
+        "Kraken's Fury",
+        "Red Buff"
       ]
     },
     {
@@ -1539,7 +1657,15 @@
         "Infinity Edge",
         "Spear of Shojin",
         "Warmogs Armor",
-        "Guinsoo's Rageblade"
+        "Guinsoo's Rageblade",
+        "Blue Buff",
+        "Deathblade",
+        "Hunter Emblem",
+        "Bloodthirster",
+        "Sterak's Gage",
+        "Crownguard",
+        "Adaptive Helm",
+        "Protector's Vow"
       ]
     },
     {
@@ -1610,7 +1736,13 @@
         "Spear of Shojin",
         "Warmogs Armor",
         "Hextech Gunblade",
-        "Archangel's Staff"
+        "Archangel's Staff",
+        "Flora Fatalis Emblem",
+        "Nashor's Tooth",
+        "Ionic Spark",
+        "Steadfast Heart",
+        "Sunfire Cape",
+        "Spirit Visage"
       ]
     },
     {
@@ -1680,7 +1812,12 @@
         "Protector's Vow",
         "Warmogs Armor",
         "Adaptive Helm",
-        "Morellonomicon"
+        "Morellonomicon",
+        "Striker's Flail",
+        "Crownguard",
+        "Rabadon's Deathcap",
+        "Void Staff",
+        "Tacticians Crown"
       ]
     },
     {
@@ -1751,7 +1888,11 @@
         "Deathblade",
         "Striker's Flail",
         "Last Whisper",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Crownguard",
+        "Steadfast Heart",
+        "Red Buff",
+        "Spirit Visage"
       ]
     },
     {
@@ -1820,7 +1961,15 @@
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Blue Buff",
+        "Giant Slayer",
+        "Crownguard",
+        "Guinsoo's Rageblade",
+        "Kraken's Fury",
+        "Sprykin Emblem",
+        "Morellonomicon",
+        "Void Staff"
       ]
     },
     {
@@ -1892,7 +2041,13 @@
         "Jeweled Gauntlet",
         "Gargoyle Stoneplate",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Giant Slayer",
+        "Nashor's Tooth",
+        "Vanguard Emblem",
+        "Adaptive Helm",
+        "Void Staff",
+        "Sterak's Gage"
       ]
     },
     {
@@ -1960,7 +2115,13 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Deathblade",
+        "Hand Of Justice",
+        "Rabadon's Deathcap",
+        "Executioner Emblem",
+        "Void Staff"
       ]
     },
     {
@@ -2030,7 +2191,13 @@
         "Gargoyle Stoneplate",
         "Spirit Visage",
         "Warmogs Armor",
-        "Jeweled Gauntlet"
+        "Jeweled Gauntlet",
+        "Hextech Gunblade",
+        "Rabadon's Deathcap",
+        "Deathblade",
+        "Kraken's Fury",
+        "Red Buff",
+        "Dragon's Claw"
       ]
     },
     {
@@ -2103,7 +2270,17 @@
       "itemPriorities": [
         "Spear of Shojin",
         "Gargoyle Stoneplate",
-        "Elderwood Emblem"
+        "Elderwood Emblem",
+        "Deathblade",
+        "Giant Slayer",
+        "Spirit Visage",
+        "Sunfire Cape",
+        "Warmogs Armor",
+        "Nashor's Tooth",
+        "Rabadon's Deathcap",
+        "Bloodthirster",
+        "Edge of Night",
+        "Sterak's Gage"
       ]
     },
     {
@@ -2172,7 +2349,13 @@
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Rabadon's Deathcap",
+        "Edge of Night",
+        "Quicksilver",
+        "Sterak's Gage",
+        "Adaptive Helm",
+        "Protector's Vow"
       ]
     },
     {
@@ -2240,7 +2423,16 @@
       "itemPriorities": [
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
-        "Infinity Edge"
+        "Infinity Edge",
+        "Sterak's Gage",
+        "Striker's Flail",
+        "Deathblade",
+        "Kraken's Fury",
+        "Spirit Visage",
+        "Warmogs Armor",
+        "Edge of Night",
+        "Hand Of Justice",
+        "Jeweled Gauntlet"
       ]
     },
     {
@@ -2305,7 +2497,14 @@
         "Gargoyle Stoneplate",
         "Warmogs Armor",
         "Spirit Visage",
-        "Jeweled Gauntlet"
+        "Jeweled Gauntlet",
+        "Inferno Emblem",
+        "Rabadon's Deathcap",
+        "Bramble Vest",
+        "Infinity Edge",
+        "Spear of Shojin",
+        "Striker's Flail",
+        "Crownguard"
       ]
     },
     {
@@ -2377,7 +2576,13 @@
         "Infinity Edge",
         "Warmogs Armor",
         "Spirit Visage",
-        "Deathblade"
+        "Deathblade",
+        "Giant Slayer",
+        "Dragon's Claw",
+        "Last Whisper",
+        "Red Buff",
+        "Adaptive Helm",
+        "Protector's Vow"
       ]
     },
     {
@@ -2448,7 +2653,15 @@
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
         "Blossom Emblem",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Executioner Emblem",
+        "Nashor's Tooth",
+        "Striker's Flail",
+        "Juggernaut Emblem",
+        "Last Whisper",
+        "Red Buff",
+        "Rabadon's Deathcap",
+        "Void Staff"
       ]
     },
     {
@@ -2523,7 +2736,12 @@
         "Gargoyle Stoneplate",
         "Spear of Shojin",
         "Warmogs Armor",
-        "Void Staff"
+        "Void Staff",
+        "Nashor's Tooth",
+        "Striker's Flail",
+        "Protector's Vow",
+        "Red Buff",
+        "Morellonomicon"
       ]
     },
     {
@@ -2593,7 +2811,14 @@
         "Spear of Shojin",
         "Jeweled Gauntlet",
         "Void Staff",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Flora Fatalis Emblem",
+        "Adaptive Helm",
+        "Brawler Emblem",
+        "Crownguard",
+        "Rabadon's Deathcap",
+        "Blue Buff",
+        "Morellonomicon"
       ]
     },
     {
@@ -2664,7 +2889,11 @@
         "Sterak's Gage",
         "Gargoyle Stoneplate",
         "Hand Of Justice",
-        "Edge of Night"
+        "Edge of Night",
+        "Deathblade",
+        "Evenshroud",
+        "Sunfire Cape",
+        "Infinity Edge"
       ]
     },
     {
@@ -2736,7 +2965,13 @@
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
         "Warmogs Armor",
-        "Infinity Edge"
+        "Infinity Edge",
+        "Deathblade",
+        "Archangel's Staff",
+        "Rabadon's Deathcap",
+        "Spear of Shojin",
+        "Spirit Visage",
+        "Tacticians Shield"
       ]
     },
     {
@@ -2810,7 +3045,13 @@
         "Gargoyle Stoneplate",
         "Spear of Shojin",
         "Jeweled Gauntlet",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Blue Buff",
+        "Rabadon's Deathcap",
+        "Striker's Flail",
+        "Edge of Night",
+        "Hand Of Justice",
+        "Bramble Vest"
       ]
     },
     {
@@ -2873,7 +3114,16 @@
       "itemPriorities": [
         "Edge of Night",
         "Hand Of Justice",
-        "Titan's Resolve"
+        "Titan's Resolve",
+        "Bloodthirster",
+        "Guinsoo's Rageblade",
+        "Rabadon's Deathcap",
+        "Striker's Flail",
+        "Gargoyle Stoneplate",
+        "Steadfast Heart",
+        "Warmogs Armor",
+        "Dragon's Claw",
+        "Spirit Visage"
       ]
     },
     {
@@ -2939,7 +3189,14 @@
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Rabadon's Deathcap",
+        "Void Staff",
+        "Evenshroud",
+        "Spirit Visage",
+        "Deathblade",
+        "Infinity Edge",
+        "Steadfast Heart"
       ]
     },
     {
@@ -3008,7 +3265,17 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Guinsoo's Rageblade",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Bramble Vest",
+        "Spirit Visage",
+        "Inferno Emblem",
+        "Giant Slayer",
+        "Kraken's Fury",
+        "Bloodthirster",
+        "Edge of Night",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Void Staff"
       ]
     },
     {
@@ -3078,7 +3345,13 @@
         "Jeweled Gauntlet",
         "Warmogs Armor",
         "Spear of Shojin",
-        "Guinsoo's Rageblade"
+        "Guinsoo's Rageblade",
+        "Ionic Spark",
+        "Red Buff",
+        "Void Staff",
+        "Flora Fatalis Emblem",
+        "Blue Buff",
+        "Spirit Visage"
       ]
     },
     {
@@ -3147,7 +3420,15 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Spear of Shojin",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Adaptive Helm",
+        "Spirit Visage",
+        "Deathblade",
+        "Bloodthirster",
+        "Edge of Night",
+        "Titan's Resolve",
+        "Guinsoo's Rageblade",
+        "Last Whisper"
       ]
     },
     {
@@ -3208,7 +3489,14 @@
         "Hand Of Justice",
         "Guinsoo's Rageblade",
         "Blackthorn Emblem",
-        "Edge of Night"
+        "Edge of Night",
+        "Rabadon's Deathcap",
+        "Archangel's Staff",
+        "Void Staff",
+        "Protector's Vow",
+        "Spear of Shojin",
+        "Sterak's Gage",
+        "Titan's Resolve"
       ]
     },
     {
@@ -3281,7 +3569,16 @@
         "Gargoyle Stoneplate",
         "Warmogs Armor",
         "Hand Of Justice",
-        "Edge of Night"
+        "Edge of Night",
+        "Jeweled Gauntlet",
+        "Rabadon's Deathcap",
+        "Deathblade",
+        "Infinity Edge",
+        "Red Buff",
+        "Dragon's Claw",
+        "Spirit Visage",
+        "Sunfire Cape",
+        "Tactician's Cape"
       ]
     },
     {
@@ -3352,7 +3649,12 @@
         "Infinity Edge",
         "Spirit Visage",
         "Kraken's Fury",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Deathblade",
+        "Hextech Gunblade",
+        "Crownguard",
+        "Spear of Shojin",
+        "Sunfire Cape"
       ]
     },
     {
@@ -3420,7 +3722,13 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
-        "Spear of Shojin"
+        "Spear of Shojin",
+        "Blue Buff",
+        "Striker's Flail",
+        "Dragon's Claw",
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Sunfire Cape"
       ]
     },
     {
@@ -3488,7 +3796,14 @@
       "itemPriorities": [
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
-        "Infinity Edge"
+        "Infinity Edge",
+        "Deathblade",
+        "Hextech Gunblade",
+        "Spirit Visage",
+        "Sunfire Cape",
+        "Warmogs Armor",
+        "Hunter Emblem",
+        "Kraken's Fury"
       ]
     },
     {
@@ -3559,7 +3874,12 @@
         "Spear of Shojin",
         "Void Staff",
         "Warmogs Armor",
-        "Morellonomicon"
+        "Morellonomicon",
+        "Spellweaver Emblem",
+        "Hextech Gunblade",
+        "Bramble Vest",
+        "Guinsoo's Rageblade",
+        "Titan's Resolve"
       ]
     },
     {
@@ -3622,7 +3942,14 @@
       ],
       "itemPriorities": [
         "Guinsoo's Rageblade",
-        "Gargoyle Stoneplate"
+        "Gargoyle Stoneplate",
+        "Deathblade",
+        "Spirit Visage",
+        "Warmogs Armor",
+        "Giant Slayer",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Striker's Flail"
       ]
     },
     {
@@ -3684,7 +4011,13 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Guinsoo's Rageblade",
-        "Warmogs Armor"
+        "Warmogs Armor",
+        "Protector's Vow",
+        "Deathblade",
+        "Kraken's Fury",
+        "Edge of Night",
+        "Hand Of Justice",
+        "Jeweled Gauntlet"
       ]
     }
   ]

@@ -120,12 +120,22 @@ describe("Refresh self-population", () => {
     const rengar = faeRengar.board.find((slot) => slot.unit === "Rengar")!;
     expect(rengar.cost).toBe(3);
     expect(rengar.items).toEqual(["Fae Emblem", "Sprykin Emblem", "Titan's Resolve"]);
+    // The item pool merges top_itemNames with the carries' best-in-slot
+    // builds (recon gap 3), so a held build item earns Fit credit even when
+    // it misses the cluster-wide top list.
     expect(faeRengar.itemPriorities).toEqual([
       "Guinsoo's Rageblade",
       "Gargoyle Stoneplate",
       "Fae Emblem",
       "Spirit Visage",
       "Edge of Night",
+      "Sprykin Emblem",
+      "Titan's Resolve",
+      "Deathblade",
+      "Hextech Gunblade",
+      "Warmogs Armor",
+      "Evenshroud",
+      "Sunfire Cape",
     ]);
   });
 

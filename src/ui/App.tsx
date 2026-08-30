@@ -187,13 +187,13 @@ export function App() {
           <div className="header-actions">
             <button
               type="button"
-              className="new-game"
+              className="header-button"
               onClick={refreshNow}
               disabled={refreshing}
             >
               {refreshing ? "Refreshing…" : "Refresh"}
             </button>
-            <button type="button" className="new-game" onClick={startNewGame}>
+            <button type="button" className="header-button" onClick={startNewGame}>
               New game
             </button>
           </div>

@@ -212,10 +212,10 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
   let refreshError: string | null = null;
   let inFlight: Promise<void> | null = null;
 
-  const refresh = (): Promise<void> => {
+  const refresh = (activeFetcher: SourceFetcher): Promise<void> => {
     inFlight ??= (async () => {
       try {
-        const payloads = await fetcher!.fetchSources();
+        const payloads = await activeFetcher.fetchSources();
         const refreshedAt = new Date(now()).toISOString();
         const { compsFile, setData } = transformSources(payloads, refreshedAt);
         writeJson(dataDir, "comps.json", compsFile);
@@ -245,7 +245,7 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
   const ensureFresh = async (): Promise<void> => {
     if (!fetcher) return;
     const age = dataAgeMs();
-    if (age === null || age > DAY_MS) await refresh();
+    if (age === null || age > DAY_MS) await refresh(fetcher);
   };
 
   const serveMissingData = (res: express.Response): void => {
@@ -296,7 +296,7 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
       res.status(503).json({ error: "No source fetcher configured" });
       return;
     }
-    await refresh();
+    await refresh(fetcher);
     if (refreshError !== null) {
       res.status(502).json({ error: refreshError });
       return;

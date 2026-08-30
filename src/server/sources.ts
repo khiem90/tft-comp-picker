@@ -35,8 +35,15 @@ const METATFT_COMPS_URL =
   "https://api-hc.metatft.com/tft-comps-api/comps_data?queue=1100";
 const CDRAGON_URL = "https://raw.communitydragon.org/latest/cdragon/tft/en_us.json";
 
+// A hanging source must degrade like an erroring one (spec story 22): without
+// a deadline, a stalled host would block every request that awaits a Refresh.
+// 60s leaves room for Community Dragon's 24 MB payload on a slow link.
+const FETCH_TIMEOUT_MS = 60_000;
+
 async function fetchJson(url: string): Promise<unknown> {
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!response.ok) {
     throw new Error(`${url} answered ${response.status}`);
   }
@@ -132,19 +139,18 @@ function augmentIds(topAugments: unknown[]): string[] {
   for (const entry of topAugments) {
     if (typeof entry === "string") {
       ids.push(entry);
-      continue;
-    }
-    if (entry !== null && typeof entry === "object") {
-      const record = entry as Record<string, unknown>;
-      for (const key of ["augment", "augmentName", "apiName", "itemNames", "name"]) {
-        if (typeof record[key] === "string") {
-          ids.push(record[key] as string);
-          break;
-        }
-      }
+    } else if (entry !== null && typeof entry === "object") {
+      const { itemNames } = entry as Record<string, unknown>;
+      if (typeof itemNames === "string") ids.push(itemNames);
     }
   }
   return ids;
+}
+
+function resolveNames(apis: string[], names: Map<string, string>): string[] {
+  return apis
+    .map((api) => names.get(api))
+    .filter((name): name is string => name !== undefined);
 }
 
 export interface TransformedData {
@@ -160,18 +166,26 @@ export function transformSources(
   const compsData = payloads.compsData as MetaTftCompsData;
   const cdragon = payloads.cdragon as CDragonPayload;
 
-  // "18.1" plus the B-patch marker when one is live ("18.1b"). Selecting the
-  // set by key "18" is deliberate: sets["18"].name reads "Set10" upstream
-  // (recon gap 5), so names are never trusted for identity.
-  const patch = `${patchInfo.patch}${patchInfo.b_patch_version}`;
+  // "18.1", plus a B-patch marker when one is live. b_patch_version has only
+  // ever been recorded empty, so its populated format is unknown; forcing the
+  // "b" prefix keeps "18.1b" and "18.1b1" both unambiguous. Selecting the set
+  // by key "18" is deliberate: sets["18"].name reads "Set10" upstream (recon
+  // gap 5), so names are never trusted for identity.
+  const bPatch = patchInfo.b_patch_version;
+  const patch =
+    bPatch === "" ? patchInfo.patch : `${patchInfo.patch}b${bPatch.replace(/^b/i, "")}`;
   const set = cdragon.sets["18"];
   if (!set) throw new Error("Community Dragon payload has no Set 18 entry");
 
   const championsByApi = new Map(set.champions.map((champ) => [champ.apiName, champ]));
   const traitNames = new Map(set.traits.map((trait) => [trait.apiName, trait.name]));
   const itemNames = new Map(cdragon.items.map((item) => [item.apiName, item.name]));
+  // Same filter as setData.augments below, so a Comp can never carry an
+  // augment the picker cannot offer.
   const augmentApis = new Set(
-    cdragon.items.filter((item) => item.isAugment).map((item) => item.apiName),
+    cdragon.items
+      .filter((item) => item.apiName.startsWith("DA_") && item.isAugment)
+      .map((item) => item.apiName),
   );
 
   const units: SetUnit[] = set.champions
@@ -197,9 +211,7 @@ export function transformSources(
     .filter((item) => item.apiName.startsWith("DA_") && item.isAugment)
     .map((item) => ({
       name: item.name,
-      traits: item.associatedTraits
-        .map((api) => traitNames.get(api))
-        .filter((name): name is string => name !== undefined),
+      traits: resolveNames(item.associatedTraits, traitNames),
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -219,12 +231,7 @@ export function transformSources(
         // builds also list headliner variants that are not on this board; and
         // the first entry per unit is its top build.
         if (!buildsByUnit.has(build.unit)) {
-          buildsByUnit.set(
-            build.unit,
-            build.buildName
-              .map((api) => itemNames.get(api))
-              .filter((name): name is string => name !== undefined),
-          );
+          buildsByUnit.set(build.unit, resolveNames(build.buildName, itemNames));
         }
       }
 
@@ -250,9 +257,17 @@ export function transformSources(
         )
         .join(" ");
 
-      const itemPriorities = cluster.top_itemNames
-        .map((entry) => itemNames.get(entry.itemNames))
-        .filter((resolved): resolved is string => resolved !== undefined);
+      // The Fit item pool is top_itemNames plus every carry's best-in-slot
+      // build (recon gap 3): a held build item earns credit even when it
+      // misses the cluster-wide top list.
+      const topItems = resolveNames(
+        cluster.top_itemNames.map((entry) => entry.itemNames),
+        itemNames,
+      );
+      const buildItems = cluster.builds.flatMap((build) =>
+        resolveNames(build.buildName, itemNames),
+      );
+      const itemPriorities = [...new Set([...topItems, ...buildItems])];
 
       const compAugments = augmentIds(cluster.top_augments ?? [])
         .filter((api) => augmentApis.has(api))

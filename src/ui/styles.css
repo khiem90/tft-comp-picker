@@ -26,7 +26,7 @@ h1 {
   gap: 1rem;
 }
 
-.new-game {
+.header-button {
   border: 1px solid #3a4258;
   border-radius: 6px;
   padding: 0.4rem 0.9rem;
@@ -36,7 +36,7 @@ h1 {
   cursor: pointer;
 }
 
-.new-game:hover {
+.header-button:hover {
   background: #2e3a56;
 }
 
@@ -45,7 +45,7 @@ h1 {
   gap: 0.5rem;
 }
 
-.new-game:disabled {
+.header-button:disabled {
   opacity: 0.6;
   cursor: default;
 }
