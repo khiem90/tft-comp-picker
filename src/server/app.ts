@@ -1,20 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
-
-export interface BoardSlot {
-  unit: string;
-  cost: number;
-  items: string[];
-}
-
-export interface Comp {
-  id: string;
-  name: string;
-  tier: string;
-  board: BoardSlot[];
-  itemPriorities: string[];
-}
+import type { Comp, Tier } from "../shared/types";
 
 export interface CompsFile {
   patch: string;
@@ -23,11 +10,10 @@ export interface CompsFile {
   comps: Comp[];
 }
 
-const TIER_ORDER = ["S", "A", "B", "C", "D"];
+const TIER_ORDER: Tier[] = ["S", "A", "B", "C", "D"];
 
-function tierRank(tier: string): number {
-  const rank = TIER_ORDER.indexOf(tier);
-  return rank === -1 ? TIER_ORDER.length : rank;
+function tierPosition(tier: Tier): number {
+  return TIER_ORDER.indexOf(tier);
 }
 
 function readJson<T>(dataDir: string, fileName: string): T {
@@ -40,7 +26,7 @@ export function createApp({ dataDir }: { dataDir: string }) {
   app.get("/api/comps", (_req, res) => {
     const compsFile = readJson<CompsFile>(dataDir, "comps.json");
     const ranked = [...compsFile.comps].sort(
-      (a, b) => tierRank(a.tier) - tierRank(b.tier),
+      (a, b) => tierPosition(a.tier) - tierPosition(b.tier),
     );
     res.json({
       patch: compsFile.patch,

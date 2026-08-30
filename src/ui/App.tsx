@@ -1,24 +1,5 @@
 import { useEffect, useState } from "react";
-
-interface BoardSlot {
-  unit: string;
-  cost: number;
-  items: string[];
-}
-
-interface Comp {
-  id: string;
-  name: string;
-  tier: string;
-  board: BoardSlot[];
-  itemPriorities: string[];
-}
-
-interface CompsResponse {
-  patch: string;
-  refreshedAt: string;
-  comps: Comp[];
-}
+import type { CompsResponse } from "../shared/types";
 
 export function App() {
   const [data, setData] = useState<CompsResponse | null>(null);

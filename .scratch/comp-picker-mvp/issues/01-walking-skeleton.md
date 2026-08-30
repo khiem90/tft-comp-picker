@@ -6,9 +6,9 @@
 
 **Status:** ready-for-agent
 
-- [ ] A single command starts the server and serves the UI locally
-- [ ] Comps and Set data load from plain JSON files on disk, hand-editable
-- [ ] The UI lists all seeded Comps in Tier order, showing each Comp's final board and item priorities
-- [ ] At least one test exercises the server HTTP API end-to-end (request in, ranked Comp list out), establishing the seam pattern
-- [ ] An ADR records the scrape-with-fallback source decision (MetaTFT primary, tactics.tools then hand-curated file as fallbacks)
-- [ ] The repo is a git repository with an initial commit
+- [x] A single command starts the server and serves the UI locally
+- [x] Comps and Set data load from plain JSON files on disk, hand-editable
+- [x] The UI lists all seeded Comps in Tier order, showing each Comp's final board and item priorities
+- [x] At least one test exercises the server HTTP API end-to-end (request in, ranked Comp list out), establishing the seam pattern
+- [x] An ADR records the scrape-with-fallback source decision (MetaTFT primary, tactics.tools then hand-curated file as fallbacks)
+- [x] The repo is a git repository with an initial commit
