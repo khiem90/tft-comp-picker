@@ -13,6 +13,7 @@ export interface CompsFile {
 interface Holdings {
   units: string[];
   items: string[];
+  augments: string[];
 }
 
 const TIER_ORDER: Tier[] = ["S", "A", "B", "C", "D"];
@@ -92,8 +93,13 @@ function fitReason(
   heldUnitCount: number,
   heldItemCount: number,
   partialItemCount: number,
+  matchedAugmentCount: number,
 ): string {
-  if (holdings.units.length === 0 && holdings.items.length === 0) {
+  if (
+    holdings.units.length === 0 &&
+    holdings.items.length === 0 &&
+    holdings.augments.length === 0
+  ) {
     return "No Holdings yet, ranked by Tier";
   }
   const itemCount = comp.itemPriorities.length;
@@ -104,6 +110,11 @@ function fitReason(
       heldItemCount > 0
         ? `components toward ${partialItemCount} more`
         : `components toward ${partialItemCount} of ${itemCount} items`,
+    );
+  }
+  if (matchedAugmentCount > 0) {
+    clauses.push(
+      `${matchedAugmentCount} synergizing augment${matchedAugmentCount === 1 ? "" : "s"}`,
     );
   }
   return `Holding ${clauses.join(", ")}`;
@@ -127,21 +138,41 @@ function scoreComp(
     .map((c) => c.item);
   const missingItems = credits.filter((c) => c.credit === 0).map((c) => c.item);
 
+  // A matched augment counts as one held piece, but augments never join the
+  // denominator: a Comp the source has no augment data for must score exactly
+  // as it would if augments did not exist.
+  const matchedAugments = (comp.augments ?? []).filter((augment) =>
+    holdings.augments.includes(augment),
+  );
+
   const heldPieces =
-    heldUnits.length + credits.reduce((total, c) => total + c.credit, 0);
+    heldUnits.length +
+    credits.reduce((total, c) => total + c.credit, 0) +
+    matchedAugments.length;
   const totalPieces = comp.board.length + comp.itemPriorities.length;
+  // Matched augments can push the fraction past 1. The ranking keeps the
+  // overflow so a synergizing Comp beats an equally complete one without
+  // augment data; only the displayed score caps at 100.
   const fraction = totalPieces === 0 ? 0 : heldPieces / totalPieces;
 
   return {
     ranking: fraction + tierWeight(comp.tier),
     fit: {
-      score: Math.round(fraction * 100),
+      score: Math.min(100, Math.round(fraction * 100)),
       heldUnits,
       missingUnits,
       heldItems,
       partialItems,
       missingItems,
-      reason: fitReason(comp, holdings, heldUnits.length, heldItems.length, partialItems.length),
+      matchedAugments,
+      reason: fitReason(
+        comp,
+        holdings,
+        heldUnits.length,
+        heldItems.length,
+        partialItems.length,
+        matchedAugments.length,
+      ),
     },
   };
 }
@@ -163,6 +194,7 @@ export function createApp({ dataDir }: { dataDir: string }) {
     const holdings: Holdings = {
       units: parseNames(req.query.units),
       items: parseNames(req.query.items),
+      augments: parseNames(req.query.augments),
     };
     const compsFile = readJson<CompsFile>(dataDir, "comps.json");
     const setItems = readJson<{ items?: SetItem[] }>(dataDir, "set-data.json").items ?? [];

@@ -64,6 +64,7 @@ describe("GET /api/comps", () => {
       heldItems: [],
       partialItems: [],
       missingItems: ["Guinsoo's Rageblade", "Infinity Edge", "Last Whisper"],
+      matchedAugments: [],
       reason: "Holding 1 of 2 units",
     });
   });
@@ -81,6 +82,7 @@ describe("GET /api/comps", () => {
       heldItems: [],
       partialItems: [],
       missingItems: ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap"],
+      matchedAugments: [],
       reason: "No Holdings yet, ranked by Tier",
     });
   });
@@ -195,6 +197,121 @@ describe("GET /api/comps", () => {
       "Infinity Edge",
       "Last Whisper",
     ]);
+  });
+});
+
+describe("GET /api/comps with augment data in the source", () => {
+  const augmentFixturesDir = path.join(fixturesDir, "with-augments");
+
+  it("raises a synergizing Comp above a top-Tier Comp when a held augment matches", async () => {
+    const app = createApp({ dataDir: augmentFixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ augments: ["Wild Growth"] });
+
+    expect(response.status).toBe(200);
+    expect(response.body.comps.map((comp: { id: string }) => comp.id)).toEqual([
+      "wildwood-snipers",
+      "faerie-spellweavers",
+      "bruiser-brawlers",
+    ]);
+    const sniperComp = response.body.comps[0];
+    expect(sniperComp.fit.score).toBe(20);
+    expect(sniperComp.fit.matchedAugments).toEqual(["Wild Growth"]);
+    expect(sniperComp.fit.reason).toBe("Holding 0 of 2 units, 1 synergizing augment");
+  });
+
+  it("combines augments with unit and item Holdings in one reason", async () => {
+    const app = createApp({ dataDir: augmentFixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({
+        units: ["Fenwick"],
+        items: ["Guinsoo's Rageblade"],
+        augments: ["Wild Growth", "Hunter's Focus"],
+      });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    expect(sniperComp.fit.score).toBe(80);
+    expect(sniperComp.fit.matchedAugments).toEqual(["Wild Growth", "Hunter's Focus"]);
+    expect(sniperComp.fit.reason).toBe(
+      "Holding 1 of 2 units, 1 of 3 items, 2 synergizing augments",
+    );
+  });
+
+  it("ranks the synergizing Comp higher when two Comps are otherwise complete", async () => {
+    const app = createApp({ dataDir: augmentFixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({
+        units: ["Fenwick", "Kaelen", "Lilna", "Sylvara"],
+        items: [
+          "Guinsoo's Rageblade",
+          "Infinity Edge",
+          "Last Whisper",
+          "Jeweled Gauntlet",
+          "Spear of Shojin",
+          "Rabadon's Deathcap",
+        ],
+        augments: ["Wild Growth"],
+      });
+
+    // Both the A Comp and the S Comp are fully held; the augment must still
+    // lift the synergizing A Comp past the S Comp, and the displayed score
+    // stays capped at 100.
+    expect(response.body.comps[0].id).toBe("wildwood-snipers");
+    expect(response.body.comps[0].fit.score).toBe(100);
+  });
+
+  it("scores a Comp without augment data exactly as if augments did not exist", async () => {
+    const app = createApp({ dataDir: augmentFixturesDir });
+
+    const without = await request(app).get("/api/comps");
+    const withAugment = await request(app)
+      .get("/api/comps")
+      .query({ augments: ["Wild Growth"] });
+
+    const findBruisers = (body: { comps: Array<{ id: string; fit: CompFit }> }) =>
+      body.comps.find((comp) => comp.id === "bruiser-brawlers")!;
+    expect(findBruisers(withAugment.body).fit.score).toBe(
+      findBruisers(without.body).fit.score,
+    );
+    expect(findBruisers(withAugment.body).fit.matchedAugments).toEqual([]);
+  });
+
+  it("gives an entered augment no credit toward Comps that do not list it", async () => {
+    const app = createApp({ dataDir: augmentFixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ augments: ["Faerie Blessing"] });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    expect(sniperComp.fit.score).toBe(0);
+    expect(sniperComp.fit.matchedAugments).toEqual([]);
+  });
+});
+
+describe("GET /api/comps without augment data in the source", () => {
+  it("leaves scores and ranking untouched when augments are entered anyway", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const without = await request(app).get("/api/comps");
+    const withAugments = await request(app)
+      .get("/api/comps")
+      .query({ augments: ["Wild Growth", "Faerie Blessing"] });
+
+    expect(withAugments.status).toBe(200);
+    const summarize = (body: { comps: Array<{ id: string; fit: CompFit }> }) =>
+      body.comps.map((comp) => ({ id: comp.id, score: comp.fit.score }));
+    expect(summarize(withAugments.body)).toEqual(summarize(without.body));
   });
 });
 

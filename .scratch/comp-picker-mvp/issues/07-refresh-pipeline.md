@@ -13,3 +13,4 @@
 - [ ] The UI shows last-Refreshed time and the Patch the data reflects
 - [ ] When the fetcher fails, the app serves last good data and surfaces that Refresh failed (covered by a seam test with a failing fake fetcher)
 - [ ] Refresh behavior is tested through the server HTTP API with fixture payloads via the injected fetcher; no test touches the live sources
+- [ ] The transform maps MetaTFT `top_augments` (when non-empty) onto `Comp.augments`, so the augment Fit shipped in 05 turns itself on the day the source publishes augment stats

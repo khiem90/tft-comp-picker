@@ -1,0 +1,29 @@
+{
+  "patch": "16.1",
+  "setNumber": 18,
+  "setName": "Enchanted Wilds",
+  "units": [
+    { "name": "Grib", "cost": 1, "traits": ["Bruiser"] },
+    { "name": "Lilna", "cost": 2, "traits": ["Faerie", "Spellweaver"] },
+    { "name": "Fenwick", "cost": 3, "traits": ["Wildwood", "Sniper"] },
+    { "name": "Thornmaw", "cost": 4, "traits": ["Wildwood", "Bruiser"] },
+    { "name": "Kaelen", "cost": 4, "traits": ["Sniper"] },
+    { "name": "Sylvara", "cost": 5, "traits": ["Faerie", "Spellweaver"] }
+  ],
+  "items": [
+    { "name": "Warmog's Armor", "components": ["Giant's Belt", "Giant's Belt"] },
+    { "name": "Sunfire Cape", "components": ["Giant's Belt", "Chain Vest"] },
+    { "name": "Gargoyle Stoneplate", "components": ["Chain Vest", "Negatron Cloak"] },
+    { "name": "Jeweled Gauntlet", "components": ["Needlessly Large Rod", "Sparring Gloves"] },
+    { "name": "Spear of Shojin", "components": ["B.F. Sword", "Tear of the Goddess"] },
+    { "name": "Rabadon's Deathcap", "components": ["Needlessly Large Rod", "Needlessly Large Rod"] },
+    { "name": "Guinsoo's Rageblade", "components": ["Recurve Bow", "Needlessly Large Rod"] },
+    { "name": "Infinity Edge", "components": ["B.F. Sword", "Sparring Gloves"] },
+    { "name": "Last Whisper", "components": ["Recurve Bow", "Sparring Gloves"] }
+  ],
+  "augments": [
+    { "name": "Wild Growth", "traits": ["Wildwood"] },
+    { "name": "Faerie Blessing", "traits": ["Faerie"] },
+    { "name": "Hunter's Focus", "traits": ["Sniper"] }
+  ]
+}

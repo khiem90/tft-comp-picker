@@ -8,10 +8,15 @@ function fetchJson<T>(url: string): Promise<T> {
   });
 }
 
-function compsUrl(heldUnits: string[], heldItems: string[]): string {
+function compsUrl(
+  heldUnits: string[],
+  heldItems: string[],
+  heldAugments: string[],
+): string {
   const params = new URLSearchParams();
   for (const unit of heldUnits) params.append("units", unit);
   for (const item of heldItems) params.append("items", item);
+  for (const augment of heldAugments) params.append("augments", augment);
   const query = params.toString();
   return query ? `/api/comps?${query}` : "/api/comps";
 }
@@ -47,8 +52,10 @@ export function App() {
   const [setData, setSetData] = useState<SetDataResponse | null>(null);
   const [heldUnits, setHeldUnits] = useState<string[]>([]);
   const [heldItems, setHeldItems] = useState<string[]>([]);
+  const [heldAugments, setHeldAugments] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [itemSearch, setItemSearch] = useState("");
+  const [augmentSearch, setAugmentSearch] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -59,7 +66,7 @@ export function App() {
 
   useEffect(() => {
     let superseded = false;
-    fetchJson<CompsResponse>(compsUrl(heldUnits, heldItems))
+    fetchJson<CompsResponse>(compsUrl(heldUnits, heldItems, heldAugments))
       .then((body) => {
         if (!superseded) setComps(body);
       })
@@ -69,7 +76,7 @@ export function App() {
     return () => {
       superseded = true;
     };
-  }, [heldUnits, heldItems]);
+  }, [heldUnits, heldItems, heldAugments]);
 
   if (error) return <p className="status">Could not load Comps: {error}</p>;
   if (!comps || !setData) return <p className="status">Loading Comps…</p>;
@@ -105,6 +112,31 @@ export function App() {
   const removeItemAt = (index: number) => {
     setHeldItems((held) => held.filter((_, position) => position !== index));
   };
+  const addAugment = (name: string) => {
+    setHeldAugments((held) => [...held, name]);
+    setAugmentSearch("");
+  };
+  const removeAugment = (name: string) => {
+    setHeldAugments((held) => held.filter((augment) => augment !== name));
+  };
+
+  // The augment picker exists only while augments can move a ranking: the
+  // catalog must offer choices and at least one Comp must carry augment
+  // synergies (see Comp.augments in shared/types.ts). Held chips keep the
+  // section alive even if the data disappears, so nothing affects the query
+  // invisibly.
+  const augmentChoices = setData.augments ?? [];
+  const augmentsUsable =
+    augmentChoices.length > 0 &&
+    comps.comps.some((comp) => (comp.augments ?? []).length > 0);
+  const augmentQuery = augmentSearch.trim().toLowerCase();
+  const augmentMatches = augmentQuery
+    ? augmentChoices.filter(
+        (augment) =>
+          !heldAugments.includes(augment.name) &&
+          augment.name.toLowerCase().includes(augmentQuery),
+      )
+    : [];
 
   return (
     <main>
@@ -194,6 +226,46 @@ export function App() {
         )}
       </section>
 
+      {(augmentsUsable || heldAugments.length > 0) && (
+        <section className="holdings">
+          <h2>Your augments</h2>
+          <input
+            type="search"
+            className="picker-search"
+            placeholder="Search augments…"
+            value={augmentSearch}
+            onChange={(event) => setAugmentSearch(event.target.value)}
+          />
+          {augmentMatches.length > 0 && (
+            <ul className="picker-matches">
+              {augmentMatches.map((augment) => (
+                <li key={augment.name}>
+                  <button type="button" onClick={() => addAugment(augment.name)}>
+                    {augment.name}
+                    <span className="traits">{augment.traits.join(" · ")}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          {heldAugments.length > 0 && (
+            <ul className="held-chips">
+              {heldAugments.map((name) => (
+                <li key={name}>
+                  <button
+                    type="button"
+                    onClick={() => removeAugment(name)}
+                    title={`Remove ${name}`}
+                  >
+                    {name} ✕
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
       <ol className="comp-list">
         {comps.comps.map((comp) => (
           <li key={comp.id} className="comp">
@@ -229,6 +301,21 @@ export function App() {
                 </span>
               ))}
             </p>
+            {(comp.augments ?? []).length > 0 && (
+              <p className="priorities">
+                Augments:{" "}
+                {comp.augments!.map((augment) => (
+                  <span
+                    key={augment}
+                    className={`priority ${
+                      comp.fit.matchedAugments.includes(augment) ? "held" : "missing"
+                    }`}
+                  >
+                    {augment}
+                  </span>
+                ))}
+              </p>
+            )}
           </li>
         ))}
       </ol>
