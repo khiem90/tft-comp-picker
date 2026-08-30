@@ -1,0 +1,60 @@
+{
+  "patch": "16.1",
+  "refreshedAt": "2026-08-29T12:00:00Z",
+  "source": "hand-curated",
+  "comps": [
+    {
+      "id": "faerie-spellweavers",
+      "name": "Faerie Spellweavers",
+      "tier": "S",
+      "board": [
+        { "unit": "Lilna", "cost": 2, "items": [] },
+        { "unit": "Bramblet", "cost": 2, "items": [] },
+        { "unit": "Elowen", "cost": 3, "items": ["Sunfire Cape"] },
+        { "unit": "Fenwick", "cost": 3, "items": [] },
+        { "unit": "Morrel", "cost": 4, "items": ["Gargoyle Stoneplate"] },
+        { "unit": "Sylvara", "cost": 5, "items": ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap"] }
+      ],
+      "itemPriorities": ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap", "Sunfire Cape"]
+    },
+    {
+      "id": "wildwood-snipers",
+      "name": "Wildwood Snipers",
+      "tier": "A",
+      "board": [
+        { "unit": "Grib", "cost": 1, "items": [] },
+        { "unit": "Thistle", "cost": 1, "items": [] },
+        { "unit": "Fenwick", "cost": 3, "items": ["Guinsoo's Rageblade"] },
+        { "unit": "Elowen", "cost": 3, "items": [] },
+        { "unit": "Kaelen", "cost": 4, "items": ["Infinity Edge", "Last Whisper", "Giant Slayer"] },
+        { "unit": "Thornmaw", "cost": 4, "items": ["Warmog's Armor"] }
+      ],
+      "itemPriorities": ["Infinity Edge", "Last Whisper", "Guinsoo's Rageblade", "Giant Slayer"]
+    },
+    {
+      "id": "grove-wardens",
+      "name": "Grove Wardens",
+      "tier": "A",
+      "board": [
+        { "unit": "Thistle", "cost": 1, "items": [] },
+        { "unit": "Bramblet", "cost": 2, "items": [] },
+        { "unit": "Oakhide", "cost": 3, "items": ["Warmog's Armor", "Sunfire Cape"] },
+        { "unit": "Morrel", "cost": 4, "items": ["Gargoyle Stoneplate"] },
+        { "unit": "Sylvara", "cost": 5, "items": ["Rabadon's Deathcap"] }
+      ],
+      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate"]
+    },
+    {
+      "id": "bruiser-brawlers",
+      "name": "Bruiser Brawlers",
+      "tier": "B",
+      "board": [
+        { "unit": "Grib", "cost": 1, "items": [] },
+        { "unit": "Rukk", "cost": 2, "items": [] },
+        { "unit": "Oakhide", "cost": 3, "items": ["Sunfire Cape"] },
+        { "unit": "Thornmaw", "cost": 4, "items": ["Warmog's Armor", "Gargoyle Stoneplate", "Sterak's Gage"] }
+      ],
+      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate", "Sterak's Gage"]
+    }
+  ]
+}

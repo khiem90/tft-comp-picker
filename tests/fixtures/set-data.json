@@ -1,0 +1,21 @@
+{
+  "patch": "16.1",
+  "setNumber": 18,
+  "setName": "Enchanted Wilds",
+  "units": [
+    { "name": "Grib", "cost": 1, "traits": ["Bruiser"] },
+    { "name": "Lilna", "cost": 2, "traits": ["Faerie", "Spellweaver"] },
+    { "name": "Fenwick", "cost": 3, "traits": ["Wildwood", "Sniper"] },
+    { "name": "Thornmaw", "cost": 4, "traits": ["Wildwood", "Bruiser"] },
+    { "name": "Kaelen", "cost": 4, "traits": ["Sniper"] },
+    { "name": "Sylvara", "cost": 5, "traits": ["Faerie", "Spellweaver"] }
+  ],
+  "items": [
+    { "name": "Warmog's Armor", "components": ["Giant's Belt", "Giant's Belt"] },
+    { "name": "Jeweled Gauntlet", "components": ["Needlessly Large Rod", "Sparring Gloves"] },
+    { "name": "Guinsoo's Rageblade", "components": ["Recurve Bow", "Needlessly Large Rod"] }
+  ],
+  "augments": [
+    { "name": "Wild Growth", "traits": ["Wildwood"] }
+  ]
+}
