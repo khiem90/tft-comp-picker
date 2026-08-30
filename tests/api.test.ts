@@ -21,6 +21,63 @@ describe("GET /api/comps", () => {
     ]);
   });
 
+  it("ranks a lower-Tier Comp with strong unit overlap above a top-Tier Comp with none", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ units: ["Grib", "Thornmaw"] });
+
+    expect(response.status).toBe(200);
+    expect(response.body.comps.map((comp: { id: string }) => comp.id)).toEqual([
+      "bruiser-brawlers",
+      "faerie-spellweavers",
+      "wildwood-snipers",
+    ]);
+  });
+
+  it("re-ranks between requests as Holdings change", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const before = await request(app).get("/api/comps");
+    const after = await request(app)
+      .get("/api/comps")
+      .query({ units: ["Fenwick", "Kaelen"] });
+
+    expect(before.body.comps[0].id).toBe("faerie-spellweavers");
+    expect(after.body.comps[0].id).toBe("wildwood-snipers");
+  });
+
+  it("tells each Comp's Fit apart: held units, missing units, and a readable reason", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app).get("/api/comps").query({ units: ["Fenwick"] });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    expect(sniperComp.fit).toEqual({
+      score: 50,
+      heldUnits: ["Fenwick"],
+      missingUnits: ["Kaelen"],
+      reason: "Holding 1 of 2 units",
+    });
+  });
+
+  it("explains the Tier-order fallback when Holdings are empty", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app).get("/api/comps");
+
+    const topComp = response.body.comps[0];
+    expect(topComp.fit).toEqual({
+      score: 0,
+      heldUnits: [],
+      missingUnits: ["Lilna", "Sylvara"],
+      reason: "No Holdings yet, ranked by Tier",
+    });
+  });
+
   it("carries each Comp's final board and item priorities", async () => {
     const app = createApp({ dataDir: fixturesDir });
 

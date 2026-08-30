@@ -29,6 +29,103 @@ h1 {
   text-align: center;
 }
 
+.holdings {
+  background: #1a2030;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.holdings h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.unit-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #3a4258;
+  background: #10141d;
+  color: #e6e9f0;
+  font-size: 1rem;
+}
+
+.unit-matches {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.unit-matches button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #232b40;
+  color: #e6e9f0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.unit-matches button:hover {
+  background: #2e3a56;
+}
+
+.cost-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: #3a4258;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.unit-matches .traits {
+  margin-left: auto;
+  color: #8b93a7;
+  font-size: 0.8rem;
+}
+
+.held-units {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.held-units button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  background: #3e6b46;
+  color: #e6e9f0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.held-units button:hover {
+  background: #4d8557;
+}
+
+.hint {
+  margin: 0.6rem 0 0;
+  color: #8b93a7;
+  font-size: 0.9rem;
+}
+
 .comp-list {
   list-style: none;
   padding: 0;
@@ -85,6 +182,28 @@ h1 {
   padding: 0.35rem 0.6rem;
   display: flex;
   flex-direction: column;
+}
+
+.slot.held {
+  outline: 1px solid #4d8557;
+  background: #21402c;
+}
+
+.slot.missing .unit {
+  color: #8b93a7;
+}
+
+.fit-score {
+  margin-left: auto;
+  color: #9fb3d1;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.fit-reason {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  color: #8b93a7;
 }
 
 .unit {

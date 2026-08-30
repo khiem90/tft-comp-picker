@@ -6,11 +6,11 @@
 
 **Status:** ready-for-agent
 
-- [ ] The unit picker is searchable, built from the Set data file, and adding or removing a unit takes one interaction each
-- [ ] Entering or removing a unit re-sorts the Comp list without a manual refresh
-- [ ] With empty Holdings, Comps appear in Tier order
-- [ ] A lower-Tier Comp with strong unit overlap ranks above a top-Tier Comp with none (covered by a seam test)
-- [ ] Every Comp stays visible; poor fits sink, nothing is hidden
-- [ ] Each Comp highlights which of its units the player holds versus which are missing
-- [ ] Each Comp shows its Fit score with a human-readable reason
-- [ ] Ranking behavior is tested through the server HTTP API only
+- [x] The unit picker is searchable, built from the Set data file, and adding or removing a unit takes one interaction each
+- [x] Entering or removing a unit re-sorts the Comp list without a manual refresh
+- [x] With empty Holdings, Comps appear in Tier order
+- [x] A lower-Tier Comp with strong unit overlap ranks above a top-Tier Comp with none (covered by a seam test)
+- [x] Every Comp stays visible; poor fits sink, nothing is hidden
+- [x] Each Comp highlights which of its units the player holds versus which are missing
+- [x] Each Comp shows its Fit score with a human-readable reason
+- [x] Ranking behavior is tested through the server HTTP API only
