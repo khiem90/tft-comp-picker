@@ -1,6 +1,7 @@
 import type {
   BoardSlot,
   Comp,
+  PatchChange,
   SetAugment,
   SetDataResponse,
   SetItem,
@@ -25,6 +26,9 @@ export interface CompsFile {
   patch: string;
   refreshedAt: string;
   source: string;
+  // Present only when the Refresh that wrote this file crossed a Patch
+  // boundary; the next same-Patch Refresh writes a file without it.
+  patchChange?: PatchChange;
   comps: Comp[];
 }
 

@@ -61,6 +61,26 @@ h1 {
   font-size: 0.9rem;
 }
 
+.patch-change {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #4a5578;
+  border-radius: 6px;
+  background: #1c2438;
+  font-size: 0.9rem;
+}
+
+.patch-change p {
+  margin: 0;
+  color: #a8c7fa;
+}
+
+.patch-change ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+  color: #b9c0d0;
+}
+
 .status {
   padding: 2rem 1rem;
   text-align: center;

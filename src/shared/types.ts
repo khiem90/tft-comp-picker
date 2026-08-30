@@ -58,6 +58,22 @@ export interface SetDataResponse {
   augments?: SetAugment[];
 }
 
+export interface TierMove {
+  name: string;
+  from: Tier;
+  to: Tier;
+}
+
+// What a Patch-crossing Refresh changed, flagged to the player so a new meta
+// gets noticed. Cleared by the next Refresh inside the same Patch.
+export interface PatchChange {
+  fromPatch: string;
+  toPatch: string;
+  addedComps: string[];
+  removedComps: string[];
+  tierMoves: TierMove[];
+}
+
 export interface CompsResponse {
   patch: string;
   refreshedAt: string;
@@ -65,5 +81,6 @@ export interface CompsResponse {
   // the last thing a Refresh produced. Non-null means rankings run on last
   // good data.
   refreshError: string | null;
+  patchChange: PatchChange | null;
   comps: RankedComp[];
 }

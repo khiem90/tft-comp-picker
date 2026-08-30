@@ -206,6 +206,30 @@ export function App() {
             Refresh failed ({comps.refreshError}), showing last good data.
           </p>
         )}
+        {comps.patchChange && (
+          <div className="patch-change">
+            <p>
+              Patch {comps.patchChange.toPatch} is live (was{" "}
+              {comps.patchChange.fromPatch}). Set data and Comps re-pulled.
+            </p>
+            <ul>
+              {comps.patchChange.addedComps.length > 0 && (
+                <li>New: {comps.patchChange.addedComps.join(", ")}</li>
+              )}
+              {comps.patchChange.removedComps.length > 0 && (
+                <li>Gone: {comps.patchChange.removedComps.join(", ")}</li>
+              )}
+              {comps.patchChange.tierMoves.length > 0 && (
+                <li>
+                  Tier moves:{" "}
+                  {comps.patchChange.tierMoves
+                    .map((move) => `${move.name} ${move.from} → ${move.to}`)
+                    .join(", ")}
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
       </header>
 
       <section className="holdings">

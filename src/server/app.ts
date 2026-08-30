@@ -1,7 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
-import type { Comp, CompFit, RankedComp, SetItem, Tier } from "../shared/types";
+import type {
+  Comp,
+  CompFit,
+  PatchChange,
+  RankedComp,
+  SetItem,
+  Tier,
+  TierMove,
+} from "../shared/types";
 import { transformSources, type SourceFetcher } from "./sources";
 
 export type { CompsFile } from "./sources";
@@ -193,6 +201,36 @@ function writeJson(dataDir: string, fileName: string, value: unknown): void {
   fs.renameSync(temp, target);
 }
 
+// Comps are matched by name across the boundary, not by id: MetaTFT's cluster
+// ids are artifacts of each stats snapshot and can be renumbered wholesale,
+// while the trait-plus-carry name is the identity a player recognizes.
+function patchChangeBetween(
+  previous: CompsFile | null,
+  next: CompsFile,
+): PatchChange | undefined {
+  if (previous === null || previous.patch === next.patch) return undefined;
+  const previousByName = new Map(previous.comps.map((comp) => [comp.name, comp]));
+  const nextNames = new Set(next.comps.map((comp) => comp.name));
+  const tierMoves: TierMove[] = [];
+  for (const comp of next.comps) {
+    const before = previousByName.get(comp.name);
+    if (before && before.tier !== comp.tier) {
+      tierMoves.push({ name: comp.name, from: before.tier, to: comp.tier });
+    }
+  }
+  return {
+    fromPatch: previous.patch,
+    toPatch: next.patch,
+    addedComps: next.comps
+      .filter((comp) => !previousByName.has(comp.name))
+      .map((comp) => comp.name),
+    removedComps: previous.comps
+      .filter((comp) => !nextNames.has(comp.name))
+      .map((comp) => comp.name),
+    tierMoves,
+  };
+}
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 export interface CreateAppOptions {
@@ -218,6 +256,14 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
         const payloads = await activeFetcher.fetchSources();
         const refreshedAt = new Date(now()).toISOString();
         const { compsFile, setData } = transformSources(payloads, refreshedAt);
+        let previous: CompsFile | null;
+        try {
+          previous = readJson<CompsFile>(dataDir, "comps.json");
+        } catch {
+          previous = null;
+        }
+        const patchChange = patchChangeBetween(previous, compsFile);
+        if (patchChange) compsFile.patchChange = patchChange;
         writeJson(dataDir, "comps.json", compsFile);
         writeJson(dataDir, "set-data.json", setData);
         refreshError = null;
@@ -278,6 +324,7 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
       patch: compsFile.patch,
       refreshedAt: compsFile.refreshedAt,
       refreshError,
+      patchChange: compsFile.patchChange ?? null,
       comps: ranked,
     });
   });
