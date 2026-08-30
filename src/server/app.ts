@@ -276,8 +276,12 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
     return inFlight;
   };
 
+  // Null means "no usable data". Both files must parse: a fresh comps.json
+  // beside a missing or corrupt set-data.json still needs the Refresh that
+  // rewrites the pair.
   const dataAgeMs = (): number | null => {
     try {
+      readJson<unknown>(dataDir, "set-data.json");
       const { refreshedAt } = readJson<CompsFile>(dataDir, "comps.json");
       const timestamp = Date.parse(refreshedAt);
       return Number.isNaN(timestamp) ? null : now() - timestamp;

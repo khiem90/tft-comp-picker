@@ -60,25 +60,33 @@ export function App() {
   const [search, setSearch] = useState("");
   const [itemSearch, setItemSearch] = useState("");
   const [augmentSearch, setAugmentSearch] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  // One error per fetch, cleared by that fetch's next success. A shared flag
+  // would let a Comps success erase a still-broken Set data read.
+  const [compsError, setCompsError] = useState<string | null>(null);
+  const [setDataError, setSetDataError] = useState<string | null>(null);
   // Bumped after a manual Refresh so both server reads run again.
   const [dataVersion, setDataVersion] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     fetchJson<SetDataResponse>("/api/set-data")
-      .then(setSetData)
-      .catch((cause: Error) => setError(cause.message));
+      .then((body) => {
+        setSetData(body);
+        setSetDataError(null);
+      })
+      .catch((cause: Error) => setSetDataError(cause.message));
   }, [dataVersion]);
 
   useEffect(() => {
     let superseded = false;
     fetchJson<CompsResponse>(compsUrl(heldUnits, heldItems, heldAugments))
       .then((body) => {
-        if (!superseded) setComps(body);
+        if (superseded) return;
+        setComps(body);
+        setCompsError(null);
       })
       .catch((cause: Error) => {
-        if (!superseded) setError(cause.message);
+        if (!superseded) setCompsError(cause.message);
       });
     return () => {
       superseded = true;
@@ -107,8 +115,31 @@ export function App() {
     });
   }, [heldUnits, heldItems, heldAugments]);
 
-  if (error) return <p className="status">Could not load Comps: {error}</p>;
-  if (!comps || !setData) return <p className="status">Loading Comps…</p>;
+  const fetchError = compsError ?? setDataError;
+
+  // A failed fetch never unmounts a working app. With no data yet the status
+  // screen offers a Retry; once data has loaded, later failures only show a
+  // banner (below) and the last good data keeps serving.
+  if (!comps || !setData) {
+    return (
+      <main>
+        {fetchError ? (
+          <>
+            <p className="status">Could not load Comps: {fetchError}</p>
+            <button
+              type="button"
+              className="header-button"
+              onClick={() => setDataVersion((version) => version + 1)}
+            >
+              Retry
+            </button>
+          </>
+        ) : (
+          <p className="status">Loading Comps…</p>
+        )}
+      </main>
+    );
+  }
 
   const query = search.trim().toLowerCase();
   const matches = query
@@ -201,6 +232,11 @@ export function App() {
         <p className="meta">
           Patch {comps.patch} · refreshed {new Date(comps.refreshedAt).toLocaleString()}
         </p>
+        {fetchError && (
+          <p className="refresh-error">
+            Could not reach the server ({fetchError}), showing last good data.
+          </p>
+        )}
         {comps.refreshError && (
           <p className="refresh-error">
             Refresh failed ({comps.refreshError}), showing last good data.

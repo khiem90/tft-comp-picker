@@ -204,6 +204,32 @@ describe("Refresh staleness trigger", () => {
     expect(response.body.refreshedAt).toBe("2026-08-30T12:00:00.000Z");
   });
 
+  it("Refreshes when set-data.json is missing beside fresh comps.json", async () => {
+    const fetcher = fakeFetcher();
+    const dataDir = seededDataDir(1 * HOUR);
+    fs.rmSync(path.join(dataDir, "set-data.json"));
+    const app = createApp({ dataDir, fetcher, now });
+
+    const response = await request(app).get("/api/set-data");
+
+    expect(response.status).toBe(200);
+    expect(fetcher.calls).toBe(1);
+    expect(response.body.patch).toBe("18.1");
+  });
+
+  it("Refreshes when set-data.json is corrupt beside fresh comps.json", async () => {
+    const fetcher = fakeFetcher();
+    const dataDir = seededDataDir(1 * HOUR);
+    fs.writeFileSync(path.join(dataDir, "set-data.json"), "{ not json");
+    const app = createApp({ dataDir, fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    expect(response.status).toBe(200);
+    expect(fetcher.calls).toBe(1);
+    expect(response.body.patch).toBe("18.1");
+  });
+
   it("does not fetch when data is fresh", async () => {
     const fetcher = fakeFetcher();
     const app = createApp({ dataDir: seededDataDir(1 * HOUR), fetcher, now });
