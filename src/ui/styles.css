@@ -19,6 +19,27 @@ h1 {
   margin-bottom: 0.25rem;
 }
 
+.header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.new-game {
+  border: 1px solid #3a4258;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  background: #232b40;
+  color: #e6e9f0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.new-game:hover {
+  background: #2e3a56;
+}
+
 .meta {
   color: #8b93a7;
   margin-top: 0;

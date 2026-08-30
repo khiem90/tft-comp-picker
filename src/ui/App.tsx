@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { CompsResponse, SetDataResponse } from "../shared/types";
+import { clearActiveGame, loadActiveGame, saveActiveGame } from "./activeGame";
 
 function fetchJson<T>(url: string): Promise<T> {
   return fetch(url).then((response) => {
@@ -50,9 +51,12 @@ function priorityState(item: string, fit: { heldItems: string[]; partialItems: s
 export function App() {
   const [comps, setComps] = useState<CompsResponse | null>(null);
   const [setData, setSetData] = useState<SetDataResponse | null>(null);
-  const [heldUnits, setHeldUnits] = useState<string[]>([]);
-  const [heldItems, setHeldItems] = useState<string[]>([]);
-  const [heldAugments, setHeldAugments] = useState<string[]>([]);
+  // One read restores the whole Active game; three separate loads could mix
+  // Holdings from different saved games if another tab wrote in between.
+  const [restored] = useState(() => loadActiveGame(localStorage));
+  const [heldUnits, setHeldUnits] = useState<string[]>(restored.units);
+  const [heldItems, setHeldItems] = useState<string[]>(restored.items);
+  const [heldAugments, setHeldAugments] = useState<string[]>(restored.augments);
   const [search, setSearch] = useState("");
   const [itemSearch, setItemSearch] = useState("");
   const [augmentSearch, setAugmentSearch] = useState("");
@@ -76,6 +80,16 @@ export function App() {
     return () => {
       superseded = true;
     };
+  }, [heldUnits, heldItems, heldAugments]);
+
+  // The Active game survives reloads: every Holdings change lands in browser
+  // storage immediately, so there is no moment where a crash loses entries.
+  useEffect(() => {
+    saveActiveGame(localStorage, {
+      units: heldUnits,
+      items: heldItems,
+      augments: heldAugments,
+    });
   }, [heldUnits, heldItems, heldAugments]);
 
   if (error) return <p className="status">Could not load Comps: {error}</p>;
@@ -119,6 +133,18 @@ export function App() {
   const removeAugment = (name: string) => {
     setHeldAugments((held) => held.filter((augment) => augment !== name));
   };
+  // One interaction, whole reset: the previous game is discarded, not archived.
+  // Storage is wiped here so the discard doesn't wait on React; the persist
+  // effect then re-saves the now-empty game, which reads back the same.
+  const startNewGame = () => {
+    clearActiveGame(localStorage);
+    setHeldUnits([]);
+    setHeldItems([]);
+    setHeldAugments([]);
+    setSearch("");
+    setItemSearch("");
+    setAugmentSearch("");
+  };
 
   // The augment picker exists only while augments can move a ranking: the
   // catalog must offer choices and at least one Comp must carry augment
@@ -141,7 +167,12 @@ export function App() {
   return (
     <main>
       <header>
-        <h1>TFT Comp Picker</h1>
+        <div className="header-row">
+          <h1>TFT Comp Picker</h1>
+          <button type="button" className="new-game" onClick={startNewGame}>
+            New game
+          </button>
+        </div>
         <p className="meta">
           Patch {comps.patch} · refreshed {new Date(comps.refreshedAt).toLocaleString()}
         </p>

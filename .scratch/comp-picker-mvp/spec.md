@@ -56,6 +56,7 @@ A local web app I keep open while playing. I enter my Holdings as the game progr
 - A good test exercises external behavior only: call the server's HTTP API, assert on the response. No tests reach into scoring helpers or refresh internals.
 - The server HTTP API is the single seam. The one injected boundary inside it is the source fetcher, which tests replace with recorded fixture payloads.
 - Behaviors to cover through that seam: ranking order (including the B-tier-fits-beats-S-tier-doesn't case and the empty-Holdings Tier-order case), live re-ranking as Holdings change, each of the three staleness reactions, the 24-hour Refresh trigger, and degraded mode when the fetcher fails.
+- One exception to the single seam: Active game persistence lives client-side and can never cross the HTTP API, so its storage codec is tested directly against a fake browser Storage. The React wiring around it stays untested.
 - Deliberately untested: the React UI (verified by eye) and live scraping against the real MetaTFT (it breaks on their schedule, not ours; a failing fixture test would prove nothing).
 - No prior art: this is a greenfield repo, so these tests set the pattern.
 
