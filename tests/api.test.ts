@@ -3,6 +3,7 @@ import path from "node:path";
 import request from "supertest";
 import { describe, expect, it } from "vitest";
 import { createApp } from "../src/server/app";
+import type { CompFit } from "../src/shared/types";
 
 const fixturesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "fixtures");
 
@@ -57,9 +58,12 @@ describe("GET /api/comps", () => {
       (comp: { id: string }) => comp.id === "wildwood-snipers",
     );
     expect(sniperComp.fit).toEqual({
-      score: 50,
+      score: 20,
       heldUnits: ["Fenwick"],
       missingUnits: ["Kaelen"],
+      heldItems: [],
+      partialItems: [],
+      missingItems: ["Guinsoo's Rageblade", "Infinity Edge", "Last Whisper"],
       reason: "Holding 1 of 2 units",
     });
   });
@@ -74,8 +78,103 @@ describe("GET /api/comps", () => {
       score: 0,
       heldUnits: [],
       missingUnits: ["Lilna", "Sylvara"],
+      heldItems: [],
+      partialItems: [],
+      missingItems: ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap"],
       reason: "No Holdings yet, ranked by Tier",
     });
+  });
+
+  it("raises a Comp's Fit when a held component builds into a best-in-slot item", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const without = await request(app).get("/api/comps");
+    const withComponent = await request(app)
+      .get("/api/comps")
+      .query({ items: ["Recurve Bow"] });
+
+    const findSnipers = (body: { comps: Array<{ id: string; fit: CompFit }> }) =>
+      body.comps.find((comp) => comp.id === "wildwood-snipers")!;
+    expect(findSnipers(without.body).fit.score).toBe(0);
+    const fit = findSnipers(withComponent.body).fit;
+    expect(fit.score).toBe(10);
+    expect(fit.partialItems).toEqual(["Guinsoo's Rageblade"]);
+    expect(fit.reason).toBe("Holding 0 of 2 units, components toward 1 of 3 items");
+  });
+
+  it("counts a held completed item fully and lists it as held", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ items: ["Warmog's Armor"] });
+
+    const bruiserComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "bruiser-brawlers",
+    );
+    expect(bruiserComp.fit.score).toBe(20);
+    expect(bruiserComp.fit.heldItems).toEqual(["Warmog's Armor"]);
+    expect(bruiserComp.fit.missingItems).toEqual(["Sunfire Cape", "Gargoyle Stoneplate"]);
+    expect(bruiserComp.fit.reason).toBe("Holding 0 of 2 units, 1 of 3 items");
+  });
+
+  it("spends a held component on one priority item, not every item sharing it", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ items: ["Sparring Gloves"] });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    // Both Infinity Edge and Last Whisper build from Sparring Gloves; one glove
+    // may only advance one of them.
+    expect(sniperComp.fit.partialItems).toEqual(["Infinity Edge"]);
+    expect(sniperComp.fit.missingItems).toEqual(["Guinsoo's Rageblade", "Last Whisper"]);
+    expect(sniperComp.fit.score).toBe(10);
+  });
+
+  it("credits a fully buildable item before splitting its components across neighbours", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ items: ["Recurve Bow", "Sparring Gloves"] });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    // Bow + Gloves is a complete Last Whisper; it must not be spent as half a
+    // Guinsoo's Rageblade plus half an Infinity Edge.
+    expect(sniperComp.fit.partialItems).toEqual(["Last Whisper"]);
+    expect(sniperComp.fit.missingItems).toEqual(["Guinsoo's Rageblade", "Infinity Edge"]);
+    expect(sniperComp.fit.score).toBe(20);
+  });
+
+  it("combines unit and item Holdings in one Fit score and reason", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ units: ["Fenwick"], items: ["Guinsoo's Rageblade"] });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    expect(sniperComp.fit.score).toBe(40);
+    expect(sniperComp.fit.heldItems).toEqual(["Guinsoo's Rageblade"]);
+    expect(sniperComp.fit.reason).toBe("Holding 1 of 2 units, 1 of 3 items");
+  });
+
+  it("lets item Holdings alone lift a lower-Tier Comp to the top", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({ items: ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate"] });
+
+    expect(response.body.comps[0].id).toBe("bruiser-brawlers");
   });
 
   it("carries each Comp's final board and item priorities", async () => {

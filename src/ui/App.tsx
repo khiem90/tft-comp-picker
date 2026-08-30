@@ -8,18 +8,47 @@ function fetchJson<T>(url: string): Promise<T> {
   });
 }
 
-function compsUrl(heldUnits: string[]): string {
+function compsUrl(heldUnits: string[], heldItems: string[]): string {
   const params = new URLSearchParams();
   for (const unit of heldUnits) params.append("units", unit);
+  for (const item of heldItems) params.append("items", item);
   const query = params.toString();
   return query ? `/api/comps?${query}` : "/api/comps";
+}
+
+interface ItemChoice {
+  name: string;
+  kind: "component" | "item";
+  hint: string;
+}
+
+// The picker offers raw components ahead of completed items; mid-game the
+// player mostly holds components.
+function itemChoices(setData: SetDataResponse): ItemChoice[] {
+  const components = [...new Set(setData.items.flatMap((item) => item.components))];
+  return [
+    ...components.map((name) => ({ name, kind: "component" as const, hint: "component" })),
+    ...setData.items.map((item) => ({
+      name: item.name,
+      kind: "item" as const,
+      hint: item.components.join(" + "),
+    })),
+  ];
+}
+
+function priorityState(item: string, fit: { heldItems: string[]; partialItems: string[] }) {
+  if (fit.heldItems.includes(item)) return "held";
+  if (fit.partialItems.includes(item)) return "partial";
+  return "missing";
 }
 
 export function App() {
   const [comps, setComps] = useState<CompsResponse | null>(null);
   const [setData, setSetData] = useState<SetDataResponse | null>(null);
   const [heldUnits, setHeldUnits] = useState<string[]>([]);
+  const [heldItems, setHeldItems] = useState<string[]>([]);
   const [search, setSearch] = useState("");
+  const [itemSearch, setItemSearch] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -30,7 +59,7 @@ export function App() {
 
   useEffect(() => {
     let superseded = false;
-    fetchJson<CompsResponse>(compsUrl(heldUnits))
+    fetchJson<CompsResponse>(compsUrl(heldUnits, heldItems))
       .then((body) => {
         if (!superseded) setComps(body);
       })
@@ -40,7 +69,7 @@ export function App() {
     return () => {
       superseded = true;
     };
-  }, [heldUnits]);
+  }, [heldUnits, heldItems]);
 
   if (error) return <p className="status">Could not load Comps: {error}</p>;
   if (!comps || !setData) return <p className="status">Loading Comps…</p>;
@@ -53,12 +82,28 @@ export function App() {
       )
     : [];
 
+  // Item Holdings are a multiset: two Giant's Belts are twice the credit, so
+  // matches never exclude what is already held and removal takes one copy.
+  const itemQuery = itemSearch.trim().toLowerCase();
+  const itemMatches = itemQuery
+    ? itemChoices(setData).filter((choice) =>
+        choice.name.toLowerCase().includes(itemQuery),
+      )
+    : [];
+
   const addUnit = (name: string) => {
     setHeldUnits((held) => [...held, name]);
     setSearch("");
   };
   const removeUnit = (name: string) => {
     setHeldUnits((held) => held.filter((unit) => unit !== name));
+  };
+  const addItem = (name: string) => {
+    setHeldItems((held) => [...held, name]);
+    setItemSearch("");
+  };
+  const removeItemAt = (index: number) => {
+    setHeldItems((held) => held.filter((_, position) => position !== index));
   };
 
   return (
@@ -74,13 +119,13 @@ export function App() {
         <h2>Your units</h2>
         <input
           type="search"
-          className="unit-search"
+          className="picker-search"
           placeholder="Search units…"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
         {matches.length > 0 && (
-          <ul className="unit-matches">
+          <ul className="picker-matches">
             {matches.map((unit) => (
               <li key={unit.name}>
                 <button type="button" onClick={() => addUnit(unit.name)}>
@@ -93,7 +138,7 @@ export function App() {
           </ul>
         )}
         {heldUnits.length > 0 ? (
-          <ul className="held-units">
+          <ul className="held-chips">
             {heldUnits.map((name) => (
               <li key={name}>
                 <button
@@ -108,6 +153,44 @@ export function App() {
           </ul>
         ) : (
           <p className="hint">No Holdings yet, Comps are in Tier order.</p>
+        )}
+      </section>
+
+      <section className="holdings">
+        <h2>Your items</h2>
+        <input
+          type="search"
+          className="picker-search"
+          placeholder="Search components and items…"
+          value={itemSearch}
+          onChange={(event) => setItemSearch(event.target.value)}
+        />
+        {itemMatches.length > 0 && (
+          <ul className="picker-matches">
+            {itemMatches.map((choice) => (
+              <li key={`${choice.kind}-${choice.name}`}>
+                <button type="button" onClick={() => addItem(choice.name)}>
+                  {choice.name}
+                  <span className="traits">{choice.hint}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        {heldItems.length > 0 && (
+          <ul className="held-chips">
+            {heldItems.map((name, index) => (
+              <li key={`${name}-${index}`}>
+                <button
+                  type="button"
+                  onClick={() => removeItemAt(index)}
+                  title={`Remove ${name}`}
+                >
+                  {name} ✕
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
 
@@ -136,7 +219,15 @@ export function App() {
             </ul>
             <p className="fit-reason">{comp.fit.reason}</p>
             <p className="priorities">
-              Items: {comp.itemPriorities.join(" → ")}
+              Items:{" "}
+              {comp.itemPriorities.map((item, index) => (
+                <span
+                  key={`${item}-${index}`}
+                  className={`priority ${priorityState(item, comp.fit)}`}
+                >
+                  {item}
+                </span>
+              ))}
             </p>
           </li>
         ))}

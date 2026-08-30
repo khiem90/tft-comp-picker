@@ -12,8 +12,14 @@
   ],
   "items": [
     { "name": "Warmog's Armor", "components": ["Giant's Belt", "Giant's Belt"] },
+    { "name": "Sunfire Cape", "components": ["Giant's Belt", "Chain Vest"] },
+    { "name": "Gargoyle Stoneplate", "components": ["Chain Vest", "Negatron Cloak"] },
     { "name": "Jeweled Gauntlet", "components": ["Needlessly Large Rod", "Sparring Gloves"] },
-    { "name": "Guinsoo's Rageblade", "components": ["Recurve Bow", "Needlessly Large Rod"] }
+    { "name": "Spear of Shojin", "components": ["B.F. Sword", "Tear of the Goddess"] },
+    { "name": "Rabadon's Deathcap", "components": ["Needlessly Large Rod", "Needlessly Large Rod"] },
+    { "name": "Guinsoo's Rageblade", "components": ["Recurve Bow", "Needlessly Large Rod"] },
+    { "name": "Infinity Edge", "components": ["B.F. Sword", "Sparring Gloves"] },
+    { "name": "Last Whisper", "components": ["Recurve Bow", "Sparring Gloves"] }
   ],
   "augments": [
     { "name": "Wild Growth", "traits": ["Wildwood"] }

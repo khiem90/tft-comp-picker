@@ -41,7 +41,7 @@ h1 {
   font-size: 1rem;
 }
 
-.unit-search {
+.picker-search {
   width: 100%;
   box-sizing: border-box;
   padding: 0.5rem 0.7rem;
@@ -52,7 +52,7 @@ h1 {
   font-size: 1rem;
 }
 
-.unit-matches {
+.picker-matches {
   list-style: none;
   padding: 0;
   margin: 0.5rem 0 0;
@@ -60,7 +60,7 @@ h1 {
   gap: 0.25rem;
 }
 
-.unit-matches button {
+.picker-matches button {
   width: 100%;
   display: flex;
   align-items: center;
@@ -75,7 +75,7 @@ h1 {
   text-align: left;
 }
 
-.unit-matches button:hover {
+.picker-matches button:hover {
   background: #2e3a56;
 }
 
@@ -91,13 +91,13 @@ h1 {
   font-weight: 700;
 }
 
-.unit-matches .traits {
+.picker-matches .traits {
   margin-left: auto;
   color: #8b93a7;
   font-size: 0.8rem;
 }
 
-.held-units {
+.held-chips {
   list-style: none;
   padding: 0;
   margin: 0.6rem 0 0;
@@ -106,7 +106,7 @@ h1 {
   gap: 0.4rem;
 }
 
-.held-units button {
+.held-chips button {
   border: none;
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
@@ -116,7 +116,7 @@ h1 {
   cursor: pointer;
 }
 
-.held-units button:hover {
+.held-chips button:hover {
   background: #4d8557;
 }
 
@@ -219,4 +219,29 @@ h1 {
   margin: 0;
   font-size: 0.9rem;
   color: #c3cadb;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.priority {
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  background: #232b40;
+  font-size: 0.82rem;
+}
+
+.priority.held {
+  background: #21402c;
+  outline: 1px solid #4d8557;
+}
+
+.priority.partial {
+  background: #3d3624;
+  outline: 1px solid #8b6f2e;
+}
+
+.priority.missing {
+  color: #8b93a7;
 }

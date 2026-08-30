@@ -18,6 +18,9 @@ export interface CompFit {
   score: number;
   heldUnits: string[];
   missingUnits: string[];
+  heldItems: string[];
+  partialItems: string[];
+  missingItems: string[];
   reason: string;
 }
 
@@ -31,11 +34,17 @@ export interface SetUnit {
   traits: string[];
 }
 
+export interface SetItem {
+  name: string;
+  components: string[];
+}
+
 export interface SetDataResponse {
   patch: string;
   setNumber: number;
   setName: string;
   units: SetUnit[];
+  items: SetItem[];
 }
 
 export interface CompsResponse {
