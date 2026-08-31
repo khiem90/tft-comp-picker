@@ -54,7 +54,9 @@
   --space-2xl: 2rem;
   --space-3xl: 3rem;
 
-  /* Off-scale gaps kept from the old stylesheet */
+  /* Off-scale gaps: most kept from the old stylesheet, 4xs added for the
+     build-item row on Core Unit portraits. */
+  --gap-4xs: 2px;
   --gap-3xs: 0.35rem;
   --gap-2xs: 0.4rem;
   --gap-xs: 0.6rem;
@@ -90,6 +92,10 @@
   --size-tier-chip: 1.8rem;
   --size-holding-tile: 44px;
   --size-trait-icon: 1.1rem;
+  --size-build-item: 18px;
+
+  /* Star-target marker on Core Unit portraits. */
+  --color-star: #f2ca5c;
 
   /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
      a literal 1100px in its media query because media queries cannot read
@@ -563,6 +569,73 @@ body {
   letter-spacing: 0.04em;
 }
 
+/* Core Units strip: the Comp's item-carrying units as portraits, build items
+   under each, star marker on Star targets. Filler stays in the board list. */
+.core-units {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.core-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.core-portrait {
+  position: relative;
+  display: block;
+  width: var(--size-holding-tile);
+  height: var(--size-holding-tile);
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.star-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--color-star);
+  font-size: var(--text-3xs);
+  letter-spacing: 0.05em;
+  background: color-mix(in srgb, var(--color-bg) 55%, transparent);
+}
+
+.core-name {
+  max-width: calc(var(--size-holding-tile) + var(--space-md));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-3xs);
+  color: var(--color-text-soft);
+}
+
+.core-items {
+  display: flex;
+  gap: var(--gap-4xs);
+}
+
+.core-item {
+  display: block;
+  width: var(--size-build-item);
+  height: var(--size-build-item);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.core-item .icon-fallback {
+  font-size: var(--text-3xs);
+}
+
 .tier-s { background: var(--tier-s); }
 .tier-a { background: var(--tier-a); }
 .tier-b { background: var(--tier-b); }
@@ -593,6 +666,14 @@ body {
 
 .slot.missing .unit {
   color: var(--color-text-muted);
+}
+
+/* Star-target marker on a board slot; a Star target is not always a Core
+   Unit, so the strip's marker alone would hide some. */
+.slot-star {
+  color: var(--color-star);
+  font-size: var(--text-3xs);
+  letter-spacing: 0.05em;
 }
 
 .fit-score {

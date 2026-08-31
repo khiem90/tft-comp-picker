@@ -520,6 +520,88 @@ describe("Comp card data", () => {
   });
 });
 
+describe("Core Units and Star targets", () => {
+  it("marks the builds units as Core Units, in builds order, with items on their slots", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    expect(faeRengar.coreUnits).toEqual([
+      "DA_18_Rengar",
+      "DA_18_Tristana",
+      "DA_18_Rammus",
+      "DA_Vi18",
+    ]);
+    // The build items themselves ride on the matching board slots; every
+    // Core Unit must have a slot that carries its build.
+    for (const api of faeRengar.coreUnits!) {
+      const slot = faeRengar.board.find((candidate) => candidate.apiName === api)!;
+      expect(slot.items.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("drops a builds unit that is not on the Comp's own board", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // Cluster 422006's builds list DA_18_Hecarim, a headliner variant that
+    // never appears in its units_string; only the three on-board units stay.
+    const comp = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422006",
+    )!;
+    expect(comp.coreUnits).toEqual(["DA_18_Aphelios", "DA_18_Lillia", "DA_18_Alune"]);
+  });
+
+  it("intersects the source's star list with the board before serving it", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // 422000's raw stars list eight units; four (Hecarim, Kha'Zix, Kog'Maw,
+    // Cassiopeia) are strays from cluster classification and must not appear.
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    expect(faeRengar.starTargets).toEqual([
+      "DA_18_Rengar",
+      "DA_18_Tristana",
+      "DA_18_Rammus",
+      "DA_Vi18",
+    ]);
+  });
+
+  it("serves an empty star list when every source star is a stray", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // 422001's only raw star (DA_18_KhaZix) is not on its board.
+    const comp = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422001",
+    )!;
+    expect(comp.starTargets).toEqual([]);
+  });
+
+  it("keeps Core Units and Star targets inside every Comp's board", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    for (const comp of response.body.comps as RankedComp[]) {
+      const boardApis = new Set(comp.board.map((slot) => slot.apiName));
+      expect(comp.coreUnits!.length).toBeGreaterThan(0);
+      // The source marks four builds per cluster; filtering can only shrink.
+      expect(comp.coreUnits!.length).toBeLessThanOrEqual(4);
+      for (const api of comp.coreUnits!) expect(boardApis.has(api)).toBe(true);
+      for (const api of comp.starTargets!) expect(boardApis.has(api)).toBe(true);
+    }
+  });
+});
+
 describe("Augment mapping", () => {
   it("maps non-empty top_augments onto Comp augments so augment Fit turns on", async () => {
     const payloads = recordedPayloads();

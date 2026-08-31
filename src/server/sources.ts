@@ -113,6 +113,9 @@ interface MetaTftNamePart {
 interface MetaTftCluster {
   units_string: string;
   traits_string: string;
+  // Units players commonly 3-star. Includes strays from cluster
+  // classification; only the intersection with units_string is served.
+  stars: string[];
   // The leveling archetype; served verbatim as Playstyle.
   levelling: string;
   name: MetaTftNamePart[];
@@ -400,6 +403,13 @@ export function transformSources(
           ];
         });
 
+      // Core Units are the builds units still on this board; builds also
+      // list headliner variants the board never fields. Board membership
+      // doubles as name resolution, since only resolvable units reach it.
+      const boardApiNames = new Set(board.map((slot) => slot.apiName));
+      const coreUnits = [...buildsByUnit.keys()].filter((api) => boardApiNames.has(api));
+      const starTargets = (cluster.stars ?? []).filter((api) => boardApiNames.has(api));
+
       const name = cluster.name
         .map((part) =>
           part.type === "trait"
@@ -439,6 +449,8 @@ export function transformSources(
         traits: decodeTraits(cluster.traits_string, traitsByApi),
         playstyle: cluster.levelling,
         board,
+        coreUnits,
+        starTargets,
         itemPriorities: priorityRefs.map((ref) => ref.name),
         itemPriorityApiNames: priorityRefs.map((ref) => ref.apiName),
       };

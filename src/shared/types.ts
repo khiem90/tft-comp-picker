@@ -33,6 +33,16 @@ export interface Comp {
   // "Fast 9", "lvl 5", "lvl 6", "lvl 7", "Standard".
   playstyle?: string;
   board: BoardSlot[];
+  // apiNames of this Comp's Core Units: the item-carrying units the meta
+  // source marks in its builds (four per cluster, fewer after off-board
+  // headliner variants are dropped), in the source's order. Their build
+  // items ride on the matching board slots. Every other board unit is
+  // filler. Optional because data files written before this field lack it.
+  coreUnits?: string[];
+  // apiNames of the Star targets: the meta source's stars list intersected
+  // with this board. The raw list carries strays from cluster classification
+  // and is never served unfiltered. Optional like coreUnits.
+  starTargets?: string[];
   itemPriorities: string[];
   // Aligned index-for-index with itemPriorities.
   itemPriorityApiNames: string[];

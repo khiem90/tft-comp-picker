@@ -212,7 +212,11 @@ export function App() {
             <h2 className="column-title">Top Comps</h2>
             <CompList
               comps={comps.comps}
-              traitIcons={new Map(setData.traits.map((trait) => [trait.apiName, trait.icon]))}
+              icons={{
+                traits: new Map(setData.traits.map((trait) => [trait.apiName, trait.icon])),
+                units: new Map(setData.units.map((unit) => [unit.apiName, unit.icon])),
+                items: new Map(setData.items.map((item) => [item.apiName, item.icon])),
+              }}
             />
           </section>
 
