@@ -210,7 +210,10 @@ export function App() {
 
           <section className="comp-column">
             <h2 className="column-title">Top Comps</h2>
-            <CompList comps={comps.comps} />
+            <CompList
+              comps={comps.comps}
+              traitIcons={new Map(setData.traits.map((trait) => [trait.apiName, trait.icon]))}
+            />
           </section>
 
           <aside className="rail rail-status">

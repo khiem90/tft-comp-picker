@@ -1,4 +1,5 @@
 import type { CompFit, RankedComp } from "../../shared/types";
+import { IconTile } from "./IconTile";
 
 function priorityState(item: string, fit: Pick<CompFit, "heldItems" | "partialItems">) {
   if (fit.heldItems.includes(item)) return "held";
@@ -8,16 +9,34 @@ function priorityState(item: string, fit: Pick<CompFit, "heldItems" | "partialIt
 
 interface CompCardProps {
   comp: RankedComp;
+  // Position in the ranked list, 1-based.
+  rank: number;
+  traitIcons: ReadonlyMap<string, string | undefined>;
 }
 
-export function CompCard({ comp }: CompCardProps) {
+export function CompCard({ comp, rank, traitIcons }: CompCardProps) {
+  const traits = comp.traits ?? [];
   return (
     <li className="comp">
       <div className="comp-header">
-        <span className={`tier tier-${comp.tier.toLowerCase()}`}>{comp.tier}</span>
+        <span className="rank-badge">{rank}</span>
         <h2>{comp.name}</h2>
-        <span className="fit-score">Fit {comp.fit.score}</span>
+        <span className={`tier tier-${comp.tier.toLowerCase()}`}>{comp.tier}</span>
+        <span className="fit-score">Fit {comp.fit.score}%</span>
       </div>
+      {(traits.length > 0 || comp.playstyle) && (
+        <ul className="trait-chips">
+          {traits.map((trait) => (
+            <li key={trait.apiName} className="trait-chip">
+              <span className="trait-icon">
+                <IconTile src={traitIcons.get(trait.apiName)} label={trait.name} />
+              </span>
+              {trait.count} {trait.name}
+            </li>
+          ))}
+          {comp.playstyle && <li className="playstyle-chip">{comp.playstyle}</li>}
+        </ul>
+      )}
       <ul className="board">
         {comp.board.map((slot) => (
           <li

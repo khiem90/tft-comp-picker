@@ -13,10 +13,25 @@ export interface BoardSlot {
   itemApiNames: string[];
 }
 
+// A trait a Comp activates, decoded from the meta source's trait string
+// against Set data breakpoints. count is the true active count including
+// emblems; a tally of the Comp's unit list would miss them.
+export interface CompTrait {
+  name: string;
+  apiName: string;
+  count: number;
+}
+
 export interface Comp {
   id: string;
   name: string;
   tier: Tier;
+  // Optional because data files written before trait decoding and Playstyle
+  // existed lack them; the UI must not assume either.
+  traits?: CompTrait[];
+  // The meta source's levelling enum verbatim. Known values: "Fast 8",
+  // "Fast 9", "lvl 5", "lvl 6", "lvl 7", "Standard".
+  playstyle?: string;
   board: BoardSlot[];
   itemPriorities: string[];
   // Aligned index-for-index with itemPriorities.

@@ -89,6 +89,7 @@
   --size-cost-dot: 1.3rem;
   --size-tier-chip: 1.8rem;
   --size-holding-tile: 44px;
+  --size-trait-icon: 1.1rem;
 
   /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
      a literal 1100px in its media query because media queries cannot read
@@ -498,6 +499,68 @@ body {
   border-radius: var(--radius-sm);
   font-weight: var(--weight-bold);
   background: var(--tier-none);
+}
+
+/* Rank badge: the card's position in the ranked list. Same footprint as the
+   Tier chip so the header columns line up card to card. */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-tier-chip);
+  height: var(--size-tier-chip);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface-raised);
+  color: var(--color-highlight);
+  font-weight: var(--weight-bold);
+}
+
+/* Trait chips: the breakpoints this Comp activates, icon plus true count.
+   The Playstyle chip rides at the end of the same row. */
+.trait-chips {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap-2xs);
+}
+
+.trait-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  border-radius: var(--radius-pill);
+  padding: var(--pad-pill);
+  background: var(--color-surface-raised);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.trait-icon {
+  display: inline-flex;
+  width: var(--size-trait-icon);
+  height: var(--size-trait-icon);
+  border-radius: var(--radius-round);
+  overflow: hidden;
+}
+
+.trait-icon .icon-fallback {
+  font-size: var(--text-3xs);
+}
+
+.playstyle-chip {
+  border-radius: var(--radius-pill);
+  padding: var(--pad-pill);
+  border: 1px solid var(--color-notice-border);
+  background: var(--color-notice-bg);
+  color: var(--color-notice-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .tier-s { background: var(--tier-s); }

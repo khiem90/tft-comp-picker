@@ -179,6 +179,23 @@ describe("GET /api/comps", () => {
     expect(response.body.comps[0].id).toBe("bruiser-brawlers");
   });
 
+  it("scores a full-match Holdings set at 100 without changing the ranking rule", async () => {
+    const app = createApp({ dataDir: fixturesDir });
+
+    const response = await request(app)
+      .get("/api/comps")
+      .query({
+        units: ["Fenwick", "Kaelen"],
+        items: ["Guinsoo's Rageblade", "Infinity Edge", "Last Whisper"],
+      });
+
+    const sniperComp = response.body.comps.find(
+      (comp: { id: string }) => comp.id === "wildwood-snipers",
+    );
+    expect(sniperComp.fit.score).toBe(100);
+    expect(response.body.comps[0].id).toBe("wildwood-snipers");
+  });
+
   it("carries each Comp's final board and item priorities", async () => {
     const app = createApp({ dataDir: fixturesDir });
 

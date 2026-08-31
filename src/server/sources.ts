@@ -1,6 +1,7 @@
 import type {
   BoardSlot,
   Comp,
+  CompTrait,
   PatchChange,
   SetAugment,
   SetComponent,
@@ -111,6 +112,9 @@ interface MetaTftNamePart {
 
 interface MetaTftCluster {
   units_string: string;
+  traits_string: string;
+  // The leveling archetype; served verbatim as Playstyle.
+  levelling: string;
   name: MetaTftNamePart[];
   overall: { count: number; avg: number };
   builds: MetaTftBuild[];
@@ -136,6 +140,10 @@ interface CDragonTrait {
   apiName: string;
   name: string;
   icon?: string;
+  // The breakpoint ladder, lowest first. MetaTFT's traits_string indexes
+  // into it 1-based. minUnits is null on breakpoint-less special traits
+  // (recorded: DA_18_Eclipse).
+  effects?: Array<{ minUnits: number | null }>;
 }
 
 interface CDragonItem {
@@ -179,6 +187,34 @@ function augmentIds(topAugments: unknown[]): string[] {
     }
   }
   return ids;
+}
+
+// Decodes MetaTFT's traits_string ("DA_18_Fae_2, ...") against the Set data
+// breakpoint ladders. The trailing number is a 1-based index into the trait's
+// minUnits list, not a unit count, and the split must happen on the last
+// underscore because apiNames themselves contain underscores and digits.
+// Undecodable entries are dropped: better a missing chip than a made-up
+// count. Never tally the Comp's unit list instead; it misses emblems.
+function decodeTraits(
+  traitsString: string,
+  traitsByApi: Map<string, CDragonTrait>,
+): CompTrait[] {
+  return traitsString
+    .split(",")
+    .map((entry) => entry.trim())
+    .flatMap((entry) => {
+      const separator = entry.lastIndexOf("_");
+      if (separator === -1) return [];
+      const trait = traitsByApi.get(entry.slice(0, separator));
+      const indexPart = entry.slice(separator + 1);
+      if (!trait || !/^\d+$/.test(indexPart)) return [];
+      const minUnits = trait.effects?.[Number(indexPart) - 1]?.minUnits;
+      // null happens (DA_18_Eclipse's one breakpoint has minUnits: null), so
+      // anything non-numeric drops the chip.
+      if (typeof minUnits !== "number") return [];
+      return [{ name: trait.name, apiName: trait.apiName, count: minUnits }];
+    })
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
 function resolveNames(apis: string[], names: Map<string, string>): string[] {
@@ -243,6 +279,7 @@ export function transformSources(
   if (!set) throw new Error("Community Dragon payload has no Set 18 entry");
 
   const championsByApi = new Map(set.champions.map((champ) => [champ.apiName, champ]));
+  const traitsByApi = new Map(set.traits.map((trait) => [trait.apiName, trait]));
   const traitNames = new Map(set.traits.map((trait) => [trait.apiName, trait.name]));
   const itemNames = new Map(cdragon.items.map((item) => [item.apiName, item.name]));
   const itemsByApi = new Map(cdragon.items.map((item) => [item.apiName, item]));
@@ -399,6 +436,8 @@ export function transformSources(
         id,
         name,
         tier: tierFor(cluster.overall.avg),
+        traits: decodeTraits(cluster.traits_string, traitsByApi),
+        playstyle: cluster.levelling,
         board,
         itemPriorities: priorityRefs.map((ref) => ref.name),
         itemPriorityApiNames: priorityRefs.map((ref) => ref.apiName),

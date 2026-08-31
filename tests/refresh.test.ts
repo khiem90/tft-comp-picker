@@ -424,6 +424,102 @@ describe("apiName preservation", () => {
   });
 });
 
+describe("Comp card data", () => {
+  it("decodes trait breakpoints from traits_string, including emblem contributions", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    // The board holds three Fae units (Lillia, Rakan, Tristana); the fourth
+    // comes from Rengar's Fae Emblem. Only traits_string sees it: a tally of
+    // the unit list would say 3.
+    expect(faeRengar.traits).toEqual([
+      { name: "Fae", apiName: "DA_18_Fae", count: 4 },
+      { name: "Sprykin", apiName: "DA_18_Sprykin", count: 3 },
+      { name: "Defender", apiName: "DA_18_Defender", count: 2 },
+      { name: "Juggernaut", apiName: "DA_Juggernaut18", count: 2 },
+      { name: "Rival", apiName: "DA_18_Rival", count: 1 },
+    ]);
+  });
+
+  it("drops a trait whose breakpoint ladder carries no count instead of inventing one", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // Cluster 422038's traits_string includes DA_18_Eclipse_1, but Eclipse's
+    // one recorded breakpoint has minUnits: null. No honest count exists, so
+    // the chip is dropped rather than faked.
+    const eclipseComp = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422038",
+    )!;
+    expect(eclipseComp.traits!.length).toBeGreaterThan(0);
+    expect(eclipseComp.traits!.map((trait) => trait.apiName)).not.toContain(
+      "DA_18_Eclipse",
+    );
+  });
+
+  it("decodes every cluster's traits against Set data breakpoints", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const [comps, setData] = await Promise.all([
+      request(app).get("/api/comps"),
+      request(app).get("/api/set-data"),
+    ]);
+
+    const traitApis = new Set(
+      (setData.body.traits as Array<{ apiName: string }>).map((t) => t.apiName),
+    );
+    for (const comp of comps.body.comps as RankedComp[]) {
+      expect(comp.traits!.length).toBeGreaterThan(0);
+      for (const trait of comp.traits!) {
+        expect(traitApis.has(trait.apiName)).toBe(true);
+        expect(trait.count).toBeGreaterThanOrEqual(1);
+      }
+    }
+  });
+
+  it("passes the levelling enum through as Playstyle", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const comps: RankedComp[] = response.body.comps;
+    expect(comps.find((comp) => comp.id === "422000")!.playstyle).toBe("lvl 7");
+    const playstyles = new Set(comps.map((comp) => comp.playstyle));
+    expect([...playstyles].sort()).toEqual([
+      "Fast 8",
+      "Fast 9",
+      "Standard",
+      "lvl 5",
+      "lvl 6",
+      "lvl 7",
+    ]);
+  });
+
+  it("scores a full-match Holdings set at 100 and ranks it first", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const empty = await request(app).get("/api/comps");
+    const faeRengar = (empty.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const fullMatch = await request(app).get("/api/comps").query({
+      units: faeRengar.board.map((slot) => slot.unit),
+      items: faeRengar.itemPriorities,
+    });
+
+    const held = (fullMatch.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    expect(held.fit.score).toBe(100);
+    expect(fullMatch.body.comps[0].id).toBe("422000");
+  });
+});
+
 describe("Augment mapping", () => {
   it("maps non-empty top_augments onto Comp augments so augment Fit turns on", async () => {
     const payloads = recordedPayloads();
