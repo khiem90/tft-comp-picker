@@ -2,14 +2,47 @@ import type { Tier } from "../../shared/types";
 import type { FilterOptions, FilterSelection } from "../filters";
 import { anyFilterActive, EMPTY_FILTERS } from "../filters";
 
+// One filter group: a labeled dropdown whose empty value means "All", the
+// group's off state. onChange gets the selected option value, or null for
+// All.
+function FilterGroup({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: { value: string; label: string }[];
+  onChange: (value: string | null) => void;
+}) {
+  return (
+    <label className="filter-group">
+      <span className="filter-label">{label}</span>
+      <select
+        className="filter-select"
+        value={value}
+        onChange={(event) => onChange(event.target.value || null)}
+      >
+        <option value="">All</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 interface FiltersPanelProps {
   options: FilterOptions;
   selection: FilterSelection;
   onSelectionChange: (selection: FilterSelection) => void;
 }
 
-// Right-rail filter groups, one dropdown each like the mock. An empty select
-// value means "All", the group's off state; Clear All resets every group.
+// Right-rail filter groups, one dropdown each like the mock; Clear All
+// resets every group at once.
 export function FiltersPanel({
   options,
   selection,
@@ -28,66 +61,32 @@ export function FiltersPanel({
           Clear All
         </button>
       </div>
-      <label className="filter-group">
-        <span className="filter-label">Tier</span>
-        <select
-          className="filter-select"
-          value={selection.tier ?? ""}
-          onChange={(event) =>
-            onSelectionChange({
-              ...selection,
-              tier: (event.target.value || null) as Tier | null,
-            })
-          }
-        >
-          <option value="">All</option>
-          {options.tiers.map((tier) => (
-            <option key={tier} value={tier}>
-              {tier}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label className="filter-group">
-        <span className="filter-label">Trait</span>
-        <select
-          className="filter-select"
-          value={selection.trait ?? ""}
-          onChange={(event) =>
-            onSelectionChange({
-              ...selection,
-              trait: event.target.value || null,
-            })
-          }
-        >
-          <option value="">All</option>
-          {options.traits.map((trait) => (
-            <option key={trait.apiName} value={trait.apiName}>
-              {trait.name}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label className="filter-group">
-        <span className="filter-label">Playstyle</span>
-        <select
-          className="filter-select"
-          value={selection.playstyle ?? ""}
-          onChange={(event) =>
-            onSelectionChange({
-              ...selection,
-              playstyle: event.target.value || null,
-            })
-          }
-        >
-          <option value="">All</option>
-          {options.playstyles.map((playstyle) => (
-            <option key={playstyle} value={playstyle}>
-              {playstyle}
-            </option>
-          ))}
-        </select>
-      </label>
+      <FilterGroup
+        label="Tier"
+        value={selection.tier ?? ""}
+        options={options.tiers.map((tier) => ({ value: tier, label: tier }))}
+        onChange={(tier) =>
+          onSelectionChange({ ...selection, tier: tier as Tier | null })
+        }
+      />
+      <FilterGroup
+        label="Trait"
+        value={selection.trait ?? ""}
+        options={options.traits.map((trait) => ({
+          value: trait.apiName,
+          label: trait.name,
+        }))}
+        onChange={(trait) => onSelectionChange({ ...selection, trait })}
+      />
+      <FilterGroup
+        label="Playstyle"
+        value={selection.playstyle ?? ""}
+        options={options.playstyles.map((playstyle) => ({
+          value: playstyle,
+          label: playstyle,
+        }))}
+        onChange={(playstyle) => onSelectionChange({ ...selection, playstyle })}
+      />
     </div>
   );
 }

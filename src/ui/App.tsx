@@ -6,6 +6,7 @@ import {
   EMPTY_FILTERS,
   filterOptions,
   matchesFilters,
+  pruneFilters,
   type FilterSelection,
 } from "./filters";
 import { AppHeader } from "./components/AppHeader";
@@ -85,6 +86,15 @@ export function App() {
       superseded = true;
     };
   }, [heldUnits, heldItems, heldAugments, dataVersion]);
+
+  // A Refresh can remove a Tier, Trait, or Playstyle from the data; a
+  // selection pointing at a vanished option would filter everything out
+  // while its dropdown shows All. Vanished selections reset to All for real.
+  useEffect(() => {
+    if (!comps) return;
+    const options = filterOptions(comps.comps);
+    setFilters((current) => pruneFilters(current, options));
+  }, [comps]);
 
   // Whether the Refresh succeeded or not, re-read from the server: on failure
   // the response carries refreshError, which is how the failure is shown.
