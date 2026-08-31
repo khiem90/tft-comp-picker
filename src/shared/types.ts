@@ -1,9 +1,16 @@
 export type Tier = "S" | "A" | "B" | "C" | "D";
 
+// apiName is CommunityDragon's stable identifier, preserved everywhere a
+// unit, item, or trait crosses the API: it is the join key for icon paths and
+// for MetaTFT's trait strings, and item display names are not unique enough
+// to join on (the recorded payload has 756 items behind 566 names).
 export interface BoardSlot {
   unit: string;
+  apiName: string;
   cost: number;
   items: string[];
+  // Aligned index-for-index with items.
+  itemApiNames: string[];
 }
 
 export interface Comp {
@@ -12,6 +19,8 @@ export interface Comp {
   tier: Tier;
   board: BoardSlot[];
   itemPriorities: string[];
+  // Aligned index-for-index with itemPriorities.
+  itemPriorityApiNames: string[];
   // Augments the source reports as synergizing with this Comp. Absent while
   // the source publishes no augment stats (MetaTFT's top_augments is empty
   // as of patch 18.1); augment Fit turns itself on when this fills.
@@ -35,13 +44,25 @@ export interface RankedComp extends Comp {
 
 export interface SetUnit {
   name: string;
+  apiName: string;
   cost: number;
+  // Display names; join to SetTrait.name. MetaTFT speaks trait apiNames.
   traits: string[];
 }
 
 export interface SetItem {
   name: string;
+  apiName: string;
   components: string[];
+  // Aligned index-for-index with components.
+  componentApiNames: string[];
+}
+
+// Both keys ship because the two sides of every trait join disagree: champion
+// trait lists carry display names, MetaTFT's trait strings carry apiNames.
+export interface SetTrait {
+  name: string;
+  apiName: string;
 }
 
 export interface SetAugment {
@@ -54,6 +75,7 @@ export interface SetDataResponse {
   setNumber: number;
   setName: string;
   units: SetUnit[];
+  traits: SetTrait[];
   items: SetItem[];
   augments?: SetAugment[];
 }

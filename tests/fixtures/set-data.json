@@ -3,23 +3,75 @@
   "setNumber": 18,
   "setName": "Enchanted Wilds",
   "units": [
-    { "name": "Grib", "cost": 1, "traits": ["Bruiser"] },
-    { "name": "Lilna", "cost": 2, "traits": ["Faerie", "Spellweaver"] },
-    { "name": "Fenwick", "cost": 3, "traits": ["Wildwood", "Sniper"] },
-    { "name": "Thornmaw", "cost": 4, "traits": ["Wildwood", "Bruiser"] },
-    { "name": "Kaelen", "cost": 4, "traits": ["Sniper"] },
-    { "name": "Sylvara", "cost": 5, "traits": ["Faerie", "Spellweaver"] }
+    { "name": "Grib", "apiName": "DA_18_Grib", "cost": 1, "traits": ["Bruiser"] },
+    { "name": "Lilna", "apiName": "DA_18_Lilna", "cost": 2, "traits": ["Faerie", "Spellweaver"] },
+    { "name": "Fenwick", "apiName": "DA_18_Fenwick", "cost": 3, "traits": ["Wildwood", "Sniper"] },
+    { "name": "Thornmaw", "apiName": "DA_18_Thornmaw", "cost": 4, "traits": ["Wildwood", "Bruiser"] },
+    { "name": "Kaelen", "apiName": "DA_18_Kaelen", "cost": 4, "traits": ["Sniper"] },
+    { "name": "Sylvara", "apiName": "DA_18_Sylvara", "cost": 5, "traits": ["Faerie", "Spellweaver"] }
+  ],
+  "traits": [
+    { "name": "Bruiser", "apiName": "DA_18_Bruiser" },
+    { "name": "Faerie", "apiName": "DA_18_Faerie" },
+    { "name": "Sniper", "apiName": "DA_18_Sniper" },
+    { "name": "Spellweaver", "apiName": "DA_18_Spellweaver" },
+    { "name": "Wildwood", "apiName": "DA_18_Wildwood" }
   ],
   "items": [
-    { "name": "Warmog's Armor", "components": ["Giant's Belt", "Giant's Belt"] },
-    { "name": "Sunfire Cape", "components": ["Giant's Belt", "Chain Vest"] },
-    { "name": "Gargoyle Stoneplate", "components": ["Chain Vest", "Negatron Cloak"] },
-    { "name": "Jeweled Gauntlet", "components": ["Needlessly Large Rod", "Sparring Gloves"] },
-    { "name": "Spear of Shojin", "components": ["B.F. Sword", "Tear of the Goddess"] },
-    { "name": "Rabadon's Deathcap", "components": ["Needlessly Large Rod", "Needlessly Large Rod"] },
-    { "name": "Guinsoo's Rageblade", "components": ["Recurve Bow", "Needlessly Large Rod"] },
-    { "name": "Infinity Edge", "components": ["B.F. Sword", "Sparring Gloves"] },
-    { "name": "Last Whisper", "components": ["Recurve Bow", "Sparring Gloves"] }
+    {
+      "name": "Warmog's Armor",
+      "apiName": "DA_WarmogsArmor",
+      "components": ["Giant's Belt", "Giant's Belt"],
+      "componentApiNames": ["DA_Component_GiantsBelt", "DA_Component_GiantsBelt"]
+    },
+    {
+      "name": "Sunfire Cape",
+      "apiName": "DA_SunfireCape",
+      "components": ["Giant's Belt", "Chain Vest"],
+      "componentApiNames": ["DA_Component_GiantsBelt", "DA_Component_ChainVest"]
+    },
+    {
+      "name": "Gargoyle Stoneplate",
+      "apiName": "DA_GargoyleStoneplate",
+      "components": ["Chain Vest", "Negatron Cloak"],
+      "componentApiNames": ["DA_Component_ChainVest", "DA_Component_NegatronCloak"]
+    },
+    {
+      "name": "Jeweled Gauntlet",
+      "apiName": "DA_JeweledGauntlet",
+      "components": ["Needlessly Large Rod", "Sparring Gloves"],
+      "componentApiNames": ["DA_Component_NeedlesslyLargeRod", "DA_Component_SparringGloves"]
+    },
+    {
+      "name": "Spear of Shojin",
+      "apiName": "DA_SpearOfShojin",
+      "components": ["B.F. Sword", "Tear of the Goddess"],
+      "componentApiNames": ["DA_Component_BFSword", "DA_Component_TearOfTheGoddess"]
+    },
+    {
+      "name": "Rabadon's Deathcap",
+      "apiName": "DA_RabadonsDeathcap",
+      "components": ["Needlessly Large Rod", "Needlessly Large Rod"],
+      "componentApiNames": ["DA_Component_NeedlesslyLargeRod", "DA_Component_NeedlesslyLargeRod"]
+    },
+    {
+      "name": "Guinsoo's Rageblade",
+      "apiName": "DA_GuinsoosRageblade",
+      "components": ["Recurve Bow", "Needlessly Large Rod"],
+      "componentApiNames": ["DA_Component_RecurveBow", "DA_Component_NeedlesslyLargeRod"]
+    },
+    {
+      "name": "Infinity Edge",
+      "apiName": "DA_InfinityEdge",
+      "components": ["B.F. Sword", "Sparring Gloves"],
+      "componentApiNames": ["DA_Component_BFSword", "DA_Component_SparringGloves"]
+    },
+    {
+      "name": "Last Whisper",
+      "apiName": "DA_LastWhisper",
+      "components": ["Recurve Bow", "Sparring Gloves"],
+      "componentApiNames": ["DA_Component_RecurveBow", "DA_Component_SparringGloves"]
+    }
   ],
   "augments": [
     { "name": "Wild Growth", "traits": ["Wildwood"] }

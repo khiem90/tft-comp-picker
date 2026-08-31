@@ -5,6 +5,7 @@ import type {
   SetAugment,
   SetDataResponse,
   SetItem,
+  SetTrait,
   SetUnit,
   Tier,
 } from "../shared/types";
@@ -157,6 +158,20 @@ function resolveNames(apis: string[], names: Map<string, string>): string[] {
     .filter((name): name is string => name !== undefined);
 }
 
+// An item reference keeps display name and apiName together so the payload's
+// parallel arrays can never drift out of alignment.
+interface ItemRef {
+  name: string;
+  apiName: string;
+}
+
+function resolveItemRefs(apis: string[], names: Map<string, string>): ItemRef[] {
+  return apis.flatMap((api) => {
+    const name = names.get(api);
+    return name === undefined ? [] : [{ name, apiName: api }];
+  });
+}
+
 export interface TransformedData {
   compsFile: CompsFile;
   setData: SetDataResponse;
@@ -194,8 +209,17 @@ export function transformSources(
 
   const units: SetUnit[] = set.champions
     .filter((champ) => champ.traits.length > 0)
-    .map((champ) => ({ name: champ.name, cost: champ.cost, traits: champ.traits }))
+    .map((champ) => ({
+      name: champ.name,
+      apiName: champ.apiName,
+      cost: champ.cost,
+      traits: champ.traits,
+    }))
     .sort((a, b) => a.cost - b.cost || a.name.localeCompare(b.name));
+
+  const traits: SetTrait[] = set.traits
+    .map((trait) => ({ name: trait.name, apiName: trait.apiName }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const componentName = (api: string): string => itemNames.get(api) ?? api;
   const items: SetItem[] = cdragon.items
@@ -207,7 +231,9 @@ export function transformSources(
     )
     .map((item) => ({
       name: item.name,
+      apiName: item.apiName,
       components: item.composition.map(componentName),
+      componentApiNames: item.composition,
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -224,18 +250,19 @@ export function transformSources(
     setNumber: 18,
     setName: "Set 18",
     units,
+    traits,
     items,
     augments,
   };
 
   const comps: Comp[] = Object.entries(compsData.results.data.cluster_details)
     .map(([id, cluster]) => {
-      const buildsByUnit = new Map<string, string[]>();
+      const buildsByUnit = new Map<string, ItemRef[]>();
       for (const build of cluster.builds) {
         // builds also list headliner variants that are not on this board; and
         // the first entry per unit is its top build.
         if (!buildsByUnit.has(build.unit)) {
-          buildsByUnit.set(build.unit, resolveNames(build.buildName, itemNames));
+          buildsByUnit.set(build.unit, resolveItemRefs(build.buildName, itemNames));
         }
       }
 
@@ -244,11 +271,14 @@ export function transformSources(
         .flatMap((unitApi) => {
           const champ = championsByApi.get(unitApi);
           if (!champ) return [];
+          const buildRefs = buildsByUnit.get(unitApi) ?? [];
           return [
             {
               unit: champ.name,
+              apiName: champ.apiName,
               cost: champ.cost,
-              items: buildsByUnit.get(unitApi) ?? [],
+              items: buildRefs.map((ref) => ref.name),
+              itemApiNames: buildRefs.map((ref) => ref.apiName),
             },
           ];
         });
@@ -263,15 +293,23 @@ export function transformSources(
 
       // The Fit item pool is top_itemNames plus every carry's best-in-slot
       // build (recon gap 3): a held build item earns credit even when it
-      // misses the cluster-wide top list.
-      const topItems = resolveNames(
+      // misses the cluster-wide top list. Dedup stays keyed by display name
+      // (the first apiName behind a name wins) so the visible list is exactly
+      // what it was before apiNames rode along.
+      const topRefs = resolveItemRefs(
         cluster.top_itemNames.map((entry) => entry.itemNames),
         itemNames,
       );
-      const buildItems = cluster.builds.flatMap((build) =>
-        resolveNames(build.buildName, itemNames),
+      const buildRefs = cluster.builds.flatMap((build) =>
+        resolveItemRefs(build.buildName, itemNames),
       );
-      const itemPriorities = [...new Set([...topItems, ...buildItems])];
+      const seenPriorities = new Set<string>();
+      const priorityRefs: ItemRef[] = [];
+      for (const ref of [...topRefs, ...buildRefs]) {
+        if (seenPriorities.has(ref.name)) continue;
+        seenPriorities.add(ref.name);
+        priorityRefs.push(ref);
+      }
 
       const compAugments = augmentIds(cluster.top_augments ?? [])
         .filter((api) => augmentApis.has(api))
@@ -282,7 +320,8 @@ export function transformSources(
         name,
         tier: tierFor(cluster.overall.avg),
         board,
-        itemPriorities,
+        itemPriorities: priorityRefs.map((ref) => ref.name),
+        itemPriorityApiNames: priorityRefs.map((ref) => ref.apiName),
       };
       if (compAugments.length > 0) comp.augments = compAugments;
       return { comp, avg: cluster.overall.avg };

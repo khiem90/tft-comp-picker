@@ -189,13 +189,30 @@ describe("GET /api/comps", () => {
     );
     expect(sniperComp.tier).toBe("A");
     expect(sniperComp.board).toEqual([
-      { unit: "Fenwick", cost: 3, items: ["Guinsoo's Rageblade"] },
-      { unit: "Kaelen", cost: 4, items: ["Infinity Edge", "Last Whisper"] },
+      {
+        unit: "Fenwick",
+        apiName: "DA_18_Fenwick",
+        cost: 3,
+        items: ["Guinsoo's Rageblade"],
+        itemApiNames: ["DA_GuinsoosRageblade"],
+      },
+      {
+        unit: "Kaelen",
+        apiName: "DA_18_Kaelen",
+        cost: 4,
+        items: ["Infinity Edge", "Last Whisper"],
+        itemApiNames: ["DA_InfinityEdge", "DA_LastWhisper"],
+      },
     ]);
     expect(sniperComp.itemPriorities).toEqual([
       "Guinsoo's Rageblade",
       "Infinity Edge",
       "Last Whisper",
+    ]);
+    expect(sniperComp.itemPriorityApiNames).toEqual([
+      "DA_GuinsoosRageblade",
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
     ]);
   });
 });

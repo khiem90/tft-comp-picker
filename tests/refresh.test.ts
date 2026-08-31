@@ -318,6 +318,112 @@ describe("Degraded mode", () => {
   });
 });
 
+describe("apiName preservation", () => {
+  // The join key later slices need: icon paths and MetaTFT trait strings both
+  // speak apiName, and 756 Community Dragon items share only 566 display
+  // names, so a name join is ambiguous where an apiName join is not.
+  interface NamedApi {
+    name: string;
+    apiName: string;
+  }
+
+  it("carries apiName on every Set data unit, item, and trait", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/set-data");
+
+    const units: Array<NamedApi & { traits: string[] }> = response.body.units;
+    for (const unit of units) expect(unit.apiName).toBeTruthy();
+    expect(units.find((unit) => unit.name === "Rengar")!.apiName).toBe("DA_18_Rengar");
+
+    const items: Array<NamedApi & { components: string[]; componentApiNames: string[] }> =
+      response.body.items;
+    for (const item of items) {
+      expect(item.apiName).toBeTruthy();
+      expect(item.componentApiNames.length).toBe(item.components.length);
+    }
+    const guinsoos = items.find((item) => item.name === "Guinsoo's Rageblade")!;
+    expect(guinsoos.apiName).toBe("DA_GuinsoosRageblade");
+    expect(guinsoos.componentApiNames).toEqual([
+      "DA_Component_RecurveBow",
+      "DA_Component_NeedlesslyLargeRod",
+    ]);
+
+    const traits: NamedApi[] = response.body.traits;
+    expect(traits.length).toBeGreaterThan(0);
+    for (const trait of traits) {
+      expect(trait.name).toBeTruthy();
+      expect(trait.apiName).toBeTruthy();
+    }
+    expect(traits.find((trait) => trait.name === "Fae")!.apiName).toBe("DA_18_Fae");
+  });
+
+  it("joins traits by apiName (MetaTFT side) and display name (champion side)", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/set-data");
+
+    const traits: NamedApi[] = response.body.traits;
+    const byApi = new Map(traits.map((trait) => [trait.apiName, trait.name]));
+    // MetaTFT's traits_string for cluster 422000 references DA_18_Sprykin.
+    expect(byApi.get("DA_18_Sprykin")).toBe("Sprykin");
+    // Champion trait lists speak display names; every one must resolve.
+    const byName = new Set(traits.map((trait) => trait.name));
+    const units: Array<{ traits: string[] }> = response.body.units;
+    for (const unit of units) {
+      for (const traitName of unit.traits) expect(byName.has(traitName)).toBe(true);
+    }
+  });
+
+  it("carries apiName on board slots and their item references", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const comps: RankedComp[] = response.body.comps;
+    for (const comp of comps) {
+      for (const slot of comp.board) {
+        expect(slot.apiName).toBeTruthy();
+        expect(slot.itemApiNames.length).toBe(slot.items.length);
+      }
+    }
+    const faeRengar = comps.find((comp) => comp.id === "422000")!;
+    const rengar = faeRengar.board.find((slot) => slot.unit === "Rengar")!;
+    expect(rengar.apiName).toBe("DA_18_Rengar");
+    expect(rengar.items).toEqual(["Fae Emblem", "Sprykin Emblem", "Titan's Resolve"]);
+    expect(rengar.itemApiNames).toEqual([
+      "DA_18_EmblemFae",
+      "DA_18_EmblemSprykin",
+      "DA_TitansResolve",
+    ]);
+  });
+
+  it("aligns itemPriorityApiNames with itemPriorities on every Comp", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // The recorded Community Dragon payload is the ground truth for the join.
+    const cdragon = loadRecorded("cdragon-set18.json") as {
+      items: Array<{ apiName: string; name: string }>;
+    };
+    const itemNames = new Map(cdragon.items.map((item) => [item.apiName, item.name]));
+    const comps: RankedComp[] = response.body.comps;
+    for (const comp of comps) {
+      expect(comp.itemPriorityApiNames.length).toBe(comp.itemPriorities.length);
+      comp.itemPriorityApiNames.forEach((api, index) => {
+        expect(itemNames.get(api)).toBe(comp.itemPriorities[index]);
+      });
+    }
+    const faeRengar = comps.find((comp) => comp.id === "422000")!;
+    expect(faeRengar.itemPriorityApiNames.slice(0, 3)).toEqual([
+      "DA_GuinsoosRageblade",
+      "DA_GargoyleStoneplate",
+      "DA_18_EmblemFae",
+    ]);
+  });
+});
+
 describe("Augment mapping", () => {
   it("maps non-empty top_augments onto Comp augments so augment Fit turns on", async () => {
     const payloads = recordedPayloads();

@@ -8,20 +8,46 @@
       "name": "Bruiser Brawlers",
       "tier": "B",
       "board": [
-        { "unit": "Grib", "cost": 1, "items": [] },
-        { "unit": "Thornmaw", "cost": 4, "items": ["Warmog's Armor", "Sunfire Cape"] }
+        {
+          "unit": "Grib",
+          "apiName": "DA_18_Grib",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": []
+        },
+        {
+          "unit": "Thornmaw",
+          "apiName": "DA_18_Thornmaw",
+          "cost": 4,
+          "items": ["Warmog's Armor", "Sunfire Cape"],
+          "itemApiNames": ["DA_WarmogsArmor", "DA_SunfireCape"]
+        }
       ],
-      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate"]
+      "itemPriorities": ["Warmog's Armor", "Sunfire Cape", "Gargoyle Stoneplate"],
+      "itemPriorityApiNames": ["DA_WarmogsArmor", "DA_SunfireCape", "DA_GargoyleStoneplate"]
     },
     {
       "id": "faerie-spellweavers",
       "name": "Faerie Spellweavers",
       "tier": "S",
       "board": [
-        { "unit": "Lilna", "cost": 2, "items": [] },
-        { "unit": "Sylvara", "cost": 5, "items": ["Jeweled Gauntlet", "Spear of Shojin"] }
+        {
+          "unit": "Lilna",
+          "apiName": "DA_18_Lilna",
+          "cost": 2,
+          "items": [],
+          "itemApiNames": []
+        },
+        {
+          "unit": "Sylvara",
+          "apiName": "DA_18_Sylvara",
+          "cost": 5,
+          "items": ["Jeweled Gauntlet", "Spear of Shojin"],
+          "itemApiNames": ["DA_JeweledGauntlet", "DA_SpearOfShojin"]
+        }
       ],
       "itemPriorities": ["Jeweled Gauntlet", "Spear of Shojin", "Rabadon's Deathcap"],
+      "itemPriorityApiNames": ["DA_JeweledGauntlet", "DA_SpearOfShojin", "DA_RabadonsDeathcap"],
       "augments": ["Faerie Blessing"]
     },
     {
@@ -29,10 +55,23 @@
       "name": "Wildwood Snipers",
       "tier": "A",
       "board": [
-        { "unit": "Fenwick", "cost": 3, "items": ["Guinsoo's Rageblade"] },
-        { "unit": "Kaelen", "cost": 4, "items": ["Infinity Edge", "Last Whisper"] }
+        {
+          "unit": "Fenwick",
+          "apiName": "DA_18_Fenwick",
+          "cost": 3,
+          "items": ["Guinsoo's Rageblade"],
+          "itemApiNames": ["DA_GuinsoosRageblade"]
+        },
+        {
+          "unit": "Kaelen",
+          "apiName": "DA_18_Kaelen",
+          "cost": 4,
+          "items": ["Infinity Edge", "Last Whisper"],
+          "itemApiNames": ["DA_InfinityEdge", "DA_LastWhisper"]
+        }
       ],
       "itemPriorities": ["Guinsoo's Rageblade", "Infinity Edge", "Last Whisper"],
+      "itemPriorityApiNames": ["DA_GuinsoosRageblade", "DA_InfinityEdge", "DA_LastWhisper"],
       "augments": ["Wild Growth", "Hunter's Focus"]
     }
   ]
