@@ -3,12 +3,14 @@ import type {
   Comp,
   PatchChange,
   SetAugment,
+  SetComponent,
   SetDataResponse,
   SetItem,
   SetTrait,
   SetUnit,
   Tier,
 } from "../shared/types";
+import type { IconJob } from "./icons";
 
 // The payloads a Refresh needs, exactly as the sources answer them. The
 // fetcher is the injected boundary from the spec: the live implementation and
@@ -21,6 +23,11 @@ export interface SourcePayloads {
 
 export interface SourceFetcher {
   fetchSources(): Promise<SourcePayloads>;
+  // Fetches one icon's bytes by its game-relative .png path. Optional so
+  // ranking-only fetchers (and data written before icons existed) keep
+  // working; without it a Refresh downloads nothing and the payload simply
+  // carries no icon references.
+  fetchIcon?(sourcePath: string): Promise<Uint8Array>;
 }
 
 export interface CompsFile {
@@ -39,11 +46,19 @@ const METATFT_PATCH_URL = "https://api-hc.metatft.com/tft-stat-api/patch";
 const METATFT_COMPS_URL =
   "https://api-hc.metatft.com/tft-comps-api/comps_data?queue=1100";
 const CDRAGON_URL = "https://raw.communitydragon.org/latest/cdragon/tft/en_us.json";
+// CommunityDragon mirrors the game's asset tree here, lowercased, with .tex
+// textures re-encoded as .png (verified live for all four icon kinds).
+const CDRAGON_GAME_URL = "https://raw.communitydragon.org/latest/game/";
 
 // A hanging source must degrade like an erroring one (spec story 22): without
 // a deadline, a stalled host would block every request that awaits a Refresh.
 // 60s leaves room for Community Dragon's 24 MB payload on a slow link.
 const FETCH_TIMEOUT_MS = 60_000;
+
+// Icons are small PNGs and each failure only costs a fallback tile, so they
+// get a much shorter leash than the JSON payloads a Refresh cannot live
+// without.
+const ICON_TIMEOUT_MS = 15_000;
 
 async function fetchJson(url: string): Promise<unknown> {
   const response = await fetch(url, {
@@ -64,6 +79,15 @@ export function createLiveFetcher(): SourceFetcher {
         fetchJson(CDRAGON_URL),
       ]);
       return { patch, compsData, cdragon };
+    },
+    async fetchIcon(sourcePath) {
+      const response = await fetch(`${CDRAGON_GAME_URL}${sourcePath}`, {
+        signal: AbortSignal.timeout(ICON_TIMEOUT_MS),
+      });
+      if (!response.ok) {
+        throw new Error(`${sourcePath} answered ${response.status}`);
+      }
+      return new Uint8Array(await response.arrayBuffer());
     },
   };
 }
@@ -103,11 +127,15 @@ interface CDragonChampion {
   name: string;
   cost: number;
   traits: string[];
+  // The square tile texture ("..._square.tex"); the icon/squareIcon fields
+  // are splash art, which the spec keeps out of scope.
+  tileIcon?: string;
 }
 
 interface CDragonTrait {
   apiName: string;
   name: string;
+  icon?: string;
 }
 
 interface CDragonItem {
@@ -116,6 +144,7 @@ interface CDragonItem {
   composition: string[];
   isAugment: boolean;
   associatedTraits: string[];
+  icon?: string;
 }
 
 interface CDragonPayload {
@@ -172,9 +201,26 @@ function resolveItemRefs(apis: string[], names: Map<string, string>): ItemRef[] 
   });
 }
 
+// Converts an upstream texture path into the game-relative .png path
+// CommunityDragon serves (lowercased tree, .tex re-encoded as .png). Returns
+// null when there is nothing honest to download: no path, an extension the
+// convention was never verified for, or an upstream placeholder, whose
+// assets live under "missing"-prefixed path segments (e.g. missing-t2).
+function iconSourcePath(texPath: string | undefined): string | null {
+  if (!texPath) return null;
+  const lowered = texPath.toLowerCase();
+  if (!lowered.endsWith(".tex")) return null;
+  if (lowered.split("/").some((segment) => segment.startsWith("missing"))) return null;
+  return `${lowered.slice(0, -".tex".length)}.png`;
+}
+
 export interface TransformedData {
   compsFile: CompsFile;
   setData: SetDataResponse;
+  // Every icon the Refresh should hold locally for this Patch. The transform
+  // only names them; downloading (and deciding which references survive) is
+  // syncIcons' job.
+  iconJobs: IconJob[];
 }
 
 export function transformSources(
@@ -199,6 +245,20 @@ export function transformSources(
   const championsByApi = new Map(set.champions.map((champ) => [champ.apiName, champ]));
   const traitNames = new Map(set.traits.map((trait) => [trait.apiName, trait.name]));
   const itemNames = new Map(cdragon.items.map((item) => [item.apiName, item.name]));
+  const itemsByApi = new Map(cdragon.items.map((item) => [item.apiName, item]));
+
+  const iconJobs: IconJob[] = [];
+  const addIconJob = (
+    kind: IconJob["kind"],
+    apiName: string,
+    texPath: string | undefined,
+  ): void => {
+    const sourcePath = iconSourcePath(texPath);
+    // apiName becomes a file name on disk; anything outside the identifier
+    // alphabet is refused rather than escaped.
+    if (sourcePath === null || !/^[A-Za-z0-9_.-]+$/.test(apiName)) return;
+    iconJobs.push({ kind, apiName, sourcePath });
+  };
   // Same filter as setData.augments below, so a Comp can never carry an
   // augment the picker cannot offer.
   const augmentApis = new Set(
@@ -209,16 +269,22 @@ export function transformSources(
 
   const units: SetUnit[] = set.champions
     .filter((champ) => champ.traits.length > 0)
-    .map((champ) => ({
-      name: champ.name,
-      apiName: champ.apiName,
-      cost: champ.cost,
-      traits: champ.traits,
-    }))
+    .map((champ) => {
+      addIconJob("units", champ.apiName, champ.tileIcon);
+      return {
+        name: champ.name,
+        apiName: champ.apiName,
+        cost: champ.cost,
+        traits: champ.traits,
+      };
+    })
     .sort((a, b) => a.cost - b.cost || a.name.localeCompare(b.name));
 
   const traits: SetTrait[] = set.traits
-    .map((trait) => ({ name: trait.name, apiName: trait.apiName }))
+    .map((trait) => {
+      addIconJob("traits", trait.apiName, trait.icon);
+      return { name: trait.name, apiName: trait.apiName };
+    })
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const componentName = (api: string): string => itemNames.get(api) ?? api;
@@ -229,12 +295,25 @@ export function transformSources(
         !item.isAugment &&
         item.composition.length > 0,
     )
-    .map((item) => ({
-      name: item.name,
-      apiName: item.apiName,
-      components: item.composition.map(componentName),
-      componentApiNames: item.composition,
-    }))
+    .map((item) => {
+      addIconJob("items", item.apiName, item.icon);
+      return {
+        name: item.name,
+        apiName: item.apiName,
+        components: item.composition.map(componentName),
+        componentApiNames: item.composition,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  // Components are Holdings in their own right, and their icons have no other
+  // home in the payload: SetItem only names its components.
+  const componentApis = [...new Set(items.flatMap((item) => item.componentApiNames))];
+  const components: SetComponent[] = componentApis
+    .map((api) => {
+      addIconJob("components", api, itemsByApi.get(api)?.icon);
+      return { name: componentName(api), apiName: api };
+    })
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const augments: SetAugment[] = cdragon.items
@@ -252,6 +331,7 @@ export function transformSources(
     units,
     traits,
     items,
+    components,
     augments,
   };
 
@@ -332,5 +412,6 @@ export function transformSources(
   return {
     compsFile: { patch, refreshedAt, source: "metatft", comps },
     setData,
+    iconJobs,
   };
 }

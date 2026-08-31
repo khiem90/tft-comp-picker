@@ -1,4 +1,5 @@
 import type { SetUnit } from "../../shared/types";
+import { IconTile } from "./IconTile";
 
 interface UnitsSectionProps {
   units: SetUnit[];
@@ -48,18 +49,29 @@ export function UnitsSection({
         </ul>
       )}
       {held.length > 0 ? (
-        <ul className="held-chips">
-          {held.map((name) => (
-            <li key={name}>
-              <button
-                type="button"
-                onClick={() => onRemove(name)}
-                title={`Remove ${name}`}
-              >
-                {name} ✕
-              </button>
-            </li>
-          ))}
+        <ul className="held-tiles">
+          {held.map((name) => {
+            // A held name can predate the current Set data (stale Active
+            // game); it still renders, on the fallback tile with no cost
+            // frame, and stays removable.
+            const unit = units.find((candidate) => candidate.name === name);
+            return (
+              <li key={name}>
+                <button
+                  type="button"
+                  className={`holding-tile portrait${unit ? ` cost-frame-${unit.cost}` : ""}`}
+                  onClick={() => onRemove(name)}
+                  title={`Remove ${name}`}
+                  aria-label={`Remove ${name}`}
+                >
+                  <IconTile src={unit?.icon} label={name} />
+                  <span className="tile-remove" aria-hidden="true">
+                    ✕
+                  </span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <p className="hint">No Holdings yet, Comps are in Tier order.</p>

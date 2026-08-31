@@ -1,2 +1,4 @@
 node_modules/
 dist/
+# Downloaded per-Patch by Refresh; reproducible, never hand-edited.
+data/icons/

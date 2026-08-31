@@ -190,6 +190,7 @@ export function App() {
             />
             <ItemsSection
               items={setData.items}
+              components={setData.components}
               held={heldItems}
               search={itemSearch}
               onSearchChange={setItemSearch}

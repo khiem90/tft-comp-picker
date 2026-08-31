@@ -1,4 +1,5 @@
-import type { SetItem } from "../../shared/types";
+import type { SetComponent, SetItem } from "../../shared/types";
+import { IconTile } from "./IconTile";
 
 interface ItemChoice {
   name: string;
@@ -22,6 +23,8 @@ function itemChoices(items: SetItem[]): ItemChoice[] {
 
 interface ItemsSectionProps {
   items: SetItem[];
+  // Absent on data written before icons existed; then every tile falls back.
+  components?: SetComponent[];
   held: string[];
   search: string;
   onSearchChange: (value: string) => void;
@@ -31,6 +34,7 @@ interface ItemsSectionProps {
 
 export function ItemsSection({
   items,
+  components,
   held,
   search,
   onSearchChange,
@@ -45,6 +49,15 @@ export function ItemsSection({
         choice.name.toLowerCase().includes(query),
       )
     : [];
+
+  // Held names can be components or completed items; one map answers both.
+  const iconByName = new Map<string, string | undefined>();
+  for (const component of components ?? []) iconByName.set(component.name, component.icon);
+  for (const item of items) iconByName.set(item.name, item.icon);
+
+  // Duplicates collapse to one tile with a count badge, in first-added order.
+  const heldCounts = new Map<string, number>();
+  for (const name of held) heldCounts.set(name, (heldCounts.get(name) ?? 0) + 1);
 
   return (
     <section className="holdings">
@@ -69,18 +82,28 @@ export function ItemsSection({
         </ul>
       )}
       {held.length > 0 && (
-        <ul className="held-chips">
-          {held.map((name, index) => (
-            <li key={`${name}-${index}`}>
-              <button
-                type="button"
-                onClick={() => onRemoveAt(index)}
-                title={`Remove ${name}`}
-              >
-                {name} ✕
-              </button>
-            </li>
-          ))}
+        <ul className="held-tiles">
+          {[...heldCounts].map(([name, count]) => {
+            const removeLabel =
+              count > 1 ? `Remove one ${name} (holding ${count})` : `Remove ${name}`;
+            return (
+              <li key={name}>
+                <button
+                  type="button"
+                  className="holding-tile"
+                  onClick={() => onRemoveAt(held.lastIndexOf(name))}
+                  title={removeLabel}
+                  aria-label={removeLabel}
+                >
+                  <IconTile src={iconByName.get(name)} label={name} />
+                  {count > 1 && <span className="tile-count">{count}</span>}
+                  <span className="tile-remove" aria-hidden="true">
+                    ✕
+                  </span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
       )}
     </section>

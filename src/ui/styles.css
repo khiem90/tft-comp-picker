@@ -36,8 +36,8 @@
   --tier-d: #55415e;
   --tier-none: var(--color-line);
 
-  /* Cost colors. Not referenced yet: today every cost renders the same
-     neutral dot. The Comp-card slice colors portraits and dots with these. */
+  /* Cost colors. Frame held-unit portraits the way the game client does;
+     the Comp-card slice will color its portraits and dots with these too. */
   --cost-1: var(--color-text-muted);
   --cost-2: #3e9a5c;
   --cost-3: #3b82c4;
@@ -88,6 +88,7 @@
   --radius-round: 50%;
   --size-cost-dot: 1.3rem;
   --size-tier-chip: 1.8rem;
+  --size-holding-tile: 44px;
 
   /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
      a literal 1100px in its media query because media queries cannot read
@@ -380,6 +381,88 @@ body {
   margin: var(--gap-xs) 0 0;
   color: var(--color-text-muted);
   font-size: var(--text-md);
+}
+
+/* Held Holdings render as icon tiles: unit portraits with cost-colored
+   frames, item icons with count badges. Clicking a tile removes one copy. */
+.held-tiles {
+  list-style: none;
+  padding: 0;
+  margin: var(--gap-xs) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-2xs);
+}
+
+.holding-tile {
+  position: relative;
+  display: block;
+  width: var(--size-holding-tile);
+  height: var(--size-holding-tile);
+  padding: 0;
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.portrait.cost-frame-1 { border-color: var(--cost-1); }
+.portrait.cost-frame-2 { border-color: var(--cost-2); }
+.portrait.cost-frame-3 { border-color: var(--cost-3); }
+.portrait.cost-frame-4 { border-color: var(--cost-4); }
+.portrait.cost-frame-5 { border-color: var(--cost-5); }
+
+.icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The neutral fallback tile: same footprint as an icon, first letter of the
+   name so a missing asset stays identifiable. */
+.icon-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+  text-transform: uppercase;
+}
+
+.tile-count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 var(--space-2xs);
+  border-top-left-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+}
+
+.tile-remove {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-bg) 65%, transparent);
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  opacity: 0;
+}
+
+.holding-tile:hover .tile-remove,
+.holding-tile:focus-visible .tile-remove {
+  opacity: 1;
 }
 
 .comp-list {

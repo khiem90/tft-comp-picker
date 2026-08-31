@@ -10,6 +10,7 @@ import type {
   Tier,
   TierMove,
 } from "../shared/types";
+import { applyIconRefs, downloadIcons } from "./icons";
 import { transformSources, type SourceFetcher } from "./sources";
 
 export type { CompsFile } from "./sources";
@@ -244,6 +245,10 @@ export interface CreateAppOptions {
 export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions) {
   const app = express();
 
+  // The icon files a Refresh downloaded. Serving them from disk is what keeps
+  // rendering offline: the UI never asks a third-party host for an image.
+  app.use("/icons", express.static(path.join(dataDir, "icons")));
+
   // The message of the most recent failed Refresh, cleared by a success.
   // Served alongside Comps so the UI can say the rankings are running on last
   // good data.
@@ -255,7 +260,7 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
       try {
         const payloads = await activeFetcher.fetchSources();
         const refreshedAt = new Date(now()).toISOString();
-        const { compsFile, setData } = transformSources(payloads, refreshedAt);
+        const { compsFile, setData, iconJobs } = transformSources(payloads, refreshedAt);
         let previous: CompsFile | null;
         try {
           previous = readJson<CompsFile>(dataDir, "comps.json");
@@ -264,6 +269,18 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
         }
         const patchChange = patchChangeBetween(previous, compsFile);
         if (patchChange) compsFile.patchChange = patchChange;
+        // Icons land before the JSON that references them, and only the ones
+        // on disk get referenced: an icon failure degrades to a fallback
+        // tile, never to a failed Refresh. With no readable previous
+        // comps.json the Patch of any surviving icon files is unknowable, so
+        // they count as stale too.
+        const availableIcons = await downloadIcons({
+          dataDir,
+          jobs: iconJobs,
+          fetcher: activeFetcher,
+          patchChanged: previous === null || previous.patch !== compsFile.patch,
+        });
+        applyIconRefs(setData, availableIcons);
         writeJson(dataDir, "comps.json", compsFile);
         writeJson(dataDir, "set-data.json", setData);
         refreshError = null;

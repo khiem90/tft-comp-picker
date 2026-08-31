@@ -42,12 +42,16 @@ export interface RankedComp extends Comp {
   fit: CompFit;
 }
 
+// icon is a local URL under /icons, written by the Refresh that produced the
+// payload. Absent when the download failed or upstream had only a placeholder;
+// the UI renders a neutral fallback tile in that case. Never a CDN URL.
 export interface SetUnit {
   name: string;
   apiName: string;
   cost: number;
   // Display names; join to SetTrait.name. MetaTFT speaks trait apiNames.
   traits: string[];
+  icon?: string;
 }
 
 export interface SetItem {
@@ -56,6 +60,7 @@ export interface SetItem {
   components: string[];
   // Aligned index-for-index with components.
   componentApiNames: string[];
+  icon?: string;
 }
 
 // Both keys ship because the two sides of every trait join disagree: champion
@@ -63,6 +68,16 @@ export interface SetItem {
 export interface SetTrait {
   name: string;
   apiName: string;
+  icon?: string;
+}
+
+// A raw item component (Recurve Bow, B.F. Sword, ...). Listed on its own
+// because Holdings hold components directly, and component icons have no
+// other home in the payload.
+export interface SetComponent {
+  name: string;
+  apiName: string;
+  icon?: string;
 }
 
 export interface SetAugment {
@@ -77,6 +92,9 @@ export interface SetDataResponse {
   units: SetUnit[];
   traits: SetTrait[];
   items: SetItem[];
+  // Optional because data files written before icons existed lack it; the UI
+  // must not assume it (issue 02's disk-served-data caveat).
+  components?: SetComponent[];
   augments?: SetAugment[];
 }
 
