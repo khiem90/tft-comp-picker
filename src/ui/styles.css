@@ -24,6 +24,9 @@
   --color-positive-bg: #21402c;
   --color-caution: #8b6f2e;
   --color-caution-bg: #3d3624;
+  /* Accent pair for the one primary action (New Game). */
+  --color-accent: #3f6cf0;
+  --color-accent-2: #7c4fe0;
 
   /* Tier colors */
   --tier-s: #b4442c;
@@ -85,7 +88,14 @@
   --radius-round: 50%;
   --size-cost-dot: 1.3rem;
   --size-tier-chip: 1.8rem;
-  --page-max-width: 720px;
+
+  /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
+     a literal 1100px in its media query because media queries cannot read
+     custom properties. */
+  --shell-max-width: 1720px;
+  --rail-holdings-width: 300px;
+  --rail-status-width: 280px;
+  --status-screen-max-width: 720px;
 
   font-family: var(--font-body);
 }
@@ -96,24 +106,130 @@ body {
   color: var(--color-text);
 }
 
-main {
-  max-width: var(--page-max-width);
+/* Loading and first-fetch-failed screens keep the old narrow centered page. */
+.status-screen {
+  max-width: var(--status-screen-max-width);
   margin: 0 auto;
   padding: var(--space-xl) var(--space-md) var(--space-3xl);
+  text-align: center;
 }
 
-h1 {
-  margin-bottom: var(--space-2xs);
-}
-
-.header-row {
+/* Shell: full-bleed top bar, then a width-capped body holding banners and
+   the three-column dashboard. */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
 }
 
-.header-button {
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.brand-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--color-accent);
+}
+
+.new-game-button {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--pad-button);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.new-game-button:hover {
+  filter: brightness(1.15);
+}
+
+.shell-body {
+  max-width: var(--shell-max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl) var(--space-3xl);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns:
+    var(--rail-holdings-width)
+    minmax(0, 1fr)
+    var(--rail-status-width);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* Below the breakpoint the sidebars stack. The status rail moves above the
+   Comps so Patch and refreshed-at stay visible; at the bottom of the whole
+   Comp list the trust signal would never be seen. */
+@media (max-width: 1100px) {
+  .dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rail-holdings {
+    order: 0;
+  }
+
+  .rail-status {
+    order: 1;
+  }
+
+  .comp-column {
+    order: 2;
+  }
+}
+
+.column-title {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.status-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.status-patch {
+  margin: 0;
+  font-size: var(--text-xl);
+}
+
+.status-refreshed {
+  margin: var(--space-2xs) 0 var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.panel-button {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
   padding: var(--pad-button);
@@ -123,33 +239,28 @@ h1 {
   cursor: pointer;
 }
 
-.header-button:hover {
+.panel-button:hover {
   background: var(--color-surface-hover);
 }
 
-.header-actions {
-  display: flex;
-  gap: var(--space-xs);
-}
-
-.header-button:disabled {
+.panel-button:disabled {
   opacity: 0.6;
   cursor: default;
 }
 
-.meta {
-  color: var(--color-text-muted);
-  margin-top: 0;
-}
-
+/* Banners sit between the top bar and the dashboard, full shell width. */
 .refresh-error {
-  margin: var(--space-2xs) 0 0;
+  margin: 0 0 var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-caution);
+  border-radius: var(--radius-sm);
+  background: var(--color-caution-bg);
   color: var(--color-warning);
   font-size: var(--text-md);
 }
 
 .patch-change {
-  margin-top: var(--space-xs);
+  margin: 0 0 var(--space-md);
   padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-notice-border);
   border-radius: var(--radius-sm);
@@ -175,6 +286,7 @@ h1 {
 
 .holdings {
   background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   padding: var(--space-md);
   margin-bottom: var(--space-lg);

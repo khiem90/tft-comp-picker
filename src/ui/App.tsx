@@ -6,6 +6,7 @@ import { AugmentsSection } from "./components/AugmentsSection";
 import { CompList } from "./components/CompList";
 import { ItemsSection } from "./components/ItemsSection";
 import { StatusBanners } from "./components/StatusBanners";
+import { StatusRail } from "./components/StatusRail";
 import { UnitsSection } from "./components/UnitsSection";
 
 function fetchJson<T>(url: string): Promise<T> {
@@ -102,13 +103,13 @@ export function App() {
   // banner (below) and the last good data keeps serving.
   if (!comps || !setData) {
     return (
-      <main>
+      <main className="status-screen">
         {fetchError ? (
           <>
             <p className="status">Could not load Comps: {fetchError}</p>
             <button
               type="button"
-              className="header-button"
+              className="panel-button"
               onClick={() => setDataVersion((version) => version + 1)}
             >
               Retry
@@ -164,50 +165,63 @@ export function App() {
     comps.comps.some((comp) => (comp.augments ?? []).length > 0);
 
   return (
-    <main>
-      <AppHeader
-        patch={comps.patch}
-        refreshedAt={comps.refreshedAt}
-        refreshing={refreshing}
-        onRefresh={refreshNow}
-        onNewGame={startNewGame}
-      >
+    <main className="app-shell">
+      <AppHeader onNewGame={startNewGame} />
+
+      <div className="shell-body">
+        {/* Banners span the full shell width, above the columns: a source
+            failure should interrupt the whole dashboard, not one rail. */}
         <StatusBanners
           fetchError={fetchError}
           refreshError={comps.refreshError}
           patchChange={comps.patchChange}
         />
-      </AppHeader>
 
-      <UnitsSection
-        units={setData.units}
-        held={heldUnits}
-        search={search}
-        onSearchChange={setSearch}
-        onAdd={addUnit}
-        onRemove={removeUnit}
-      />
+        <div className="dashboard">
+          <aside className="rail rail-holdings">
+            <h2 className="column-title">My Holdings</h2>
+            <UnitsSection
+              units={setData.units}
+              held={heldUnits}
+              search={search}
+              onSearchChange={setSearch}
+              onAdd={addUnit}
+              onRemove={removeUnit}
+            />
+            <ItemsSection
+              items={setData.items}
+              held={heldItems}
+              search={itemSearch}
+              onSearchChange={setItemSearch}
+              onAdd={addItem}
+              onRemoveAt={removeItemAt}
+            />
+            <AugmentsSection
+              choices={augmentChoices}
+              canMoveRanking={augmentsUsable}
+              held={heldAugments}
+              search={augmentSearch}
+              onSearchChange={setAugmentSearch}
+              onAdd={addAugment}
+              onRemove={removeAugment}
+            />
+          </aside>
 
-      <ItemsSection
-        items={setData.items}
-        held={heldItems}
-        search={itemSearch}
-        onSearchChange={setItemSearch}
-        onAdd={addItem}
-        onRemoveAt={removeItemAt}
-      />
+          <section className="comp-column">
+            <h2 className="column-title">Top Comps</h2>
+            <CompList comps={comps.comps} />
+          </section>
 
-      <AugmentsSection
-        choices={augmentChoices}
-        canMoveRanking={augmentsUsable}
-        held={heldAugments}
-        search={augmentSearch}
-        onSearchChange={setAugmentSearch}
-        onAdd={addAugment}
-        onRemove={removeAugment}
-      />
-
-      <CompList comps={comps.comps} />
+          <aside className="rail rail-status">
+            <StatusRail
+              patch={comps.patch}
+              refreshedAt={comps.refreshedAt}
+              refreshing={refreshing}
+              onRefresh={refreshNow}
+            />
+          </aside>
+        </div>
+      </div>
     </main>
   );
 }
