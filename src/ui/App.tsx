@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import type { CompsResponse, SetDataResponse } from "../shared/types";
 import { clearActiveGame, loadActiveGame, saveActiveGame } from "./activeGame";
+import { AppHeader } from "./components/AppHeader";
+import { AugmentsSection } from "./components/AugmentsSection";
+import { CompList } from "./components/CompList";
+import { ItemsSection } from "./components/ItemsSection";
+import { StatusBanners } from "./components/StatusBanners";
+import { UnitsSection } from "./components/UnitsSection";
 
 function fetchJson<T>(url: string): Promise<T> {
   return fetch(url).then((response) => {
@@ -20,32 +26,6 @@ function compsUrl(
   for (const augment of heldAugments) params.append("augments", augment);
   const query = params.toString();
   return query ? `/api/comps?${query}` : "/api/comps";
-}
-
-interface ItemChoice {
-  name: string;
-  kind: "component" | "item";
-  hint: string;
-}
-
-// The picker offers raw components ahead of completed items; mid-game the
-// player mostly holds components.
-function itemChoices(setData: SetDataResponse): ItemChoice[] {
-  const components = [...new Set(setData.items.flatMap((item) => item.components))];
-  return [
-    ...components.map((name) => ({ name, kind: "component" as const, hint: "component" })),
-    ...setData.items.map((item) => ({
-      name: item.name,
-      kind: "item" as const,
-      hint: item.components.join(" + "),
-    })),
-  ];
-}
-
-function priorityState(item: string, fit: { heldItems: string[]; partialItems: string[] }) {
-  if (fit.heldItems.includes(item)) return "held";
-  if (fit.partialItems.includes(item)) return "partial";
-  return "missing";
 }
 
 export function App() {
@@ -141,23 +121,6 @@ export function App() {
     );
   }
 
-  const query = search.trim().toLowerCase();
-  const matches = query
-    ? setData.units.filter(
-        (unit) =>
-          !heldUnits.includes(unit.name) && unit.name.toLowerCase().includes(query),
-      )
-    : [];
-
-  // Item Holdings are a multiset: two Giant's Belts are twice the credit, so
-  // matches never exclude what is already held and removal takes one copy.
-  const itemQuery = itemSearch.trim().toLowerCase();
-  const itemMatches = itemQuery
-    ? itemChoices(setData).filter((choice) =>
-        choice.name.toLowerCase().includes(itemQuery),
-      )
-    : [];
-
   const addUnit = (name: string) => {
     setHeldUnits((held) => [...held, name]);
     setSearch("");
@@ -194,252 +157,57 @@ export function App() {
 
   // The augment picker exists only while augments can move a ranking: the
   // catalog must offer choices and at least one Comp must carry augment
-  // synergies (see Comp.augments in shared/types.ts). Held chips keep the
-  // section alive even if the data disappears, so nothing affects the query
-  // invisibly.
+  // synergies (see Comp.augments in shared/types.ts).
   const augmentChoices = setData.augments ?? [];
   const augmentsUsable =
     augmentChoices.length > 0 &&
     comps.comps.some((comp) => (comp.augments ?? []).length > 0);
-  const augmentQuery = augmentSearch.trim().toLowerCase();
-  const augmentMatches = augmentQuery
-    ? augmentChoices.filter(
-        (augment) =>
-          !heldAugments.includes(augment.name) &&
-          augment.name.toLowerCase().includes(augmentQuery),
-      )
-    : [];
 
   return (
     <main>
-      <header>
-        <div className="header-row">
-          <h1>TFT Comp Picker</h1>
-          <div className="header-actions">
-            <button
-              type="button"
-              className="header-button"
-              onClick={refreshNow}
-              disabled={refreshing}
-            >
-              {refreshing ? "Refreshing…" : "Refresh"}
-            </button>
-            <button type="button" className="header-button" onClick={startNewGame}>
-              New game
-            </button>
-          </div>
-        </div>
-        <p className="meta">
-          Patch {comps.patch} · refreshed {new Date(comps.refreshedAt).toLocaleString()}
-        </p>
-        {fetchError && (
-          <p className="refresh-error">
-            Could not reach the server ({fetchError}), showing last good data.
-          </p>
-        )}
-        {comps.refreshError && (
-          <p className="refresh-error">
-            Refresh failed ({comps.refreshError}), showing last good data.
-          </p>
-        )}
-        {comps.patchChange && (
-          <div className="patch-change">
-            <p>
-              Patch {comps.patchChange.toPatch} is live (was{" "}
-              {comps.patchChange.fromPatch}). Set data and Comps re-pulled.
-            </p>
-            <ul>
-              {comps.patchChange.addedComps.length > 0 && (
-                <li>New: {comps.patchChange.addedComps.join(", ")}</li>
-              )}
-              {comps.patchChange.removedComps.length > 0 && (
-                <li>Gone: {comps.patchChange.removedComps.join(", ")}</li>
-              )}
-              {comps.patchChange.tierMoves.length > 0 && (
-                <li>
-                  Tier moves:{" "}
-                  {comps.patchChange.tierMoves
-                    .map((move) => `${move.name} ${move.from} → ${move.to}`)
-                    .join(", ")}
-                </li>
-              )}
-            </ul>
-          </div>
-        )}
-      </header>
-
-      <section className="holdings">
-        <h2>Your units</h2>
-        <input
-          type="search"
-          className="picker-search"
-          placeholder="Search units…"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
+      <AppHeader
+        patch={comps.patch}
+        refreshedAt={comps.refreshedAt}
+        refreshing={refreshing}
+        onRefresh={refreshNow}
+        onNewGame={startNewGame}
+      >
+        <StatusBanners
+          fetchError={fetchError}
+          refreshError={comps.refreshError}
+          patchChange={comps.patchChange}
         />
-        {matches.length > 0 && (
-          <ul className="picker-matches">
-            {matches.map((unit) => (
-              <li key={unit.name}>
-                <button type="button" onClick={() => addUnit(unit.name)}>
-                  <span className={`cost-dot cost-${unit.cost}`}>{unit.cost}</span>
-                  {unit.name}
-                  <span className="traits">{unit.traits.join(" · ")}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-        {heldUnits.length > 0 ? (
-          <ul className="held-chips">
-            {heldUnits.map((name) => (
-              <li key={name}>
-                <button
-                  type="button"
-                  onClick={() => removeUnit(name)}
-                  title={`Remove ${name}`}
-                >
-                  {name} ✕
-                </button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="hint">No Holdings yet, Comps are in Tier order.</p>
-        )}
-      </section>
+      </AppHeader>
 
-      <section className="holdings">
-        <h2>Your items</h2>
-        <input
-          type="search"
-          className="picker-search"
-          placeholder="Search components and items…"
-          value={itemSearch}
-          onChange={(event) => setItemSearch(event.target.value)}
-        />
-        {itemMatches.length > 0 && (
-          <ul className="picker-matches">
-            {itemMatches.map((choice) => (
-              <li key={`${choice.kind}-${choice.name}`}>
-                <button type="button" onClick={() => addItem(choice.name)}>
-                  {choice.name}
-                  <span className="traits">{choice.hint}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-        {heldItems.length > 0 && (
-          <ul className="held-chips">
-            {heldItems.map((name, index) => (
-              <li key={`${name}-${index}`}>
-                <button
-                  type="button"
-                  onClick={() => removeItemAt(index)}
-                  title={`Remove ${name}`}
-                >
-                  {name} ✕
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+      <UnitsSection
+        units={setData.units}
+        held={heldUnits}
+        search={search}
+        onSearchChange={setSearch}
+        onAdd={addUnit}
+        onRemove={removeUnit}
+      />
 
-      {(augmentsUsable || heldAugments.length > 0) && (
-        <section className="holdings">
-          <h2>Your augments</h2>
-          <input
-            type="search"
-            className="picker-search"
-            placeholder="Search augments…"
-            value={augmentSearch}
-            onChange={(event) => setAugmentSearch(event.target.value)}
-          />
-          {augmentMatches.length > 0 && (
-            <ul className="picker-matches">
-              {augmentMatches.map((augment) => (
-                <li key={augment.name}>
-                  <button type="button" onClick={() => addAugment(augment.name)}>
-                    {augment.name}
-                    <span className="traits">{augment.traits.join(" · ")}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          {heldAugments.length > 0 && (
-            <ul className="held-chips">
-              {heldAugments.map((name) => (
-                <li key={name}>
-                  <button
-                    type="button"
-                    onClick={() => removeAugment(name)}
-                    title={`Remove ${name}`}
-                  >
-                    {name} ✕
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-      )}
+      <ItemsSection
+        items={setData.items}
+        held={heldItems}
+        search={itemSearch}
+        onSearchChange={setItemSearch}
+        onAdd={addItem}
+        onRemoveAt={removeItemAt}
+      />
 
-      <ol className="comp-list">
-        {comps.comps.map((comp) => (
-          <li key={comp.id} className="comp">
-            <div className="comp-header">
-              <span className={`tier tier-${comp.tier.toLowerCase()}`}>{comp.tier}</span>
-              <h2>{comp.name}</h2>
-              <span className="fit-score">Fit {comp.fit.score}</span>
-            </div>
-            <ul className="board">
-              {comp.board.map((slot) => (
-                <li
-                  key={slot.unit}
-                  className={`slot cost-${slot.cost} ${
-                    comp.fit.heldUnits.includes(slot.unit) ? "held" : "missing"
-                  }`}
-                >
-                  <span className="unit">{slot.unit}</span>
-                  {slot.items.length > 0 && (
-                    <span className="items">{slot.items.join(", ")}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <p className="fit-reason">{comp.fit.reason}</p>
-            <p className="priorities">
-              Items:{" "}
-              {comp.itemPriorities.map((item, index) => (
-                <span
-                  key={`${item}-${index}`}
-                  className={`priority ${priorityState(item, comp.fit)}`}
-                >
-                  {item}
-                </span>
-              ))}
-            </p>
-            {(comp.augments ?? []).length > 0 && (
-              <p className="priorities">
-                Augments:{" "}
-                {comp.augments!.map((augment) => (
-                  <span
-                    key={augment}
-                    className={`priority ${
-                      comp.fit.matchedAugments.includes(augment) ? "held" : "missing"
-                    }`}
-                  >
-                    {augment}
-                  </span>
-                ))}
-              </p>
-            )}
-          </li>
-        ))}
-      </ol>
+      <AugmentsSection
+        choices={augmentChoices}
+        canMoveRanking={augmentsUsable}
+        held={heldAugments}
+        search={augmentSearch}
+        onSearchChange={setAugmentSearch}
+        onAdd={addAugment}
+        onRemove={removeAugment}
+      />
+
+      <CompList comps={comps.comps} />
     </main>
   );
 }
