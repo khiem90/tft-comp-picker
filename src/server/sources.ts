@@ -3,6 +3,7 @@ import type {
   BoardSlot,
   Comp,
   CompTrait,
+  LayoutProvenance,
   PatchChange,
   SetAugment,
   SetComponent,
@@ -25,6 +26,13 @@ export interface SourcePayloads {
 
 export interface SourceFetcher {
   fetchSources(): Promise<SourcePayloads>;
+  // Fetches one cluster's comp-details payload, the per-unit cell statistics
+  // behind source-placed boards. generation is the source's generation
+  // counter, read from the comps payload of the same Refresh: cluster ids
+  // rotate with it, so a generation fetched separately could describe a
+  // different cluster set. Optional so ranking-only fetchers keep working;
+  // without it every board falls to the heuristic.
+  fetchCompDetails?(compId: string, generation: number): Promise<unknown>;
   // Fetches one icon's bytes by its game-relative .png path. Optional so
   // ranking-only fetchers (and data written before icons existed) keep
   // working; without it a Refresh downloads nothing and the payload simply
@@ -47,6 +55,10 @@ export interface CompsFile {
 const METATFT_PATCH_URL = "https://api-hc.metatft.com/tft-stat-api/patch";
 const METATFT_COMPS_URL =
   "https://api-hc.metatft.com/tft-comps-api/comps_data?queue=1100";
+// Per-cluster details: positions among other stats. Verified live: both
+// query params are required, and the same api-hc host answers where
+// api.metatft.com 404s.
+const METATFT_COMP_DETAILS_URL = "https://api-hc.metatft.com/tft-comps-api/comp_details";
 const CDRAGON_URL = "https://raw.communitydragon.org/latest/cdragon/tft/en_us.json";
 // CommunityDragon mirrors the game's asset tree here, lowercased, with .tex
 // textures re-encoded as .png (verified live for all four icon kinds).
@@ -81,6 +93,13 @@ export function createLiveFetcher(): SourceFetcher {
         fetchJson(CDRAGON_URL),
       ]);
       return { patch, compsData, cdragon };
+    },
+    // The source's cluster_id query param carries the generation counter,
+    // not a cluster id; its comp param is what the app calls the cluster id.
+    async fetchCompDetails(compId, generation) {
+      return fetchJson(
+        `${METATFT_COMP_DETAILS_URL}?comp=${compId}&cluster_id=${generation}`,
+      );
     },
     async fetchIcon(sourcePath) {
       const response = await fetch(`${CDRAGON_GAME_URL}${sourcePath}`, {
@@ -127,7 +146,48 @@ interface MetaTftCluster {
 }
 
 interface MetaTftCompsData {
-  results: { data: { cluster_details: Record<string, MetaTftCluster> } };
+  results: {
+    data: {
+      // The source's generation counter; cluster ids are prefixed by it
+      // (422000... under generation 422) and rotate when it moves.
+      cluster_id: number;
+      cluster_details: Record<string, MetaTftCluster>;
+    };
+  };
+}
+
+// How many details fetches run at once. 53 clusters at ~260 KB each is fine
+// for a daily Refresh, but firing all of them simultaneously at the source is
+// asking to be throttled; six keeps the burst modest.
+const DETAILS_CONCURRENCY = 6;
+
+// Fetches every cluster's comp-details payload, keyed by cluster id, reusing
+// the generation id from the comps payload of this same Refresh. A cluster
+// whose fetch fails is simply absent: its Comp keeps the heuristic board and
+// the Refresh itself never fails on details.
+export async function fetchAllCompDetails(
+  fetcher: SourceFetcher,
+  compsData: unknown,
+): Promise<Record<string, unknown>> {
+  const fetchDetails = fetcher.fetchCompDetails?.bind(fetcher);
+  if (!fetchDetails) return {};
+  const data = (compsData as Partial<MetaTftCompsData> | null)?.results?.data;
+  const generation = data?.cluster_id;
+  const clusterIds = Object.keys(data?.cluster_details ?? {});
+  if (typeof generation !== "number" || clusterIds.length === 0) return {};
+  const details: Record<string, unknown> = {};
+  for (let start = 0; start < clusterIds.length; start += DETAILS_CONCURRENCY) {
+    await Promise.all(
+      clusterIds.slice(start, start + DETAILS_CONCURRENCY).map(async (id) => {
+        try {
+          details[id] = await fetchDetails(id, generation);
+        } catch {
+          // This Comp serves its heuristic board.
+        }
+      }),
+    );
+  }
+  return details;
 }
 
 interface CDragonChampion {
@@ -259,50 +319,114 @@ function iconSourcePath(texPath: string | undefined): string | null {
   return `${lowered.slice(0, -".tex".length)}.png`;
 }
 
-// Board layout derivation. The meta source has no position data (recorded in
-// the glossary), so the layout is a local suggestion: tanks and bruisers hold
-// the front rows, carries and casters the back rows. CommunityDragon's role
-// field decides where it exists, but it is null on almost every playable unit
-// (72 of 74, live and recorded alike), so null roles fall back to attack
-// range: melee units front, ranged units back.
+// Board layout derivation. Where the comp-details data covers a unit, it
+// stands on its most-played cell; everything else falls to the heuristic:
+// tanks and bruisers hold the front rows, carries and casters the back rows.
+// CommunityDragon's role field decides where it exists, but it is null on
+// almost every playable unit (72 of 74, live and recorded alike), so null
+// roles fall back to attack range: melee units front, ranged units back.
 function isFrontline(champ: CDragonChampion): boolean {
   if (champ.role) return /tank|bruiser/i.test(champ.role);
   return (champ.stats?.range ?? 1) <= 1;
 }
 
+// The source numbers cells from the player's back row, left to right: cell_1
+// is the back row's left corner, cell_28 the front row's right edge. The
+// app's Board layout puts row 0 at the front, so the row flips on the way in.
+function cellToHex(cell: unknown): BoardHex | null {
+  if (typeof cell !== "string") return null;
+  const match = /^cell_(\d+)$/.exec(cell);
+  if (match === null) return null;
+  const index = Number(match[1]) - 1;
+  if (index < 0 || index >= 28) return null;
+  return { row: 3 - Math.floor(index / 7), col: index % 7 };
+}
+
+// One unit's played cells from a comp-details payload, best first, as app
+// hexes. Access is defensive at every step because the payload is a raw
+// source answer: anything malformed yields no cells, which lands the unit on
+// the heuristic exactly like a failed fetch.
+function sourceCellRanking(details: unknown, apiName: string): BoardHex[] {
+  const units = (
+    details as {
+      results?: {
+        positioning?: { units?: Record<string, { positions?: unknown }> };
+      };
+    } | null
+  )?.results?.positioning?.units;
+  const positions = units?.[apiName]?.positions;
+  if (!Array.isArray(positions)) return [];
+  return positions
+    .filter(
+      (entry): entry is { cell: unknown; count: number } =>
+        entry !== null &&
+        typeof entry === "object" &&
+        typeof (entry as { count?: unknown }).count === "number",
+    )
+    .sort((a, b) => b.count - a.count)
+    .flatMap((entry) => {
+      const hex = cellToHex(entry.cell);
+      return hex === null ? [] : [hex];
+    });
+}
+
 // Hexes walk the line's outermost row center-out (col 3 first, then
 // alternating outward), spilling onto the inner row only when the outer one
-// fills. Rows 0/1 are the front line, rows 3/2 the back line.
+// fills. Rows 0/1 are the front line, rows 3/2 the back line. Hexes already
+// taken by source-placed units are skipped.
 const CENTER_OUT_COLS = [3, 2, 4, 1, 5, 0, 6];
 
-function lineHexes(rows: number[], count: number): BoardHex[] {
+const hexKey = (hex: BoardHex): string => `${hex.row},${hex.col}`;
+
+function lineHexes(rows: number[], count: number, occupied: Set<string>): BoardHex[] {
   const hexes: BoardHex[] = [];
   for (const row of rows) {
     for (const col of CENTER_OUT_COLS) {
       if (hexes.length === count) return hexes;
+      if (occupied.has(hexKey({ row, col }))) continue;
       hexes.push({ row, col });
     }
   }
   return hexes;
 }
 
+// The placement walk MetaTFT's own site runs: units in source order, each on
+// its highest-count cell still free. Units the data misses, and units whose
+// cells are all taken, fall to the heuristic within their line. Returns the
+// Comp's layout provenance: "source" only when every unit was source-placed.
 function placeBoard(
   board: BoardSlot[],
   championsByApi: Map<string, CDragonChampion>,
-): void {
+  details: unknown,
+): LayoutProvenance {
+  const occupied = new Set<string>();
+  const fallback: BoardSlot[] = [];
+  for (const slot of board) {
+    const hex = sourceCellRanking(details, slot.apiName).find(
+      (candidate) => !occupied.has(hexKey(candidate)),
+    );
+    if (hex === undefined) {
+      fallback.push(slot);
+      continue;
+    }
+    slot.position = hex;
+    occupied.add(hexKey(hex));
+  }
+
   const front: BoardSlot[] = [];
   const back: BoardSlot[] = [];
-  for (const slot of board) {
+  for (const slot of fallback) {
     (isFrontline(championsByApi.get(slot.apiName)!) ? front : back).push(slot);
   }
-  const frontHexes = lineHexes([0, 1], front.length);
-  const backHexes = lineHexes([3, 2], back.length);
+  const frontHexes = lineHexes([0, 1], front.length, occupied);
+  const backHexes = lineHexes([3, 2], back.length, occupied);
   front.forEach((slot, index) => {
     slot.position = frontHexes[index];
   });
   back.forEach((slot, index) => {
     slot.position = backHexes[index];
   });
+  return board.length > 0 && fallback.length === 0 ? "source" : "heuristic";
 }
 
 export interface TransformedData {
@@ -317,6 +441,9 @@ export interface TransformedData {
 export function transformSources(
   payloads: SourcePayloads,
   refreshedAt: string,
+  // Comp-details payloads keyed by cluster id, from fetchAllCompDetails. A
+  // missing entry means that Comp keeps its heuristic board.
+  compDetails: Record<string, unknown> = {},
 ): TransformedData {
   const patchInfo = payloads.patch as MetaTftPatch;
   const compsData = payloads.compsData as MetaTftCompsData;
@@ -456,8 +583,10 @@ export function transformSources(
         });
 
       // Only resolvable units reach the board, so every slot has a champion
-      // to read role and range from.
-      placeBoard(board, championsByApi);
+      // to read role and range from. The board stays the authoritative unit
+      // list: cells are looked up per board unit, so the summons and monsters
+      // the details payload also carries never reach it.
+      const layoutProvenance = placeBoard(board, championsByApi, compDetails[id]);
 
       // Core Units are the builds units still on this board; builds also
       // list headliner variants the board never fields. Board membership
@@ -509,6 +638,7 @@ export function transformSources(
         starTargets,
         itemPriorities: priorityRefs.map((ref) => ref.name),
         itemPriorityApiNames: priorityRefs.map((ref) => ref.apiName),
+        layoutProvenance,
       };
       if (compAugments.length > 0) comp.augments = compAugments;
       return { comp, avg: cluster.overall.avg };

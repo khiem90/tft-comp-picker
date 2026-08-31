@@ -18,12 +18,20 @@ export interface BoardSlot {
   items: string[];
   // Aligned index-for-index with items.
   itemApiNames: string[];
-  // The Board layout hex this unit suggests standing on. Derived locally from
-  // unit roles and attack range; the meta source has no position data, so the
-  // UI must present it as suggested, never as sourced. Optional because data
-  // files written before layout derivation existed lack it.
+  // The Board layout hex this unit stands on: the unit's most-played cell
+  // from the meta source's comp-details data where that covers it, otherwise
+  // a local guess from role and attack range. The Comp's layoutProvenance
+  // says which; only source-backed boards may be presented as real placement
+  // data. Optional because data files written before layout derivation
+  // existed lack it.
   position?: BoardHex;
 }
+
+// Where a Comp's Board layout came from. "source": every unit stands on a
+// most-played cell from the meta source's comp-details data. "heuristic": at
+// least one unit fell back to the local role-and-range guess, including when
+// the details fetch failed.
+export type LayoutProvenance = "source" | "heuristic";
 
 // A trait a Comp activates, decoded from the meta source's trait string
 // against Set data breakpoints. count is the true active count including
@@ -58,6 +66,10 @@ export interface Comp {
   itemPriorities: string[];
   // Aligned index-for-index with itemPriorities.
   itemPriorityApiNames: string[];
+  // The card keeps its suggested-layout caveat on heuristic boards and drops
+  // it on source-backed ones. Optional because data files written before
+  // provenance existed lack it; absent reads as heuristic.
+  layoutProvenance?: LayoutProvenance;
   // Augments the source reports as synergizing with this Comp. Absent while
   // the source publishes no augment stats (MetaTFT's top_augments is empty
   // as of patch 18.1); augment Fit turns itself on when this fills.

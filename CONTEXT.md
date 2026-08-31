@@ -41,7 +41,7 @@ A unit players commonly 3-star when playing a Comp, per the meta source. Only un
 _Avoid_: 3-star carry, reroll target
 
 **Board layout**:
-A suggested placement of a Comp's units on the hex board, derived locally from unit roles and attack range (frontline/backline). Not source data; the meta source has no positions, and the role field is null on nearly every unit, so range carries most placements.
+The placement of a Comp's units on the hex board, with a per-Comp provenance. Source-backed when the meta source's cell statistics covered every unit, each standing on its most-played free cell; otherwise a heuristic suggestion derived locally from unit roles and attack range (frontline/backline).
 _Avoid_: Positioning, formation
 
 **Patch**:

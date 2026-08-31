@@ -4,16 +4,27 @@
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Refresh fetches comp-details per cluster with the generation id already read for the cluster fetch
-- [ ] A live comp-details fixture is recorded beside the existing recorded fixtures
-- [ ] Units land on their top source cell with the row flip pinned in both directions
-- [ ] A cell conflict sends the later unit to its next most-played free cell; no two units share a hex
-- [ ] A unit absent from the cell data falls back to its heuristic line
-- [ ] A summon or monster in the details payload never appears on the board
-- [ ] A cluster whose details fetch fails serves a full heuristic board and the Refresh still succeeds
-- [ ] Payload carries a per-Comp layout provenance marker; source-backed only when every unit was source-placed
-- [ ] Card label switches on provenance: no caveat on source-backed boards, the existing suggested label on heuristic boards
-- [ ] CONTEXT.md's Board layout entry covers both provenances
-- [ ] All assertions live at the refresh seam against recorded fixtures
+- [x] Refresh fetches comp-details per cluster with the generation id already read for the cluster fetch
+- [x] A live comp-details fixture is recorded beside the existing recorded fixtures
+- [x] Units land on their top source cell with the row flip pinned in both directions
+- [x] A cell conflict sends the later unit to its next most-played free cell; no two units share a hex
+- [x] A unit absent from the cell data falls back to its heuristic line
+- [x] A summon or monster in the details payload never appears on the board
+- [x] A cluster whose details fetch fails serves a full heuristic board and the Refresh still succeeds
+- [x] Payload carries a per-Comp layout provenance marker; source-backed only when every unit was source-placed
+- [x] Card label switches on provenance: no caveat on source-backed boards, the existing suggested label on heuristic boards
+- [x] CONTEXT.md's Board layout entry covers both provenances
+- [x] All assertions live at the refresh seam against recorded fixtures
+
+## Comments
+
+Implemented at the refresh seam. The endpoint is
+`GET https://api-hc.metatft.com/tft-comps-api/comp_details?comp=<clusterId>&cluster_id=<generation>`
+(both params required; the generation comes from `results.data.cluster_id` of the comps payload).
+Cell scheme verified live: `cell_1` is the player's back-left hex, `cell_28` front-right, so the
+row flips to the app's front-is-row-0 grid. The recorded fixture is
+`tests/fixtures/recorded/metatft-comp_details-422000.json`. A live end-to-end Refresh placed 51 of
+53 clusters source-backed; the two heuristic ones are monster-heavy boards whose units lack cell
+data, the intended fallback.

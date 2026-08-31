@@ -1,6 +1,6 @@
 {
   "patch": "18.1",
-  "refreshedAt": "2026-08-31T16:53:20.528Z",
+  "refreshedAt": "2026-08-31T19:27:28.257Z",
   "source": "metatft",
   "comps": [
     {
@@ -72,8 +72,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 2
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -92,7 +92,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -111,7 +111,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -122,7 +122,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -133,7 +133,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -152,7 +152,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -203,7 +203,8 @@
         "DA_BlueBuff",
         "DA_JeweledGauntlet",
         "DA_RabadonsDeathcap"
-      ]
+      ],
+      "layoutProvenance": "heuristic"
     },
     {
       "id": "422021",
@@ -264,7 +265,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -282,7 +283,7 @@
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
+            "row": 1,
             "col": 2
           }
         },
@@ -294,7 +295,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 2
           }
         },
         {
@@ -335,7 +336,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -365,7 +366,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         }
       ],
@@ -403,7 +404,8 @@
         "DA_SpiritVisage",
         "DA_AdaptiveHelm",
         "DA_ProtectorsVow"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422003",
@@ -444,7 +446,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -455,7 +457,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -485,7 +487,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 5
           }
         },
         {
@@ -504,7 +506,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 4
           }
         },
         {
@@ -515,7 +517,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         },
         {
@@ -526,7 +528,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -545,7 +547,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 3
           }
         }
       ],
@@ -581,7 +583,8 @@
         "DA_IonicSpark",
         "DA_18_EmblemFloraFatalisAugment",
         "DA_SpiritVisage"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422009",
@@ -636,8 +639,8 @@
             "DA_GuinsoosRageblade"
           ],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 2,
+            "col": 6
           }
         },
         {
@@ -648,7 +651,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -659,7 +662,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 2
           }
         },
         {
@@ -678,7 +681,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -689,7 +692,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -707,8 +710,8 @@
             "DA_RabadonsDeathcap"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 3,
+            "col": 1
           }
         },
         {
@@ -727,7 +730,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 5
           }
         }
       ],
@@ -747,8 +750,8 @@
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
         "Edge of Night",
-        "Spear of Shojin",
         "Warmogs Armor",
+        "Spear of Shojin",
         "Brawler Emblem",
         "Infinity Edge",
         "Red Buff",
@@ -759,14 +762,15 @@
         "DA_GuinsoosRageblade",
         "DA_GargoyleStoneplate",
         "DA_EdgeOfNight",
-        "DA_SpearOfShojin",
         "DA_WarmogsArmor",
+        "DA_SpearOfShojin",
         "DA_18_EmblemBrawler",
         "DA_InfinityEdge",
         "DA_RedBuff",
         "DA_JeweledGauntlet",
         "DA_RabadonsDeathcap"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422015",
@@ -813,8 +817,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -824,7 +828,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 3
           }
         },
@@ -836,7 +840,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -855,7 +859,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -885,7 +889,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -904,7 +908,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -918,8 +922,8 @@
             "DA_Crownguard"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 2,
+            "col": 2
           }
         }
       ],
@@ -956,7 +960,8 @@
         "DA_Morellonomicon",
         "DA_SpearOfShojin",
         "DA_Crownguard"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422033",
@@ -993,7 +998,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
+            "row": 1,
             "col": 3
           }
         },
@@ -1013,7 +1018,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -1023,8 +1028,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 2,
+            "col": 6
           }
         },
         {
@@ -1043,7 +1048,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -1062,7 +1067,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -1073,7 +1078,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -1092,7 +1097,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 4
           }
         },
         {
@@ -1103,7 +1108,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 2
           }
         }
       ],
@@ -1141,7 +1146,8 @@
         "DA_RabadonsDeathcap",
         "DA_SpiritVisage",
         "DA_SteadfastHeart"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422000",
@@ -1184,7 +1190,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -1206,7 +1212,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 5
           }
         },
         {
@@ -1225,7 +1231,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -1243,8 +1249,8 @@
             "DA_TitansResolve"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 2,
+            "col": 6
           }
         },
         {
@@ -1263,7 +1269,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -1282,7 +1288,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 4
           }
         }
       ],
@@ -1323,7 +1329,8 @@
         "DA_18_EmblemBrawler",
         "DA_Evenshroud",
         "DA_SunfireCape"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422005",
@@ -1361,7 +1368,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 6
           }
         },
         {
@@ -1380,7 +1387,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -1390,8 +1397,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 2,
+            "col": 2
           }
         },
         {
@@ -1410,7 +1417,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -1429,7 +1436,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -1440,7 +1447,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -1448,12 +1455,12 @@
           "apiName": "DA_Scuttlecrab18",
           "cost": 2,
           "items": [
-            "Gargoyle Stoneplate",
+            "Dragon's Claw",
             "Gargoyle Stoneplate",
             "Spirit Visage"
           ],
           "itemApiNames": [
-            "DA_GargoyleStoneplate",
+            "DA_DragonsClaw",
             "DA_GargoyleStoneplate",
             "DA_SpiritVisage"
           ],
@@ -1469,8 +1476,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 2,
+            "col": 3
           }
         }
       ],
@@ -1494,8 +1501,8 @@
         "Warmogs Armor",
         "Last Whisper",
         "Hextech Gunblade",
-        "Red Buff",
-        "Dragon's Claw"
+        "Dragon's Claw",
+        "Red Buff"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -1506,9 +1513,10 @@
         "DA_WarmogsArmor",
         "DA_LastWhisper",
         "DA_HextechGunblade",
-        "DA_RedBuff",
-        "DA_DragonsClaw"
-      ]
+        "DA_DragonsClaw",
+        "DA_RedBuff"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422010",
@@ -1569,7 +1577,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 6
           }
         },
         {
@@ -1580,7 +1588,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -1590,8 +1598,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -1610,7 +1618,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 4
           }
         },
         {
@@ -1621,7 +1629,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -1640,7 +1648,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 0
           }
         },
         {
@@ -1651,7 +1659,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 1
           }
         },
         {
@@ -1670,7 +1678,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -1681,7 +1689,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         }
       ],
@@ -1715,7 +1723,8 @@
         "DA_RedBuff",
         "DA_Crownguard",
         "DA_ProtectorsVow"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422002",
@@ -1778,7 +1787,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -1797,7 +1806,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -1807,8 +1816,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 2
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -1819,7 +1828,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -1829,16 +1838,16 @@
           "items": [
             "Edge of Night",
             "Hand Of Justice",
-            "Jeweled Gauntlet"
+            "Rabadon's Deathcap"
           ],
           "itemApiNames": [
             "DA_EdgeOfNight",
             "DA_HandOfJustice",
-            "DA_JeweledGauntlet"
+            "DA_RabadonsDeathcap"
           ],
           "position": {
-            "row": 3,
-            "col": 1
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -1857,7 +1866,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -1887,7 +1896,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 1
           }
         },
         {
@@ -1898,7 +1907,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         }
       ],
@@ -1921,7 +1930,7 @@
         "Striker's Flail",
         "Edge of Night",
         "Hand Of Justice",
-        "Jeweled Gauntlet"
+        "Rabadon's Deathcap"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -1935,8 +1944,9 @@
         "DA_StrikersFlail",
         "DA_EdgeOfNight",
         "DA_HandOfJustice",
-        "DA_JeweledGauntlet"
-      ]
+        "DA_RabadonsDeathcap"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422008",
@@ -1979,7 +1989,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -1997,8 +2007,8 @@
             "DA_JeweledGauntlet"
           ],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -2009,7 +2019,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -2028,7 +2038,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -2046,8 +2056,8 @@
             "DA_RabadonsDeathcap"
           ],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -2058,7 +2068,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -2077,7 +2087,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         }
       ],
@@ -2116,7 +2126,8 @@
         "DA_SpiritVisage",
         "DA_IonicSpark",
         "DA_JeweledGauntlet"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422001",
@@ -2177,7 +2188,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -2196,7 +2207,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -2206,8 +2217,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -2217,8 +2228,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 2,
+            "col": 0
           }
         },
         {
@@ -2237,7 +2248,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -2256,7 +2267,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 6
           }
         },
         {
@@ -2267,7 +2278,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 1
           }
         },
         {
@@ -2277,8 +2288,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 2,
+            "col": 1
           }
         }
       ],
@@ -2312,7 +2323,8 @@
         "DA_RabadonsDeathcap",
         "DA_InfinityEdge",
         "DA_StrikersFlail"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422006",
@@ -2370,7 +2382,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -2389,7 +2401,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 5
           }
         },
         {
@@ -2408,7 +2420,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -2419,7 +2431,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -2429,8 +2441,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -2468,7 +2480,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 5
           }
         },
         {
@@ -2479,7 +2491,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         },
         {
@@ -2528,7 +2540,8 @@
         "DA_SpearOfShojin",
         "DA_VoidStaff",
         "DA_SpiritVisage"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422007",
@@ -2594,7 +2607,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -2613,7 +2626,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -2623,8 +2636,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -2684,7 +2697,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 2
           }
         },
         {
@@ -2695,7 +2708,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 0
+            "col": 3
           }
         },
         {
@@ -2742,7 +2755,8 @@
         "DA_RedBuff",
         "DA_GiantSlayer",
         "DA_InfinityEdge"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422012",
@@ -2809,18 +2823,18 @@
           "apiName": "DA_18_Morgana",
           "cost": 4,
           "items": [
-            "Spellweaver Emblem",
             "Morellonomicon",
+            "Rabadon's Deathcap",
             "Void Staff"
           ],
           "itemApiNames": [
-            "DA_18_EmblemSpellweaver",
             "DA_Morellonomicon",
+            "DA_RabadonsDeathcap",
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -2831,7 +2845,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -2849,8 +2863,8 @@
             "DA_SteraksGage"
           ],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 2,
+            "col": 5
           }
         },
         {
@@ -2861,7 +2875,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -2880,7 +2894,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 4
           }
         },
         {
@@ -2891,7 +2905,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         }
       ],
@@ -2908,7 +2922,7 @@
         "Jeweled Gauntlet",
         "Warmogs Armor",
         "Protector's Vow",
-        "Spellweaver Emblem",
+        "Rabadon's Deathcap",
         "Edge of Night",
         "Quicksilver",
         "Sterak's Gage",
@@ -2922,13 +2936,210 @@
         "DA_JeweledGauntlet",
         "DA_WarmogsArmor",
         "DA_ProtectorsVow",
-        "DA_18_EmblemSpellweaver",
+        "DA_RabadonsDeathcap",
         "DA_EdgeOfNight",
         "DA_Quicksilver",
         "DA_SteraksGage",
         "DA_18_EmblemInvoker",
         "DA_ArchangelsStaff"
-      ]
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422020",
+      "name": "Fae Tristana",
+      "tier": "A",
+      "traits": [
+        {
+          "name": "Fae",
+          "apiName": "DA_18_Fae",
+          "count": 4
+        },
+        {
+          "name": "Sprykin",
+          "apiName": "DA_18_Sprykin",
+          "count": 3
+        },
+        {
+          "name": "Defender",
+          "apiName": "DA_18_Defender",
+          "count": 2
+        },
+        {
+          "name": "Hunter",
+          "apiName": "DA_18_Hunter",
+          "count": 2
+        },
+        {
+          "name": "Juggernaut",
+          "apiName": "DA_Juggernaut18",
+          "count": 2
+        },
+        {
+          "name": "Primal",
+          "apiName": "DA_Primal18",
+          "count": 2
+        }
+      ],
+      "playstyle": "lvl 7",
+      "board": [
+        {
+          "unit": "Kobuko",
+          "apiName": "DA_18_Kobuko",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 5
+          }
+        },
+        {
+          "unit": "Lillia",
+          "apiName": "DA_18_Lillia",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Rakan",
+          "apiName": "DA_18_Rakan",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Rammus",
+          "apiName": "DA_18_Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_GargoyleStoneplate",
+            "DA_SpiritVisage",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Sivir",
+          "apiName": "DA_18_Sivir",
+          "cost": 4,
+          "items": [
+            "Fae Emblem",
+            "Last Whisper",
+            "Red Buff"
+          ],
+          "itemApiNames": [
+            "DA_18_EmblemFae",
+            "DA_LastWhisper",
+            "DA_RedBuff"
+          ],
+          "position": {
+            "row": 3,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Tristana",
+          "apiName": "DA_18_Tristana",
+          "cost": 3,
+          "items": [
+            "Giant Slayer",
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
+          ],
+          "itemApiNames": [
+            "DA_GiantSlayer",
+            "DA_GuinsoosRageblade",
+            "DA_HextechGunblade"
+          ],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Xayah",
+          "apiName": "DA_18_Xayah",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Vi",
+          "apiName": "DA_Vi18",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_GargoyleStoneplate",
+            "DA_SpiritVisage",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Tristana",
+        "DA_18_Sivir",
+        "DA_18_Rammus",
+        "DA_Vi18"
+      ],
+      "starTargets": [
+        "DA_18_Tristana",
+        "DA_18_Rammus",
+        "DA_Vi18"
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Spirit Visage",
+        "Infinity Edge",
+        "Warmogs Armor",
+        "Last Whisper",
+        "Giant Slayer",
+        "Hextech Gunblade",
+        "Fae Emblem",
+        "Red Buff"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GuinsoosRageblade",
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "DA_InfinityEdge",
+        "DA_WarmogsArmor",
+        "DA_LastWhisper",
+        "DA_GiantSlayer",
+        "DA_HextechGunblade",
+        "DA_18_EmblemFae",
+        "DA_RedBuff"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422013",
@@ -2994,7 +3205,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -3004,8 +3215,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -3027,7 +3238,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -3045,8 +3256,8 @@
             "DA_SteraksGage"
           ],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -3065,7 +3276,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -3084,7 +3295,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -3094,8 +3305,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 1,
+            "col": 3
           }
         }
       ],
@@ -3131,804 +3342,13 @@
         "DA_SteraksGage",
         "DA_InfinityEdge",
         "DA_LastWhisper"
-      ]
-    },
-    {
-      "id": "422020",
-      "name": "Fae Tristana",
-      "tier": "A",
-      "traits": [
-        {
-          "name": "Fae",
-          "apiName": "DA_18_Fae",
-          "count": 4
-        },
-        {
-          "name": "Sprykin",
-          "apiName": "DA_18_Sprykin",
-          "count": 3
-        },
-        {
-          "name": "Defender",
-          "apiName": "DA_18_Defender",
-          "count": 2
-        },
-        {
-          "name": "Hunter",
-          "apiName": "DA_18_Hunter",
-          "count": 2
-        },
-        {
-          "name": "Juggernaut",
-          "apiName": "DA_Juggernaut18",
-          "count": 2
-        },
-        {
-          "name": "Primal",
-          "apiName": "DA_Primal18",
-          "count": 2
-        }
       ],
-      "playstyle": "lvl 7",
-      "board": [
-        {
-          "unit": "Kobuko",
-          "apiName": "DA_18_Kobuko",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Lillia",
-          "apiName": "DA_18_Lillia",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Rakan",
-          "apiName": "DA_18_Rakan",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Rammus",
-          "apiName": "DA_18_Rammus",
-          "cost": 3,
-          "items": [
-            "Gargoyle Stoneplate",
-            "Spirit Visage",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Sivir",
-          "apiName": "DA_18_Sivir",
-          "cost": 4,
-          "items": [
-            "Fae Emblem",
-            "Last Whisper",
-            "Red Buff"
-          ],
-          "itemApiNames": [
-            "DA_18_EmblemFae",
-            "DA_LastWhisper",
-            "DA_RedBuff"
-          ],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Tristana",
-          "apiName": "DA_18_Tristana",
-          "cost": 3,
-          "items": [
-            "Giant Slayer",
-            "Guinsoo's Rageblade",
-            "Hextech Gunblade"
-          ],
-          "itemApiNames": [
-            "DA_GiantSlayer",
-            "DA_GuinsoosRageblade",
-            "DA_HextechGunblade"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Xayah",
-          "apiName": "DA_18_Xayah",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Vi",
-          "apiName": "DA_Vi18",
-          "cost": 3,
-          "items": [
-            "Gargoyle Stoneplate",
-            "Spirit Visage",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 5
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Tristana",
-        "DA_18_Sivir",
-        "DA_18_Rammus",
-        "DA_Vi18"
-      ],
-      "starTargets": [
-        "DA_18_Tristana",
-        "DA_18_Rammus",
-        "DA_Vi18"
-      ],
-      "itemPriorities": [
-        "Guinsoo's Rageblade",
-        "Gargoyle Stoneplate",
-        "Spirit Visage",
-        "Infinity Edge",
-        "Warmogs Armor",
-        "Last Whisper",
-        "Giant Slayer",
-        "Hextech Gunblade",
-        "Fae Emblem",
-        "Red Buff"
-      ],
-      "itemPriorityApiNames": [
-        "DA_GuinsoosRageblade",
-        "DA_GargoyleStoneplate",
-        "DA_SpiritVisage",
-        "DA_InfinityEdge",
-        "DA_WarmogsArmor",
-        "DA_LastWhisper",
-        "DA_GiantSlayer",
-        "DA_HextechGunblade",
-        "DA_18_EmblemFae",
-        "DA_RedBuff"
-      ]
-    },
-    {
-      "id": "422014",
-      "name": "Vanguard Rengar",
-      "tier": "A",
-      "traits": [
-        {
-          "name": "Vanguard",
-          "apiName": "DA_18_Vanguard",
-          "count": 4
-        },
-        {
-          "name": "Riftbeast",
-          "apiName": "DA_Riftbeast18",
-          "count": 3
-        },
-        {
-          "name": "Lunar",
-          "apiName": "DA_18_Lunar",
-          "count": 2
-        },
-        {
-          "name": "Rapidfire",
-          "apiName": "DA_18_Rapidfire",
-          "count": 2
-        },
-        {
-          "name": "Ravager",
-          "apiName": "DA_18_Slayer",
-          "count": 2
-        },
-        {
-          "name": "Emerald Aspect",
-          "apiName": "DA_Emerald18",
-          "count": 1
-        },
-        {
-          "name": "Rival",
-          "apiName": "DA_18_Rival",
-          "count": 1
-        }
-      ],
-      "playstyle": "lvl 7",
-      "board": [
-        {
-          "unit": "Aphelios",
-          "apiName": "DA_18_Aphelios",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Diana",
-          "apiName": "DA_18_Diana",
-          "cost": 3,
-          "items": [
-            "Hand Of Justice",
-            "Ionic Spark",
-            "Jeweled Gauntlet"
-          ],
-          "itemApiNames": [
-            "DA_HandOfJustice",
-            "DA_IonicSpark",
-            "DA_JeweledGauntlet"
-          ],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Hecarim",
-          "apiName": "DA_18_Hecarim",
-          "cost": 3,
-          "items": [
-            "Protector's Vow",
-            "Sunfire Cape",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_ProtectorsVow",
-            "DA_SunfireCape",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Rengar",
-          "apiName": "DA_18_Rengar",
-          "cost": 3,
-          "items": [
-            "Edge of Night",
-            "Guinsoo's Rageblade",
-            "Titan's Resolve"
-          ],
-          "itemApiNames": [
-            "DA_EdgeOfNight",
-            "DA_GuinsoosRageblade",
-            "DA_TitansResolve"
-          ],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Brambleback",
-          "apiName": "DA_Brambleback18",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Mama Beak",
-          "apiName": "DA_CrimsonRaptor18",
-          "cost": 3,
-          "items": [
-            "Guinsoo's Rageblade",
-            "Kraken's Fury",
-            "Last Whisper"
-          ],
-          "itemApiNames": [
-            "DA_GuinsoosRageblade",
-            "DA_KrakensFury",
-            "DA_LastWhisper"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Sentinel",
-          "apiName": "DA_Sentinel18",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 5
-          }
-        },
-        {
-          "unit": "Taric",
-          "apiName": "DA_Taric18",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 0
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Rengar",
-        "DA_18_Hecarim",
-        "DA_CrimsonRaptor18",
-        "DA_18_Diana"
-      ],
-      "starTargets": [
-        "DA_18_Rengar",
-        "DA_18_Hecarim",
-        "DA_18_Diana",
-        "DA_CrimsonRaptor18"
-      ],
-      "itemPriorities": [
-        "Guinsoo's Rageblade",
-        "Edge of Night",
-        "Titan's Resolve",
-        "Protector's Vow",
-        "Sunfire Cape",
-        "Warmogs Armor",
-        "Kraken's Fury",
-        "Last Whisper",
-        "Hand Of Justice",
-        "Ionic Spark",
-        "Jeweled Gauntlet"
-      ],
-      "itemPriorityApiNames": [
-        "DA_GuinsoosRageblade",
-        "DA_EdgeOfNight",
-        "DA_TitansResolve",
-        "DA_ProtectorsVow",
-        "DA_SunfireCape",
-        "DA_WarmogsArmor",
-        "DA_KrakensFury",
-        "DA_LastWhisper",
-        "DA_HandOfJustice",
-        "DA_IonicSpark",
-        "DA_JeweledGauntlet"
-      ]
-    },
-    {
-      "id": "422022",
-      "name": "Executioner Malphite",
-      "tier": "A",
-      "traits": [
-        {
-          "name": "Executioner",
-          "apiName": "DA_18_Executioner",
-          "count": 3
-        },
-        {
-          "name": "Summoner",
-          "apiName": "DA_18_Summoner",
-          "count": 3
-        },
-        {
-          "name": "Blackthorn",
-          "apiName": "DA_18_Blackthorn",
-          "count": 2
-        },
-        {
-          "name": "Flora Fatalis",
-          "apiName": "DA_FloraFatalis18",
-          "count": 2
-        },
-        {
-          "name": "Inferno",
-          "apiName": "DA_18_Inferno",
-          "count": 2
-        },
-        {
-          "name": "Juggernaut",
-          "apiName": "DA_Juggernaut18",
-          "count": 2
-        },
-        {
-          "name": "Monolith",
-          "apiName": "DA_18_Battlemage",
-          "count": 1
-        },
-        {
-          "name": "Thornmaiden",
-          "apiName": "DA_18_ZyraUniqueTrait",
-          "count": 1
-        }
-      ],
-      "playstyle": "Fast 8",
-      "board": [
-        {
-          "unit": "Azir",
-          "apiName": "DA_18_Azir",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Kennen",
-          "apiName": "DA_18_Kennen",
-          "cost": 5,
-          "items": [
-            "Rabadon's Deathcap"
-          ],
-          "itemApiNames": [
-            "DA_RabadonsDeathcap"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Malphite",
-          "apiName": "DA_18_Malphite",
-          "cost": 4,
-          "items": [
-            "Crownguard",
-            "Gargoyle Stoneplate",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_Crownguard",
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Soraka",
-          "apiName": "DA_18_Soraka",
-          "cost": 4,
-          "items": [
-            "Rabadon's Deathcap",
-            "Spear of Shojin",
-            "Striker's Flail"
-          ],
-          "itemApiNames": [
-            "DA_RabadonsDeathcap",
-            "DA_SpearOfShojin",
-            "DA_StrikersFlail"
-          ],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Yorick",
-          "apiName": "DA_18_Yorick",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Zyra",
-          "apiName": "DA_18_Zyra",
-          "cost": 4,
-          "items": [
-            "Executioner Emblem",
-            "Spear of Shojin",
-            "Void Staff"
-          ],
-          "itemApiNames": [
-            "DA_18_EmblemExecutioner",
-            "DA_SpearOfShojin",
-            "DA_VoidStaff"
-          ],
-          "position": {
-            "row": 3,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Amumu",
-          "apiName": "DA_Amumu18",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Fiddlesticks",
-          "apiName": "DA_Fiddlesticks18",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Malphite",
-        "DA_18_Soraka",
-        "DA_18_Zyra",
-        "DA_18_Kennen"
-      ],
-      "starTargets": [],
-      "itemPriorities": [
-        "Gargoyle Stoneplate",
-        "Spear of Shojin",
-        "Jeweled Gauntlet",
-        "Void Staff",
-        "Warmogs Armor",
-        "Rabadon's Deathcap",
-        "Crownguard",
-        "Striker's Flail",
-        "Executioner Emblem"
-      ],
-      "itemPriorityApiNames": [
-        "DA_GargoyleStoneplate",
-        "DA_SpearOfShojin",
-        "DA_JeweledGauntlet",
-        "DA_VoidStaff",
-        "DA_WarmogsArmor",
-        "DA_RabadonsDeathcap",
-        "DA_Crownguard",
-        "DA_StrikersFlail",
-        "DA_18_EmblemExecutioner"
-      ]
-    },
-    {
-      "id": "422011",
-      "name": "Invoker Pebbles",
-      "tier": "A",
-      "traits": [
-        {
-          "name": "Invoker",
-          "apiName": "DA_18_Invoker",
-          "count": 5
-        },
-        {
-          "name": "Riftbeast",
-          "apiName": "DA_Riftbeast18",
-          "count": 3
-        },
-        {
-          "name": "Juggernaut",
-          "apiName": "DA_Juggernaut18",
-          "count": 2
-        },
-        {
-          "name": "Vanguard",
-          "apiName": "DA_18_Vanguard",
-          "count": 2
-        },
-        {
-          "name": "Caustic",
-          "apiName": "DA_18_Caustic",
-          "count": 1
-        },
-        {
-          "name": "Emerald Aspect",
-          "apiName": "DA_Emerald18",
-          "count": 1
-        },
-        {
-          "name": "Old Growth",
-          "apiName": "DA_18_Maokai_UniqueTrait",
-          "count": 1
-        }
-      ],
-      "playstyle": "lvl 5",
-      "board": [
-        {
-          "unit": "Maokai",
-          "apiName": "DA_18_Maokai",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Morgana",
-          "apiName": "DA_18_Morgana",
-          "cost": 4,
-          "items": [
-            "Hextech Gunblade",
-            "Morellonomicon",
-            "Void Staff"
-          ],
-          "itemApiNames": [
-            "DA_HextechGunblade",
-            "DA_Morellonomicon",
-            "DA_VoidStaff"
-          ],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Pebbles",
-          "apiName": "DA_18_Sentry",
-          "cost": 1,
-          "items": [
-            "Blue Buff",
-            "Rabadon's Deathcap",
-            "Rabadon's Deathcap"
-          ],
-          "itemApiNames": [
-            "DA_BlueBuff",
-            "DA_RabadonsDeathcap",
-            "DA_RabadonsDeathcap"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Teemo",
-          "apiName": "DA_18_Teemo",
-          "cost": 2,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Kog'Maw",
-          "apiName": "DA_KogMaw18_AD",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Scuttlecrab",
-          "apiName": "DA_Scuttlecrab18",
-          "cost": 2,
-          "items": [
-            "Crownguard",
-            "Gargoyle Stoneplate",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_Crownguard",
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Sentinel",
-          "apiName": "DA_Sentinel18",
-          "cost": 4,
-          "items": [
-            "Crownguard",
-            "Protector's Vow",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_Crownguard",
-            "DA_ProtectorsVow",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Taric",
-          "apiName": "DA_Taric18",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Sentry",
-        "DA_Sentinel18",
-        "DA_18_Morgana",
-        "DA_Scuttlecrab18"
-      ],
-      "starTargets": [
-        "DA_18_Sentry",
-        "DA_Scuttlecrab18"
-      ],
-      "itemPriorities": [
-        "Gargoyle Stoneplate",
-        "Jeweled Gauntlet",
-        "Warmogs Armor",
-        "Blue Buff",
-        "Rabadon's Deathcap",
-        "Crownguard",
-        "Protector's Vow",
-        "Hextech Gunblade",
-        "Morellonomicon",
-        "Void Staff"
-      ],
-      "itemPriorityApiNames": [
-        "DA_GargoyleStoneplate",
-        "DA_JeweledGauntlet",
-        "DA_WarmogsArmor",
-        "DA_BlueBuff",
-        "DA_RabadonsDeathcap",
-        "DA_Crownguard",
-        "DA_ProtectorsVow",
-        "DA_HextechGunblade",
-        "DA_Morellonomicon",
-        "DA_VoidStaff"
-      ]
+      "layoutProvenance": "source"
     },
     {
       "id": "422026",
       "name": "Hunter Sivir Nidalee",
-      "tier": "B",
+      "tier": "A",
       "traits": [
         {
           "name": "Riftbeast",
@@ -4004,8 +3424,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -4024,7 +3444,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -4035,7 +3455,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -4046,7 +3466,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -4065,18 +3485,18 @@
           "apiName": "DA_Nidalee18_AP",
           "cost": 4,
           "items": [
-            "Edge of Night",
-            "Quicksilver",
+            "Infinity Edge",
+            "Spear of Shojin",
             "Sterak's Gage"
           ],
           "itemApiNames": [
-            "DA_EdgeOfNight",
-            "DA_Quicksilver",
+            "DA_InfinityEdge",
+            "DA_SpearOfShojin",
             "DA_SteraksGage"
           ],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 2,
+            "col": 0
           }
         },
         {
@@ -4084,17 +3504,17 @@
           "apiName": "DA_Sentinel18",
           "cost": 4,
           "items": [
-            "Adaptive Helm",
+            "Protector's Vow",
             "Protector's Vow",
             "Protector's Vow"
           ],
           "itemApiNames": [
-            "DA_AdaptiveHelm",
+            "DA_ProtectorsVow",
             "DA_ProtectorsVow",
             "DA_ProtectorsVow"
           ],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 5
           }
         }
@@ -4109,77 +3529,278 @@
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Infinity Edge",
-        "Warmogs Armor",
         "Spear of Shojin",
-        "Guinsoo's Rageblade",
+        "Warmogs Armor",
         "Red Buff",
         "Striker's Flail",
-        "Edge of Night",
-        "Quicksilver",
         "Sterak's Gage",
         "Crownguard",
-        "Adaptive Helm",
         "Protector's Vow"
       ],
       "itemPriorityApiNames": [
         "DA_GargoyleStoneplate",
         "DA_InfinityEdge",
-        "DA_WarmogsArmor",
         "DA_SpearOfShojin",
-        "DA_GuinsoosRageblade",
+        "DA_WarmogsArmor",
         "DA_RedBuff",
         "DA_StrikersFlail",
-        "DA_EdgeOfNight",
-        "DA_Quicksilver",
         "DA_SteraksGage",
         "DA_Crownguard",
-        "DA_AdaptiveHelm",
         "DA_ProtectorsVow"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
-      "id": "422028",
-      "name": "Sprykin Teemo",
-      "tier": "B",
+      "id": "422014",
+      "name": "Vanguard Rengar",
+      "tier": "A",
       "traits": [
         {
-          "name": "Sprykin",
-          "apiName": "DA_18_Sprykin",
-          "count": 5
+          "name": "Vanguard",
+          "apiName": "DA_18_Vanguard",
+          "count": 4
         },
         {
-          "name": "Invoker",
-          "apiName": "DA_18_Invoker",
+          "name": "Riftbeast",
+          "apiName": "DA_Riftbeast18",
           "count": 3
         },
         {
-          "name": "Defender",
-          "apiName": "DA_18_Defender",
+          "name": "Lunar",
+          "apiName": "DA_18_Lunar",
           "count": 2
         },
         {
-          "name": "Fae",
-          "apiName": "DA_18_Fae",
+          "name": "Rapidfire",
+          "apiName": "DA_18_Rapidfire",
           "count": 2
+        },
+        {
+          "name": "Ravager",
+          "apiName": "DA_18_Slayer",
+          "count": 2
+        },
+        {
+          "name": "Emerald Aspect",
+          "apiName": "DA_Emerald18",
+          "count": 1
+        },
+        {
+          "name": "Rival",
+          "apiName": "DA_18_Rival",
+          "count": 1
         }
       ],
-      "playstyle": "lvl 6",
+      "playstyle": "lvl 7",
       "board": [
         {
-          "unit": "Kobuko",
-          "apiName": "DA_18_Kobuko",
-          "cost": 1,
+          "unit": "Aphelios",
+          "apiName": "DA_18_Aphelios",
+          "cost": 4,
           "items": [],
           "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Diana",
+          "apiName": "DA_18_Diana",
+          "cost": 3,
+          "items": [
+            "Hand Of Justice",
+            "Ionic Spark",
+            "Jeweled Gauntlet"
+          ],
+          "itemApiNames": [
+            "DA_HandOfJustice",
+            "DA_IonicSpark",
+            "DA_JeweledGauntlet"
+          ],
+          "position": {
+            "row": 1,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Hecarim",
+          "apiName": "DA_18_Hecarim",
+          "cost": 3,
+          "items": [
+            "Protector's Vow",
+            "Sunfire Cape",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_ProtectorsVow",
+            "DA_SunfireCape",
+            "DA_WarmogsArmor"
+          ],
           "position": {
             "row": 0,
             "col": 3
           }
         },
         {
-          "unit": "Lillia",
-          "apiName": "DA_18_Lillia",
+          "unit": "Rengar",
+          "apiName": "DA_18_Rengar",
+          "cost": 3,
+          "items": [
+            "Edge of Night",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ],
+          "itemApiNames": [
+            "DA_EdgeOfNight",
+            "DA_GuinsoosRageblade",
+            "DA_TitansResolve"
+          ],
+          "position": {
+            "row": 0,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Brambleback",
+          "apiName": "DA_Brambleback18",
           "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Mama Beak",
+          "apiName": "DA_CrimsonRaptor18",
+          "cost": 3,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Kraken's Fury",
+            "Last Whisper"
+          ],
+          "itemApiNames": [
+            "DA_GuinsoosRageblade",
+            "DA_KrakensFury",
+            "DA_LastWhisper"
+          ],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Sentinel",
+          "apiName": "DA_Sentinel18",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Taric",
+          "apiName": "DA_Taric18",
+          "cost": 5,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Rengar",
+        "DA_18_Hecarim",
+        "DA_CrimsonRaptor18",
+        "DA_18_Diana"
+      ],
+      "starTargets": [
+        "DA_18_Rengar",
+        "DA_18_Hecarim",
+        "DA_18_Diana",
+        "DA_CrimsonRaptor18"
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Edge of Night",
+        "Titan's Resolve",
+        "Protector's Vow",
+        "Sunfire Cape",
+        "Warmogs Armor",
+        "Kraken's Fury",
+        "Last Whisper",
+        "Hand Of Justice",
+        "Ionic Spark",
+        "Jeweled Gauntlet"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GuinsoosRageblade",
+        "DA_EdgeOfNight",
+        "DA_TitansResolve",
+        "DA_ProtectorsVow",
+        "DA_SunfireCape",
+        "DA_WarmogsArmor",
+        "DA_KrakensFury",
+        "DA_LastWhisper",
+        "DA_HandOfJustice",
+        "DA_IonicSpark",
+        "DA_JeweledGauntlet"
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422011",
+      "name": "Invoker Pebbles",
+      "tier": "A",
+      "traits": [
+        {
+          "name": "Invoker",
+          "apiName": "DA_18_Invoker",
+          "count": 5
+        },
+        {
+          "name": "Riftbeast",
+          "apiName": "DA_Riftbeast18",
+          "count": 3
+        },
+        {
+          "name": "Juggernaut",
+          "apiName": "DA_Juggernaut18",
+          "count": 2
+        },
+        {
+          "name": "Vanguard",
+          "apiName": "DA_18_Vanguard",
+          "count": 2
+        },
+        {
+          "name": "Caustic",
+          "apiName": "DA_18_Caustic",
+          "count": 1
+        },
+        {
+          "name": "Emerald Aspect",
+          "apiName": "DA_Emerald18",
+          "count": 1
+        },
+        {
+          "name": "Old Growth",
+          "apiName": "DA_18_Maokai_UniqueTrait",
+          "count": 1
+        }
+      ],
+      "playstyle": "lvl 5",
+      "board": [
+        {
+          "unit": "Maokai",
+          "apiName": "DA_18_Maokai",
+          "cost": 5,
           "items": [],
           "itemApiNames": [],
           "position": {
@@ -4192,81 +3813,54 @@
           "apiName": "DA_18_Morgana",
           "cost": 4,
           "items": [
-            "Giant Slayer",
+            "Hextech Gunblade",
             "Morellonomicon",
             "Void Staff"
           ],
           "itemApiNames": [
-            "DA_GiantSlayer",
+            "DA_HextechGunblade",
             "DA_Morellonomicon",
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
-          "unit": "Rammus",
-          "apiName": "DA_18_Rammus",
-          "cost": 3,
+          "unit": "Pebbles",
+          "apiName": "DA_18_Sentry",
+          "cost": 1,
           "items": [
-            "Dragon's Claw",
-            "Gargoyle Stoneplate",
-            "Warmogs Armor"
+            "Blue Buff",
+            "Rabadon's Deathcap",
+            "Rabadon's Deathcap"
           ],
           "itemApiNames": [
-            "DA_DragonsClaw",
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor"
+            "DA_BlueBuff",
+            "DA_RabadonsDeathcap",
+            "DA_RabadonsDeathcap"
           ],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 3,
+            "col": 0
           }
         },
         {
           "unit": "Teemo",
           "apiName": "DA_18_Teemo",
           "cost": 2,
-          "items": [
-            "Jeweled Gauntlet",
-            "Rabadon's Deathcap",
-            "Spear of Shojin"
-          ],
-          "itemApiNames": [
-            "DA_JeweledGauntlet",
-            "DA_RabadonsDeathcap",
-            "DA_SpearOfShojin"
-          ],
+          "items": [],
+          "itemApiNames": [],
           "position": {
             "row": 3,
             "col": 2
           }
         },
         {
-          "unit": "Tristana",
-          "apiName": "DA_18_Tristana",
+          "unit": "Kog'Maw",
+          "apiName": "DA_KogMaw18_AD",
           "cost": 3,
-          "items": [
-            "Giant Slayer",
-            "Guinsoo's Rageblade",
-            "Red Buff"
-          ],
-          "itemApiNames": [
-            "DA_GiantSlayer",
-            "DA_GuinsoosRageblade",
-            "DA_RedBuff"
-          ],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Veigar",
-          "apiName": "DA_18_Veigar",
-          "cost": 1,
           "items": [],
           "itemApiNames": [],
           "position": {
@@ -4275,9 +3869,47 @@
           }
         },
         {
+          "unit": "Scuttlecrab",
+          "apiName": "DA_Scuttlecrab18",
+          "cost": 2,
+          "items": [
+            "Dragon's Claw",
+            "Gargoyle Stoneplate",
+            "Steadfast Heart"
+          ],
+          "itemApiNames": [
+            "DA_DragonsClaw",
+            "DA_GargoyleStoneplate",
+            "DA_SteadfastHeart"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
           "unit": "Sentinel",
           "apiName": "DA_Sentinel18",
           "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_AdaptiveHelm",
+            "DA_ProtectorsVow",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Taric",
+          "apiName": "DA_Taric18",
+          "cost": 5,
           "items": [],
           "itemApiNames": [],
           "position": {
@@ -4287,43 +3919,240 @@
         }
       ],
       "coreUnits": [
-        "DA_18_Teemo",
-        "DA_18_Rammus",
-        "DA_18_Tristana",
-        "DA_18_Morgana"
+        "DA_18_Sentry",
+        "DA_Sentinel18",
+        "DA_18_Morgana",
+        "DA_Scuttlecrab18"
       ],
       "starTargets": [
-        "DA_18_Teemo",
-        "DA_18_Kobuko",
-        "DA_18_Rammus",
-        "DA_18_Tristana"
+        "DA_18_Sentry",
+        "DA_Scuttlecrab18"
       ],
       "itemPriorities": [
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
-        "Spear of Shojin",
         "Warmogs Armor",
+        "Blue Buff",
         "Rabadon's Deathcap",
-        "Dragon's Claw",
-        "Giant Slayer",
-        "Guinsoo's Rageblade",
-        "Red Buff",
+        "Adaptive Helm",
+        "Protector's Vow",
+        "Hextech Gunblade",
         "Morellonomicon",
-        "Void Staff"
+        "Void Staff",
+        "Dragon's Claw",
+        "Steadfast Heart"
       ],
       "itemPriorityApiNames": [
         "DA_GargoyleStoneplate",
         "DA_JeweledGauntlet",
+        "DA_WarmogsArmor",
+        "DA_BlueBuff",
+        "DA_RabadonsDeathcap",
+        "DA_AdaptiveHelm",
+        "DA_ProtectorsVow",
+        "DA_HextechGunblade",
+        "DA_Morellonomicon",
+        "DA_VoidStaff",
+        "DA_DragonsClaw",
+        "DA_SteadfastHeart"
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422022",
+      "name": "Executioner Malphite",
+      "tier": "A",
+      "traits": [
+        {
+          "name": "Executioner",
+          "apiName": "DA_18_Executioner",
+          "count": 3
+        },
+        {
+          "name": "Summoner",
+          "apiName": "DA_18_Summoner",
+          "count": 3
+        },
+        {
+          "name": "Blackthorn",
+          "apiName": "DA_18_Blackthorn",
+          "count": 2
+        },
+        {
+          "name": "Flora Fatalis",
+          "apiName": "DA_FloraFatalis18",
+          "count": 2
+        },
+        {
+          "name": "Inferno",
+          "apiName": "DA_18_Inferno",
+          "count": 2
+        },
+        {
+          "name": "Juggernaut",
+          "apiName": "DA_Juggernaut18",
+          "count": 2
+        },
+        {
+          "name": "Monolith",
+          "apiName": "DA_18_Battlemage",
+          "count": 1
+        },
+        {
+          "name": "Thornmaiden",
+          "apiName": "DA_18_ZyraUniqueTrait",
+          "count": 1
+        }
+      ],
+      "playstyle": "Fast 8",
+      "board": [
+        {
+          "unit": "Azir",
+          "apiName": "DA_18_Azir",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Kennen",
+          "apiName": "DA_18_Kennen",
+          "cost": 5,
+          "items": [
+            "Rabadon's Deathcap"
+          ],
+          "itemApiNames": [
+            "DA_RabadonsDeathcap"
+          ],
+          "position": {
+            "row": 2,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Malphite",
+          "apiName": "DA_18_Malphite",
+          "cost": 4,
+          "items": [
+            "Crownguard",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_Crownguard",
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Soraka",
+          "apiName": "DA_18_Soraka",
+          "cost": 4,
+          "items": [
+            "Rabadon's Deathcap",
+            "Spear of Shojin",
+            "Striker's Flail"
+          ],
+          "itemApiNames": [
+            "DA_RabadonsDeathcap",
+            "DA_SpearOfShojin",
+            "DA_StrikersFlail"
+          ],
+          "position": {
+            "row": 3,
+            "col": 6
+          }
+        },
+        {
+          "unit": "Yorick",
+          "apiName": "DA_18_Yorick",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 2,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Zyra",
+          "apiName": "DA_18_Zyra",
+          "cost": 4,
+          "items": [
+            "Executioner Emblem",
+            "Spear of Shojin",
+            "Void Staff"
+          ],
+          "itemApiNames": [
+            "DA_18_EmblemExecutioner",
+            "DA_SpearOfShojin",
+            "DA_VoidStaff"
+          ],
+          "position": {
+            "row": 3,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Amumu",
+          "apiName": "DA_Amumu18",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 2,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Fiddlesticks",
+          "apiName": "DA_Fiddlesticks18",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 2,
+            "col": 1
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Malphite",
+        "DA_18_Soraka",
+        "DA_18_Zyra",
+        "DA_18_Kennen"
+      ],
+      "starTargets": [],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Jeweled Gauntlet",
+        "Void Staff",
+        "Warmogs Armor",
+        "Rabadon's Deathcap",
+        "Crownguard",
+        "Striker's Flail",
+        "Executioner Emblem"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GargoyleStoneplate",
         "DA_SpearOfShojin",
+        "DA_JeweledGauntlet",
+        "DA_VoidStaff",
         "DA_WarmogsArmor",
         "DA_RabadonsDeathcap",
-        "DA_DragonsClaw",
-        "DA_GiantSlayer",
-        "DA_GuinsoosRageblade",
-        "DA_RedBuff",
-        "DA_Morellonomicon",
-        "DA_VoidStaff"
-      ]
+        "DA_Crownguard",
+        "DA_StrikersFlail",
+        "DA_18_EmblemExecutioner"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422029",
@@ -4375,8 +4204,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 2,
+            "col": 4
           }
         },
         {
@@ -4395,7 +4224,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -4425,7 +4254,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -4435,8 +4264,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -4454,8 +4283,8 @@
             "DA_WarmogsArmor"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -4474,7 +4303,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         }
       ],
@@ -4511,7 +4340,197 @@
         "DA_RabadonsDeathcap",
         "DA_Deathblade",
         "DA_GiantSlayer"
-      ]
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422028",
+      "name": "Sprykin Teemo",
+      "tier": "B",
+      "traits": [
+        {
+          "name": "Sprykin",
+          "apiName": "DA_18_Sprykin",
+          "count": 5
+        },
+        {
+          "name": "Invoker",
+          "apiName": "DA_18_Invoker",
+          "count": 3
+        },
+        {
+          "name": "Defender",
+          "apiName": "DA_18_Defender",
+          "count": 2
+        },
+        {
+          "name": "Fae",
+          "apiName": "DA_18_Fae",
+          "count": 2
+        }
+      ],
+      "playstyle": "lvl 6",
+      "board": [
+        {
+          "unit": "Kobuko",
+          "apiName": "DA_18_Kobuko",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Lillia",
+          "apiName": "DA_18_Lillia",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Morgana",
+          "apiName": "DA_18_Morgana",
+          "cost": 4,
+          "items": [
+            "Giant Slayer",
+            "Morellonomicon",
+            "Void Staff"
+          ],
+          "itemApiNames": [
+            "DA_GiantSlayer",
+            "DA_Morellonomicon",
+            "DA_VoidStaff"
+          ],
+          "position": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Rammus",
+          "apiName": "DA_18_Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_GargoyleStoneplate",
+            "DA_ProtectorsVow",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Teemo",
+          "apiName": "DA_18_Teemo",
+          "cost": 2,
+          "items": [
+            "Jeweled Gauntlet",
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
+          ],
+          "itemApiNames": [
+            "DA_JeweledGauntlet",
+            "DA_RabadonsDeathcap",
+            "DA_SpearOfShojin"
+          ],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Tristana",
+          "apiName": "DA_18_Tristana",
+          "cost": 3,
+          "items": [
+            "Giant Slayer",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ],
+          "itemApiNames": [
+            "DA_GiantSlayer",
+            "DA_GuinsoosRageblade",
+            "DA_KrakensFury"
+          ],
+          "position": {
+            "row": 3,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Veigar",
+          "apiName": "DA_18_Veigar",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Sentinel",
+          "apiName": "DA_Sentinel18",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Teemo",
+        "DA_18_Rammus",
+        "DA_18_Tristana",
+        "DA_18_Morgana"
+      ],
+      "starTargets": [
+        "DA_18_Teemo",
+        "DA_18_Kobuko",
+        "DA_18_Rammus",
+        "DA_18_Tristana"
+      ],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Rabadon's Deathcap",
+        "Protector's Vow",
+        "Giant Slayer",
+        "Guinsoo's Rageblade",
+        "Kraken's Fury",
+        "Morellonomicon",
+        "Void Staff"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GargoyleStoneplate",
+        "DA_JeweledGauntlet",
+        "DA_SpearOfShojin",
+        "DA_WarmogsArmor",
+        "DA_RabadonsDeathcap",
+        "DA_ProtectorsVow",
+        "DA_GiantSlayer",
+        "DA_GuinsoosRageblade",
+        "DA_KrakensFury",
+        "DA_Morellonomicon",
+        "DA_VoidStaff"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422004",
@@ -4552,7 +4571,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -4571,7 +4590,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -4582,7 +4601,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -4593,7 +4612,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -4604,7 +4623,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 5
           }
         },
         {
@@ -4623,7 +4642,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -4634,7 +4653,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 3
           }
         },
         {
@@ -4652,8 +4671,8 @@
             "DA_TitansResolve"
           ],
           "position": {
-            "row": 0,
-            "col": 0
+            "row": 1,
+            "col": 2
           }
         }
       ],
@@ -4699,7 +4718,8 @@
         "DA_TitansResolve",
         "DA_DragonsClaw",
         "DA_SpiritVisage"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422023",
@@ -4747,7 +4767,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 5
           }
         },
         {
@@ -4755,14 +4775,14 @@
           "apiName": "DA_18_Alistar",
           "cost": 2,
           "items": [
+            "Evenshroud",
             "Gargoyle Stoneplate",
-            "Gargoyle Stoneplate",
-            "Gargoyle Stoneplate"
+            "Protector's Vow"
           ],
           "itemApiNames": [
+            "DA_Evenshroud",
             "DA_GargoyleStoneplate",
-            "DA_GargoyleStoneplate",
-            "DA_GargoyleStoneplate"
+            "DA_ProtectorsVow"
           ],
           "position": {
             "row": 0,
@@ -4796,7 +4816,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -4807,7 +4827,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 4
           }
         },
         {
@@ -4816,12 +4836,12 @@
           "cost": 4,
           "items": [
             "Gargoyle Stoneplate",
-            "Spirit Visage",
+            "Gargoyle Stoneplate",
             "Warmogs Armor"
           ],
           "itemApiNames": [
             "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
+            "DA_GargoyleStoneplate",
             "DA_WarmogsArmor"
           ],
           "position": {
@@ -4837,7 +4857,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 6
           }
         },
         {
@@ -4878,8 +4898,9 @@
         "Striker's Flail",
         "Last Whisper",
         "Warmogs Armor",
-        "Red Buff",
-        "Spirit Visage"
+        "Evenshroud",
+        "Protector's Vow",
+        "Red Buff"
       ],
       "itemPriorityApiNames": [
         "DA_SpearOfShojin",
@@ -4888,9 +4909,11 @@
         "DA_StrikersFlail",
         "DA_LastWhisper",
         "DA_WarmogsArmor",
-        "DA_RedBuff",
-        "DA_SpiritVisage"
-      ]
+        "DA_Evenshroud",
+        "DA_ProtectorsVow",
+        "DA_RedBuff"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422017",
@@ -4945,18 +4968,18 @@
           "apiName": "DA_18_Morgana",
           "cost": 4,
           "items": [
-            "Giant Slayer",
+            "Adaptive Helm",
             "Morellonomicon",
             "Void Staff"
           ],
           "itemApiNames": [
-            "DA_GiantSlayer",
+            "DA_AdaptiveHelm",
             "DA_Morellonomicon",
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -4967,7 +4990,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -4982,7 +5005,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -5000,8 +5023,8 @@
             "DA_StrikersFlail"
           ],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 3,
+            "col": 0
           }
         },
         {
@@ -5012,7 +5035,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -5031,7 +5054,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -5042,7 +5065,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -5053,7 +5076,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         }
       ],
@@ -5071,10 +5094,9 @@
         "Protector's Vow",
         "Warmogs Armor",
         "Adaptive Helm",
-        "Morellonomicon",
         "Striker's Flail",
         "Crownguard",
-        "Giant Slayer",
+        "Morellonomicon",
         "Void Staff",
         "Tacticians Crown"
       ],
@@ -5085,13 +5107,13 @@
         "DA_ProtectorsVow",
         "DA_WarmogsArmor",
         "DA_AdaptiveHelm",
-        "DA_Morellonomicon",
         "DA_StrikersFlail",
         "DA_Crownguard",
-        "DA_GiantSlayer",
+        "DA_Morellonomicon",
         "DA_VoidStaff",
         "DA_TacticiansCrown"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422019",
@@ -5144,7 +5166,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -5163,7 +5185,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -5201,7 +5223,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -5211,8 +5233,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -5231,7 +5253,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -5241,7 +5263,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 4
           }
         },
@@ -5252,8 +5274,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 1,
+            "col": 3
           }
         }
       ],
@@ -5289,7 +5311,8 @@
         "DA_RabadonsDeathcap",
         "DA_Morellonomicon",
         "DA_VoidStaff"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422038",
@@ -5342,7 +5365,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -5361,7 +5384,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -5371,8 +5394,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -5391,7 +5414,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -5429,7 +5452,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -5439,8 +5462,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -5451,7 +5474,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 4
           }
         }
       ],
@@ -5488,7 +5511,8 @@
         "DA_InfinityEdge",
         "DA_KrakensFury",
         "DA_BrambleVest"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422037",
@@ -5536,7 +5560,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -5555,7 +5579,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -5564,16 +5588,16 @@
           "cost": 5,
           "items": [
             "Bloodthirster",
-            "Sterak's Gage",
-            "Titan's Resolve"
+            "Edge of Night",
+            "Sterak's Gage"
           ],
           "itemApiNames": [
             "DA_Bloodthirster",
-            "DA_SteraksGage",
-            "DA_TitansResolve"
+            "DA_EdgeOfNight",
+            "DA_SteraksGage"
           ],
           "position": {
-            "row": 3,
+            "row": 1,
             "col": 2
           }
         },
@@ -5593,7 +5617,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -5604,7 +5628,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -5615,7 +5639,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -5634,7 +5658,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -5645,7 +5669,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 6
           }
         },
         {
@@ -5656,7 +5680,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 4
           }
         }
       ],
@@ -5678,8 +5702,8 @@
         "Warmogs Armor",
         "Rabadon's Deathcap",
         "Bloodthirster",
-        "Sterak's Gage",
-        "Titan's Resolve"
+        "Edge of Night",
+        "Sterak's Gage"
       ],
       "itemPriorityApiNames": [
         "DA_SpearOfShojin",
@@ -5692,9 +5716,10 @@
         "DA_WarmogsArmor",
         "DA_RabadonsDeathcap",
         "DA_Bloodthirster",
-        "DA_SteraksGage",
-        "DA_TitansResolve"
-      ]
+        "DA_EdgeOfNight",
+        "DA_SteraksGage"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422018",
@@ -5752,7 +5777,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -5771,7 +5796,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -5790,7 +5815,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -5801,7 +5826,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 6
           }
         },
         {
@@ -5812,7 +5837,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -5820,18 +5845,18 @@
           "apiName": "DA_Nidalee18_AP",
           "cost": 4,
           "items": [
-            "Guinsoo's Rageblade",
-            "Jeweled Gauntlet",
-            "Red Buff"
+            "Edge of Night",
+            "Hand Of Justice",
+            "Infinity Edge"
           ],
           "itemApiNames": [
-            "DA_GuinsoosRageblade",
-            "DA_JeweledGauntlet",
-            "DA_RedBuff"
+            "DA_EdgeOfNight",
+            "DA_HandOfJustice",
+            "DA_InfinityEdge"
           ],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 3,
+            "col": 0
           }
         },
         {
@@ -5839,18 +5864,18 @@
           "apiName": "DA_Sentinel18",
           "cost": 4,
           "items": [
+            "Gargoyle Stoneplate",
             "Protector's Vow",
-            "Protector's Vow",
-            "Protector's Vow"
+            "Warmogs Armor"
           ],
           "itemApiNames": [
+            "DA_GargoyleStoneplate",
             "DA_ProtectorsVow",
-            "DA_ProtectorsVow",
-            "DA_ProtectorsVow"
+            "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 4
           }
         },
         {
@@ -5861,7 +5886,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 5
           }
         }
       ],
@@ -5879,10 +5904,10 @@
         "Gargoyle Stoneplate",
         "Jeweled Gauntlet",
         "Warmogs Armor",
-        "Red Buff",
         "Edge of Night",
-        "Giant Slayer",
         "Hand Of Justice",
+        "Infinity Edge",
+        "Giant Slayer",
         "Vanguard Emblem",
         "Spirit Visage",
         "Protector's Vow"
@@ -5892,14 +5917,15 @@
         "DA_GargoyleStoneplate",
         "DA_JeweledGauntlet",
         "DA_WarmogsArmor",
-        "DA_RedBuff",
         "DA_EdgeOfNight",
-        "DA_GiantSlayer",
         "DA_HandOfJustice",
+        "DA_InfinityEdge",
+        "DA_GiantSlayer",
         "DA_18_EmblemVanguard",
         "DA_SpiritVisage",
         "DA_ProtectorsVow"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422030",
@@ -5941,8 +5967,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -5961,7 +5987,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -5970,17 +5996,17 @@
           "cost": 1,
           "items": [
             "Gargoyle Stoneplate",
-            "Protector's Vow",
+            "Spirit Visage",
             "Warmogs Armor"
           ],
           "itemApiNames": [
             "DA_GargoyleStoneplate",
-            "DA_ProtectorsVow",
+            "DA_SpiritVisage",
             "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -5999,7 +6025,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -6010,7 +6036,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -6029,7 +6055,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -6040,7 +6066,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         }
       ],
@@ -6067,8 +6093,7 @@
         "Rabadon's Deathcap",
         "Deathblade",
         "Infinity Edge",
-        "Spear of Shojin",
-        "Protector's Vow"
+        "Spear of Shojin"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -6079,9 +6104,9 @@
         "DA_RabadonsDeathcap",
         "DA_Deathblade",
         "DA_InfinityEdge",
-        "DA_SpearOfShojin",
-        "DA_ProtectorsVow"
-      ]
+        "DA_SpearOfShojin"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422046",
@@ -6163,7 +6188,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -6181,8 +6206,8 @@
             "DA_JeweledGauntlet"
           ],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -6231,7 +6256,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 6
           }
         },
         {
@@ -6289,195 +6314,8 @@
         "DA_EdgeOfNight",
         "DA_HandOfJustice",
         "DA_JeweledGauntlet"
-      ]
-    },
-    {
-      "id": "422036",
-      "name": "Blossom Ahri",
-      "tier": "C",
-      "traits": [
-        {
-          "name": "Blossom",
-          "apiName": "DA_18_Blossom",
-          "count": 7
-        },
-        {
-          "name": "Brawler",
-          "apiName": "DA_18_Brawler",
-          "count": 2
-        },
-        {
-          "name": "Juggernaut",
-          "apiName": "DA_Juggernaut18",
-          "count": 2
-        },
-        {
-          "name": "Spellweaver",
-          "apiName": "DA_18_Spellweaver",
-          "count": 2
-        },
-        {
-          "name": "Old Growth",
-          "apiName": "DA_18_Maokai_UniqueTrait",
-          "count": 1
-        }
       ],
-      "playstyle": "Fast 8",
-      "board": [
-        {
-          "unit": "Ahri",
-          "apiName": "DA_18_Ahri",
-          "cost": 4,
-          "items": [
-            "Executioner Emblem",
-            "Jeweled Gauntlet",
-            "Spear of Shojin"
-          ],
-          "itemApiNames": [
-            "DA_18_EmblemExecutioner",
-            "DA_JeweledGauntlet",
-            "DA_SpearOfShojin"
-          ],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Ashe",
-          "apiName": "DA_18_Ashe",
-          "cost": 5,
-          "items": [
-            "Infinity Edge",
-            "Red Buff",
-            "Spear of Shojin"
-          ],
-          "itemApiNames": [
-            "DA_InfinityEdge",
-            "DA_RedBuff",
-            "DA_SpearOfShojin"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Gnar",
-          "apiName": "DA_18_GnarSmall",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Maokai",
-          "apiName": "DA_18_Maokai",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Master Yi",
-          "apiName": "DA_18_MasterYi_AD",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Sett",
-          "apiName": "DA_18_Sett",
-          "cost": 4,
-          "items": [
-            "Juggernaut Emblem",
-            "Gargoyle Stoneplate",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_18_EmblemJuggernaut",
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Yorick",
-          "apiName": "DA_18_Yorick",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Yunara",
-          "apiName": "DA_18_Yunara",
-          "cost": 2,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Karma",
-          "apiName": "DA_Karma18",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 5
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Ahri",
-        "DA_18_Sett",
-        "DA_18_Ashe"
-      ],
-      "starTargets": [],
-      "itemPriorities": [
-        "Spear of Shojin",
-        "Gargoyle Stoneplate",
-        "Jeweled Gauntlet",
-        "Blossom Emblem",
-        "Warmogs Armor",
-        "Executioner Emblem",
-        "Juggernaut Emblem",
-        "Infinity Edge",
-        "Red Buff",
-        "Rabadon's Deathcap"
-      ],
-      "itemPriorityApiNames": [
-        "DA_SpearOfShojin",
-        "DA_GargoyleStoneplate",
-        "DA_JeweledGauntlet",
-        "DA_18_EmblemBlossom",
-        "DA_WarmogsArmor",
-        "DA_18_EmblemExecutioner",
-        "DA_18_EmblemJuggernaut",
-        "DA_InfinityEdge",
-        "DA_RedBuff",
-        "DA_RabadonsDeathcap"
-      ]
+      "layoutProvenance": "heuristic"
     },
     {
       "id": "422027",
@@ -6548,7 +6386,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -6567,7 +6405,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -6577,8 +6415,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -6586,18 +6424,18 @@
           "apiName": "DA_18_Lillia",
           "cost": 4,
           "items": [
-            "Protector's Vow",
+            "Adaptive Helm",
             "Protector's Vow",
             "Warmogs Armor"
           ],
           "itemApiNames": [
-            "DA_ProtectorsVow",
+            "DA_AdaptiveHelm",
             "DA_ProtectorsVow",
             "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -6607,8 +6445,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -6618,8 +6456,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -6637,8 +6475,8 @@
             "DA_WarmogsArmor"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 1,
+            "col": 3
           }
         },
         {
@@ -6649,7 +6487,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         }
       ],
@@ -6667,8 +6505,8 @@
         "Warmogs Armor",
         "Void Staff",
         "Morellonomicon",
-        "Protector's Vow",
-        "Adaptive Helm"
+        "Adaptive Helm",
+        "Protector's Vow"
       ],
       "itemPriorityApiNames": [
         "DA_JeweledGauntlet",
@@ -6677,218 +6515,24 @@
         "DA_WarmogsArmor",
         "DA_VoidStaff",
         "DA_Morellonomicon",
-        "DA_ProtectorsVow",
-        "DA_AdaptiveHelm"
-      ]
+        "DA_AdaptiveHelm",
+        "DA_ProtectorsVow"
+      ],
+      "layoutProvenance": "source"
     },
     {
-      "id": "422032",
-      "name": "Blackthorn Warwick",
+      "id": "422036",
+      "name": "Blossom Ahri",
       "tier": "C",
       "traits": [
         {
-          "name": "Blackthorn",
-          "apiName": "DA_18_Blackthorn",
-          "count": 4
-        },
-        {
-          "name": "Ravager",
-          "apiName": "DA_18_Slayer",
-          "count": 4
-        },
-        {
-          "name": "Riftbeast",
-          "apiName": "DA_Riftbeast18",
-          "count": 3
+          "name": "Blossom",
+          "apiName": "DA_18_Blossom",
+          "count": 7
         },
         {
           "name": "Brawler",
           "apiName": "DA_18_Brawler",
-          "count": 2
-        },
-        {
-          "name": "Monolith",
-          "apiName": "DA_18_Battlemage",
-          "count": 1
-        }
-      ],
-      "playstyle": "lvl 6",
-      "board": [
-        {
-          "unit": "Azir",
-          "apiName": "DA_18_Azir",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Diana",
-          "apiName": "DA_18_Diana",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Malphite",
-          "apiName": "DA_18_Malphite",
-          "cost": 4,
-          "items": [
-            "Evenshroud",
-            "Gargoyle Stoneplate",
-            "Sunfire Cape"
-          ],
-          "itemApiNames": [
-            "DA_Evenshroud",
-            "DA_GargoyleStoneplate",
-            "DA_SunfireCape"
-          ],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Rek'Sai",
-          "apiName": "DA_18_RekSai",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Warwick",
-          "apiName": "DA_18_Warwick",
-          "cost": 2,
-          "items": [
-            "Spear of Shojin",
-            "Sterak's Gage",
-            "Titan's Resolve"
-          ],
-          "itemApiNames": [
-            "DA_SpearOfShojin",
-            "DA_SteraksGage",
-            "DA_TitansResolve"
-          ],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Brambleback",
-          "apiName": "DA_Brambleback18",
-          "cost": 4,
-          "items": [
-            "Bloodthirster",
-            "Quicksilver",
-            "Sterak's Gage"
-          ],
-          "itemApiNames": [
-            "DA_Bloodthirster",
-            "DA_Quicksilver",
-            "DA_SteraksGage"
-          ],
-          "position": {
-            "row": 0,
-            "col": 5
-          }
-        },
-        {
-          "unit": "Krug",
-          "apiName": "DA_Krug18",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 0
-          }
-        },
-        {
-          "unit": "Murkwolf",
-          "apiName": "DA_Murkwolf18",
-          "cost": 2,
-          "items": [
-            "Hand Of Justice",
-            "Quicksilver",
-            "Sterak's Gage"
-          ],
-          "itemApiNames": [
-            "DA_HandOfJustice",
-            "DA_Quicksilver",
-            "DA_SteraksGage"
-          ],
-          "position": {
-            "row": 0,
-            "col": 6
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Warwick",
-        "DA_Murkwolf18",
-        "DA_18_Malphite",
-        "DA_Brambleback18"
-      ],
-      "starTargets": [
-        "DA_18_Warwick",
-        "DA_18_RekSai",
-        "DA_Murkwolf18"
-      ],
-      "itemPriorities": [
-        "Titan's Resolve",
-        "Spear of Shojin",
-        "Sterak's Gage",
-        "Gargoyle Stoneplate",
-        "Hand Of Justice",
-        "Edge of Night",
-        "Quicksilver",
-        "Evenshroud",
-        "Sunfire Cape",
-        "Bloodthirster"
-      ],
-      "itemPriorityApiNames": [
-        "DA_TitansResolve",
-        "DA_SpearOfShojin",
-        "DA_SteraksGage",
-        "DA_GargoyleStoneplate",
-        "DA_HandOfJustice",
-        "DA_EdgeOfNight",
-        "DA_Quicksilver",
-        "DA_Evenshroud",
-        "DA_SunfireCape",
-        "DA_Bloodthirster"
-      ]
-    },
-    {
-      "id": "422016",
-      "name": "Vanguard Caitlyn",
-      "tier": "C",
-      "traits": [
-        {
-          "name": "Vanguard",
-          "apiName": "DA_18_Vanguard",
-          "count": 4
-        },
-        {
-          "name": "Hunter",
-          "apiName": "DA_18_Hunter",
-          "count": 3
-        },
-        {
-          "name": "Fae",
-          "apiName": "DA_18_Fae",
           "count": 2
         },
         {
@@ -6897,172 +6541,173 @@
           "count": 2
         },
         {
-          "name": "Primal",
-          "apiName": "DA_Primal18",
+          "name": "Spellweaver",
+          "apiName": "DA_18_Spellweaver",
           "count": 2
+        },
+        {
+          "name": "Old Growth",
+          "apiName": "DA_18_Maokai_UniqueTrait",
+          "count": 1
         }
       ],
-      "playstyle": "lvl 6",
+      "playstyle": "Fast 8",
       "board": [
         {
-          "unit": "Caitlyn",
-          "apiName": "DA_18_Caitlyn",
-          "cost": 2,
-          "items": [
-            "Giant Slayer",
-            "Guinsoo's Rageblade",
-            "Kraken's Fury"
-          ],
-          "itemApiNames": [
-            "DA_GiantSlayer",
-            "DA_GuinsoosRageblade",
-            "DA_KrakensFury"
-          ],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Elise",
-          "apiName": "DA_18_Elise",
-          "cost": 2,
-          "items": [
-            "Bramble Vest",
-            "Gargoyle Stoneplate",
-            "Spirit Visage"
-          ],
-          "itemApiNames": [
-            "DA_BrambleVest",
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage"
-          ],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Hecarim",
-          "apiName": "DA_18_Hecarim",
-          "cost": 3,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Rakan",
-          "apiName": "DA_18_Rakan",
-          "cost": 1,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Sivir",
-          "apiName": "DA_18_Sivir",
+          "unit": "Ahri",
+          "apiName": "DA_18_Ahri",
           "cost": 4,
           "items": [
-            "Deathblade",
-            "Last Whisper",
+            "Executioner Emblem",
+            "Jeweled Gauntlet",
             "Spear of Shojin"
           ],
           "itemApiNames": [
-            "DA_Deathblade",
-            "DA_LastWhisper",
+            "DA_18_EmblemExecutioner",
+            "DA_JeweledGauntlet",
             "DA_SpearOfShojin"
           ],
           "position": {
             "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Ashe",
+          "apiName": "DA_18_Ashe",
+          "cost": 5,
+          "items": [
+            "Last Whisper",
+            "Red Buff",
+            "Spear of Shojin"
+          ],
+          "itemApiNames": [
+            "DA_LastWhisper",
+            "DA_RedBuff",
+            "DA_SpearOfShojin"
+          ],
+          "position": {
+            "row": 3,
+            "col": 6
+          }
+        },
+        {
+          "unit": "Gnar",
+          "apiName": "DA_18_GnarSmall",
+          "cost": 5,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 1,
             "col": 2
           }
         },
         {
-          "unit": "Tristana",
-          "apiName": "DA_18_Tristana",
-          "cost": 3,
+          "unit": "Maokai",
+          "apiName": "DA_18_Maokai",
+          "cost": 5,
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 0,
+            "col": 3
           }
         },
         {
-          "unit": "Sentinel",
-          "apiName": "DA_Sentinel18",
-          "cost": 4,
-          "items": [
-            "Protector's Vow",
-            "Protector's Vow",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_ProtectorsVow",
-            "DA_ProtectorsVow",
-            "DA_WarmogsArmor"
-          ],
+          "unit": "Master Yi",
+          "apiName": "DA_18_MasterYi_AD",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
           "position": {
             "row": 0,
             "col": 1
           }
         },
         {
-          "unit": "Vi",
-          "apiName": "DA_Vi18",
-          "cost": 3,
+          "unit": "Sett",
+          "apiName": "DA_18_Sett",
+          "cost": 4,
+          "items": [
+            "Juggernaut Emblem",
+            "Gargoyle Stoneplate",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_18_EmblemJuggernaut",
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Yorick",
+          "apiName": "DA_18_Yorick",
+          "cost": 1,
           "items": [],
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 2
+          }
+        },
+        {
+          "unit": "Yunara",
+          "apiName": "DA_18_Yunara",
+          "cost": 2,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Karma",
+          "apiName": "DA_Karma18",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 1
           }
         }
       ],
       "coreUnits": [
-        "DA_18_Caitlyn",
-        "DA_18_Elise",
-        "DA_18_Sivir",
-        "DA_Sentinel18"
+        "DA_18_Ahri",
+        "DA_18_Sett",
+        "DA_18_Ashe"
       ],
-      "starTargets": [
-        "DA_18_Caitlyn",
-        "DA_18_Elise"
-      ],
+      "starTargets": [],
       "itemPriorities": [
-        "Guinsoo's Rageblade",
-        "Gargoyle Stoneplate",
-        "Kraken's Fury",
-        "Infinity Edge",
-        "Warmogs Armor",
-        "Spirit Visage",
-        "Giant Slayer",
-        "Bramble Vest",
-        "Deathblade",
-        "Last Whisper",
         "Spear of Shojin",
-        "Protector's Vow"
+        "Gargoyle Stoneplate",
+        "Jeweled Gauntlet",
+        "Blossom Emblem",
+        "Warmogs Armor",
+        "Executioner Emblem",
+        "Juggernaut Emblem",
+        "Last Whisper",
+        "Red Buff",
+        "Rabadon's Deathcap"
       ],
       "itemPriorityApiNames": [
-        "DA_GuinsoosRageblade",
-        "DA_GargoyleStoneplate",
-        "DA_KrakensFury",
-        "DA_InfinityEdge",
-        "DA_WarmogsArmor",
-        "DA_SpiritVisage",
-        "DA_GiantSlayer",
-        "DA_BrambleVest",
-        "DA_Deathblade",
-        "DA_LastWhisper",
         "DA_SpearOfShojin",
-        "DA_ProtectorsVow"
-      ]
+        "DA_GargoyleStoneplate",
+        "DA_JeweledGauntlet",
+        "DA_18_EmblemBlossom",
+        "DA_WarmogsArmor",
+        "DA_18_EmblemExecutioner",
+        "DA_18_EmblemJuggernaut",
+        "DA_LastWhisper",
+        "DA_RedBuff",
+        "DA_RabadonsDeathcap"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422044",
@@ -7143,7 +6788,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -7162,7 +6807,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -7170,14 +6815,14 @@
           "apiName": "DA_18_Diana",
           "cost": 3,
           "items": [
-            "Tactician's Cape"
+            "Tacticians Shield"
           ],
           "itemApiNames": [
-            "DA_TacticiansCape"
+            "DA_TacticiansShield"
           ],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -7188,7 +6833,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 2
           }
         },
         {
@@ -7199,7 +6844,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -7218,7 +6863,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -7229,7 +6874,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 4
           }
         },
         {
@@ -7240,7 +6885,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 2
           }
         },
         {
@@ -7250,8 +6895,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 0
+            "row": 1,
+            "col": 3
           }
         }
       ],
@@ -7273,7 +6918,7 @@
         "Spear of Shojin",
         "Void Staff",
         "Protector's Vow",
-        "Tactician's Cape"
+        "Tacticians Shield"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -7286,8 +6931,400 @@
         "DA_SpearOfShojin",
         "DA_VoidStaff",
         "DA_ProtectorsVow",
-        "DA_TacticiansCape"
-      ]
+        "DA_TacticiansShield"
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422032",
+      "name": "Blackthorn Warwick",
+      "tier": "C",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "apiName": "DA_18_Blackthorn",
+          "count": 4
+        },
+        {
+          "name": "Ravager",
+          "apiName": "DA_18_Slayer",
+          "count": 4
+        },
+        {
+          "name": "Riftbeast",
+          "apiName": "DA_Riftbeast18",
+          "count": 3
+        },
+        {
+          "name": "Brawler",
+          "apiName": "DA_18_Brawler",
+          "count": 2
+        },
+        {
+          "name": "Monolith",
+          "apiName": "DA_18_Battlemage",
+          "count": 1
+        }
+      ],
+      "playstyle": "lvl 6",
+      "board": [
+        {
+          "unit": "Azir",
+          "apiName": "DA_18_Azir",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Diana",
+          "apiName": "DA_18_Diana",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 2,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Malphite",
+          "apiName": "DA_18_Malphite",
+          "cost": 4,
+          "items": [
+            "Evenshroud",
+            "Gargoyle Stoneplate",
+            "Sunfire Cape"
+          ],
+          "itemApiNames": [
+            "DA_Evenshroud",
+            "DA_GargoyleStoneplate",
+            "DA_SunfireCape"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Rek'Sai",
+          "apiName": "DA_18_RekSai",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Warwick",
+          "apiName": "DA_18_Warwick",
+          "cost": 2,
+          "items": [
+            "Spear of Shojin",
+            "Sterak's Gage",
+            "Titan's Resolve"
+          ],
+          "itemApiNames": [
+            "DA_SpearOfShojin",
+            "DA_SteraksGage",
+            "DA_TitansResolve"
+          ],
+          "position": {
+            "row": 2,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Brambleback",
+          "apiName": "DA_Brambleback18",
+          "cost": 4,
+          "items": [
+            "Bloodthirster",
+            "Quicksilver",
+            "Sterak's Gage"
+          ],
+          "itemApiNames": [
+            "DA_Bloodthirster",
+            "DA_Quicksilver",
+            "DA_SteraksGage"
+          ],
+          "position": {
+            "row": 2,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Krug",
+          "apiName": "DA_Krug18",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 2,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Murkwolf",
+          "apiName": "DA_Murkwolf18",
+          "cost": 2,
+          "items": [
+            "Hand Of Justice",
+            "Infinity Edge",
+            "Quicksilver"
+          ],
+          "itemApiNames": [
+            "DA_HandOfJustice",
+            "DA_InfinityEdge",
+            "DA_Quicksilver"
+          ],
+          "position": {
+            "row": 2,
+            "col": 2
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Warwick",
+        "DA_Murkwolf18",
+        "DA_18_Malphite",
+        "DA_Brambleback18"
+      ],
+      "starTargets": [
+        "DA_18_Warwick",
+        "DA_18_RekSai",
+        "DA_Murkwolf18"
+      ],
+      "itemPriorities": [
+        "Titan's Resolve",
+        "Spear of Shojin",
+        "Sterak's Gage",
+        "Gargoyle Stoneplate",
+        "Hand Of Justice",
+        "Edge of Night",
+        "Infinity Edge",
+        "Quicksilver",
+        "Evenshroud",
+        "Sunfire Cape",
+        "Bloodthirster"
+      ],
+      "itemPriorityApiNames": [
+        "DA_TitansResolve",
+        "DA_SpearOfShojin",
+        "DA_SteraksGage",
+        "DA_GargoyleStoneplate",
+        "DA_HandOfJustice",
+        "DA_EdgeOfNight",
+        "DA_InfinityEdge",
+        "DA_Quicksilver",
+        "DA_Evenshroud",
+        "DA_SunfireCape",
+        "DA_Bloodthirster"
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422016",
+      "name": "Vanguard Caitlyn",
+      "tier": "C",
+      "traits": [
+        {
+          "name": "Vanguard",
+          "apiName": "DA_18_Vanguard",
+          "count": 4
+        },
+        {
+          "name": "Hunter",
+          "apiName": "DA_18_Hunter",
+          "count": 3
+        },
+        {
+          "name": "Fae",
+          "apiName": "DA_18_Fae",
+          "count": 2
+        },
+        {
+          "name": "Juggernaut",
+          "apiName": "DA_Juggernaut18",
+          "count": 2
+        },
+        {
+          "name": "Primal",
+          "apiName": "DA_Primal18",
+          "count": 2
+        }
+      ],
+      "playstyle": "lvl 6",
+      "board": [
+        {
+          "unit": "Caitlyn",
+          "apiName": "DA_18_Caitlyn",
+          "cost": 2,
+          "items": [
+            "Giant Slayer",
+            "Guinsoo's Rageblade",
+            "Kraken's Fury"
+          ],
+          "itemApiNames": [
+            "DA_GiantSlayer",
+            "DA_GuinsoosRageblade",
+            "DA_KrakensFury"
+          ],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Elise",
+          "apiName": "DA_18_Elise",
+          "cost": 2,
+          "items": [
+            "Bramble Vest",
+            "Dragon's Claw",
+            "Spirit Visage"
+          ],
+          "itemApiNames": [
+            "DA_BrambleVest",
+            "DA_DragonsClaw",
+            "DA_SpiritVisage"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Hecarim",
+          "apiName": "DA_18_Hecarim",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Rakan",
+          "apiName": "DA_18_Rakan",
+          "cost": 1,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Sivir",
+          "apiName": "DA_18_Sivir",
+          "cost": 4,
+          "items": [
+            "Deathblade",
+            "Last Whisper",
+            "Spear of Shojin"
+          ],
+          "itemApiNames": [
+            "DA_Deathblade",
+            "DA_LastWhisper",
+            "DA_SpearOfShojin"
+          ],
+          "position": {
+            "row": 3,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Tristana",
+          "apiName": "DA_18_Tristana",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Sentinel",
+          "apiName": "DA_Sentinel18",
+          "cost": 4,
+          "items": [
+            "Adaptive Helm",
+            "Protector's Vow",
+            "Protector's Vow"
+          ],
+          "itemApiNames": [
+            "DA_AdaptiveHelm",
+            "DA_ProtectorsVow",
+            "DA_ProtectorsVow"
+          ],
+          "position": {
+            "row": 0,
+            "col": 5
+          }
+        },
+        {
+          "unit": "Vi",
+          "apiName": "DA_Vi18",
+          "cost": 3,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Caitlyn",
+        "DA_18_Elise",
+        "DA_18_Sivir",
+        "DA_Sentinel18"
+      ],
+      "starTargets": [
+        "DA_18_Caitlyn",
+        "DA_18_Elise"
+      ],
+      "itemPriorities": [
+        "Guinsoo's Rageblade",
+        "Gargoyle Stoneplate",
+        "Kraken's Fury",
+        "Infinity Edge",
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Giant Slayer",
+        "Bramble Vest",
+        "Dragon's Claw",
+        "Deathblade",
+        "Last Whisper",
+        "Spear of Shojin",
+        "Adaptive Helm",
+        "Protector's Vow"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GuinsoosRageblade",
+        "DA_GargoyleStoneplate",
+        "DA_KrakensFury",
+        "DA_InfinityEdge",
+        "DA_WarmogsArmor",
+        "DA_SpiritVisage",
+        "DA_GiantSlayer",
+        "DA_BrambleVest",
+        "DA_DragonsClaw",
+        "DA_Deathblade",
+        "DA_LastWhisper",
+        "DA_SpearOfShojin",
+        "DA_AdaptiveHelm",
+        "DA_ProtectorsVow"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422041",
@@ -7357,18 +7394,18 @@
           "apiName": "DA_18_Alune",
           "cost": 5,
           "items": [
-            "Adaptive Helm",
             "Jeweled Gauntlet",
-            "Nashor's Tooth"
+            "Rabadon's Deathcap",
+            "Spear of Shojin"
           ],
           "itemApiNames": [
-            "DA_AdaptiveHelm",
             "DA_JeweledGauntlet",
-            "DA_NashorsTooth"
+            "DA_RabadonsDeathcap",
+            "DA_SpearOfShojin"
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -7378,7 +7415,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 1,
             "col": 3
           }
         },
@@ -7390,7 +7427,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -7408,8 +7445,8 @@
             "DA_StrikersFlail"
           ],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -7420,7 +7457,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -7428,18 +7465,18 @@
           "apiName": "DA_18_Soraka",
           "cost": 4,
           "items": [
-            "Hextech Gunblade",
-            "Rabadon's Deathcap",
-            "Spear of Shojin"
+            "Adaptive Helm",
+            "Nashor's Tooth",
+            "Rabadon's Deathcap"
           ],
           "itemApiNames": [
-            "DA_HextechGunblade",
-            "DA_RabadonsDeathcap",
-            "DA_SpearOfShojin"
+            "DA_AdaptiveHelm",
+            "DA_NashorsTooth",
+            "DA_RabadonsDeathcap"
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 0
           }
         },
         {
@@ -7469,7 +7506,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -7480,7 +7517,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 1
           }
         }
       ],
@@ -7496,10 +7533,9 @@
         "Spear of Shojin",
         "Jeweled Gauntlet",
         "Warmogs Armor",
-        "Hextech Gunblade",
-        "Rabadon's Deathcap",
         "Adaptive Helm",
         "Nashor's Tooth",
+        "Rabadon's Deathcap",
         "Edge of Night",
         "Hand Of Justice",
         "Striker's Flail",
@@ -7511,16 +7547,16 @@
         "DA_SpearOfShojin",
         "DA_JeweledGauntlet",
         "DA_WarmogsArmor",
-        "DA_HextechGunblade",
-        "DA_RabadonsDeathcap",
         "DA_AdaptiveHelm",
         "DA_NashorsTooth",
+        "DA_RabadonsDeathcap",
         "DA_EdgeOfNight",
         "DA_HandOfJustice",
         "DA_StrikersFlail",
         "DA_BrambleVest",
         "DA_DragonsClaw"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422031",
@@ -7576,7 +7612,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -7595,7 +7631,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -7613,8 +7649,8 @@
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -7625,7 +7661,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -7655,7 +7691,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 5
+            "col": 6
           }
         },
         {
@@ -7709,11 +7745,12 @@
         "DA_ProtectorsVow",
         "DA_SunfireCape",
         "DA_18_EmblemSpellweaver"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422025",
-      "name": "Flora Fatalis Ahri",
+      "name": "Executioner Ahri",
       "tier": "C",
       "traits": [
         {
@@ -7775,7 +7812,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -7786,7 +7823,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 6
           }
         },
         {
@@ -7794,13 +7831,13 @@
           "apiName": "DA_18_Malphite",
           "cost": 4,
           "items": [
+            "Crownguard",
             "Gargoyle Stoneplate",
-            "Spirit Visage",
             "Warmogs Armor"
           ],
           "itemApiNames": [
+            "DA_Crownguard",
             "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
             "DA_WarmogsArmor"
           ],
           "position": {
@@ -7813,18 +7850,18 @@
           "apiName": "DA_18_Soraka",
           "cost": 4,
           "items": [
-            "Giant Slayer",
+            "Nashor's Tooth",
             "Rabadon's Deathcap",
-            "Spear of Shojin"
+            "Striker's Flail"
           ],
           "itemApiNames": [
-            "DA_GiantSlayer",
+            "DA_NashorsTooth",
             "DA_RabadonsDeathcap",
-            "DA_SpearOfShojin"
+            "DA_StrikersFlail"
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -7834,8 +7871,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -7854,7 +7891,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -7864,7 +7901,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 4
           }
         },
@@ -7875,8 +7912,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 1
+            "row": 2,
+            "col": 2
           }
         }
       ],
@@ -7895,8 +7932,9 @@
         "Warmogs Armor",
         "Executioner Emblem",
         "Rabadon's Deathcap",
-        "Spirit Visage",
-        "Giant Slayer",
+        "Crownguard",
+        "Nashor's Tooth",
+        "Striker's Flail",
         "Red Buff"
       ],
       "itemPriorityApiNames": [
@@ -7907,10 +7945,194 @@
         "DA_WarmogsArmor",
         "DA_18_EmblemExecutioner",
         "DA_RabadonsDeathcap",
-        "DA_SpiritVisage",
-        "DA_GiantSlayer",
+        "DA_Crownguard",
+        "DA_NashorsTooth",
+        "DA_StrikersFlail",
         "DA_RedBuff"
-      ]
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422035",
+      "name": "Rival Rengar",
+      "tier": "C",
+      "traits": [
+        {
+          "name": "Defender",
+          "apiName": "DA_18_Defender",
+          "count": 4
+        },
+        {
+          "name": "Executioner",
+          "apiName": "DA_18_Executioner",
+          "count": 2
+        },
+        {
+          "name": "Flora Fatalis",
+          "apiName": "DA_FloraFatalis18",
+          "count": 2
+        },
+        {
+          "name": "Rival",
+          "apiName": "DA_18_Rival",
+          "count": 2
+        }
+      ],
+      "playstyle": "lvl 7",
+      "board": [
+        {
+          "unit": "Kha'Zix",
+          "apiName": "DA_18_KhaZix",
+          "cost": 3,
+          "items": [
+            "Hand Of Justice",
+            "Rabadon's Deathcap",
+            "Striker's Flail"
+          ],
+          "itemApiNames": [
+            "DA_HandOfJustice",
+            "DA_RabadonsDeathcap",
+            "DA_StrikersFlail"
+          ],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Lillia",
+          "apiName": "DA_18_Lillia",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Rammus",
+          "apiName": "DA_18_Rammus",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Sunfire Cape"
+          ],
+          "itemApiNames": [
+            "DA_GargoyleStoneplate",
+            "DA_SpiritVisage",
+            "DA_SunfireCape"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Rengar",
+          "apiName": "DA_18_Rengar",
+          "cost": 3,
+          "items": [
+            "Defender Emblem",
+            "Guinsoo's Rageblade",
+            "Titan's Resolve"
+          ],
+          "itemApiNames": [
+            "DA_18_EmblemDefender",
+            "DA_GuinsoosRageblade",
+            "DA_TitansResolve"
+          ],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Shen",
+          "apiName": "DA_18_Shen",
+          "cost": 2,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 5
+          }
+        },
+        {
+          "unit": "Soraka",
+          "apiName": "DA_18_Soraka",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Fiddlesticks",
+          "apiName": "DA_Fiddlesticks18",
+          "cost": 3,
+          "items": [
+            "Gargoyle Stoneplate",
+            "Protector's Vow",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_GargoyleStoneplate",
+            "DA_ProtectorsVow",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 1,
+            "col": 3
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Rengar",
+        "DA_18_KhaZix",
+        "DA_Fiddlesticks18",
+        "DA_18_Rammus"
+      ],
+      "starTargets": [
+        "DA_18_KhaZix",
+        "DA_18_Rengar",
+        "DA_Fiddlesticks18",
+        "DA_18_Rammus"
+      ],
+      "itemPriorities": [
+        "Edge of Night",
+        "Hand Of Justice",
+        "Titan's Resolve",
+        "Guinsoo's Rageblade",
+        "Bloodthirster",
+        "Defender Emblem",
+        "Rabadon's Deathcap",
+        "Striker's Flail",
+        "Gargoyle Stoneplate",
+        "Protector's Vow",
+        "Warmogs Armor",
+        "Spirit Visage",
+        "Sunfire Cape"
+      ],
+      "itemPriorityApiNames": [
+        "DA_EdgeOfNight",
+        "DA_HandOfJustice",
+        "DA_TitansResolve",
+        "DA_GuinsoosRageblade",
+        "DA_Bloodthirster",
+        "DA_18_EmblemDefender",
+        "DA_RabadonsDeathcap",
+        "DA_StrikersFlail",
+        "DA_GargoyleStoneplate",
+        "DA_ProtectorsVow",
+        "DA_WarmogsArmor",
+        "DA_SpiritVisage",
+        "DA_SunfireCape"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422040",
@@ -8014,7 +8236,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -8033,7 +8255,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 5
           }
         },
         {
@@ -8044,7 +8266,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -8062,8 +8284,8 @@
             "DA_TitansResolve"
           ],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 3,
+            "col": 6
           }
         },
         {
@@ -8074,7 +8296,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 1
           }
         }
       ],
@@ -8097,7 +8319,7 @@
         "Sunfire Cape",
         "Deathblade",
         "Infinity Edge",
-        "Spirit Visage"
+        "Dragon's Claw"
       ],
       "itemPriorityApiNames": [
         "DA_GargoyleStoneplate",
@@ -8112,189 +8334,9 @@
         "DA_SunfireCape",
         "DA_Deathblade",
         "DA_InfinityEdge",
-        "DA_SpiritVisage"
-      ]
-    },
-    {
-      "id": "422035",
-      "name": "Rival Rengar",
-      "tier": "C",
-      "traits": [
-        {
-          "name": "Defender",
-          "apiName": "DA_18_Defender",
-          "count": 4
-        },
-        {
-          "name": "Executioner",
-          "apiName": "DA_18_Executioner",
-          "count": 2
-        },
-        {
-          "name": "Flora Fatalis",
-          "apiName": "DA_FloraFatalis18",
-          "count": 2
-        },
-        {
-          "name": "Rival",
-          "apiName": "DA_18_Rival",
-          "count": 2
-        }
+        "DA_DragonsClaw"
       ],
-      "playstyle": "lvl 7",
-      "board": [
-        {
-          "unit": "Kha'Zix",
-          "apiName": "DA_18_KhaZix",
-          "cost": 3,
-          "items": [
-            "Bloodthirster",
-            "Hand Of Justice",
-            "Jeweled Gauntlet"
-          ],
-          "itemApiNames": [
-            "DA_Bloodthirster",
-            "DA_HandOfJustice",
-            "DA_JeweledGauntlet"
-          ],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Lillia",
-          "apiName": "DA_18_Lillia",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Rammus",
-          "apiName": "DA_18_Rammus",
-          "cost": 3,
-          "items": [
-            "Gargoyle Stoneplate",
-            "Spirit Visage",
-            "Sunfire Cape"
-          ],
-          "itemApiNames": [
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
-            "DA_SunfireCape"
-          ],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Rengar",
-          "apiName": "DA_18_Rengar",
-          "cost": 3,
-          "items": [
-            "Ravager Emblem",
-            "Sterak's Gage",
-            "Titan's Resolve"
-          ],
-          "itemApiNames": [
-            "DA_18_EmblemSlayer",
-            "DA_SteraksGage",
-            "DA_TitansResolve"
-          ],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Shen",
-          "apiName": "DA_18_Shen",
-          "cost": 2,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 5
-          }
-        },
-        {
-          "unit": "Soraka",
-          "apiName": "DA_18_Soraka",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Fiddlesticks",
-          "apiName": "DA_Fiddlesticks18",
-          "cost": 3,
-          "items": [
-            "Gargoyle Stoneplate",
-            "Protector's Vow",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_GargoyleStoneplate",
-            "DA_ProtectorsVow",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 0
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Rengar",
-        "DA_18_KhaZix",
-        "DA_Fiddlesticks18",
-        "DA_18_Rammus"
-      ],
-      "starTargets": [
-        "DA_18_Rengar",
-        "DA_18_KhaZix",
-        "DA_Fiddlesticks18",
-        "DA_18_Rammus"
-      ],
-      "itemPriorities": [
-        "Edge of Night",
-        "Hand Of Justice",
-        "Titan's Resolve",
-        "Guinsoo's Rageblade",
-        "Bloodthirster",
-        "Ravager Emblem",
-        "Sterak's Gage",
-        "Jeweled Gauntlet",
-        "Gargoyle Stoneplate",
-        "Protector's Vow",
-        "Warmogs Armor",
-        "Spirit Visage",
-        "Sunfire Cape"
-      ],
-      "itemPriorityApiNames": [
-        "DA_EdgeOfNight",
-        "DA_HandOfJustice",
-        "DA_TitansResolve",
-        "DA_GuinsoosRageblade",
-        "DA_Bloodthirster",
-        "DA_18_EmblemSlayer",
-        "DA_SteraksGage",
-        "DA_JeweledGauntlet",
-        "DA_GargoyleStoneplate",
-        "DA_ProtectorsVow",
-        "DA_WarmogsArmor",
-        "DA_SpiritVisage",
-        "DA_SunfireCape"
-      ]
+      "layoutProvenance": "source"
     },
     {
       "id": "422042",
@@ -8351,8 +8393,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -8371,7 +8413,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -8400,7 +8442,7 @@
             "DA_StrikersFlail"
           ],
           "position": {
-            "row": 3,
+            "row": 1,
             "col": 2
           }
         },
@@ -8434,7 +8476,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -8442,18 +8484,18 @@
           "apiName": "DA_Amumu18",
           "cost": 4,
           "items": [
-            "Bramble Vest",
-            "Dragon's Claw",
-            "Spirit Visage"
+            "Evenshroud",
+            "Gargoyle Stoneplate",
+            "Protector's Vow"
           ],
           "itemApiNames": [
-            "DA_BrambleVest",
-            "DA_DragonsClaw",
-            "DA_SpiritVisage"
+            "DA_Evenshroud",
+            "DA_GargoyleStoneplate",
+            "DA_ProtectorsVow"
           ],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 3
           }
         },
         {
@@ -8464,7 +8506,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 5
           }
         }
       ],
@@ -8478,34 +8520,243 @@
         "Gargoyle Stoneplate",
         "Guinsoo's Rageblade",
         "Warmogs Armor",
-        "Bramble Vest",
-        "Dragon's Claw",
-        "Spirit Visage",
+        "Evenshroud",
+        "Protector's Vow",
         "Inferno Emblem",
         "Deathblade",
         "Giant Slayer",
         "Edge of Night",
         "Jeweled Gauntlet",
         "Striker's Flail",
-        "Blue Buff",
-        "Rabadon's Deathcap"
+        "Spear of Shojin"
       ],
       "itemPriorityApiNames": [
         "DA_GargoyleStoneplate",
         "DA_GuinsoosRageblade",
         "DA_WarmogsArmor",
-        "DA_BrambleVest",
-        "DA_DragonsClaw",
-        "DA_SpiritVisage",
+        "DA_Evenshroud",
+        "DA_ProtectorsVow",
         "DA_18_EmblemInferno",
         "DA_Deathblade",
         "DA_GiantSlayer",
         "DA_EdgeOfNight",
         "DA_JeweledGauntlet",
         "DA_StrikersFlail",
-        "DA_BlueBuff",
-        "DA_RabadonsDeathcap"
-      ]
+        "DA_SpearOfShojin"
+      ],
+      "layoutProvenance": "source"
+    },
+    {
+      "id": "422034",
+      "name": "Brawler Sett",
+      "tier": "C",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "apiName": "DA_18_Elderwood",
+          "count": 3
+        },
+        {
+          "name": "Brawler",
+          "apiName": "DA_18_Brawler",
+          "count": 2
+        },
+        {
+          "name": "Executioner",
+          "apiName": "DA_18_Executioner",
+          "count": 2
+        },
+        {
+          "name": "Inferno",
+          "apiName": "DA_18_Inferno",
+          "count": 2
+        },
+        {
+          "name": "Bounty Seeker",
+          "apiName": "DA_DravenUniqueTrait18",
+          "count": 1
+        },
+        {
+          "name": "Emerald Aspect",
+          "apiName": "DA_Emerald18",
+          "count": 1
+        },
+        {
+          "name": "Greenfather",
+          "apiName": "DA_18_Greenfather",
+          "count": 1
+        }
+      ],
+      "playstyle": "Fast 8",
+      "board": [
+        {
+          "unit": "Alistar",
+          "apiName": "DA_18_Alistar",
+          "cost": 2,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Ezreal",
+          "apiName": "DA_18_Ezreal",
+          "cost": 4,
+          "items": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Striker's Flail"
+          ],
+          "itemApiNames": [
+            "DA_InfinityEdge",
+            "DA_LastWhisper",
+            "DA_StrikersFlail"
+          ],
+          "position": {
+            "row": 3,
+            "col": 0
+          }
+        },
+        {
+          "unit": "Gnar",
+          "apiName": "DA_18_GnarSmall",
+          "cost": 5,
+          "items": [
+            "Bloodthirster",
+            "Edge of Night",
+            "Titan's Resolve"
+          ],
+          "itemApiNames": [
+            "DA_Bloodthirster",
+            "DA_EdgeOfNight",
+            "DA_TitansResolve"
+          ],
+          "position": {
+            "row": 1,
+            "col": 2
+          }
+        },
+        {
+          "unit": "Ivern",
+          "apiName": "DA_18_Ivern",
+          "cost": 5,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 3,
+            "col": 6
+          }
+        },
+        {
+          "unit": "Kennen",
+          "apiName": "DA_18_Kennen",
+          "cost": 5,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 1,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Sett",
+          "apiName": "DA_18_Sett",
+          "cost": 4,
+          "items": [
+            "Dragon's Claw",
+            "Steadfast Heart",
+            "Warmogs Armor"
+          ],
+          "itemApiNames": [
+            "DA_DragonsClaw",
+            "DA_SteadfastHeart",
+            "DA_WarmogsArmor"
+          ],
+          "position": {
+            "row": 0,
+            "col": 3
+          }
+        },
+        {
+          "unit": "Amumu",
+          "apiName": "DA_Amumu18",
+          "cost": 4,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 4
+          }
+        },
+        {
+          "unit": "Draven",
+          "apiName": "DA_Draven18",
+          "cost": 5,
+          "items": [
+            "Guinsoo's Rageblade",
+            "Infinity Edge",
+            "Striker's Flail"
+          ],
+          "itemApiNames": [
+            "DA_GuinsoosRageblade",
+            "DA_InfinityEdge",
+            "DA_StrikersFlail"
+          ],
+          "position": {
+            "row": 3,
+            "col": 1
+          }
+        },
+        {
+          "unit": "Taric",
+          "apiName": "DA_Taric18",
+          "cost": 5,
+          "items": [],
+          "itemApiNames": [],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
+        }
+      ],
+      "coreUnits": [
+        "DA_18_Sett",
+        "DA_18_Ezreal",
+        "DA_18_GnarSmall",
+        "DA_Draven18"
+      ],
+      "starTargets": [],
+      "itemPriorities": [
+        "Gargoyle Stoneplate",
+        "Spear of Shojin",
+        "Warmogs Armor",
+        "Guinsoo's Rageblade",
+        "Dragon's Claw",
+        "Steadfast Heart",
+        "Infinity Edge",
+        "Last Whisper",
+        "Striker's Flail",
+        "Bloodthirster",
+        "Edge of Night",
+        "Titan's Resolve"
+      ],
+      "itemPriorityApiNames": [
+        "DA_GargoyleStoneplate",
+        "DA_SpearOfShojin",
+        "DA_WarmogsArmor",
+        "DA_GuinsoosRageblade",
+        "DA_DragonsClaw",
+        "DA_SteadfastHeart",
+        "DA_InfinityEdge",
+        "DA_LastWhisper",
+        "DA_StrikersFlail",
+        "DA_Bloodthirster",
+        "DA_EdgeOfNight",
+        "DA_TitansResolve"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422048",
@@ -8571,7 +8822,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -8581,7 +8832,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 3
           }
         },
@@ -8601,7 +8852,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -8621,17 +8872,17 @@
           "cost": 1,
           "items": [
             "Gargoyle Stoneplate",
-            "Ionic Spark",
+            "Spirit Visage",
             "Warmogs Armor"
           ],
           "itemApiNames": [
             "DA_GargoyleStoneplate",
-            "DA_IonicSpark",
+            "DA_SpiritVisage",
             "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -8642,7 +8893,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -8651,17 +8902,17 @@
           "cost": 1,
           "items": [
             "Flora Fatalis Emblem",
-            "Jeweled Gauntlet",
-            "Nashor's Tooth"
+            "Blue Buff",
+            "Jeweled Gauntlet"
           ],
           "itemApiNames": [
             "DA_18_EmblemFloraFatalisAugment",
-            "DA_JeweledGauntlet",
-            "DA_NashorsTooth"
+            "DA_BlueBuff",
+            "DA_JeweledGauntlet"
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -8671,8 +8922,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 2,
+            "col": 2
           }
         }
       ],
@@ -8692,242 +8943,26 @@
         "Jeweled Gauntlet",
         "Warmogs Armor",
         "Guinsoo's Rageblade",
-        "Spear of Shojin",
         "Crownguard",
         "Morellonomicon",
         "Void Staff",
         "Flora Fatalis Emblem",
-        "Nashor's Tooth",
-        "Ionic Spark"
+        "Blue Buff",
+        "Spirit Visage"
       ],
       "itemPriorityApiNames": [
         "DA_GargoyleStoneplate",
         "DA_JeweledGauntlet",
         "DA_WarmogsArmor",
         "DA_GuinsoosRageblade",
-        "DA_SpearOfShojin",
         "DA_Crownguard",
         "DA_Morellonomicon",
         "DA_VoidStaff",
         "DA_18_EmblemFloraFatalisAugment",
-        "DA_NashorsTooth",
-        "DA_IonicSpark"
-      ]
-    },
-    {
-      "id": "422034",
-      "name": "Brawler Sett",
-      "tier": "C",
-      "traits": [
-        {
-          "name": "Elderwood",
-          "apiName": "DA_18_Elderwood",
-          "count": 3
-        },
-        {
-          "name": "Brawler",
-          "apiName": "DA_18_Brawler",
-          "count": 2
-        },
-        {
-          "name": "Executioner",
-          "apiName": "DA_18_Executioner",
-          "count": 2
-        },
-        {
-          "name": "Inferno",
-          "apiName": "DA_18_Inferno",
-          "count": 2
-        },
-        {
-          "name": "Bounty Seeker",
-          "apiName": "DA_DravenUniqueTrait18",
-          "count": 1
-        },
-        {
-          "name": "Emerald Aspect",
-          "apiName": "DA_Emerald18",
-          "count": 1
-        },
-        {
-          "name": "Greenfather",
-          "apiName": "DA_18_Greenfather",
-          "count": 1
-        }
+        "DA_BlueBuff",
+        "DA_SpiritVisage"
       ],
-      "playstyle": "Fast 8",
-      "board": [
-        {
-          "unit": "Alistar",
-          "apiName": "DA_18_Alistar",
-          "cost": 2,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Ezreal",
-          "apiName": "DA_18_Ezreal",
-          "cost": 4,
-          "items": [
-            "Last Whisper",
-            "Red Buff",
-            "Striker's Flail"
-          ],
-          "itemApiNames": [
-            "DA_LastWhisper",
-            "DA_RedBuff",
-            "DA_StrikersFlail"
-          ],
-          "position": {
-            "row": 3,
-            "col": 3
-          }
-        },
-        {
-          "unit": "Gnar",
-          "apiName": "DA_18_GnarSmall",
-          "cost": 5,
-          "items": [
-            "Bloodthirster",
-            "Edge of Night",
-            "Titan's Resolve"
-          ],
-          "itemApiNames": [
-            "DA_Bloodthirster",
-            "DA_EdgeOfNight",
-            "DA_TitansResolve"
-          ],
-          "position": {
-            "row": 3,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Ivern",
-          "apiName": "DA_18_Ivern",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Kennen",
-          "apiName": "DA_18_Kennen",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 3,
-            "col": 1
-          }
-        },
-        {
-          "unit": "Sett",
-          "apiName": "DA_18_Sett",
-          "cost": 4,
-          "items": [
-            "Dragon's Claw",
-            "Steadfast Heart",
-            "Warmogs Armor"
-          ],
-          "itemApiNames": [
-            "DA_DragonsClaw",
-            "DA_SteadfastHeart",
-            "DA_WarmogsArmor"
-          ],
-          "position": {
-            "row": 0,
-            "col": 2
-          }
-        },
-        {
-          "unit": "Amumu",
-          "apiName": "DA_Amumu18",
-          "cost": 4,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 4
-          }
-        },
-        {
-          "unit": "Draven",
-          "apiName": "DA_Draven18",
-          "cost": 5,
-          "items": [
-            "Deathblade",
-            "Guinsoo's Rageblade",
-            "Infinity Edge"
-          ],
-          "itemApiNames": [
-            "DA_Deathblade",
-            "DA_GuinsoosRageblade",
-            "DA_InfinityEdge"
-          ],
-          "position": {
-            "row": 3,
-            "col": 5
-          }
-        },
-        {
-          "unit": "Taric",
-          "apiName": "DA_Taric18",
-          "cost": 5,
-          "items": [],
-          "itemApiNames": [],
-          "position": {
-            "row": 0,
-            "col": 1
-          }
-        }
-      ],
-      "coreUnits": [
-        "DA_18_Sett",
-        "DA_18_Ezreal",
-        "DA_18_GnarSmall",
-        "DA_Draven18"
-      ],
-      "starTargets": [],
-      "itemPriorities": [
-        "Gargoyle Stoneplate",
-        "Spear of Shojin",
-        "Warmogs Armor",
-        "Guinsoo's Rageblade",
-        "Dragon's Claw",
-        "Steadfast Heart",
-        "Last Whisper",
-        "Red Buff",
-        "Striker's Flail",
-        "Bloodthirster",
-        "Edge of Night",
-        "Titan's Resolve",
-        "Deathblade",
-        "Infinity Edge"
-      ],
-      "itemPriorityApiNames": [
-        "DA_GargoyleStoneplate",
-        "DA_SpearOfShojin",
-        "DA_WarmogsArmor",
-        "DA_GuinsoosRageblade",
-        "DA_DragonsClaw",
-        "DA_SteadfastHeart",
-        "DA_LastWhisper",
-        "DA_RedBuff",
-        "DA_StrikersFlail",
-        "DA_Bloodthirster",
-        "DA_EdgeOfNight",
-        "DA_TitansResolve",
-        "DA_Deathblade",
-        "DA_InfinityEdge"
-      ]
+      "layoutProvenance": "source"
     },
     {
       "id": "422043",
@@ -8983,7 +9018,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -9012,8 +9047,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -9023,8 +9058,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 4
+            "row": 2,
+            "col": 2
           }
         },
         {
@@ -9043,7 +9078,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -9065,7 +9100,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         }
       ],
@@ -9108,7 +9143,8 @@
         "DA_SpearOfShojin",
         "DA_SteraksGage",
         "DA_TitansResolve"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422045",
@@ -9184,7 +9220,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -9199,7 +9235,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -9207,18 +9243,18 @@
           "apiName": "DA_18_KhaZix",
           "cost": 3,
           "items": [
+            "Lunar Emblem",
             "Edge of Night",
-            "Hand Of Justice",
-            "Titan's Resolve"
+            "Hand Of Justice"
           ],
           "itemApiNames": [
+            "DA_18_EmblemLunar",
             "DA_EdgeOfNight",
-            "DA_HandOfJustice",
-            "DA_TitansResolve"
+            "DA_HandOfJustice"
           ],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 1,
+            "col": 1
           }
         },
         {
@@ -9229,7 +9265,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -9251,7 +9287,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 5
           }
         },
         {
@@ -9262,7 +9298,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 2
           }
         },
         {
@@ -9273,7 +9309,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 3
           }
         },
         {
@@ -9292,7 +9328,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 0
+            "col": 1
           }
         }
       ],
@@ -9309,7 +9345,7 @@
         "Warmogs Armor",
         "Hand Of Justice",
         "Edge of Night",
-        "Titan's Resolve",
+        "Lunar Emblem",
         "Deathblade",
         "Last Whisper",
         "Red Buff",
@@ -9323,14 +9359,15 @@
         "DA_WarmogsArmor",
         "DA_HandOfJustice",
         "DA_EdgeOfNight",
-        "DA_TitansResolve",
+        "DA_18_EmblemLunar",
         "DA_Deathblade",
         "DA_LastWhisper",
         "DA_RedBuff",
         "DA_SpiritVisage",
         "DA_SunfireCape",
         "DA_IonicSpark"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422047",
@@ -9383,7 +9420,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 4
           }
         },
         {
@@ -9402,7 +9439,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -9413,7 +9450,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -9423,16 +9460,16 @@
           "items": [
             "Gargoyle Stoneplate",
             "Protector's Vow",
-            "Spirit Visage"
+            "Warmogs Armor"
           ],
           "itemApiNames": [
             "DA_GargoyleStoneplate",
             "DA_ProtectorsVow",
-            "DA_SpiritVisage"
+            "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -9443,7 +9480,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -9462,7 +9499,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -9470,18 +9507,18 @@
           "apiName": "DA_18_Xayah",
           "cost": 1,
           "items": [
+            "Giant Slayer",
             "Guinsoo's Rageblade",
-            "Kraken's Fury",
-            "Last Whisper"
+            "Kraken's Fury"
           ],
           "itemApiNames": [
+            "DA_GiantSlayer",
             "DA_GuinsoosRageblade",
-            "DA_KrakensFury",
-            "DA_LastWhisper"
+            "DA_KrakensFury"
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -9517,7 +9554,7 @@
         "Sunfire Cape",
         "Warmogs Armor",
         "Protector's Vow",
-        "Last Whisper"
+        "Giant Slayer"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -9529,8 +9566,9 @@
         "DA_SunfireCape",
         "DA_WarmogsArmor",
         "DA_ProtectorsVow",
-        "DA_LastWhisper"
-      ]
+        "DA_GiantSlayer"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422051",
@@ -9581,7 +9619,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -9592,7 +9630,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -9602,7 +9640,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
+            "row": 1,
             "col": 2
           }
         },
@@ -9614,7 +9652,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -9633,7 +9671,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -9652,7 +9690,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -9671,14 +9709,10 @@
           "apiName": "DA_Fiddlesticks18",
           "cost": 3,
           "items": [
-            "Gargoyle Stoneplate",
-            "Gargoyle Stoneplate",
-            "Warmogs Armor"
+            "Ionic Spark"
           ],
           "itemApiNames": [
-            "DA_GargoyleStoneplate",
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor"
+            "DA_IonicSpark"
           ],
           "position": {
             "row": 0,
@@ -9694,8 +9728,8 @@
       ],
       "starTargets": [
         "DA_18_LeBlanc",
-        "DA_18_Ornn",
         "DA_18_Alistar",
+        "DA_18_Ornn",
         "DA_18_Xayah"
       ],
       "itemPriorities": [
@@ -9719,7 +9753,8 @@
         "DA_WarmogsArmor",
         "DA_BrambleVest",
         "DA_SpiritVisage"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422039",
@@ -9772,7 +9807,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -9783,7 +9818,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 4
           }
         },
         {
@@ -9802,7 +9837,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 3
           }
         },
         {
@@ -9810,18 +9845,18 @@
           "apiName": "DA_18_Rakan",
           "cost": 1,
           "items": [
-            "Evenshroud",
+            "Bramble Vest",
             "Gargoyle Stoneplate",
-            "Sunfire Cape"
+            "Spirit Visage"
           ],
           "itemApiNames": [
-            "DA_Evenshroud",
+            "DA_BrambleVest",
             "DA_GargoyleStoneplate",
-            "DA_SunfireCape"
+            "DA_SpiritVisage"
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 2
           }
         },
         {
@@ -9832,7 +9867,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -9840,18 +9875,18 @@
           "apiName": "DA_18_Varus",
           "cost": 1,
           "items": [
-            "Fae Emblem",
-            "Infinity Edge",
-            "Spear of Shojin"
+            "Deathblade",
+            "Guinsoo's Rageblade",
+            "Infinity Edge"
           ],
           "itemApiNames": [
-            "DA_18_EmblemFae",
-            "DA_InfinityEdge",
-            "DA_SpearOfShojin"
+            "DA_Deathblade",
+            "DA_GuinsoosRageblade",
+            "DA_InfinityEdge"
           ],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -9860,17 +9895,17 @@
           "cost": 1,
           "items": [
             "Giant Slayer",
-            "Infinity Edge",
+            "Guinsoo's Rageblade",
             "Kraken's Fury"
           ],
           "itemApiNames": [
             "DA_GiantSlayer",
-            "DA_InfinityEdge",
+            "DA_GuinsoosRageblade",
             "DA_KrakensFury"
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -9880,8 +9915,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 5
+            "row": 2,
+            "col": 2
           }
         }
       ],
@@ -9906,10 +9941,8 @@
         "Warmogs Armor",
         "Giant Slayer",
         "Crownguard",
-        "Fae Emblem",
-        "Spear of Shojin",
-        "Evenshroud",
-        "Sunfire Cape"
+        "Deathblade",
+        "Bramble Vest"
       ],
       "itemPriorityApiNames": [
         "DA_GuinsoosRageblade",
@@ -9920,11 +9953,10 @@
         "DA_WarmogsArmor",
         "DA_GiantSlayer",
         "DA_Crownguard",
-        "DA_18_EmblemFae",
-        "DA_SpearOfShojin",
-        "DA_Evenshroud",
-        "DA_SunfireCape"
-      ]
+        "DA_Deathblade",
+        "DA_BrambleVest"
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422050",
@@ -9977,7 +10009,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 0
           }
         },
         {
@@ -9988,7 +10020,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 1
           }
         },
         {
@@ -10007,7 +10039,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 6
           }
         },
         {
@@ -10018,7 +10050,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 3
+            "col": 2
           }
         },
         {
@@ -10037,7 +10069,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 2
+            "col": 3
           }
         },
         {
@@ -10055,8 +10087,8 @@
             "DA_VoidStaff"
           ],
           "position": {
-            "row": 3,
-            "col": 1
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -10086,7 +10118,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 5
           }
         }
       ],
@@ -10126,7 +10158,8 @@
         "DA_ProtectorsVow",
         "DA_GuinsoosRageblade",
         "DA_TitansResolve"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422052",
@@ -10179,7 +10212,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 1
           }
         },
         {
@@ -10189,8 +10222,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -10212,7 +10245,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 4
+            "col": 1
           }
         },
         {
@@ -10240,17 +10273,17 @@
           "cost": 3,
           "items": [
             "Deathblade",
-            "Giant Slayer",
-            "Guinsoo's Rageblade"
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade"
           ],
           "itemApiNames": [
             "DA_Deathblade",
-            "DA_GiantSlayer",
-            "DA_GuinsoosRageblade"
+            "DA_GuinsoosRageblade",
+            "DA_HextechGunblade"
           ],
           "position": {
             "row": 3,
-            "col": 4
+            "col": 0
           }
         },
         {
@@ -10258,18 +10291,18 @@
           "apiName": "DA_Krug18",
           "cost": 3,
           "items": [
-            "Dragon's Claw",
             "Gargoyle Stoneplate",
-            "Spirit Visage"
+            "Spirit Visage",
+            "Warmogs Armor"
           ],
           "itemApiNames": [
-            "DA_DragonsClaw",
             "DA_GargoyleStoneplate",
-            "DA_SpiritVisage"
+            "DA_SpiritVisage",
+            "DA_WarmogsArmor"
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -10280,7 +10313,7 @@
           "itemApiNames": [],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 4
           }
         }
       ],
@@ -10290,18 +10323,16 @@
         "DA_18_Zyra"
       ],
       "starTargets": [
-        "DA_CrimsonRaptor18",
-        "DA_Krug18"
+        "DA_CrimsonRaptor18"
       ],
       "itemPriorities": [
         "Guinsoo's Rageblade",
         "Gargoyle Stoneplate",
         "Deathblade",
-        "Giant Slayer",
-        "Dragon's Claw",
-        "Spirit Visage",
-        "Rapidfire Emblem",
         "Hextech Gunblade",
+        "Spirit Visage",
+        "Warmogs Armor",
+        "Rapidfire Emblem",
         "Jeweled Gauntlet",
         "Morellonomicon",
         "Spear of Shojin"
@@ -10310,15 +10341,15 @@
         "DA_GuinsoosRageblade",
         "DA_GargoyleStoneplate",
         "DA_Deathblade",
-        "DA_GiantSlayer",
-        "DA_DragonsClaw",
-        "DA_SpiritVisage",
-        "DA_18_EmblemRapidfire",
         "DA_HextechGunblade",
+        "DA_SpiritVisage",
+        "DA_WarmogsArmor",
+        "DA_18_EmblemRapidfire",
         "DA_JeweledGauntlet",
         "DA_Morellonomicon",
         "DA_SpearOfShojin"
-      ]
+      ],
+      "layoutProvenance": "source"
     },
     {
       "id": "422049",
@@ -10384,7 +10415,7 @@
           ],
           "position": {
             "row": 3,
-            "col": 3
+            "col": 6
           }
         },
         {
@@ -10394,8 +10425,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
-            "col": 3
+            "row": 1,
+            "col": 2
           }
         },
         {
@@ -10413,8 +10444,8 @@
             "DA_JeweledGauntlet"
           ],
           "position": {
-            "row": 0,
-            "col": 2
+            "row": 2,
+            "col": 6
           }
         },
         {
@@ -10424,7 +10455,7 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 0,
+            "row": 2,
             "col": 4
           }
         },
@@ -10444,7 +10475,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 1
+            "col": 3
           }
         },
         {
@@ -10455,7 +10486,7 @@
           "itemApiNames": [],
           "position": {
             "row": 3,
-            "col": 2
+            "col": 0
           }
         },
         {
@@ -10465,8 +10496,8 @@
           "items": [],
           "itemApiNames": [],
           "position": {
-            "row": 3,
-            "col": 4
+            "row": 2,
+            "col": 3
           }
         },
         {
@@ -10481,7 +10512,7 @@
           ],
           "position": {
             "row": 0,
-            "col": 5
+            "col": 2
           }
         }
       ],
@@ -10519,7 +10550,8 @@
         "DA_JeweledGauntlet",
         "DA_HextechGunblade",
         "DA_RedBuff"
-      ]
+      ],
+      "layoutProvenance": "source"
     }
   ]
 }

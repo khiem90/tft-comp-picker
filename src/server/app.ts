@@ -9,7 +9,7 @@ import type {
   TierMove,
 } from "../shared/types";
 import { applyIconRefs, downloadIcons } from "./icons";
-import { transformSources, type SourceFetcher } from "./sources";
+import { fetchAllCompDetails, transformSources, type SourceFetcher } from "./sources";
 import { createDiskStorage, type Storage } from "./storage";
 
 export type { CompsFile } from "./sources";
@@ -277,8 +277,16 @@ export function createApp({ dataDir, storage, fetcher, now = Date.now }: CreateA
     inFlight ??= (async () => {
       try {
         const payloads = await activeFetcher.fetchSources();
+        // Comp-details ride the same Refresh as the clusters they describe:
+        // cluster ids rotate with the source's generation, so details fetched
+        // any later could belong to a different cluster set.
+        const compDetails = await fetchAllCompDetails(activeFetcher, payloads.compsData);
         const refreshedAt = new Date(now()).toISOString();
-        const { compsFile, setData, iconJobs } = transformSources(payloads, refreshedAt);
+        const { compsFile, setData, iconJobs } = transformSources(
+          payloads,
+          refreshedAt,
+          compDetails,
+        );
         let previous: CompsFile | null;
         try {
           previous = await store.readJson<CompsFile>("comps.json");

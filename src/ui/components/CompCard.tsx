@@ -177,10 +177,12 @@ interface HexBoardProps {
   starTargets: ReadonlySet<string>;
 }
 
-// The suggested Board layout: the 4x7 player half-board with the Comp's units
-// on their derived hexes. Row 0 (front) renders at the top, and odd rows
-// shift half a hex, matching the game's stagger. The layout is a local
-// suggestion, so the strip above the grid says so.
+// The Board layout: the 4x7 player half-board with the Comp's units on their
+// hexes. Row 0 (front) renders at the top, and odd rows shift half a hex,
+// matching the game's stagger. The strip above the grid reads the layout
+// provenance: a source-backed board is real placement data and carries no
+// caveat, a heuristic board (or one from a data file predating provenance)
+// stays labeled as the local suggestion it is.
 function HexBoard({ comp, icons, starTargets }: HexBoardProps) {
   const slotsByHex = new Map<string, BoardSlot>(
     comp.board.map((slot) => [`${slot.position!.row},${slot.position!.col}`, slot]),
@@ -194,8 +196,9 @@ function HexBoard({ comp, icons, starTargets }: HexBoardProps) {
   return (
     <div className="hex-board">
       <p className="hex-board-label">
-        Suggested layout · derived from unit roles and range, not from the meta
-        source
+        {comp.layoutProvenance === "source"
+          ? "Most-played positions from the meta source"
+          : "Suggested layout · derived from unit roles and range, not from the meta source"}
       </p>
       {BOARD_ROWS.map((row) => (
         <div key={row} className={`hex-row ${row % 2 === 1 ? "hex-row-offset" : ""}`}>

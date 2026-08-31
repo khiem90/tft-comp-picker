@@ -715,6 +715,205 @@ describe("Board layout", () => {
   });
 });
 
+describe("Source-placed boards", () => {
+  // The recorded comp-details payload for cluster 422000, fetched live from
+  // the endpoint during implementation like the other recorded fixtures.
+  const recordedDetails = (): unknown =>
+    loadRecorded("metatft-comp_details-422000.json");
+
+  interface DetailsCall {
+    compId: string;
+    generation: number;
+  }
+
+  // A fetcher that answers comp-details from a per-cluster map and fails the
+  // rest, recording every call so the generation id reuse is assertable.
+  function detailsFetcher(detailsById: Record<string, unknown>): CountingFetcher & {
+    detailsCalls: DetailsCall[];
+  } {
+    return {
+      ...fakeFetcher(),
+      detailsCalls: [],
+      async fetchCompDetails(compId: string, generation: number) {
+        this.detailsCalls.push({ compId, generation });
+        if (compId in detailsById) return detailsById[compId];
+        throw new Error(`no recorded details for ${compId}`);
+      },
+    };
+  }
+
+  it("fetches comp-details per cluster with the generation id from the cluster fetch", async () => {
+    const fetcher = detailsFetcher({ "422000": recordedDetails() });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    expect(response.status).toBe(200);
+    // The recorded comps payload holds 53 clusters under generation 422; every
+    // details call must reuse that generation, never fetch its own.
+    expect(fetcher.detailsCalls.length).toBe(53);
+    for (const call of fetcher.detailsCalls) expect(call.generation).toBe(422);
+    expect(fetcher.detailsCalls.map((call) => call.compId)).toContain("422000");
+  });
+
+  it("places each unit on its most-played cell with the source's rows flipped", async () => {
+    const fetcher = detailsFetcher({ "422000": recordedDetails() });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const positions = new Map(
+      faeRengar.board.map((slot) => [slot.apiName, slot.position!]),
+    );
+    // The source counts cells from the player's back row (cell_1 back-left,
+    // cell_28 front-right); the app's row 0 is the front row. Tristana's top
+    // cell_1 landing on row 3 and Rammus's top cell_25 landing on row 0 pin
+    // the flip in both directions.
+    expect(positions.get("DA_18_Tristana")).toEqual({ row: 3, col: 0 });
+    expect(positions.get("DA_18_Rammus")).toEqual({ row: 0, col: 3 });
+    expect(positions.get("DA_18_Kobuko")).toEqual({ row: 0, col: 1 });
+    expect(positions.get("DA_18_Lillia")).toEqual({ row: 0, col: 2 });
+    expect(positions.get("DA_18_Rakan")).toEqual({ row: 0, col: 5 });
+    expect(positions.get("DA_18_Rengar")).toEqual({ row: 2, col: 6 });
+    expect(positions.get("DA_Vi18")).toEqual({ row: 0, col: 4 });
+    expect(faeRengar.layoutProvenance).toBe("source");
+  });
+
+  it("sends a later unit to its next most-played free cell on a conflict", async () => {
+    // Synthetic conflict: Lillia's top cell becomes Kobuko's (cell_23), with
+    // cell_2 next. Kobuko walks first (board order) and keeps cell_23, so
+    // Lillia must land on cell_2: app row 3, col 1.
+    const details = recordedDetails() as {
+      results: {
+        positioning: {
+          units: Record<string, { positions: Array<{ cell: string; count: number }> }>;
+        };
+      };
+    };
+    details.results.positioning.units["DA_18_Lillia"].positions = [
+      { cell: "cell_23", count: 100 },
+      { cell: "cell_2", count: 50 },
+    ];
+    const fetcher = detailsFetcher({ "422000": details });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const positions = new Map(
+      faeRengar.board.map((slot) => [slot.apiName, slot.position!]),
+    );
+    expect(positions.get("DA_18_Kobuko")).toEqual({ row: 0, col: 1 });
+    expect(positions.get("DA_18_Lillia")).toEqual({ row: 3, col: 1 });
+    const hexes = faeRengar.board.map(
+      (slot) => `${slot.position!.row},${slot.position!.col}`,
+    );
+    expect(new Set(hexes).size).toBe(hexes.length);
+    // Every unit still source-placed, just not all on their top cell.
+    expect(faeRengar.layoutProvenance).toBe("source");
+  });
+
+  it("falls a unit absent from the cell data back to its heuristic line", async () => {
+    const details = recordedDetails() as {
+      results: { positioning: { units: Record<string, unknown> } };
+    };
+    delete details.results.positioning.units["DA_18_Rammus"];
+    const fetcher = detailsFetcher({ "422000": details });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const positions = new Map(
+      faeRengar.board.map((slot) => [slot.apiName, slot.position!]),
+    );
+    // Rammus is melee, so his line is the front rows; center-out from col 3,
+    // the first hex not taken by a source-placed unit is (0, 3) itself.
+    expect(positions.get("DA_18_Rammus")).toEqual({ row: 0, col: 3 });
+    // The source-placed six keep their cells.
+    expect(positions.get("DA_18_Tristana")).toEqual({ row: 3, col: 0 });
+    const hexes = faeRengar.board.map(
+      (slot) => `${slot.position!.row},${slot.position!.col}`,
+    );
+    expect(new Set(hexes).size).toBe(hexes.length);
+    // One heuristic-placed unit makes the whole board heuristic.
+    expect(faeRengar.layoutProvenance).toBe("heuristic");
+  });
+
+  it("keeps summons and monsters in the details payload off the board", async () => {
+    // The recorded details list 78 units seen in the cluster's games,
+    // including summons and monsters; the Comp's own seven stay authoritative.
+    const details = recordedDetails() as {
+      results: { positioning: { units: Record<string, unknown> } };
+    };
+    expect(details.results.positioning.units["DA_TrainingDummy"]).toBeDefined();
+    expect(details.results.positioning.units["DA_Sentinel18"]).toBeDefined();
+    const fetcher = detailsFetcher({ "422000": recordedDetails() });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    expect(faeRengar.board.map((slot) => slot.apiName).sort()).toEqual([
+      "DA_18_Kobuko",
+      "DA_18_Lillia",
+      "DA_18_Rakan",
+      "DA_18_Rammus",
+      "DA_18_Rengar",
+      "DA_18_Tristana",
+      "DA_Vi18",
+    ]);
+  });
+
+  it("serves a full heuristic board and a clean Refresh when details fetches fail", async () => {
+    // Every details call throws; the Refresh must still succeed with every
+    // Comp on the heuristic, exactly as before details existed.
+    const fetcher = detailsFetcher({});
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    expect(response.status).toBe(200);
+    expect(response.body.refreshError).toBeNull();
+    const comps = response.body.comps as RankedComp[];
+    expect(comps.length).toBe(53);
+    for (const comp of comps) {
+      expect(comp.layoutProvenance).toBe("heuristic");
+      for (const slot of comp.board) expect(slot.position).toBeDefined();
+    }
+    // The heuristic itself is unchanged: 422000 still fills its front row
+    // center-out.
+    const faeRengar = comps.find((comp) => comp.id === "422000")!;
+    const positions = new Map(
+      faeRengar.board.map((slot) => [slot.apiName, slot.position!]),
+    );
+    expect(positions.get("DA_18_Kobuko")).toEqual({ row: 0, col: 3 });
+    expect(positions.get("DA_18_Tristana")).toEqual({ row: 3, col: 3 });
+  });
+
+  it("marks provenance per Comp: source only where the details covered every unit", async () => {
+    const fetcher = detailsFetcher({ "422000": recordedDetails() });
+    const app = createApp({ dataDir: emptyDataDir(), fetcher, now });
+
+    const response = await request(app).get("/api/comps");
+
+    const comps = response.body.comps as RankedComp[];
+    for (const comp of comps) {
+      expect(["source", "heuristic"]).toContain(comp.layoutProvenance);
+      expect(comp.layoutProvenance).toBe(comp.id === "422000" ? "source" : "heuristic");
+    }
+  });
+});
+
 describe("Augment mapping", () => {
   it("maps non-empty top_augments onto Comp augments so augment Fit turns on", async () => {
     const payloads = recordedPayloads();
