@@ -97,6 +97,13 @@
   /* Star-target marker on Core Unit portraits. */
   --color-star: #f2ca5c;
 
+  /* Board layout hexes. Pointy-top hexagons: height is width times 2/sqrt(3),
+     rows advance three quarters of a hex height and overlap the rest. */
+  --size-board-hex: 48px;
+  --size-board-hex-h: calc(var(--size-board-hex) * 1.1547);
+  --gap-board-hex: 4px;
+  --clip-hexagon: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
   /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
      a literal 1100px in its media query because media queries cannot read
      custom properties. */
@@ -633,6 +640,118 @@ body {
 }
 
 .core-item .icon-fallback {
+  font-size: var(--text-3xs);
+}
+
+/* Suggested Board layout: the 4x7 half-board as staggered hex rows. The
+   label above the grid keeps the layout honest; the meta source has no
+   position data and this placement is a local role/range heuristic. */
+.hex-board {
+  margin: var(--space-sm) 0;
+}
+
+.hex-board-label {
+  margin: 0 0 var(--space-2xs);
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.hex-row {
+  display: flex;
+  gap: var(--gap-board-hex);
+  width: fit-content;
+}
+
+/* Rows overlap by the hexes' pointy quarters. */
+.hex-row + .hex-row {
+  margin-top: calc(var(--size-board-hex-h) / -4 + var(--gap-board-hex));
+}
+
+.hex-row-offset {
+  margin-left: calc((var(--size-board-hex) + var(--gap-board-hex)) / 2);
+}
+
+.hex-cell {
+  position: relative;
+  width: var(--size-board-hex);
+  height: var(--size-board-hex-h);
+}
+
+/* Empty hexes draw a faint board so placement reads as positions on a grid,
+   not as a free-floating clump of portraits. */
+.hex-cell:not(.occupied)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: var(--clip-hexagon);
+  background: var(--color-surface-raised);
+  opacity: 0.45;
+}
+
+/* drop-shadow follows the clip-path silhouette where box-shadow cannot. */
+.hex-cell.hex-held {
+  filter: drop-shadow(0 0 3px var(--color-positive-bright));
+}
+
+/* The rim is the frame's background showing around the inset portrait. */
+.hex-frame {
+  position: absolute;
+  inset: 0;
+  clip-path: var(--clip-hexagon);
+  background: var(--color-line);
+}
+
+.hex-cost-1 { background: var(--cost-1); }
+.hex-cost-2 { background: var(--cost-2); }
+.hex-cost-3 { background: var(--cost-3); }
+.hex-cost-4 { background: var(--cost-4); }
+.hex-cost-5 { background: var(--cost-5); }
+
+.hex-portrait {
+  position: absolute;
+  inset: 2px;
+  clip-path: var(--clip-hexagon);
+  overflow: hidden;
+}
+
+.hex-star {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-star);
+  font-size: var(--text-3xs);
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px var(--color-bg);
+}
+
+/* Build items overhang the hex bottom, above the next row's pointy tops. */
+.hex-items {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-4xs);
+}
+
+.hex-item {
+  display: block;
+  width: var(--size-build-item);
+  height: var(--size-build-item);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-surface-raised);
+}
+
+.hex-item .icon-fallback {
   font-size: var(--text-3xs);
 }
 

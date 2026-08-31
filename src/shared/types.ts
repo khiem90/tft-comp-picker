@@ -1,5 +1,12 @@
 export type Tier = "S" | "A" | "B" | "C" | "D";
 
+// One hex of the 4x7 player half-board. row 0 is the front row (nearest the
+// enemy), row 3 the back row; col 0 is the left edge.
+export interface BoardHex {
+  row: number;
+  col: number;
+}
+
 // apiName is CommunityDragon's stable identifier, preserved everywhere a
 // unit, item, or trait crosses the API: it is the join key for icon paths and
 // for MetaTFT's trait strings, and item display names are not unique enough
@@ -11,6 +18,11 @@ export interface BoardSlot {
   items: string[];
   // Aligned index-for-index with items.
   itemApiNames: string[];
+  // The Board layout hex this unit suggests standing on. Derived locally from
+  // unit roles and attack range; the meta source has no position data, so the
+  // UI must present it as suggested, never as sourced. Optional because data
+  // files written before layout derivation existed lack it.
+  position?: BoardHex;
 }
 
 // A trait a Comp activates, decoded from the meta source's trait string

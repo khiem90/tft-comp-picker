@@ -1,4 +1,5 @@
 import type {
+  BoardHex,
   BoardSlot,
   Comp,
   CompTrait,
@@ -137,6 +138,11 @@ interface CDragonChampion {
   // The square tile texture ("..._square.tex"); the icon/squareIcon fields
   // are splash art, which the spec keeps out of scope.
   tileIcon?: string;
+  // Combat archetype ("APTank", "ADCaster", ...). null on 72 of the 74
+  // recorded playable units (verified live too), so it can only steer the
+  // Board layout where it exists; attack range carries the rest.
+  role?: string | null;
+  stats?: { range?: number };
 }
 
 interface CDragonTrait {
@@ -251,6 +257,52 @@ function iconSourcePath(texPath: string | undefined): string | null {
   if (!lowered.endsWith(".tex")) return null;
   if (lowered.split("/").some((segment) => segment.startsWith("missing"))) return null;
   return `${lowered.slice(0, -".tex".length)}.png`;
+}
+
+// Board layout derivation. The meta source has no position data (recorded in
+// the glossary), so the layout is a local suggestion: tanks and bruisers hold
+// the front rows, carries and casters the back rows. CommunityDragon's role
+// field decides where it exists, but it is null on almost every playable unit
+// (72 of 74, live and recorded alike), so null roles fall back to attack
+// range: melee units front, ranged units back.
+function isFrontline(champ: CDragonChampion): boolean {
+  if (champ.role) return /tank|bruiser/i.test(champ.role);
+  return (champ.stats?.range ?? 1) <= 1;
+}
+
+// Hexes walk the line's outermost row center-out (col 3 first, then
+// alternating outward), spilling onto the inner row only when the outer one
+// fills. Rows 0/1 are the front line, rows 3/2 the back line.
+const CENTER_OUT_COLS = [3, 2, 4, 1, 5, 0, 6];
+
+function lineHexes(rows: number[], count: number): BoardHex[] {
+  const hexes: BoardHex[] = [];
+  for (const row of rows) {
+    for (const col of CENTER_OUT_COLS) {
+      if (hexes.length === count) return hexes;
+      hexes.push({ row, col });
+    }
+  }
+  return hexes;
+}
+
+function placeBoard(
+  board: BoardSlot[],
+  championsByApi: Map<string, CDragonChampion>,
+): void {
+  const front: BoardSlot[] = [];
+  const back: BoardSlot[] = [];
+  for (const slot of board) {
+    (isFrontline(championsByApi.get(slot.apiName)!) ? front : back).push(slot);
+  }
+  const frontHexes = lineHexes([0, 1], front.length);
+  const backHexes = lineHexes([3, 2], back.length);
+  front.forEach((slot, index) => {
+    slot.position = frontHexes[index];
+  });
+  back.forEach((slot, index) => {
+    slot.position = backHexes[index];
+  });
 }
 
 export interface TransformedData {
@@ -402,6 +454,10 @@ export function transformSources(
             },
           ];
         });
+
+      // Only resolvable units reach the board, so every slot has a champion
+      // to read role and range from.
+      placeBoard(board, championsByApi);
 
       // Core Units are the builds units still on this board; builds also
       // list headliner variants the board never fields. Board membership

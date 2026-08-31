@@ -602,6 +602,119 @@ describe("Core Units and Star targets", () => {
   });
 });
 
+describe("Board layout", () => {
+  it("gives every board unit a hex position inside the 4x7 grid", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    for (const comp of response.body.comps as RankedComp[]) {
+      for (const slot of comp.board) {
+        expect(slot.position).toBeDefined();
+        expect(slot.position!.row).toBeGreaterThanOrEqual(0);
+        expect(slot.position!.row).toBeLessThanOrEqual(3);
+        expect(slot.position!.col).toBeGreaterThanOrEqual(0);
+        expect(slot.position!.col).toBeLessThanOrEqual(6);
+      }
+    }
+  });
+
+  it("never places two units of a Comp on the same hex", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    for (const comp of response.body.comps as RankedComp[]) {
+      const hexes = comp.board.map(
+        (slot) => `${slot.position!.row},${slot.position!.col}`,
+      );
+      expect(new Set(hexes).size).toBe(hexes.length);
+    }
+  });
+
+  it("puts tank roles on the front rows and caster roles on the back rows", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const comps = response.body.comps as RankedComp[];
+    // Kobuko is the recorded payload's one role-carrying frontliner (APTank);
+    // Alune its one role-carrying backliner (APCaster).
+    const faeRengar = comps.find((comp) => comp.id === "422000")!;
+    const kobuko = faeRengar.board.find((slot) => slot.apiName === "DA_18_Kobuko")!;
+    expect(kobuko.position!.row).toBeLessThanOrEqual(1);
+    const lunarComp = comps.find((comp) => comp.id === "422006")!;
+    const alune = lunarComp.board.find((slot) => slot.apiName === "DA_18_Alune")!;
+    expect(alune.position!.row).toBeGreaterThanOrEqual(2);
+  });
+
+  it("lets a role override the range fallback in both directions", async () => {
+    // Both role-carrying units in the recorded payload (Kobuko, Alune) sit
+    // where their range alone would put them, so only a synthetic conflict
+    // proves role wins: a ranged tank must still front, a melee caster back.
+    const payloads = recordedPayloads();
+    const cdragon = payloads.cdragon as {
+      sets: Record<string, { champions: Array<{ apiName: string; role?: string | null }> }>;
+    };
+    const champions = cdragon.sets["18"].champions;
+    champions.find((champ) => champ.apiName === "DA_18_Tristana")!.role = "ADTank";
+    champions.find((champ) => champ.apiName === "DA_18_Rengar")!.role = "ADCaster";
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(payloads), now });
+
+    const response = await request(app).get("/api/comps");
+
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const rowOf = (api: string): number =>
+      faeRengar.board.find((slot) => slot.apiName === api)!.position!.row;
+    expect(rowOf("DA_18_Tristana")).toBeLessThanOrEqual(1);
+    expect(rowOf("DA_18_Rengar")).toBeGreaterThanOrEqual(2);
+  });
+
+  it("falls back to attack range where the role is null: melee front, ranged back", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // role is null on 72 of the 74 recorded units (verified live too), so the
+    // range fallback carries nearly the whole layout. 422000's melee units
+    // must land in the front rows and its one ranged unit in the back rows.
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const rowOf = (api: string): number =>
+      faeRengar.board.find((slot) => slot.apiName === api)!.position!.row;
+    for (const melee of ["DA_18_Lillia", "DA_18_Rakan", "DA_18_Rammus", "DA_18_Rengar", "DA_Vi18"]) {
+      expect(rowOf(melee)).toBeLessThanOrEqual(1);
+    }
+    expect(rowOf("DA_18_Tristana")).toBeGreaterThanOrEqual(2);
+  });
+
+  it("fills each line from the center of its outermost row, in board order", async () => {
+    const app = createApp({ dataDir: emptyDataDir(), fetcher: fakeFetcher(), now });
+
+    const response = await request(app).get("/api/comps");
+
+    // 422000 fields six frontliners and one backliner: the front six walk the
+    // front row center-out in board order, the lone ranged unit anchors the
+    // back row's center.
+    const faeRengar = (response.body.comps as RankedComp[]).find(
+      (comp) => comp.id === "422000",
+    )!;
+    const positions = new Map(
+      faeRengar.board.map((slot) => [slot.apiName, slot.position!]),
+    );
+    expect(positions.get("DA_18_Kobuko")).toEqual({ row: 0, col: 3 });
+    expect(positions.get("DA_18_Lillia")).toEqual({ row: 0, col: 2 });
+    expect(positions.get("DA_18_Rakan")).toEqual({ row: 0, col: 4 });
+    expect(positions.get("DA_18_Rammus")).toEqual({ row: 0, col: 1 });
+    expect(positions.get("DA_18_Rengar")).toEqual({ row: 0, col: 5 });
+    expect(positions.get("DA_Vi18")).toEqual({ row: 0, col: 0 });
+    expect(positions.get("DA_18_Tristana")).toEqual({ row: 3, col: 3 });
+  });
+});
+
 describe("Augment mapping", () => {
   it("maps non-empty top_augments onto Comp augments so augment Fit turns on", async () => {
     const payloads = recordedPayloads();
