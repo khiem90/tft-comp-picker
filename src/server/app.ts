@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import express from "express";
 import type {
   Comp,
@@ -12,6 +10,7 @@ import type {
 } from "../shared/types";
 import { applyIconRefs, downloadIcons } from "./icons";
 import { transformSources, type SourceFetcher } from "./sources";
+import { createDiskStorage, type Storage } from "./storage";
 
 export type { CompsFile } from "./sources";
 import type { CompsFile } from "./sources";
@@ -189,19 +188,6 @@ function parseNames(raw: unknown): string[] {
   return [];
 }
 
-function readJson<T>(dataDir: string, fileName: string): T {
-  return JSON.parse(fs.readFileSync(path.join(dataDir, fileName), "utf8")) as T;
-}
-
-// Write-then-rename so a crash mid-Refresh can never leave a half-written
-// data file behind; the last good file survives untouched.
-function writeJson(dataDir: string, fileName: string, value: unknown): void {
-  const target = path.join(dataDir, fileName);
-  const temp = `${target}.tmp`;
-  fs.writeFileSync(temp, `${JSON.stringify(value, null, 2)}\n`);
-  fs.renameSync(temp, target);
-}
-
 // Comps are matched by name across the boundary, not by id: MetaTFT's cluster
 // ids are artifacts of each stats snapshot and can be renumbered wholesale,
 // while the trait-plus-carry name is the identity a player recognizes.
@@ -235,24 +221,56 @@ function patchChangeBetween(
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 export interface CreateAppOptions {
-  dataDir: string;
+  // Where data lives: a local directory, or any Storage implementation.
+  // Exactly one of the two; dataDir is shorthand for disk storage.
+  dataDir?: string;
+  storage?: Storage;
   // Absent in tests that only exercise ranking; then the app serves whatever
-  // is on disk and never Refreshes.
+  // the store holds and never Refreshes.
   fetcher?: SourceFetcher;
   now?: () => number;
 }
 
-export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions) {
+export function createApp({ dataDir, storage, fetcher, now = Date.now }: CreateAppOptions) {
+  if (!storage === !dataDir) {
+    throw new Error("createApp needs exactly one of dataDir and storage");
+  }
+  const store = storage ?? createDiskStorage(dataDir!);
   const app = express();
 
-  // The icon files a Refresh downloaded. Serving them from disk is what keeps
-  // rendering offline: the UI never asks a third-party host for an image.
-  app.use("/icons", express.static(path.join(dataDir, "icons")));
+  // The icon files a Refresh downloaded, when they are local files. Serving
+  // them from disk is what keeps rendering offline: the UI never asks a
+  // third-party host for an image. Blob-backed storage serves its own URLs
+  // instead.
+  if (store.localIconsDir) {
+    app.use("/icons", express.static(store.localIconsDir));
+  }
 
   // The message of the most recent failed Refresh, cleared by a success.
-  // Served alongside Comps so the UI can say the rankings are running on last
-  // good data.
-  let refreshError: string | null = null;
+  // Served alongside Comps so the UI can say the rankings are running on
+  // last good data. Persisted beside the data so a restart, or another
+  // server instance on shared storage, still reports degraded mode; the
+  // in-memory copy is the fallback when the state document is unreadable.
+  let memoryRefreshError: string | null = null;
+  const loadRefreshError = async (): Promise<string | null> => {
+    try {
+      const state = await store.readJson<{ error: string | null }>(
+        "refresh-state.json",
+      );
+      return state.error;
+    } catch {
+      return memoryRefreshError;
+    }
+  };
+  const saveRefreshError = async (error: string | null): Promise<void> => {
+    memoryRefreshError = error;
+    try {
+      await store.writeJson("refresh-state.json", { error });
+    } catch {
+      // The in-memory copy carries it for this instance's lifetime.
+    }
+  };
+
   let inFlight: Promise<void> | null = null;
 
   const refresh = (activeFetcher: SourceFetcher): Promise<void> => {
@@ -263,29 +281,31 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
         const { compsFile, setData, iconJobs } = transformSources(payloads, refreshedAt);
         let previous: CompsFile | null;
         try {
-          previous = readJson<CompsFile>(dataDir, "comps.json");
+          previous = await store.readJson<CompsFile>("comps.json");
         } catch {
           previous = null;
         }
         const patchChange = patchChangeBetween(previous, compsFile);
         if (patchChange) compsFile.patchChange = patchChange;
         // Icons land before the JSON that references them, and only the ones
-        // on disk get referenced: an icon failure degrades to a fallback
-        // tile, never to a failed Refresh. With no readable previous
-        // comps.json the Patch of any surviving icon files is unknowable, so
-        // they count as stale too.
+        // in the store get referenced: an icon failure degrades to a
+        // fallback tile, never to a failed Refresh. With no readable
+        // previous comps.json the Patch of any surviving icons is
+        // unknowable, so they count as stale too.
         const availableIcons = await downloadIcons({
-          dataDir,
+          storage: store,
           jobs: iconJobs,
           fetcher: activeFetcher,
           patchChanged: previous === null || previous.patch !== compsFile.patch,
         });
         applyIconRefs(setData, availableIcons);
-        writeJson(dataDir, "comps.json", compsFile);
-        writeJson(dataDir, "set-data.json", setData);
-        refreshError = null;
+        await store.writeJson("comps.json", compsFile);
+        await store.writeJson("set-data.json", setData);
+        await saveRefreshError(null);
       } catch (cause) {
-        refreshError = cause instanceof Error ? cause.message : String(cause);
+        await saveRefreshError(
+          cause instanceof Error ? cause.message : String(cause),
+        );
       } finally {
         inFlight = null;
       }
@@ -293,13 +313,13 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
     return inFlight;
   };
 
-  // Null means "no usable data". Both files must parse: a fresh comps.json
-  // beside a missing or corrupt set-data.json still needs the Refresh that
-  // rewrites the pair.
-  const dataAgeMs = (): number | null => {
+  // Null means "no usable data". Both documents must parse: a fresh
+  // comps.json beside a missing or corrupt set-data.json still needs the
+  // Refresh that rewrites the pair.
+  const dataAgeMs = async (): Promise<number | null> => {
     try {
-      readJson<unknown>(dataDir, "set-data.json");
-      const { refreshedAt } = readJson<CompsFile>(dataDir, "comps.json");
+      await store.readJson<unknown>("set-data.json");
+      const { refreshedAt } = await store.readJson<CompsFile>("comps.json");
       const timestamp = Date.parse(refreshedAt);
       return Number.isNaN(timestamp) ? null : now() - timestamp;
     } catch {
@@ -311,13 +331,15 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
   // (or no data at all) Refreshes before recommendations are served.
   const ensureFresh = async (): Promise<void> => {
     if (!fetcher) return;
-    const age = dataAgeMs();
+    const age = await dataAgeMs();
     if (age === null || age > DAY_MS) await refresh(fetcher);
   };
 
-  const serveMissingData = (res: express.Response): void => {
+  const serveMissingData = async (res: express.Response): Promise<void> => {
     res.status(503).json({
-      error: refreshError ?? "No data files and no Refresh has succeeded yet",
+      error:
+        (await loadRefreshError()) ??
+        "No data files and no Refresh has succeeded yet",
     });
   };
 
@@ -331,10 +353,11 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
     let compsFile: CompsFile;
     let setItems: SetItem[];
     try {
-      compsFile = readJson<CompsFile>(dataDir, "comps.json");
-      setItems = readJson<{ items?: SetItem[] }>(dataDir, "set-data.json").items ?? [];
+      compsFile = await store.readJson<CompsFile>("comps.json");
+      setItems =
+        (await store.readJson<{ items?: SetItem[] }>("set-data.json")).items ?? [];
     } catch {
-      serveMissingData(res);
+      await serveMissingData(res);
       return;
     }
     const ranked: RankedComp[] = compsFile.comps
@@ -344,7 +367,7 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
     res.json({
       patch: compsFile.patch,
       refreshedAt: compsFile.refreshedAt,
-      refreshError,
+      refreshError: await loadRefreshError(),
       patchChange: compsFile.patchChange ?? null,
       comps: ranked,
     });
@@ -353,9 +376,9 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
   app.get("/api/set-data", async (_req, res) => {
     await ensureFresh();
     try {
-      res.json(readJson(dataDir, "set-data.json"));
+      res.json(await store.readJson("set-data.json"));
     } catch {
-      serveMissingData(res);
+      await serveMissingData(res);
     }
   });
 
@@ -365,11 +388,12 @@ export function createApp({ dataDir, fetcher, now = Date.now }: CreateAppOptions
       return;
     }
     await refresh(fetcher);
+    const refreshError = await loadRefreshError();
     if (refreshError !== null) {
       res.status(502).json({ error: refreshError });
       return;
     }
-    const { patch, refreshedAt } = readJson<CompsFile>(dataDir, "comps.json");
+    const { patch, refreshedAt } = await store.readJson<CompsFile>("comps.json");
     res.json({ patch, refreshedAt });
   });
 

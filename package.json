@@ -6,10 +6,12 @@
   "description": "Personal tool for picking a TFT Set 18 Comp from current Holdings.",
   "scripts": {
     "start": "tsx src/server/main.ts",
+    "build": "vite build",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.0",
     "express": "^5.2.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"

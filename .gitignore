@@ -2,3 +2,6 @@ node_modules/
 dist/
 # Downloaded per-Patch by Refresh; reproducible, never hand-edited.
 data/icons/
+# Runtime Refresh outcome, not seed data.
+data/refresh-state.json
+.vercel/
