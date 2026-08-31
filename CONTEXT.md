@@ -25,8 +25,24 @@ The meta source's strength ranking of a Comp on the current patch, independent o
 _Avoid_: Rank, rating
 
 **Set data**:
-The static Set 18 catalog for the current Patch: units, traits, items, augments.
+The static Set 18 catalog for the current Patch: units, traits, items, augments, and their icons.
 _Avoid_: Game data, static data
+
+**Playstyle**:
+The leveling archetype the meta source assigns a Comp: Fast 8, Fast 9, lvl 5, lvl 6, lvl 7, or Standard.
+_Avoid_: Comp origin, archetype, levelling
+
+**Core Units**:
+The item-carrying units of a Comp, as marked by the meta source with their builds. Every other unit on the board is filler.
+_Avoid_: Carries, item holders
+
+**Star target**:
+A unit players commonly 3-star when playing a Comp, per the meta source. Only units on the Comp's board count.
+_Avoid_: 3-star carry, reroll target
+
+**Board layout**:
+A suggested placement of a Comp's units on the hex board, derived locally from unit roles and attack range (frontline/backline). Not source data; the meta source has no positions, and the role field is null on nearly every unit, so range carries most placements.
+_Avoid_: Positioning, formation
 
 **Patch**:
 A biweekly game update. A new Patch invalidates both Set data and Comps until refreshed.
