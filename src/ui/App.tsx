@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import type { CompsResponse, SetDataResponse } from "../shared/types";
 import { clearActiveGame, loadActiveGame, saveActiveGame } from "./activeGame";
+import {
+  anyFilterActive,
+  EMPTY_FILTERS,
+  filterOptions,
+  matchesFilters,
+  type FilterSelection,
+} from "./filters";
 import { AppHeader } from "./components/AppHeader";
 import { AugmentsSection } from "./components/AugmentsSection";
 import { CompList } from "./components/CompList";
+import { FiltersPanel } from "./components/FiltersPanel";
 import { ItemsSection } from "./components/ItemsSection";
 import { StatusBanners } from "./components/StatusBanners";
 import { StatusRail } from "./components/StatusRail";
@@ -39,6 +47,10 @@ export function App() {
   const [heldItems, setHeldItems] = useState<string[]>(restored.items);
   const [heldAugments, setHeldAugments] = useState<string[]>(restored.augments);
   const [search, setSearch] = useState("");
+  // View-only state: filters narrow what the comp column shows and never
+  // touch the ranking request, so the order within results stays the
+  // server's order.
+  const [filters, setFilters] = useState<FilterSelection>(EMPTY_FILTERS);
   const [itemSearch, setItemSearch] = useState("");
   const [augmentSearch, setAugmentSearch] = useState("");
   // One error per fetch, cleared by that fetch's next success. A shared flag
@@ -164,6 +176,16 @@ export function App() {
     augmentChoices.length > 0 &&
     comps.comps.some((comp) => (comp.augments ?? []).length > 0);
 
+  // Ranks are assigned before filtering so every card keeps its position in
+  // the full ranking; a filter hides cards, it never promotes one.
+  const rankedEntries = comps.comps.map((comp, index) => ({
+    comp,
+    rank: index + 1,
+  }));
+  const visibleEntries = rankedEntries.filter((entry) =>
+    matchesFilters(entry.comp, filters),
+  );
+
   return (
     <main className="app-shell">
       <AppHeader onNewGame={startNewGame} />
@@ -210,14 +232,27 @@ export function App() {
 
           <section className="comp-column">
             <h2 className="column-title">Top Comps</h2>
-            <CompList
-              comps={comps.comps}
-              icons={{
-                traits: new Map(setData.traits.map((trait) => [trait.apiName, trait.icon])),
-                units: new Map(setData.units.map((unit) => [unit.apiName, unit.icon])),
-                items: new Map(setData.items.map((item) => [item.apiName, item.icon])),
-              }}
-            />
+            {visibleEntries.length === 0 && anyFilterActive(filters) ? (
+              <div className="comp-empty">
+                <p>No Comps match the active filters.</p>
+                <button
+                  type="button"
+                  className="panel-button"
+                  onClick={() => setFilters(EMPTY_FILTERS)}
+                >
+                  Clear all filters
+                </button>
+              </div>
+            ) : (
+              <CompList
+                entries={visibleEntries}
+                icons={{
+                  traits: new Map(setData.traits.map((trait) => [trait.apiName, trait.icon])),
+                  units: new Map(setData.units.map((unit) => [unit.apiName, unit.icon])),
+                  items: new Map(setData.items.map((item) => [item.apiName, item.icon])),
+                }}
+              />
+            )}
           </section>
 
           <aside className="rail rail-status">
@@ -226,6 +261,11 @@ export function App() {
               refreshedAt={comps.refreshedAt}
               refreshing={refreshing}
               onRefresh={refreshNow}
+            />
+            <FiltersPanel
+              options={filterOptions(comps.comps)}
+              selection={filters}
+              onSelectionChange={setFilters}
             />
           </aside>
         </div>

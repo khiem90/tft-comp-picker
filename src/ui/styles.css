@@ -263,6 +263,94 @@ body {
   cursor: default;
 }
 
+/* Filters panel: right rail, below the status panel. One dropdown per
+   group, defaulting to All; Clear All resets every group at once. */
+.filters-panel {
+  margin-top: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.filters-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.filters-title {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.clear-filters {
+  border: none;
+  padding: 0;
+  background: none;
+  color: var(--color-notice-text);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.clear-filters:hover {
+  text-decoration: underline;
+}
+
+.clear-filters:disabled {
+  color: var(--color-text-muted);
+  cursor: default;
+  text-decoration: none;
+}
+
+.filter-group {
+  display: block;
+}
+
+.filter-group + .filter-group {
+  margin-top: var(--space-sm);
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: var(--space-2xs);
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.filter-select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--pad-input);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-md);
+}
+
+/* Empty filter result: the column says why it is empty instead of going
+   blank, and offers the way back. */
+.comp-empty {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.comp-empty p {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text-muted);
+}
+
 /* Banners sit between the top bar and the dashboard, full shell width. */
 .refresh-error {
   margin: 0 0 var(--space-md);
