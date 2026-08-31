@@ -6,7 +6,7 @@
   "description": "Personal tool for picking a TFT Set 18 Comp from current Holdings.",
   "scripts": {
     "start": "tsx src/server/main.ts",
-    "build": "vite build",
+    "build": "vite build && node scripts/build-function.mjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
@@ -23,6 +23,7 @@
     "@types/react-dom": "^19.2.5",
     "@types/supertest": "^7.2.1",
     "@vitejs/plugin-react": "^6.1.1",
+    "esbuild": "^0.28.2",
     "supertest": "^7.2.2",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2",

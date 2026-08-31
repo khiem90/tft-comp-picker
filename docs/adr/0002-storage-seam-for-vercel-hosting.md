@@ -39,9 +39,13 @@ Three behaviors moved with the seam:
   request after a day of quiet pays for the Refresh inline (the function
   gets 60 seconds; a full Refresh takes well under 10).
 
-Deployment shape: `api/index.ts` exports the Express app as the single
-Vercel function, `vercel.json` rewrites `/api/*` to it, and the UI deploys
-as the static `vite build` output.
+Deployment shape: the build esbuild-bundles `src/server/vercelEntry.ts`,
+dependencies inlined, into `api/app.bundle.mjs`; the committed function
+entry `api/index.ts` only re-exports it. `vercel.json` rewrites `/api/*`
+to that single function, and the UI deploys as the static `vite build`
+output. The pre-bundling is not optional: Vercel's Node builder ships the
+entry type-stripped without compiling what it imports, so a function that
+imports `src/` directly dies at startup (api/README.md has the details).
 
 ## Consequences
 

@@ -1,14 +1,15 @@
 # Vercel function directory
 
-`index.ts` is the whole hosted API: vercel.json rewrites every `/api/*`
-request to it and the Express app routes on the original path.
+`index.ts` is the function entry Vercel deploys; vercel.json rewrites every
+`/api/*` request to it. It only re-exports `app.bundle.mjs`, which
+`npm run build` generates by esbuild-bundling `src/server/vercelEntry.ts`
+with every dependency inlined. The bundle is gitignored.
 
-The `package.json` here pins this directory to CommonJS on purpose. With
-the repo root's `"type": "module"`, Vercel's Node builder compiles the
-function entry as an ES module without transpiling or bundling the
-`src/server` files it imports, and the function then dies at import time
-with ERR_MODULE_NOT_FOUND (`/var/task/src/server/app`). Marking the
-directory CommonJS switches the builder to its bundling path, which
-compiles the whole import graph. Nothing the function imports needs ESM;
-only the local-dev entry `src/server/main.ts` does, and it is not part of
-this graph.
+The indirection exists because Vercel's Node builder does not compile what
+the entry imports: it type-strips `api/index.ts` and ships the result, so a
+relative import of `../src/server/app` reaches the runtime verbatim and
+dies with ERR_MODULE_NOT_FOUND (and pinning this directory to CommonJS only
+changes the error to "Cannot use import statement outside a module"). A
+self-contained pre-built bundle sidesteps the builder entirely; the entry's
+one remaining import names a real file with an explicit extension, which
+both the file tracer and Node's ESM loader resolve fine.

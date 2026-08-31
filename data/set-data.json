@@ -5,991 +5,1703 @@
   "units": [
     {
       "name": "Akali",
+      "apiName": "DA_18_Akali_AD",
       "cost": 1,
       "traits": [
         "Inferno",
         "Adaptor",
         "Ravager"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Akali_AD.png"
     },
     {
       "name": "Camille",
+      "apiName": "DA_18_Camille",
       "cost": 1,
       "traits": [
         "Coven",
         "Ravager"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Camille.png"
     },
     {
       "name": "Cinderling",
+      "apiName": "DA_Cinderling18",
       "cost": 1,
       "traits": [
         "Riftbeast",
         "Hunter"
-      ]
+      ],
+      "icon": "/icons/units/DA_Cinderling18.png"
     },
     {
       "name": "Karma",
+      "apiName": "DA_Karma18",
       "cost": 1,
       "traits": [
         "Blossom",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_Karma18.png"
     },
     {
       "name": "Kobuko",
+      "apiName": "DA_18_Kobuko",
       "cost": 1,
       "traits": [
         "Sprykin",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Kobuko.png"
     },
     {
       "name": "Leona",
+      "apiName": "DA_18_Leona",
       "cost": 1,
       "traits": [
         "Solar",
         "Defender"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Leona.png"
     },
     {
       "name": "Ornn",
+      "apiName": "DA_18_Ornn",
       "cost": 1,
       "traits": [
         "Elderwood",
         "Defender"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Ornn.png"
     },
     {
       "name": "Pebbles",
+      "apiName": "DA_18_Sentry",
       "cost": 1,
       "traits": [
         "Riftbeast",
         "Invoker"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Sentry.png"
     },
     {
       "name": "Rakan",
+      "apiName": "DA_18_Rakan",
       "cost": 1,
       "traits": [
         "Fae",
         "Juggernaut",
         "Vanguard"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Rakan.png"
     },
     {
       "name": "Rek'Sai",
+      "apiName": "DA_18_RekSai",
       "cost": 1,
       "traits": [
         "Blackthorn",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_RekSai.png"
     },
     {
       "name": "Varus",
+      "apiName": "DA_18_Varus",
       "cost": 1,
       "traits": [
         "Inferno",
         "Rapidfire"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Varus.png"
     },
     {
       "name": "Veigar",
+      "apiName": "DA_18_Veigar",
       "cost": 1,
       "traits": [
         "Blackthorn",
         "Sprykin",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Veigar.png"
     },
     {
       "name": "Xayah",
+      "apiName": "DA_18_Xayah",
       "cost": 1,
       "traits": [
         "Elderwood",
         "Fae",
         "Rapidfire"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Xayah.png"
     },
     {
       "name": "Yorick",
+      "apiName": "DA_18_Yorick",
       "cost": 1,
       "traits": [
         "Blossom",
         "Juggernaut",
         "Summoner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Yorick.png"
     },
     {
       "name": "Alistar",
+      "apiName": "DA_18_Alistar",
       "cost": 2,
       "traits": [
         "Elderwood",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Alistar.png"
     },
     {
       "name": "Caitlyn",
+      "apiName": "DA_18_Caitlyn",
       "cost": 2,
       "traits": [
         "Coven",
         "Hunter"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Caitlyn.png"
     },
     {
       "name": "Elise",
+      "apiName": "DA_18_Elise",
       "cost": 2,
       "traits": [
         "Coven",
         "Vanguard"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Elise.png"
     },
     {
       "name": "Gromp",
+      "apiName": "DA_Gromp18_AP",
       "cost": 2,
       "traits": [
         "Riftbeast",
         "Adaptor"
-      ]
+      ],
+      "icon": "/icons/units/DA_Gromp18_AP.png"
     },
     {
       "name": "Kayle",
+      "apiName": "DA_18_Kayle",
       "cost": 2,
       "traits": [
         "Solar",
         "Rapidfire"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Kayle.png"
     },
     {
       "name": "LeBlanc",
+      "apiName": "DA_18_LeBlanc",
       "cost": 2,
       "traits": [
         "Elderwood",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_LeBlanc.png"
     },
     {
       "name": "Murkwolf",
+      "apiName": "DA_Murkwolf18",
       "cost": 2,
       "traits": [
         "Riftbeast",
         "Ravager"
-      ]
+      ],
+      "icon": "/icons/units/DA_Murkwolf18.png"
     },
     {
       "name": "Scuttlecrab",
+      "apiName": "DA_Scuttlecrab18",
       "cost": 2,
       "traits": [
         "Riftbeast",
         "Juggernaut"
-      ]
+      ],
+      "icon": "/icons/units/DA_Scuttlecrab18.png"
     },
     {
       "name": "Sejuani",
+      "apiName": "DA_18_Sejuani",
       "cost": 2,
       "traits": [
         "Solar",
         "Juggernaut"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Sejuani.png"
     },
     {
       "name": "Shen",
+      "apiName": "DA_18_Shen",
       "cost": 2,
       "traits": [
         "Inferno",
         "Defender"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Shen.png"
     },
     {
       "name": "Teemo",
+      "apiName": "DA_18_Teemo",
       "cost": 2,
       "traits": [
         "Sprykin",
         "Invoker"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Teemo.png"
     },
     {
       "name": "Warwick",
+      "apiName": "DA_18_Warwick",
       "cost": 2,
       "traits": [
         "Blackthorn",
         "Ravager"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Warwick.png"
     },
     {
       "name": "Yunara",
+      "apiName": "DA_18_Yunara",
       "cost": 2,
       "traits": [
         "Blossom",
         "Executioner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Yunara.png"
     },
     {
       "name": "Azir",
+      "apiName": "DA_18_Azir",
       "cost": 3,
       "traits": [
         "Blackthorn",
         "Executioner",
         "Summoner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Azir.png"
     },
     {
       "name": "Cassiopeia",
+      "apiName": "DA_18_Cassiopeia",
       "cost": 3,
       "traits": [
         "Coven",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Cassiopeia.png"
     },
     {
       "name": "Diana",
+      "apiName": "DA_18_Diana",
       "cost": 3,
       "traits": [
         "Lunar",
         "Ravager",
         "Vanguard"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Diana.png"
     },
     {
       "name": "Fiddlesticks",
+      "apiName": "DA_Fiddlesticks18",
       "cost": 3,
       "traits": [
         "Flora Fatalis",
         "Defender",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_Fiddlesticks18.png"
     },
     {
       "name": "Hecarim",
+      "apiName": "DA_18_Hecarim",
       "cost": 3,
       "traits": [
         "Elderwood",
         "Vanguard"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Hecarim.png"
     },
     {
       "name": "Kha'Zix",
+      "apiName": "DA_18_KhaZix",
       "cost": 3,
       "traits": [
         "Rival"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_KhaZix.png"
     },
     {
       "name": "Kog'Maw",
+      "apiName": "DA_KogMaw18_AD",
       "cost": 3,
       "traits": [
         "Caustic",
         "Adaptor",
         "Invoker"
-      ]
+      ],
+      "icon": "/icons/units/DA_KogMaw18_AD.png"
     },
     {
       "name": "Krug",
+      "apiName": "DA_Krug18",
       "cost": 3,
       "traits": [
         "Riftbeast",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_Krug18.png"
     },
     {
       "name": "Mama Beak",
+      "apiName": "DA_CrimsonRaptor18",
       "cost": 3,
       "traits": [
         "Riftbeast",
         "Summoner",
         "Rapidfire"
-      ]
+      ],
+      "icon": "/icons/units/DA_CrimsonRaptor18.png"
     },
     {
       "name": "Master Yi",
+      "apiName": "DA_18_MasterYi_AD",
       "cost": 3,
       "traits": [
         "Blossom",
         "Adaptor"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_MasterYi_AD.png"
     },
     {
       "name": "Rammus",
+      "apiName": "DA_18_Rammus",
       "cost": 3,
       "traits": [
         "Sprykin",
         "Defender"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Rammus.png"
     },
     {
       "name": "Rengar",
+      "apiName": "DA_18_Rengar",
       "cost": 3,
       "traits": [
         "Rival"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Rengar.png"
     },
     {
       "name": "Tristana",
+      "apiName": "DA_18_Tristana",
       "cost": 3,
       "traits": [
         "Fae",
         "Sprykin",
         "Hunter"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Tristana.png"
     },
     {
       "name": "Vi",
+      "apiName": "DA_Vi18",
       "cost": 3,
       "traits": [
         "Primal",
         "Juggernaut"
-      ]
+      ],
+      "icon": "/icons/units/DA_Vi18.png"
     },
     {
       "name": "Ahri",
+      "apiName": "DA_18_Ahri",
       "cost": 4,
       "traits": [
         "Blossom",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Ahri.png"
     },
     {
       "name": "Amumu",
+      "apiName": "DA_Amumu18",
       "cost": 4,
       "traits": [
         "Inferno",
         "Juggernaut"
-      ]
+      ],
+      "icon": "/icons/units/DA_Amumu18.png"
     },
     {
       "name": "Aphelios",
+      "apiName": "DA_18_Aphelios",
       "cost": 4,
       "traits": [
         "Lunar",
         "Rapidfire"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Aphelios.png"
     },
     {
       "name": "Brambleback",
+      "apiName": "DA_Brambleback18",
       "cost": 4,
       "traits": [
         "Riftbeast",
         "Ravager"
-      ]
+      ],
+      "icon": "/icons/units/DA_Brambleback18.png"
     },
     {
       "name": "Ezreal",
+      "apiName": "DA_18_Ezreal",
       "cost": 4,
       "traits": [
         "Elderwood",
         "Executioner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Ezreal.png"
     },
     {
       "name": "Lillia",
+      "apiName": "DA_18_Lillia",
       "cost": 4,
       "traits": [
         "Fae",
         "Defender"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lillia.png"
     },
     {
       "name": "Malphite",
+      "apiName": "DA_18_Malphite",
       "cost": 4,
       "traits": [
         "Blackthorn",
         "Monolith"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Malphite.png"
     },
     {
       "name": "Morgana",
+      "apiName": "DA_18_Morgana",
       "cost": 4,
       "traits": [
         "Coven",
         "Invoker"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Morgana.png"
     },
     {
       "name": "Nidalee",
+      "apiName": "DA_Nidalee18_AP",
       "cost": 4,
       "traits": [
         "Primal",
         "Adaptor"
-      ]
+      ],
+      "icon": "/icons/units/DA_Nidalee18_AP.png"
     },
     {
       "name": "Sentinel",
+      "apiName": "DA_Sentinel18",
       "cost": 4,
       "traits": [
         "Riftbeast",
         "Vanguard",
         "Invoker"
-      ]
+      ],
+      "icon": "/icons/units/DA_Sentinel18.png"
     },
     {
       "name": "Sett",
+      "apiName": "DA_18_Sett",
       "cost": 4,
       "traits": [
         "Blossom",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Sett.png"
     },
     {
       "name": "Sivir",
+      "apiName": "DA_18_Sivir",
       "cost": 4,
       "traits": [
         "Primal",
         "Hunter"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Sivir.png"
     },
     {
       "name": "Soraka",
+      "apiName": "DA_18_Soraka",
       "cost": 4,
       "traits": [
         "Flora Fatalis",
         "Executioner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Soraka.png"
     },
     {
       "name": "Zyra",
+      "apiName": "DA_18_Zyra",
       "cost": 4,
       "traits": [
         "Thornmaiden",
         "Summoner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Zyra.png"
     },
     {
       "name": "Alune",
+      "apiName": "DA_18_Alune",
       "cost": 5,
       "traits": [
         "Attuned",
         "Lunar",
         "Spellweaver"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Alune.png"
     },
     {
       "name": "Ashe",
+      "apiName": "DA_18_Ashe",
       "cost": 5,
       "traits": [
         "Blossom",
         "Hunter"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Ashe.png"
     },
     {
       "name": "Draven",
+      "apiName": "DA_Draven18",
       "cost": 5,
       "traits": [
         "Bounty Seeker"
-      ]
+      ],
+      "icon": "/icons/units/DA_Draven18.png"
     },
     {
       "name": "Elder Dragon",
+      "apiName": "DA_18_ElderDragon",
       "cost": 5,
       "traits": [
         "Apex Predator",
         "Riftbeast"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_ElderDragon.png"
     },
     {
       "name": "Gnar",
+      "apiName": "DA_18_GnarSmall",
       "cost": 5,
       "traits": [
         "Elderwood",
         "Sprykin",
         "Brawler"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_GnarSmall.png"
     },
     {
       "name": "Ivern",
+      "apiName": "DA_18_Ivern",
       "cost": 5,
       "traits": [
         "Greenfather"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Ivern.png"
     },
     {
       "name": "Kennen",
+      "apiName": "DA_18_Kennen",
       "cost": 5,
       "traits": [
         "Inferno",
         "Executioner"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Kennen.png"
     },
     {
       "name": "Lux",
+      "apiName": "DA_Lux18_Base",
       "cost": 5,
       "traits": [
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_Lux18_Base.png"
     },
     {
       "name": "Lux (Blackthorn)",
+      "apiName": "DA_Lux18_Blackthorn",
       "cost": 5,
       "traits": [
         "Blackthorn",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_Lux18_Blackthorn.png"
     },
     {
       "name": "Lux (Blossom)",
+      "apiName": "DA_Lux18_Blossom",
       "cost": 5,
       "traits": [
         "Blossom",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_Lux18_Blossom.png"
     },
     {
       "name": "Lux (Coven)",
+      "apiName": "DA_18_Lux_Coven",
       "cost": 5,
       "traits": [
         "Coven",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Coven.png"
     },
     {
       "name": "Lux (Elderwood)",
+      "apiName": "DA_18_Lux_Elderwood",
       "cost": 5,
       "traits": [
         "Elderwood",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Elderwood.png"
     },
     {
       "name": "Lux (Fae)",
+      "apiName": "DA_18_Lux_Fae",
       "cost": 5,
       "traits": [
         "Fae",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Fae.png"
     },
     {
       "name": "Lux (Inferno)",
+      "apiName": "DA_18_Lux_Inferno",
       "cost": 5,
       "traits": [
         "Inferno",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Inferno.png"
     },
     {
       "name": "Lux (Lunar)",
+      "apiName": "DA_18_Lux_Moonbeam",
       "cost": 5,
       "traits": [
         "Lunar",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Moonbeam.png"
     },
     {
       "name": "Lux (Primal)",
+      "apiName": "DA_18_Lux_Primal",
       "cost": 5,
       "traits": [
         "Primal",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Primal.png"
     },
     {
       "name": "Lux (Solar)",
+      "apiName": "DA_18_Lux_Sunbeam",
       "cost": 5,
       "traits": [
         "Solar",
         "Avatar"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Lux_Sunbeam.png"
     },
     {
       "name": "Maokai",
+      "apiName": "DA_18_Maokai",
       "cost": 5,
       "traits": [
         "Old Growth",
         "Juggernaut"
-      ]
+      ],
+      "icon": "/icons/units/DA_18_Maokai.png"
     },
     {
       "name": "Taric",
+      "apiName": "DA_Taric18",
       "cost": 5,
       "traits": [
         "Emerald Aspect",
         "Vanguard"
-      ]
+      ],
+      "icon": "/icons/units/DA_Taric18.png"
+    }
+  ],
+  "traits": [
+    {
+      "name": "Adaptor",
+      "apiName": "DA_18_Adaptor",
+      "icon": "/icons/traits/DA_18_Adaptor.png"
+    },
+    {
+      "name": "Apex Predator",
+      "apiName": "DA_18_ApexPredator",
+      "icon": "/icons/traits/DA_18_ApexPredator.png"
+    },
+    {
+      "name": "Attuned",
+      "apiName": "DA_AluneUniqueTrait18",
+      "icon": "/icons/traits/DA_AluneUniqueTrait18.png"
+    },
+    {
+      "name": "Avatar",
+      "apiName": "DA_18_LuxUniqueTrait",
+      "icon": "/icons/traits/DA_18_LuxUniqueTrait.png"
+    },
+    {
+      "name": "Blackthorn",
+      "apiName": "DA_18_Blackthorn",
+      "icon": "/icons/traits/DA_18_Blackthorn.png"
+    },
+    {
+      "name": "Blossom",
+      "apiName": "DA_18_Blossom",
+      "icon": "/icons/traits/DA_18_Blossom.png"
+    },
+    {
+      "name": "Bounty Seeker",
+      "apiName": "DA_DravenUniqueTrait18",
+      "icon": "/icons/traits/DA_DravenUniqueTrait18.png"
+    },
+    {
+      "name": "Brawler",
+      "apiName": "DA_18_Brawler",
+      "icon": "/icons/traits/DA_18_Brawler.png"
+    },
+    {
+      "name": "Caustic",
+      "apiName": "DA_18_Caustic",
+      "icon": "/icons/traits/DA_18_Caustic.png"
+    },
+    {
+      "name": "Coven",
+      "apiName": "DA_18_Coven",
+      "icon": "/icons/traits/DA_18_Coven.png"
+    },
+    {
+      "name": "Defender",
+      "apiName": "DA_18_Defender",
+      "icon": "/icons/traits/DA_18_Defender.png"
+    },
+    {
+      "name": "Eclipse",
+      "apiName": "DA_18_Eclipse",
+      "icon": "/icons/traits/DA_18_Eclipse.png"
+    },
+    {
+      "name": "Elderwood",
+      "apiName": "DA_18_Elderwood",
+      "icon": "/icons/traits/DA_18_Elderwood.png"
+    },
+    {
+      "name": "Emerald Aspect",
+      "apiName": "DA_Emerald18",
+      "icon": "/icons/traits/DA_Emerald18.png"
+    },
+    {
+      "name": "Executioner",
+      "apiName": "DA_18_Executioner",
+      "icon": "/icons/traits/DA_18_Executioner.png"
+    },
+    {
+      "name": "Fae",
+      "apiName": "DA_18_Fae",
+      "icon": "/icons/traits/DA_18_Fae.png"
+    },
+    {
+      "name": "Flora Fatalis",
+      "apiName": "DA_FloraFatalis18",
+      "icon": "/icons/traits/DA_FloraFatalis18.png"
+    },
+    {
+      "name": "Greenfather",
+      "apiName": "DA_18_Greenfather",
+      "icon": "/icons/traits/DA_18_Greenfather.png"
+    },
+    {
+      "name": "Hunter",
+      "apiName": "DA_18_Hunter",
+      "icon": "/icons/traits/DA_18_Hunter.png"
+    },
+    {
+      "name": "Inferno",
+      "apiName": "DA_18_Inferno",
+      "icon": "/icons/traits/DA_18_Inferno.png"
+    },
+    {
+      "name": "Invoker",
+      "apiName": "DA_18_Invoker",
+      "icon": "/icons/traits/DA_18_Invoker.png"
+    },
+    {
+      "name": "Juggernaut",
+      "apiName": "DA_Juggernaut18",
+      "icon": "/icons/traits/DA_Juggernaut18.png"
+    },
+    {
+      "name": "Lunar",
+      "apiName": "DA_18_Lunar",
+      "icon": "/icons/traits/DA_18_Lunar.png"
+    },
+    {
+      "name": "Monolith",
+      "apiName": "DA_18_Battlemage",
+      "icon": "/icons/traits/DA_18_Battlemage.png"
+    },
+    {
+      "name": "Old Growth",
+      "apiName": "DA_18_Maokai_UniqueTrait",
+      "icon": "/icons/traits/DA_18_Maokai_UniqueTrait.png"
+    },
+    {
+      "name": "Primal",
+      "apiName": "DA_Primal18",
+      "icon": "/icons/traits/DA_Primal18.png"
+    },
+    {
+      "name": "Rapidfire",
+      "apiName": "DA_18_Rapidfire",
+      "icon": "/icons/traits/DA_18_Rapidfire.png"
+    },
+    {
+      "name": "Ravager",
+      "apiName": "DA_18_Slayer",
+      "icon": "/icons/traits/DA_18_Slayer.png"
+    },
+    {
+      "name": "Riftbeast",
+      "apiName": "DA_Riftbeast18",
+      "icon": "/icons/traits/DA_Riftbeast18.png"
+    },
+    {
+      "name": "Rival",
+      "apiName": "DA_18_Rival",
+      "icon": "/icons/traits/DA_18_Rival.png"
+    },
+    {
+      "name": "Solar",
+      "apiName": "DA_18_Solar",
+      "icon": "/icons/traits/DA_18_Solar.png"
+    },
+    {
+      "name": "Spellweaver",
+      "apiName": "DA_18_Spellweaver",
+      "icon": "/icons/traits/DA_18_Spellweaver.png"
+    },
+    {
+      "name": "Sprykin",
+      "apiName": "DA_18_Sprykin",
+      "icon": "/icons/traits/DA_18_Sprykin.png"
+    },
+    {
+      "name": "Summoner",
+      "apiName": "DA_18_Summoner",
+      "icon": "/icons/traits/DA_18_Summoner.png"
+    },
+    {
+      "name": "Thornmaiden",
+      "apiName": "DA_18_ZyraUniqueTrait",
+      "icon": "/icons/traits/DA_18_ZyraUniqueTrait.png"
+    },
+    {
+      "name": "Vanguard",
+      "apiName": "DA_18_Vanguard",
+      "icon": "/icons/traits/DA_18_Vanguard.png"
     }
   ],
   "items": [
     {
       "name": "Adaptive Helm",
+      "apiName": "DA_AdaptiveHelm",
       "components": [
         "Tear Of The Goddess",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_AdaptiveHelm.png"
     },
     {
       "name": "Archangel's Staff",
+      "apiName": "DA_ArchangelsStaff",
       "components": [
         "Needlessly Large Rod",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_ArchangelsStaff.png"
     },
     {
       "name": "Blackthorn Emblem",
+      "apiName": "DA_18_EmblemBlackthorn",
       "components": [
         "Spatula",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_18_EmblemBlackthorn.png"
     },
     {
       "name": "Bloodthirster",
+      "apiName": "DA_Bloodthirster",
       "components": [
         "B.F. Sword",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_Bloodthirster.png"
     },
     {
       "name": "Blossom Emblem",
+      "apiName": "DA_18_EmblemBlossom",
       "components": [
         "Spatula",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_18_EmblemBlossom.png"
     },
     {
       "name": "Blue Buff",
+      "apiName": "DA_BlueBuff",
       "components": [
         "Tear Of The Goddess",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_BlueBuff.png"
     },
     {
       "name": "Bramble Vest",
+      "apiName": "DA_BrambleVest",
       "components": [
         "Chain Vest",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_ChainVest",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_BrambleVest.png"
     },
     {
       "name": "Brawler Emblem",
+      "apiName": "DA_18_EmblemBrawler",
       "components": [
         "Frying Pan",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_18_EmblemBrawler.png"
     },
     {
       "name": "Crownguard",
+      "apiName": "DA_Crownguard",
       "components": [
         "Needlessly Large Rod",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_Crownguard.png"
     },
     {
       "name": "Deathblade",
+      "apiName": "DA_Deathblade",
       "components": [
         "B.F. Sword",
         "B.F. Sword"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_BFSword"
+      ],
+      "icon": "/icons/items/DA_Deathblade.png"
     },
     {
       "name": "Dragon's Claw",
+      "apiName": "DA_DragonsClaw",
       "components": [
         "Negatron Cloak",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_DragonsClaw.png"
     },
     {
       "name": "Edge of Night",
+      "apiName": "DA_EdgeOfNight",
       "components": [
         "B.F. Sword",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_EdgeOfNight.png"
     },
     {
       "name": "Elderwood Emblem",
+      "apiName": "DA_18_EmblemElderwood",
       "components": [
         "Spatula",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_18_EmblemElderwood.png"
     },
     {
       "name": "Evenshroud",
+      "apiName": "DA_Evenshroud",
       "components": [
         "Negatron Cloak",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_Evenshroud.png"
     },
     {
       "name": "Executioner Emblem",
+      "apiName": "DA_18_EmblemExecutioner",
       "components": [
         "Frying Pan",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_18_EmblemExecutioner.png"
     },
     {
       "name": "Fae Emblem",
+      "apiName": "DA_18_EmblemFae",
       "components": [
         "Spatula",
         "B.F. Sword"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_BFSword"
+      ],
+      "icon": "/icons/items/DA_18_EmblemFae.png"
     },
     {
       "name": "Gargoyle Stoneplate",
+      "apiName": "DA_GargoyleStoneplate",
       "components": [
         "Chain Vest",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_ChainVest",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_GargoyleStoneplate.png"
     },
     {
       "name": "Giant Slayer",
+      "apiName": "DA_GiantSlayer",
       "components": [
         "Recurve Bow",
         "B.F. Sword"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_BFSword"
+      ],
+      "icon": "/icons/items/DA_GiantSlayer.png"
     },
     {
       "name": "Guinsoo's Rageblade",
+      "apiName": "DA_GuinsoosRageblade",
       "components": [
         "Recurve Bow",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_GuinsoosRageblade.png"
     },
     {
       "name": "Hand Of Justice",
+      "apiName": "DA_HandOfJustice",
       "components": [
         "Tear Of The Goddess",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_HandOfJustice.png"
     },
     {
       "name": "Hextech Gunblade",
+      "apiName": "DA_HextechGunblade",
       "components": [
         "B.F. Sword",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_HextechGunblade.png"
     },
     {
       "name": "Hunter Emblem",
+      "apiName": "DA_18_EmblemHunter",
       "components": [
         "Frying Pan",
         "B.F. Sword"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_BFSword"
+      ],
+      "icon": "/icons/items/DA_18_EmblemHunter.png"
     },
     {
       "name": "Inferno Emblem",
+      "apiName": "DA_18_EmblemInferno",
       "components": [
         "Spatula",
         "Recurve Bow"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_RecurveBow"
+      ],
+      "icon": "/icons/items/DA_18_EmblemInferno.png"
     },
     {
       "name": "Infinity Edge",
+      "apiName": "DA_InfinityEdge",
       "components": [
         "B.F. Sword",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_InfinityEdge.png"
     },
     {
       "name": "Invoker Emblem",
+      "apiName": "DA_18_EmblemInvoker",
       "components": [
         "Frying Pan",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_18_EmblemInvoker.png"
     },
     {
       "name": "Ionic Spark",
+      "apiName": "DA_IonicSpark",
       "components": [
         "Needlessly Large Rod",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_IonicSpark.png"
     },
     {
       "name": "Jeweled Gauntlet",
+      "apiName": "DA_JeweledGauntlet",
       "components": [
         "Sparring Gloves",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_SparringGloves",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_JeweledGauntlet.png"
     },
     {
       "name": "Kraken's Fury",
+      "apiName": "DA_KrakensFury",
       "components": [
         "Recurve Bow",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_KrakensFury.png"
     },
     {
       "name": "Last Whisper",
+      "apiName": "DA_LastWhisper",
       "components": [
         "Recurve Bow",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_LastWhisper.png"
     },
     {
       "name": "Lunar Emblem",
+      "apiName": "DA_18_EmblemLunar",
       "components": [
         "Spatula",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_18_EmblemLunar.png"
     },
     {
       "name": "Morellonomicon",
+      "apiName": "DA_Morellonomicon",
       "components": [
         "Giant's Belt",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_Morellonomicon.png"
     },
     {
       "name": "Nashor's Tooth",
+      "apiName": "DA_NashorsTooth",
       "components": [
         "Recurve Bow",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_NashorsTooth.png"
     },
     {
       "name": "Primal Emblem",
+      "apiName": "DA_18_EmblemPrimal",
       "components": [
         "Spatula",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_18_EmblemPrimal.png"
     },
     {
       "name": "Protector's Vow",
+      "apiName": "DA_ProtectorsVow",
       "components": [
         "Chain Vest",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_ChainVest",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_ProtectorsVow.png"
     },
     {
       "name": "Quicksilver",
+      "apiName": "DA_Quicksilver",
       "components": [
         "Negatron Cloak",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NegatronCloak",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_Quicksilver.png"
     },
     {
       "name": "Rabadon's Deathcap",
+      "apiName": "DA_RabadonsDeathcap",
       "components": [
         "Needlessly Large Rod",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_NeedlesslyLargeRod",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_RabadonsDeathcap.png"
     },
     {
       "name": "Rapidfire Emblem",
+      "apiName": "DA_18_EmblemRapidfire",
       "components": [
         "Frying Pan",
         "Recurve Bow"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_RecurveBow"
+      ],
+      "icon": "/icons/items/DA_18_EmblemRapidfire.png"
     },
     {
       "name": "Ravager Emblem",
+      "apiName": "DA_18_EmblemSlayer",
       "components": [
         "Frying Pan",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_18_EmblemSlayer.png"
     },
     {
       "name": "Red Buff",
+      "apiName": "DA_RedBuff",
       "components": [
         "Recurve Bow",
         "Recurve Bow"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_RecurveBow"
+      ],
+      "icon": "/icons/items/DA_RedBuff.png"
     },
     {
       "name": "Spear of Shojin",
+      "apiName": "DA_SpearOfShojin",
       "components": [
         "Tear Of The Goddess",
         "B.F. Sword"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_TearOfTheGoddess",
+        "DA_Component_BFSword"
+      ],
+      "icon": "/icons/items/DA_SpearOfShojin.png"
     },
     {
       "name": "Spellweaver Emblem",
+      "apiName": "DA_18_EmblemSpellweaver",
       "components": [
         "Frying Pan",
         "Needlessly Large Rod"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_NeedlesslyLargeRod"
+      ],
+      "icon": "/icons/items/DA_18_EmblemSpellweaver.png"
     },
     {
       "name": "Spirit Visage",
+      "apiName": "DA_SpiritVisage",
       "components": [
         "Giant's Belt",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_SpiritVisage.png"
     },
     {
       "name": "Sprykin Emblem",
+      "apiName": "DA_18_EmblemSprykin",
       "components": [
         "Spatula",
         "Negatron Cloak"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_NegatronCloak"
+      ],
+      "icon": "/icons/items/DA_18_EmblemSprykin.png"
     },
     {
       "name": "Steadfast Heart",
+      "apiName": "DA_SteadfastHeart",
       "components": [
         "Chain Vest",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_ChainVest",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_SteadfastHeart.png"
     },
     {
       "name": "Sterak's Gage",
+      "apiName": "DA_SteraksGage",
       "components": [
         "B.F. Sword",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_BFSword",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_SteraksGage.png"
     },
     {
       "name": "Striker's Flail",
+      "apiName": "DA_StrikersFlail",
       "components": [
         "Giant's Belt",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_StrikersFlail.png"
     },
     {
       "name": "Sunfire Cape",
+      "apiName": "DA_SunfireCape",
       "components": [
         "Chain Vest",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_ChainVest",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_SunfireCape.png"
     },
     {
       "name": "Tactician's Cape",
+      "apiName": "DA_TacticiansCape",
       "components": [
         "Spatula",
         "Frying Pan"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_FryingPan"
+      ],
+      "icon": "/icons/items/DA_TacticiansCape.png"
     },
     {
       "name": "Tacticians Crown",
+      "apiName": "DA_TacticiansCrown",
       "components": [
         "Spatula",
         "Spatula"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_Spatula",
+        "DA_Component_Spatula"
+      ],
+      "icon": "/icons/items/DA_TacticiansCrown.png"
     },
     {
       "name": "Tacticians Shield",
+      "apiName": "DA_TacticiansShield",
       "components": [
         "Frying Pan",
         "Frying Pan"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_FryingPan"
+      ],
+      "icon": "/icons/items/DA_TacticiansShield.png"
     },
     {
       "name": "Thief's Gloves",
+      "apiName": "DA_ThiefsGloves",
       "components": [
         "Sparring Gloves",
         "Sparring Gloves"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_SparringGloves",
+        "DA_Component_SparringGloves"
+      ],
+      "icon": "/icons/items/DA_ThiefsGloves.png"
     },
     {
       "name": "Titan's Resolve",
+      "apiName": "DA_TitansResolve",
       "components": [
         "Recurve Bow",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_TitansResolve.png"
     },
     {
       "name": "Vanguard Emblem",
+      "apiName": "DA_18_EmblemVanguard",
       "components": [
         "Frying Pan",
         "Chain Vest"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_FryingPan",
+        "DA_Component_ChainVest"
+      ],
+      "icon": "/icons/items/DA_18_EmblemVanguard.png"
     },
     {
       "name": "Void Staff",
+      "apiName": "DA_VoidStaff",
       "components": [
         "Recurve Bow",
         "Tear Of The Goddess"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_RecurveBow",
+        "DA_Component_TearOfTheGoddess"
+      ],
+      "icon": "/icons/items/DA_VoidStaff.png"
     },
     {
       "name": "Warmogs Armor",
+      "apiName": "DA_WarmogsArmor",
       "components": [
         "Giant's Belt",
         "Giant's Belt"
-      ]
+      ],
+      "componentApiNames": [
+        "DA_Component_GiantsBelt",
+        "DA_Component_GiantsBelt"
+      ],
+      "icon": "/icons/items/DA_WarmogsArmor.png"
+    }
+  ],
+  "components": [
+    {
+      "name": "B.F. Sword",
+      "apiName": "DA_Component_BFSword",
+      "icon": "/icons/components/DA_Component_BFSword.png"
+    },
+    {
+      "name": "Chain Vest",
+      "apiName": "DA_Component_ChainVest",
+      "icon": "/icons/components/DA_Component_ChainVest.png"
+    },
+    {
+      "name": "Frying Pan",
+      "apiName": "DA_Component_FryingPan",
+      "icon": "/icons/components/DA_Component_FryingPan.png"
+    },
+    {
+      "name": "Giant's Belt",
+      "apiName": "DA_Component_GiantsBelt",
+      "icon": "/icons/components/DA_Component_GiantsBelt.png"
+    },
+    {
+      "name": "Needlessly Large Rod",
+      "apiName": "DA_Component_NeedlesslyLargeRod",
+      "icon": "/icons/components/DA_Component_NeedlesslyLargeRod.png"
+    },
+    {
+      "name": "Negatron Cloak",
+      "apiName": "DA_Component_NegatronCloak",
+      "icon": "/icons/components/DA_Component_NegatronCloak.png"
+    },
+    {
+      "name": "Recurve Bow",
+      "apiName": "DA_Component_RecurveBow",
+      "icon": "/icons/components/DA_Component_RecurveBow.png"
+    },
+    {
+      "name": "Sparring Gloves",
+      "apiName": "DA_Component_SparringGloves",
+      "icon": "/icons/components/DA_Component_SparringGloves.png"
+    },
+    {
+      "name": "Spatula",
+      "apiName": "DA_Component_Spatula",
+      "icon": "/icons/components/DA_Component_Spatula.png"
+    },
+    {
+      "name": "Tear Of The Goddess",
+      "apiName": "DA_Component_TearOfTheGoddess",
+      "icon": "/icons/components/DA_Component_TearOfTheGoddess.png"
     }
   ],
   "augments": [

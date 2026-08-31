@@ -9,5 +9,5 @@
     "skipLibCheck": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "tests", "api"]
+  "include": ["src", "tests"]
 }
