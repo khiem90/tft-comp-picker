@@ -41,52 +41,39 @@ interface FiltersPanelProps {
   onSelectionChange: (selection: FilterSelection) => void;
 }
 
-// Right-rail filter groups, one dropdown each like the mock; Clear All
-// resets every group at once.
-export function FiltersPanel({
-  options,
-  selection,
-  onSelectionChange,
-}: FiltersPanelProps) {
+// The filter bar above the lanes, one dropdown per group. Tier narrows the
+// page to one lane; Trait and Playstyle thin every lane. Clear all resets
+// every group at once.
+export function FiltersPanel({ options, selection, onSelectionChange }: FiltersPanelProps) {
   return (
-    <div className="filters-panel">
-      <div className="filters-header">
-        <h2 className="filters-title">Filters</h2>
-        <button
-          type="button"
-          className="clear-filters"
-          onClick={() => onSelectionChange(EMPTY_FILTERS)}
-          disabled={!anyFilterActive(selection)}
-        >
-          Clear All
-        </button>
-      </div>
+    <div className="filters-bar">
+      <span className="eyebrow">Show</span>
       <FilterGroup
         label="Tier"
         value={selection.tier ?? ""}
         options={options.tiers.map((tier) => ({ value: tier, label: tier }))}
-        onChange={(tier) =>
-          onSelectionChange({ ...selection, tier: tier as Tier | null })
-        }
+        onChange={(tier) => onSelectionChange({ ...selection, tier: tier as Tier | null })}
       />
       <FilterGroup
         label="Trait"
         value={selection.trait ?? ""}
-        options={options.traits.map((trait) => ({
-          value: trait.apiName,
-          label: trait.name,
-        }))}
+        options={options.traits.map((trait) => ({ value: trait.apiName, label: trait.name }))}
         onChange={(trait) => onSelectionChange({ ...selection, trait })}
       />
       <FilterGroup
         label="Playstyle"
         value={selection.playstyle ?? ""}
-        options={options.playstyles.map((playstyle) => ({
-          value: playstyle,
-          label: playstyle,
-        }))}
+        options={options.playstyles.map((playstyle) => ({ value: playstyle, label: playstyle }))}
         onChange={(playstyle) => onSelectionChange({ ...selection, playstyle })}
       />
+      <button
+        type="button"
+        className="link-button"
+        onClick={() => onSelectionChange(EMPTY_FILTERS)}
+        disabled={!anyFilterActive(selection)}
+      >
+        Clear all
+      </button>
     </div>
   );
 }

@@ -2,44 +2,37 @@ import type { SetAugment } from "../../shared/types";
 
 interface AugmentsSectionProps {
   choices: SetAugment[];
-  // The caller derives this from the catalog and the Comps payload (see App).
-  canMoveRanking: boolean;
   held: string[];
   search: string;
   onSearchChange: (value: string) => void;
   onAdd: (name: string) => void;
-  onRemove: (name: string) => void;
 }
 
+// Rendered only while augments can move a ranking (the caller decides from
+// the catalog and the Comps payload). Held augments live in the top bar
+// chips, so a picker that cannot change anything simply stays away.
 export function AugmentsSection({
   choices,
-  canMoveRanking,
   held,
   search,
   onSearchChange,
   onAdd,
-  onRemove,
 }: AugmentsSectionProps) {
-  // Held chips keep the section alive even if the data disappears, so nothing
-  // affects the query invisibly.
-  if (!canMoveRanking && held.length === 0) return null;
-
   const query = search.trim().toLowerCase();
   const matches = query
     ? choices.filter(
         (augment) =>
-          !held.includes(augment.name) &&
-          augment.name.toLowerCase().includes(query),
+          !held.includes(augment.name) && augment.name.toLowerCase().includes(query),
       )
     : [];
 
   return (
-    <section className="holdings">
-      <h2>Your augments</h2>
+    <section className="picker">
+      <h2 className="eyebrow">Augments</h2>
       <input
         type="search"
         className="picker-search"
-        placeholder="Search augments…"
+        placeholder="Add an augment…"
         value={search}
         onChange={(event) => onSearchChange(event.target.value)}
       />
@@ -50,21 +43,6 @@ export function AugmentsSection({
               <button type="button" onClick={() => onAdd(augment.name)}>
                 {augment.name}
                 <span className="traits">{augment.traits.join(" · ")}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-      {held.length > 0 && (
-        <ul className="held-chips">
-          {held.map((name) => (
-            <li key={name}>
-              <button
-                type="button"
-                onClick={() => onRemove(name)}
-                title={`Remove ${name}`}
-              >
-                {name} ✕
               </button>
             </li>
           ))}

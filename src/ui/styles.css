@@ -1,48 +1,41 @@
 /* Token layer. Every color, spacing, and type value the UI uses lives here;
-   rules below only reference tokens. Values match the pre-token stylesheet
-   exactly, so this file changes nothing visually. */
+   rules below only reference tokens. The page is one visual world (a dark
+   tier board) and commits to it: no light theme, every surface painted. */
 :root {
   color-scheme: dark;
 
-  /* Palette */
-  --color-bg: #10141d;
-  --color-surface: #1a2030;
-  --color-surface-raised: #232b40;
-  --color-surface-hover: #2e3a56;
-  --color-line: #3a4258;
-  --color-text: #e6e9f0;
-  --color-text-muted: #8b93a7;
-  --color-text-soft: #b9c0d0;
-  --color-text-body: #c3cadb;
-  --color-highlight: #9fb3d1;
-  --color-warning: #e0a084;
-  --color-notice-text: #a8c7fa;
-  --color-notice-border: #4a5578;
-  --color-notice-bg: #1c2438;
-  --color-positive: #3e6b46;
-  --color-positive-bright: #4d8557;
-  --color-positive-bg: #21402c;
-  --color-caution: #8b6f2e;
-  --color-caution-bg: #3d3624;
-  /* Accent pair for the one primary action (New Game). */
-  --color-accent: #3f6cf0;
-  --color-accent-2: #7c4fe0;
+  /* Palette: aubergine ground, the five cost colors and five Tier colors are
+     the chroma. There is no separate brand accent. */
+  --color-bg: #211a29;
+  --color-surface: #2b2334;
+  --color-raised: #362d40;
+  --color-line: #443a4f;
+  --color-text: #f4eef7;
+  --color-text-soft: #cbbfd3;
+  --color-text-muted: #9d8fa8;
+  --color-warning: #f0b48a;
+  --color-caution: #8b5a2e;
+  --color-caution-bg: #3a2c28;
+  --color-notice-text: #c9bdf5;
+  --color-notice-border: #5a4d80;
+  --color-notice-bg: #2e2745;
+  --color-held: #4fbf76;
 
-  /* Tier colors */
-  --tier-s: #b4442c;
-  --tier-a: var(--color-caution);
-  --tier-b: var(--color-positive);
-  --tier-c: #3a5a78;
-  --tier-d: #55415e;
-  --tier-none: var(--color-line);
+  /* Cost colors, the way the game client frames portraits. */
+  --cost-1: #a8a3ad;
+  --cost-2: #4fbf76;
+  --cost-3: #4f97e6;
+  --cost-4: #b56be0;
+  --cost-5: #e8b442;
+  --color-star: var(--cost-5);
+  --color-gold: var(--cost-5);
 
-  /* Cost colors. Frame held-unit portraits the way the game client does;
-     the Comp-card slice will color its portraits and dots with these too. */
-  --cost-1: var(--color-text-muted);
-  --cost-2: #3e9a5c;
-  --cost-3: #3b82c4;
-  --cost-4: #a855c8;
-  --cost-5: #d8a13a;
+  /* Tier colors, one per lane. */
+  --tier-s: #ff6b4a;
+  --tier-a: #f2a93b;
+  --tier-b: #b9d34a;
+  --tier-c: #46c0b3;
+  --tier-d: #8d8fd9;
 
   /* Spacing scale */
   --space-2xs: 0.25rem;
@@ -54,467 +47,146 @@
   --space-2xl: 2rem;
   --space-3xl: 3rem;
 
-  /* Off-scale gaps: most kept from the old stylesheet, 4xs added for the
-     build-item row on Core Unit portraits. */
-  --gap-4xs: 2px;
-  --gap-3xs: 0.35rem;
-  --gap-2xs: 0.4rem;
-  --gap-xs: 0.6rem;
-  --indent-list: 1.1rem;
-
-  /* Control padding pairs (vertical horizontal) */
-  --pad-button: 0.4rem 0.9rem;
-  --pad-input: 0.5rem 0.7rem;
-  --pad-option: 0.4rem 0.6rem;
-  --pad-chip: 0.3rem 0.7rem;
-  --pad-slot: 0.35rem 0.6rem;
-  --pad-pill: 0.15rem 0.55rem;
-
-  /* Type scale */
-  --font-body: system-ui, sans-serif;
-  --text-3xs: 0.78rem;
-  --text-2xs: 0.8rem;
-  --text-xs: 0.82rem;
+  /* Type. Unbounded is the lane letter and the drawer's numerals; Archivo is
+     everything read. Both from Google Fonts (index.html), with real
+     fallbacks. */
+  --font-display: "Unbounded", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --text-2xs: 0.7rem;
+  --text-xs: 0.78rem;
   --text-sm: 0.85rem;
   --text-md: 0.9rem;
   --text-base: 0.95rem;
-  --text-lg: 1rem;
-  --text-xl: 1.1rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.3rem;
+  --text-lane: 8rem;
+  --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
+  --weight-black: 900;
 
-  /* Shape and layout */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-pill: 999px;
+  /* Shape and sizes */
+  --radius-sm: 4px;
+  --radius-md: 6px;
   --radius-round: 50%;
+  --size-chip: 32px;
   --size-cost-dot: 1.3rem;
-  --size-tier-chip: 1.8rem;
-  --size-holding-tile: 44px;
-  --size-trait-icon: 1.1rem;
-  --size-build-item: 18px;
-
-  /* Star-target marker on Core Unit portraits. */
-  --color-star: #f2ca5c;
-
-  /* Board layout hexes. Pointy-top hexagons: height is width times 2/sqrt(3),
-     rows advance three quarters of a hex height and overlap the rest. */
-  --size-board-hex: 48px;
-  --size-board-hex-h: calc(var(--size-board-hex) * 1.1547);
-  --gap-board-hex: 4px;
-  --clip-hexagon: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-  /* Shell layout. Three columns on desktop; the stacking breakpoint lives as
-     a literal 1100px in its media query because media queries cannot read
-     custom properties. */
-  --shell-max-width: 1720px;
-  --rail-holdings-width: 300px;
-  --rail-status-width: 280px;
+  --size-tile: 118px;
+  --size-mosaic: 106px;
+  --size-buy-portrait: 28px;
+  --size-item-tile: 28px;
+  --size-hex-item: 13px;
+  --width-drawer: 400px;
+  --width-lane-letter: 150px;
   --status-screen-max-width: 720px;
 
+  /* Board hexes. Pointy-top hexagons: height is width times 2/sqrt(3), rows
+     advance three quarters of a hex height and overlap the rest. */
+  --size-hex: 46px;
+  --size-hex-h: calc(var(--size-hex) * 1.1547);
+  --gap-hex: 3px;
+  --clip-hexagon: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
   font-family: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
-}
-
-/* Loading and first-fetch-failed screens keep the old narrow centered page. */
-.status-screen {
-  max-width: var(--status-screen-max-width);
-  margin: 0 auto;
-  padding: var(--space-xl) var(--space-md) var(--space-3xl);
-  text-align: center;
-}
-
-/* Shell: full-bleed top bar, then a width-capped body holding banners and
-   the three-column dashboard. */
-.top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  padding: var(--space-sm) var(--space-xl);
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-line);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.brand h1 {
-  margin: 0;
-  font-size: var(--text-xl);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.brand-mark {
-  width: 1.4rem;
-  height: 1.4rem;
-  fill: var(--color-accent);
-}
-
-.new-game-button {
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: var(--pad-button);
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
-  color: var(--color-text);
   font-size: var(--text-md);
-  font-weight: var(--weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+button {
+  font: inherit;
+  color: inherit;
   cursor: pointer;
 }
 
-.new-game-button:hover {
-  filter: brightness(1.15);
-}
-
-.shell-body {
-  max-width: var(--shell-max-width);
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space-xl) var(--space-3xl);
-}
-
-.dashboard {
-  display: grid;
-  grid-template-columns:
-    var(--rail-holdings-width)
-    minmax(0, 1fr)
-    var(--rail-status-width);
-  gap: var(--space-lg);
-  align-items: start;
-}
-
-/* Below the breakpoint the sidebars stack. The status rail moves above the
-   Comps so Patch and refreshed-at stay visible; at the bottom of the whole
-   Comp list the trust signal would never be seen. */
-@media (max-width: 1100px) {
-  .dashboard {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .rail-holdings {
-    order: 0;
-  }
-
-  .rail-status {
-    order: 1;
-  }
-
-  .comp-column {
-    order: 2;
-  }
-}
-
-.column-title {
-  margin: 0 0 var(--space-sm);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-}
-
-.status-panel {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-}
-
-.status-patch {
-  margin: 0;
-  font-size: var(--text-xl);
-}
-
-.status-refreshed {
-  margin: var(--space-2xs) 0 var(--space-sm);
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-}
-
-.panel-button {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
-  padding: var(--pad-button);
-  background: var(--color-surface-raised);
-  color: var(--color-text);
-  font-size: var(--text-md);
-  cursor: pointer;
-}
-
-.panel-button:hover {
-  background: var(--color-surface-hover);
-}
-
-.panel-button:disabled {
-  opacity: 0.6;
+button:disabled {
   cursor: default;
 }
 
-/* Filters panel: right rail, below the status panel. One dropdown per
-   group, defaulting to All; Clear All resets every group at once. */
-.filters-panel {
-  margin-top: var(--space-lg);
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
 }
 
-.filters-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: var(--space-sm);
+@media (prefers-reduced-motion: no-preference) {
+  .tile,
+  .chip-remove,
+  .tile-bar i {
+    transition: opacity 0.12s, background-color 0.12s, width 0.2s;
+  }
 }
 
-.filters-title {
+/* Shared small pieces */
+.eyebrow {
   margin: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-2xs);
   font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--color-text-muted);
 }
 
-.clear-filters {
+.button {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.8rem;
+  background: none;
+  color: var(--color-text);
+  font-size: var(--text-md);
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--color-text-muted);
+}
+
+.button.is-solid {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.button:disabled {
+  opacity: 0.6;
+}
+
+.link-button {
   border: none;
   padding: 0;
   background: none;
   color: var(--color-notice-text);
   font-size: var(--text-xs);
-  cursor: pointer;
-}
-
-.clear-filters:hover {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.clear-filters:disabled {
+.link-button:disabled {
   color: var(--color-text-muted);
-  cursor: default;
   text-decoration: none;
 }
 
-.filter-group {
-  display: block;
-}
-
-.filter-group + .filter-group {
-  margin-top: var(--space-sm);
-}
-
-.filter-label {
-  display: block;
-  margin-bottom: var(--space-2xs);
-  font-size: var(--text-3xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-}
-
-.filter-select {
-  width: 100%;
-  box-sizing: border-box;
-  padding: var(--pad-input);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-size: var(--text-md);
-}
-
-/* Empty filter result: the column says why it is empty instead of going
-   blank, and offers the way back. */
-.comp-empty {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl) var(--space-md);
-  text-align: center;
-}
-
-.comp-empty p {
-  margin: 0 0 var(--space-sm);
-  color: var(--color-text-muted);
-}
-
-/* Banners sit between the top bar and the dashboard, full shell width. */
-.refresh-error {
-  margin: 0 0 var(--space-md);
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--color-caution);
-  border-radius: var(--radius-sm);
-  background: var(--color-caution-bg);
-  color: var(--color-warning);
-  font-size: var(--text-md);
-}
-
-.patch-change {
-  margin: 0 0 var(--space-md);
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--color-notice-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-notice-bg);
-  font-size: var(--text-md);
-}
-
-.patch-change p {
-  margin: 0;
-  color: var(--color-notice-text);
-}
-
-.patch-change ul {
-  margin: var(--space-2xs) 0 0;
-  padding-left: var(--indent-list);
-  color: var(--color-text-soft);
-}
-
-.status {
-  padding: var(--space-2xl) var(--space-md);
-  text-align: center;
-}
-
-.holdings {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  margin-bottom: var(--space-lg);
-}
-
-.holdings h2 {
-  margin: 0 0 var(--space-xs);
-  font-size: var(--text-lg);
-}
-
-.picker-search {
-  width: 100%;
-  box-sizing: border-box;
-  padding: var(--pad-input);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-line);
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-size: var(--text-lg);
-}
-
-.picker-matches {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-xs) 0 0;
-  display: grid;
-  gap: var(--space-2xs);
-}
-
-.picker-matches button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--pad-option);
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-raised);
-  color: var(--color-text);
-  font-size: var(--text-base);
-  cursor: pointer;
-  text-align: left;
-}
-
-.picker-matches button:hover {
-  background: var(--color-surface-hover);
-}
-
-.cost-dot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-cost-dot);
-  height: var(--size-cost-dot);
-  border-radius: var(--radius-round);
-  background: var(--color-line);
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-}
-
-.picker-matches .traits {
-  margin-left: auto;
-  color: var(--color-text-muted);
-  font-size: var(--text-2xs);
-}
-
-.held-chips {
-  list-style: none;
-  padding: 0;
-  margin: var(--gap-xs) 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap-2xs);
-}
-
-.held-chips button {
-  border: none;
-  border-radius: var(--radius-pill);
-  padding: var(--pad-chip);
-  background: var(--color-positive);
-  color: var(--color-text);
-  font-size: var(--text-md);
-  cursor: pointer;
-}
-
-.held-chips button:hover {
-  background: var(--color-positive-bright);
-}
-
-.hint {
-  margin: var(--gap-xs) 0 0;
-  color: var(--color-text-muted);
-  font-size: var(--text-md);
-}
-
-/* Held Holdings render as icon tiles: unit portraits with cost-colored
-   frames, item icons with count badges. Clicking a tile removes one copy. */
-.held-tiles {
-  list-style: none;
-  padding: 0;
-  margin: var(--gap-xs) 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap-2xs);
-}
-
-.holding-tile {
-  position: relative;
-  display: block;
-  width: var(--size-holding-tile);
-  height: var(--size-holding-tile);
-  padding: 0;
-  border: 2px solid var(--color-line);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-raised);
-  color: var(--color-text);
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.portrait.cost-frame-1 { border-color: var(--cost-1); }
-.portrait.cost-frame-2 { border-color: var(--cost-2); }
-.portrait.cost-frame-3 { border-color: var(--cost-3); }
-.portrait.cost-frame-4 { border-color: var(--cost-4); }
-.portrait.cost-frame-5 { border-color: var(--cost-5); }
+/* Cost and Tier: a class per value, read by rims, dots, and letters. */
+.cost-1 { --cost: var(--cost-1); }
+.cost-2 { --cost: var(--cost-2); }
+.cost-3 { --cost: var(--cost-3); }
+.cost-4 { --cost: var(--cost-4); }
+.cost-5 { --cost: var(--cost-5); }
+.tier-s { --tier: var(--tier-s); }
+.tier-a { --tier: var(--tier-a); }
+.tier-b { --tier: var(--tier-b); }
+.tier-c { --tier: var(--tier-c); }
+.tier-d { --tier: var(--tier-d); }
 
 .icon-img {
   display: block;
@@ -531,407 +203,841 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--weight-semibold);
   color: var(--color-text-muted);
-  background: var(--color-surface-raised);
+  background: var(--color-raised);
   text-transform: uppercase;
 }
 
-.tile-count {
+.star-text {
+  color: var(--color-star);
+}
+
+/* Loading and first-fetch-failed screens keep a narrow centered page. */
+.status-screen {
+  max-width: var(--status-screen-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-3xl);
+  text-align: center;
+}
+
+.status {
+  padding: var(--space-2xl) var(--space-md);
+}
+
+/* Top bar: wordmark, the Active game as chips, trust and actions. */
+.top-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-xl);
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.holdings {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  min-width: 0;
+  flex: 1;
+}
+
+.holdings-hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.chip-gap {
+  width: var(--space-xs);
+}
+
+.chip {
+  position: relative;
+  display: block;
+  width: var(--size-chip);
+  height: var(--size-chip);
+  padding: 0;
+  border: 2px solid var(--cost, var(--color-line));
+  border-radius: var(--radius-sm);
+  background: var(--color-raised);
+  overflow: hidden;
+}
+
+.chip-text {
+  width: auto;
+  height: auto;
+  padding: 0.25rem 0.6rem;
+  border-color: var(--color-line);
+  font-size: var(--text-xs);
+}
+
+.chip-count {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 0 var(--space-2xs);
-  border-top-left-radius: var(--radius-sm);
+  padding: 0 3px;
   background: var(--color-bg);
-  color: var(--color-text);
   font-size: var(--text-2xs);
   font-weight: var(--weight-bold);
 }
 
-.tile-remove {
+.chip-remove {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--color-bg) 65%, transparent);
-  font-size: var(--text-md);
+  background: color-mix(in srgb, var(--color-bg) 75%, transparent);
+  font-size: var(--text-sm);
   font-weight: var(--weight-bold);
   opacity: 0;
 }
 
-.holding-tile:hover .tile-remove,
-.holding-tile:focus-visible .tile-remove {
+.chip:hover .chip-remove,
+.chip:focus-visible .chip-remove {
   opacity: 1;
 }
 
-.comp-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: var(--space-md);
+.chip-add {
+  border-style: dashed;
+  border-color: var(--color-line);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: 1;
 }
 
-.comp {
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
+.chip-add:hover,
+.chip-add.is-open {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+  border-style: solid;
 }
 
-.comp-header {
+.trust {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  gap: var(--gap-xs);
+  gap: var(--space-sm);
+  color: var(--color-text-soft);
+  font-size: var(--text-sm);
 }
 
-.comp-header h2 {
-  margin: 0;
-  font-size: var(--text-xl);
+.trust b {
+  color: var(--color-text);
 }
 
-.tier {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-tier-chip);
-  height: var(--size-tier-chip);
-  border-radius: var(--radius-sm);
-  font-weight: var(--weight-bold);
-  background: var(--tier-none);
+.trust-refreshed {
+  color: var(--color-text-muted);
 }
 
-/* Rank badge: the card's position in the ranked list. Same footprint as the
-   Tier chip so the header columns line up card to card. */
-.rank-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-tier-chip);
-  height: var(--size-tier-chip);
+/* Holdings panel: the picker row under the top bar. */
+.holdings-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-xl);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.picker {
+  position: relative;
+}
+
+.picker .eyebrow {
+  margin-bottom: var(--space-2xs);
+}
+
+.picker-search {
+  width: 100%;
+  padding: 0.45rem 0.7rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-line);
-  background: var(--color-surface-raised);
-  color: var(--color-highlight);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+.picker-search::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Matches drop over the page rather than pushing the lanes down; a search
+   is a moment, not a layout. */
+.picker-matches {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  list-style: none;
+  padding: var(--space-2xs);
+  margin: var(--space-2xs) 0 0;
+  display: grid;
+  gap: 2px;
+  max-height: 320px;
+  overflow: auto;
+  background: var(--color-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--color-bg) 80%, transparent);
+}
+
+.picker-matches button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text);
+  font-size: var(--text-base);
+  text-align: left;
+}
+
+.picker-matches button:hover {
+  background: var(--color-line);
+}
+
+.picker-matches .traits {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  text-align: right;
+}
+
+.cost-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-cost-dot);
+  height: var(--size-cost-dot);
+  border-radius: var(--radius-round);
+  background: var(--cost, var(--color-line));
+  color: var(--color-bg);
+  font-size: var(--text-xs);
   font-weight: var(--weight-bold);
 }
 
-/* Trait chips: the breakpoints this Comp activates, icon plus true count.
-   The Playstyle chip rides at the end of the same row. */
-.trait-chips {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-xs) 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--gap-2xs);
+/* Banners sit between the top bar and the page, full width. */
+.refresh-error,
+.patch-change {
+  margin: var(--space-md) var(--space-xl) 0;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-md);
 }
 
-.trait-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  border-radius: var(--radius-pill);
-  padding: var(--pad-pill);
-  background: var(--color-surface-raised);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
+.refresh-error {
+  border: 1px solid var(--color-caution);
+  background: var(--color-caution-bg);
+  color: var(--color-warning);
 }
 
-.trait-icon {
-  display: inline-flex;
-  width: var(--size-trait-icon);
-  height: var(--size-trait-icon);
-  border-radius: var(--radius-round);
-  overflow: hidden;
-}
-
-.trait-icon .icon-fallback {
-  font-size: var(--text-3xs);
-}
-
-.playstyle-chip {
-  border-radius: var(--radius-pill);
-  padding: var(--pad-pill);
+.patch-change {
   border: 1px solid var(--color-notice-border);
   background: var(--color-notice-bg);
+}
+
+.patch-change p {
+  margin: 0;
   color: var(--color-notice-text);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
-/* Core Units strip: the Comp's item-carrying units as portraits, build items
-   under each, star marker on Star targets. Filler stays in the board list. */
-.core-units {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-sm) 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.core-unit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2xs);
-}
-
-.core-portrait {
-  position: relative;
-  display: block;
-  width: var(--size-holding-tile);
-  height: var(--size-holding-tile);
-  border: 2px solid var(--color-line);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-
-.star-marker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: var(--color-star);
-  font-size: var(--text-3xs);
-  letter-spacing: 0.05em;
-  background: color-mix(in srgb, var(--color-bg) 55%, transparent);
-}
-
-.core-name {
-  max-width: calc(var(--size-holding-tile) + var(--space-md));
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: var(--text-3xs);
+.patch-change ul {
+  margin: var(--space-2xs) 0 0;
+  padding-left: 1.1rem;
   color: var(--color-text-soft);
 }
 
-.core-items {
-  display: flex;
-  gap: var(--gap-4xs);
+/* Page: lanes on the left, the drawer pinned on the right. */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--width-drawer);
+  align-items: start;
 }
 
-.core-item {
-  display: block;
-  width: var(--size-build-item);
-  height: var(--size-build-item);
+.lanes-column {
+  min-width: 0;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-xl);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.filter-select {
+  padding: 0.3rem 0.5rem;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+/* Empty filter result: the page says why it is empty instead of going
+   blank, and offers the way back. */
+.comp-empty {
+  margin: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.comp-empty p {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+/* Lanes: one per Tier, the letter as the lane's structure. */
+.lanes {
+  padding-bottom: var(--space-3xl);
+}
+
+.lane {
+  display: grid;
+  grid-template-columns: var(--width-lane-letter) minmax(0, 1fr);
+  gap: 0 var(--space-sm);
+  align-items: start;
+  padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-md);
+  border-bottom: 1px solid var(--color-line);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--tier) 16%, transparent),
+    transparent 55%
+  );
+}
+
+.lane-letter {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-lane);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: var(--tier);
+}
+
+.lane-letter small {
+  display: block;
+  margin-top: var(--space-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-sm);
+}
+
+.tile {
+  position: relative;
+  width: var(--size-tile);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  margin: -6px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: none;
+  text-align: left;
+}
+
+.tile:hover {
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+}
+
+.tile[aria-pressed="true"] {
+  background: var(--color-raised);
+  box-shadow: 0 0 0 1px var(--tier);
+}
+
+.tile.is-dim {
+  opacity: 0.55;
+}
+
+.tile.is-dim:hover,
+.tile.is-dim[aria-pressed="true"] {
+  opacity: 1;
+}
+
+.tile-flag {
+  position: absolute;
+  top: -14px;
+  left: 4px;
+  z-index: 1;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: var(--size-mosaic);
+  height: var(--size-mosaic);
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--color-line);
+}
+
+.mosaic-cell {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-raised);
+}
+
+.mosaic-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 2px var(--cost);
+  opacity: 0.9;
+}
+
+.mosaic-cell.is-missing .icon-img {
+  filter: brightness(0.45) saturate(0.7);
+}
+
+.tile-name {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tile-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tile-stat b {
+  color: var(--color-text-soft);
+  font-weight: var(--weight-semibold);
+}
+
+.tile-bar {
+  display: block;
+  height: 3px;
+  border-radius: 1px;
+  background: var(--color-line);
   overflow: hidden;
 }
 
-.core-item .icon-fallback {
-  font-size: var(--text-3xs);
+.tile-bar i {
+  display: block;
+  height: 100%;
+  background: var(--color-text);
 }
 
-/* Suggested Board layout: the 4x7 half-board as staggered hex rows. The
-   label above the grid keeps the layout honest; the meta source has no
-   position data and this placement is a local role/range heuristic. */
-.hex-board {
-  margin: var(--space-sm) 0;
-}
-
-.hex-board-label {
-  margin: 0 0 var(--space-2xs);
-  font-size: var(--text-3xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.lane-note {
+  grid-column: 2;
+  margin: var(--space-xs) 0 0;
   color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+/* Drawer: the selected Comp in full. Sticky so the lanes scroll under it. */
+.drawer {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-xl) var(--space-3xl);
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-line);
+  scrollbar-color: var(--color-line) transparent;
+}
+
+.drawer section .eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.drawer-kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.lane-mark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-xl);
+  line-height: 1;
+  color: var(--tier);
+}
+
+.drawer-sub {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.drawer-title {
+  margin: calc(var(--space-lg) * -1 + var(--space-xs)) 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  margin: 0;
+}
+
+.stats > div {
+  padding: 0.6rem 0.75rem;
+  border-radius: 5px;
+  background: var(--color-bg);
+}
+
+.stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats dd.is-gold {
+  color: var(--color-gold);
+}
+
+.stats dt {
+  margin-top: 6px;
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.trait-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-sm);
+  color: var(--color-text-soft);
+  font-size: var(--text-sm);
+}
+
+.trait-list b {
+  color: var(--color-text);
+}
+
+.trait-list .is-held {
+  color: var(--color-held);
+}
+
+.trait-list .is-missing {
+  color: var(--color-text-muted);
+}
+
+.buy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.buy-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.buy-portrait {
+  display: block;
+  width: var(--size-buy-portrait);
+  height: var(--size-buy-portrait);
+  border: 2px solid var(--cost);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.buy-name {
+  flex: 1;
+}
+
+.buy-gold {
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.item-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.item-tile {
+  width: var(--size-item-tile);
+  height: var(--size-item-tile);
+  border: 1.5px solid var(--color-line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.item-tile.is-missing .icon-img {
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+.item-tile.is-partial {
+  border-color: var(--color-gold);
+}
+
+.item-tile.is-held {
+  border-color: var(--color-held);
+}
+
+/* Board layout: the 4x7 half-board as staggered hex rows. */
+.hex-board {
+  width: fit-content;
 }
 
 .hex-row {
   display: flex;
-  gap: var(--gap-board-hex);
-  width: fit-content;
+  gap: var(--gap-hex);
 }
 
 /* Rows overlap by the hexes' pointy quarters. */
 .hex-row + .hex-row {
-  margin-top: calc(var(--size-board-hex-h) / -4 + var(--gap-board-hex));
+  margin-top: calc(var(--size-hex-h) / -4 + var(--gap-hex));
 }
 
 .hex-row-offset {
-  margin-left: calc((var(--size-board-hex) + var(--gap-board-hex)) / 2);
+  margin-left: calc((var(--size-hex) + var(--gap-hex)) / 2);
 }
 
 .hex-cell {
   position: relative;
-  width: var(--size-board-hex);
-  height: var(--size-board-hex-h);
+  width: var(--size-hex);
+  height: var(--size-hex-h);
 }
 
-/* Empty hexes draw a faint board so placement reads as positions on a grid,
+/* Every hex draws a faint board so placement reads as positions on a grid,
    not as a free-floating clump of portraits. */
-.hex-cell:not(.occupied)::before {
+.hex-cell::before {
   content: "";
   position: absolute;
   inset: 0;
   clip-path: var(--clip-hexagon);
-  background: var(--color-surface-raised);
-  opacity: 0.45;
+  background: var(--color-raised);
+  opacity: 0.6;
 }
 
-/* drop-shadow follows the clip-path silhouette where box-shadow cannot. */
-.hex-cell.hex-held {
-  filter: drop-shadow(0 0 3px var(--color-positive-bright));
+.hex-cell.occupied::before {
+  opacity: 1;
 }
 
-/* The rim is the frame's background showing around the inset portrait. */
-.hex-frame {
-  position: absolute;
-  inset: 0;
-  clip-path: var(--clip-hexagon);
+/* The rim is the cell background showing around the inset portrait. */
+.hex-cell.hex-held::before {
+  background: var(--cost);
+}
+
+.hex-cell.hex-missing::before {
   background: var(--color-line);
 }
 
-.hex-cost-1 { background: var(--cost-1); }
-.hex-cost-2 { background: var(--cost-2); }
-.hex-cost-3 { background: var(--cost-3); }
-.hex-cost-4 { background: var(--cost-4); }
-.hex-cost-5 { background: var(--cost-5); }
-
-.hex-portrait {
+.hex-frame {
   position: absolute;
   inset: 2px;
   clip-path: var(--clip-hexagon);
   overflow: hidden;
 }
 
+.hex-portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hex-missing .icon-img {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
 .hex-star {
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 0;
   right: 0;
   z-index: 2;
   text-align: center;
   color: var(--color-star);
-  font-size: var(--text-3xs);
+  font-size: 9px;
   letter-spacing: 0.05em;
-  text-shadow: 0 1px 2px var(--color-bg);
+  text-shadow: 0 1px 1px #000;
 }
 
 /* Build items overhang the hex bottom, above the next row's pointy tops. */
 .hex-items {
   position: absolute;
-  bottom: 2px;
+  bottom: 3px;
   left: 0;
   right: 0;
   z-index: 2;
   display: flex;
   justify-content: center;
-  gap: var(--gap-4xs);
+  gap: 1px;
 }
 
 .hex-item {
   display: block;
-  width: var(--size-build-item);
-  height: var(--size-build-item);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-sm);
+  width: var(--size-hex-item);
+  height: var(--size-hex-item);
+  border-radius: 2px;
   overflow: hidden;
-  background: var(--color-surface-raised);
+  background: var(--color-raised);
 }
 
-.hex-item .icon-fallback {
-  font-size: var(--text-3xs);
+.hex-item .icon-fallback,
+.item-tile .icon-fallback {
+  font-size: var(--text-2xs);
 }
 
-.tier-s { background: var(--tier-s); }
-.tier-a { background: var(--tier-a); }
-.tier-b { background: var(--tier-b); }
-.tier-c { background: var(--tier-c); }
-.tier-d { background: var(--tier-d); }
-
-.board {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-sm) 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-
-.slot {
-  background: var(--color-surface-raised);
-  border-radius: var(--radius-sm);
-  padding: var(--pad-slot);
-  display: flex;
-  flex-direction: column;
-}
-
-.slot.held {
-  outline: 1px solid var(--color-positive-bright);
-  background: var(--color-positive-bg);
-}
-
-.slot.missing .unit {
-  color: var(--color-text-muted);
-}
-
-/* Star-target marker on a board slot; a Star target is not always a Core
-   Unit, so the strip's marker alone would hide some. */
-.slot-star {
-  color: var(--color-star);
-  font-size: var(--text-3xs);
-  letter-spacing: 0.05em;
-}
-
-.fit-score {
-  margin-left: auto;
-  color: var(--color-highlight);
-  font-size: var(--text-md);
-  font-weight: var(--weight-semibold);
-}
-
-.fit-reason {
-  margin: 0 0 var(--gap-3xs);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-}
-
-.unit {
-  font-weight: var(--weight-semibold);
-}
-
-.items {
-  font-size: var(--text-3xs);
-  color: var(--color-highlight);
-}
-
-.priorities {
-  margin: 0;
-  font-size: var(--text-md);
-  color: var(--color-text-body);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--gap-3xs);
-}
-
-.priority {
-  border-radius: var(--radius-pill);
-  padding: var(--pad-pill);
-  background: var(--color-surface-raised);
+.board-provenance {
+  margin: var(--space-xs) 0 0;
   font-size: var(--text-xs);
-}
-
-.priority.held {
-  background: var(--color-positive-bg);
-  outline: 1px solid var(--color-positive-bright);
-}
-
-.priority.partial {
-  background: var(--color-caution-bg);
-  outline: 1px solid var(--color-caution);
-}
-
-.priority.missing {
   color: var(--color-text-muted);
+}
+
+.board-provenance.is-source {
+  color: var(--color-held);
+}
+
+/* Flat fallback for data files without positions. */
+.board-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.board-slot {
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--cost);
+  background: var(--color-bg);
+  font-size: var(--text-sm);
+}
+
+.board-slot.is-missing {
+  color: var(--color-text-muted);
+}
+
+.board-slot-items {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--text-2xs);
+}
+
+/* Below the breakpoint the drawer follows the lanes instead of riding
+   beside them, and the lane letters shrink to fit. */
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .drawer {
+    position: static;
+    max-height: none;
+    border-left: none;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .lane {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .lane-letter {
+    font-size: 4rem;
+  }
+
+  /* The caption has no room beside a small letter. */
+  .lane-letter small {
+    display: none;
+  }
+
+  .lane-note {
+    grid-column: 1 / -1;
+  }
 }

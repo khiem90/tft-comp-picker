@@ -1,23 +1,15 @@
 import type { SetUnit } from "../../shared/types";
-import { IconTile } from "./IconTile";
 
 interface UnitsSectionProps {
   units: SetUnit[];
+  // Held units are excluded from matches; a unit is held once or not at all.
   held: string[];
   search: string;
   onSearchChange: (value: string) => void;
   onAdd: (name: string) => void;
-  onRemove: (name: string) => void;
 }
 
-export function UnitsSection({
-  units,
-  held,
-  search,
-  onSearchChange,
-  onAdd,
-  onRemove,
-}: UnitsSectionProps) {
+export function UnitsSection({ units, held, search, onSearchChange, onAdd }: UnitsSectionProps) {
   const query = search.trim().toLowerCase();
   const matches = query
     ? units.filter(
@@ -26,12 +18,12 @@ export function UnitsSection({
     : [];
 
   return (
-    <section className="holdings">
-      <h2>Your units</h2>
+    <section className="picker">
+      <h2 className="eyebrow">Units</h2>
       <input
         type="search"
         className="picker-search"
-        placeholder="Search units…"
+        placeholder="Add a unit…"
         value={search}
         onChange={(event) => onSearchChange(event.target.value)}
       />
@@ -47,34 +39,6 @@ export function UnitsSection({
             </li>
           ))}
         </ul>
-      )}
-      {held.length > 0 ? (
-        <ul className="held-tiles">
-          {held.map((name) => {
-            // A held name can predate the current Set data (stale Active
-            // game); it still renders, on the fallback tile with no cost
-            // frame, and stays removable.
-            const unit = units.find((candidate) => candidate.name === name);
-            return (
-              <li key={name}>
-                <button
-                  type="button"
-                  className={`holding-tile portrait${unit ? ` cost-frame-${unit.cost}` : ""}`}
-                  onClick={() => onRemove(name)}
-                  title={`Remove ${name}`}
-                  aria-label={`Remove ${name}`}
-                >
-                  <IconTile src={unit?.icon} label={name} />
-                  <span className="tile-remove" aria-hidden="true">
-                    ✕
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <p className="hint">No Holdings yet, Comps are in Tier order.</p>
       )}
     </section>
   );
